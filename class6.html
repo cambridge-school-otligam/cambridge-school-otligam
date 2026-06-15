@@ -1,3 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>School Result</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: linear-gradient(to right, #dfe9f3, #ffffff);
+  text-align: center;
+}
+
+/* SEARCH BOX */
+.search-box {
+  margin-top: 20px;
+}
+
+input {
+  padding: 10px;
+  width: 220px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+button {
+  padding: 10px 15px;
+  background: #004080;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* RESULT CARD */
+.card {
+  width: 750px;
+  margin: 20px auto;
+  background: white;
+  border: 3px solid #004080;
+  padding: 10px;
+  display: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px gray;
+}
+
+/* HEADER */
+.top {
+  background: linear-gradient(to right, #ffcc00, #ff9900);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.top img {
+  width: 60px;
+}
+
+/* DETAILS */
+.details {
+  text-align: left;
+  margin-top: 10px;
+  background: #f0f8ff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.roll-highlight {
+  background: #004080;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th {
+  background: #004080;
+  color: white;
+}
+
+td, th {
+  border: 1px solid black;
+  padding: 6px;
+}
+
+tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+/* TOTAL BOX */
+.total-box {
+  margin-top: 10px;
+  text-align: left;
+  background: #e6ffe6;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.result {
+  font-weight: bold;
+  color: green;
+}
+
+/* BACK BUTTON */
+.back-btn {
+  margin-top: 10px;
+  background: red;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>🎓 Student Result Search</h2>
+
+<div class="search-box">
+<input type="text" id="search" placeholder="Enter Roll No OR Name">
+<button onclick="getResult()">Search</button>
+</div>
+
+<div class="card" id="card">
+
+<div class="top">
+<center>
+<img src="logo.png">
+<h2>Cambridge School of Modern Education</h2>
+<p>Otligam Beerwah</p>
+<h3>Students Progress Report Card</h3>
+</center>
+</div>
+
+<div class="details">
+<p><b>Name:</b> <span id="name"></span></p>
+<p><b>Roll No:</b> <span class="roll-highlight" id="roll"></span></p>
+<p><b>Class:</b> 7th</p>
+</div>
+
+<table>
+<tr><th>Subject</th><th>Marks</th></tr>
+<tr><td>English</td><td id="eng"></td></tr>
+<tr><td>Urdu</td><td id="ur"></td></tr>
+<tr><td>Math</td><td id="math"></td></tr>
+<tr><td>Science</td><td id="sci"></td></tr>
+<tr><td>Social Science</td><td id="sst"></td></tr>
+</table>
+
+<div class="total-box">
+<p>Total: <span id="total"></span>/500</p>
+<p>Percentage: <span id="per"></span>%</p>
+<p>Grade: <span id="grade"></span></p>
+<p class="result">Result: PASS ✔</p>
+</div>
+
+<button class="back-btn" onclick="goBack()">Back</button>
+
+</div>
+
+<script>
+
 var students = {
 "001": {name:"Aadil Hilal", eng:85, ur:78, math:90, sci:88, sst:80},
 "002": {name:"Soban Reyaz", eng:72, ur:80, math:65, sci:75, sst:70},
