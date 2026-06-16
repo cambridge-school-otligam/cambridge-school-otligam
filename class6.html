@@ -146,6 +146,7 @@ STUDENT ACADEMIC AUDIT REPORT
 
 <tr>
 <td><b>Father Name:</b> __________</td>
+<td><b>Mother Name:</b> __________</td>
 <td><b>Admission No:</b> __________</td>
 </tr>
 </table>
@@ -263,6 +264,7 @@ var students = {
 name:"Aadil Hilal",
 father:"Hilal Ahmad",
 mother:"Rashida Begum",
+admission:"025/csme/2023",
 eng:85,
 ur:78,
 math:90,
@@ -322,6 +324,9 @@ document.getElementById("report").style.display="block";
 
 document.getElementById("name").innerHTML=found.name;
 document.getElementById("roll").innerHTML=rollNo;
+document.getElementById("father").innerHTML=found.father;
+document.getElementById("mother").innerHTML=found.mother;
+document.getElementById("admission").innerHTML=found.admission;
 
 document.getElementById("eng").innerHTML=found.eng;
 document.getElementById("urdu").innerHTML=found.ur;
