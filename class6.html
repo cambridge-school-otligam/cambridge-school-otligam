@@ -298,7 +298,60 @@ return "Fail";
 
 function getResult(){
 
-// Add Search Logic Here
+var input=document.getElementById("search").value.toLowerCase();
+
+var found=null;
+var rollNo="";
+
+for(let roll in students){
+
+if(
+roll===input ||
+students[roll].name.toLowerCase().includes(input)
+){
+found=students[roll];
+rollNo=roll;
+break;
+}
+
+}
+
+if(found){
+
+document.getElementById("report").style.display="block";
+
+document.getElementById("name").innerHTML=found.name;
+document.getElementById("roll").innerHTML=rollNo;
+
+document.getElementById("eng").innerHTML=found.eng;
+document.getElementById("urdu").innerHTML=found.ur;
+document.getElementById("math").innerHTML=found.math;
+document.getElementById("sci").innerHTML=found.sci;
+document.getElementById("sst").innerHTML=found.sst;
+
+document.getElementById("engp").innerHTML=found.eng+"%";
+document.getElementById("urdup").innerHTML=found.ur+"%";
+document.getElementById("mathp").innerHTML=found.math+"%";
+document.getElementById("scip").innerHTML=found.sci+"%";
+document.getElementById("sstp").innerHTML=found.sst+"%";
+
+document.getElementById("engg").innerHTML=grade(found.eng);
+document.getElementById("urdug").innerHTML=grade(found.ur);
+document.getElementById("mathg").innerHTML=grade(found.math);
+document.getElementById("scig").innerHTML=grade(found.sci);
+document.getElementById("sstg").innerHTML=grade(found.sst);
+
+var total=found.eng+found.ur+found.math+found.sci+found.sst;
+var percentage=(total/500)*100;
+
+document.getElementById("total").innerHTML=total;
+document.getElementById("percentage").innerHTML=percentage.toFixed(2)+"%";
+document.getElementById("grade").innerHTML=grade(percentage);
+
+}
+else{
+alert("Result Not Found");
+}
 
 }
 
