@@ -779,6 +779,15 @@ break;
 }
 
 if(found){
+document.getElementById("report").style.display = "block";
+
+document.getElementById("name").innerHTML = found.name;
+document.getElementById("roll").innerHTML = rollNo;
+document.getElementById("father").innerHTML = found.father;
+document.getElementById("mother").innerHTML = found.mother;
+document.getElementById("attendance").innerHTML = found.attendance;
+document.getElementById("height").innerHTML = found.height;
+document.getElementById("weight").innerHTML = found.weight;
 
 document.getElementById("english").innerHTML = found.english;
 document.getElementById("urdu").innerHTML = found.urdu;
