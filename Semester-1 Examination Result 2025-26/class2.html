@@ -17,3 +17,566 @@ padding:20px;
 text-align:center;
 margin-bottom:20px;
 }
+
+input{
+padding:10px;
+width:250px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+padding:10px 15px;
+background:#002060;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.report{
+display:none;
+max-width:1000px;
+margin:auto;
+background:white;
+border:4px solid #002060;
+border-radius:15px;
+padding:20px;
+}
+
+.header{
+text-align:center;
+}
+
+.logo{
+width:80px;
+}
+
+.school{
+font-size:30px;
+font-weight:bold;
+color:#002060;
+}
+
+.title{
+background:#002060;
+color:white;
+padding:10px;
+margin-top:10px;
+border-radius:5px;
+font-size:22px;
+}
+
+.info-table,
+.marks-table,
+.audit-table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+
+.info-table td,
+.marks-table td,
+.marks-table th,
+.audit-table td,
+.audit-table th{
+border:1px solid #999;
+padding:8px;
+}
+
+.marks-table th,
+.audit-table th{
+background:#002060;
+color:white;
+}
+
+.footer{
+margin-top:30px;
+display:flex;
+justify-content:space-between;
+text-align:center;
+}
+
+.sign{
+width:30%;
+}
+
+.back-btn{
+background:red;
+margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="search-box">
+<input type="text" id="search" placeholder="Enter Roll No or Name">
+<button onclick="getResult()">Search</button>
+</div>
+
+<div class="report" id="report">
+
+<div class="header">
+<img src="../logo.png" class="logo">
+
+<div class="school">
+CAMBRIDGE SCHOOL OF MODERN EDUCATION
+</div>
+
+<div>
+OTLIGAM BEERWAH
+</div>
+
+<div class="title">
+SEMESTER-1 EXAMINATION RESULT {2025-26}
+</div>
+</div>
+
+<table class="info-table">
+  
+<tr>
+<td><b>Student Name:</b> <span
+id="name"></span></td>
+<td><b>Roll No:</b> <span id="roll"></
+span></td>
+<td><b>Class:</b> 3rd</td>
+</tr>
+
+<tr>  
+<td><b>Father Name:</b> <span
+id="father"></span></td>
+<td><b>Mother Name:</b> <span
+id="mother"></span></td>
+<td><b>Session:</b> 2025-26</td>
+</tr>
+  
+<tr>
+<td><b>Height:</b> <span id="height"></
+span></td>
+<td><b>Weight:</b> <span id="weight"></
+span></td>
+<td><b>Attendance:</b> <span
+id="attendance"></span></td>
+</tr>
+  
+</table>
+
+<table class="marks-table">
+
+<tr>
+<th>Subject</th>
+<th>Marks Obtained</th>
+<th>Max Marks</th>
+</tr>
+
+<tr>
+<td>English</td>
+<td id="english"></td>
+<td>50</td>
+</tr>
+
+<tr>
+<td>Urdu</td>
+<td id="urdu"></td>
+<td>50</td>
+</tr>
+
+<tr>
+<td>Mathematics</td>
+<td id="math"></td>
+<td>50</td>
+</tr>
+
+<tr>
+<td>Science</td>
+<td id="science"></td>
+<td>50</td>
+</tr>
+
+<tr>
+<td>Social Science</td>
+<td id="sst"></td>
+<td>50</td>
+</tr>
+
+<tr>
+<td>General Knowledge</td>
+<td id="gk"></td>
+<td>50</td>
+</tr>
+
+<tr>
+<td>Kashmari</td>
+<td id="kashmari"></td>
+<td>50</td>
+</tr>
+  
+<tr>
+<td><b>Total</b></td>
+<td id="total"></td>
+<td><b>350</b></td>
+</tr>
+
+<tr>
+<td><b>Percentage</b></td>
+<td colspan="2" id="percentage"></td>
+</tr>
+
+</table>
+<br>
+
+<p><b>Teacher Remarks:</b> <span id="remarks"></span></p>
+
+<p><b>Result:</b> PASS ✔</p>
+
+<button onclick="window.print()">Print Report</button>
+<button class="back-btn" onclick="goBack()">Back</button>
+
+<div class="footer">
+  
+<div class="sign">
+<img src="../school-seal.png" width="100"><br>
+School Seal
+</div>
+
+<div class="sign">
+<img src="../principal-sign.png" width="120"><br>
+Principal
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+var students = {
+"2001":{
+name:"Murtuza Farooq",
+father:"Father Name",
+mother:"Mother Name",
+attendance:"92%",
+height:"4 ft 2 in",
+weight:"28 kg",
+english:"35",
+urdu:"38",
+math:"01",
+science:"36",
+sst:"37",
+gk:"34",
+kashmiri:"40",
+remarks:"Needs Improvement"
+},
+
+"2002":{
+name:"Fazil Fayaz",
+father:"Father Name",
+mother:"Mother Name",
+attendance:"96%",
+height:"4 ft 3 in",
+weight:"29 kg",
+english:"46",
+urdu:"47",
+math:"49",
+science:"45",
+sst:"46",
+gk:"48",
+kashmiri:"47",
+remarks:"Excellent"
+},
+
+"2003":{
+name:"Mudasir Mushtaq",
+father:"Father Name",
+mother:"Mother Name",
+attendance:"88%",
+height:"4 ft 2 in",
+weight:"30 kg",
+english:"30",
+urdu:"32",
+math:"27",
+science:"31",
+sst:"29",
+gk:"30",
+kashmiri:"31",
+remarks:"Satisfactory"
+},
+
+"2004":{
+name:"Aariz Yousuf",
+father:"Father Name",
+mother:"Mother Name",
+attendance:"98%",
+height:"4 ft 4 in",
+weight:"31 kg",
+english:"49",
+urdu:"48",
+math:"50",
+science:"49",
+sst:"48",
+gk:"50",
+kashmiri:"49",
+remarks:"Excellent"
+},
+
+"2005":{
+name:"Adeeba Tariq",
+father:"Father Name",
+mother:"Mother Name",
+attendance:"95%",
+height:"4 ft 3 in",
+weight:"27 kg",
+english:"45",
+urdu:"46",
+math:"47",
+science:"44",
+sst:"45",
+gk:"46",
+kashmiri:"46",
+remarks:"Very Good"
+},
+
+"2006":{
+name:"Hafsa Bint Ajaz",
+father:"Father Name",
+mother:"Mother Name",
+attendance:"98%",
+height:"4 ft 4 in",
+weight:"30 kg",
+english:"49",
+urdu:"48",
+math:"50",
+science:"49",
+sst:"50",
+gk:"49",
+kashmiri:"50",
+remarks:"Excellent"
+},
+
+"2007":{
+name:"Hamaad Jahangir",
+father:"Father Name",
+mother:"Mother Name",
+attendance:"86%",
+height:"4 ft 2 in",
+weight:"29 kg",
+english:"28",
+urdu:"30",
+math:"26",
+science:"29",
+sst:"31",
+gk:"30",
+kashmiri:"29",
+remarks:"Needs Improvement"
+},
+
+"2008":{
+name:"Syed Reyan",
+father:"Father Name",
+mother:"Mother Name",
+attendance:"97%",
+height:"4 ft 4 in",
+weight:"31 kg",
+english:"47",
+urdu:"48",
+math:"49",
+science:"48",
+sst:"47",
+gk:"49",
+kashmiri:"48",
+remarks:"Excellent"
+},
+
+"2009":{
+name:"Ayman Rafiq",
+father:"Father Name",
+mother:"Mother Name",
+attendance:"95%",
+height:"4 ft 3 in",
+weight:"30 kg",
+english:"45",
+urdu:"46",
+math:"47",
+science:"46",
+sst:"45",
+gk:"46",
+kashmiri:"45",
+remarks:"Very Good"
+},
+
+"2010":{
+name:"Hadiya Showkat",
+father:"Father Name",
+mother:"Mother Name",
+attendance:"80%",
+height:"4 ft 1 in",
+weight:"27 kg",
+english:"24",
+urdu:"22",
+math:"20",
+science:"25",
+sst:"23",
+gk:"24",
+kashmiri:"22",
+remarks:"Needs Improvement"
+},
+
+"2011":{
+name:"Umreen Zehra",
+father:"Father Name",
+mother:"Mother Name",
+attendance:"94%",
+height:"4 ft 3 in",
+weight:"29 kg",
+english:"43",
+urdu:"45",
+math:"44",
+science:"42",
+sst:"43",
+gk:"44",
+kashmiri:"43",
+remarks:"Very Good"
+},
+
+"2012":{
+name:"Faheem Firdous",
+father:"Father Name",
+mother:"Mother Name",
+attendance:"99%",
+height:"4 ft 5 in",
+weight:"32 kg",
+english:"49",
+urdu:"49",
+math:"50",
+science:"50",
+sst:"49",
+gk:"50",
+kashmiri:"49",
+remarks:"Excellent"
+},
+
+"2013":{
+name:"Afaan Farooz",
+father:"Father Name",
+mother:"Mother Name",
+attendance:"89%",
+height:"4 ft 2 in",
+weight:"30 kg",
+english:"33",
+urdu:"34",
+math:"32",
+science:"35",
+sst:"34",
+gk:"33",
+kashmiri:"34",
+remarks:"Satisfactory"
+},
+
+"2014":{
+name:"Aqsa Shabir",
+father:"Father Name",
+mother:"Mother Name",
+attendance:"72%",
+height:"4 ft",
+weight:"26 kg",
+english:"15",
+urdu:"14",
+math:"12",
+science:"16",
+sst:"15",
+gk:"14",
+kashmiri:"13",
+remarks:"Needs Improvement"
+},
+
+"2015":{
+name:"Iqrees Bilal",
+father:"Father Name",
+mother:"Mother Name",
+attendance:"90%",
+height:"4 ft 2 in",
+weight:"29 kg",
+english:"34",
+urdu:"33",
+math:"32",
+science:"35",
+sst:"34",
+gk:"33",
+kashmiri:"35",
+remarks:"Satisfactory"
+}
+
+};
+
+function getResult(){
+
+var input=document.getElementById("search").value.toLowerCase();
+
+var found=null;
+var rollNo="";
+
+for(let roll in students){
+
+if(
+roll===input ||
+students[roll].name.toLowerCase().includes(input)
+){
+found=students[roll];
+rollNo=roll;
+break;
+}
+
+}
+
+if(found){
+document.getElementById("report").style.display = "block";
+
+document.getElementById("name").innerHTML = found.name;
+document.getElementById("roll").innerHTML = rollNo;
+document.getElementById("father").innerHTML = found.father;
+document.getElementById("mother").innerHTML = found.mother;
+document.getElementById("attendance").innerHTML = found.attendance;
+document.getElementById("height").innerHTML = found.height;
+document.getElementById("weight").innerHTML = found.weight;
+
+document.getElementById("english").innerHTML = found.english;
+document.getElementById("urdu").innerHTML = found.urdu;
+document.getElementById("math").innerHTML = found.math;
+document.getElementById("science").innerHTML = found.science;
+document.getElementById("sst").innerHTML = found.sst;
+document.getElementById("gk").innerHTML = found.gk;
+document.getElementById("kashmari").innerHTML = found.kashmari;
+
+let english = parseInt(found.english) || 0;
+let urdu = parseInt(found.urdu) || 0;
+let math = parseInt(found.math) || 0;
+let science = parseInt(found.science) || 0;
+let sst = parseInt(found.sst) || 0;
+let gk = parseInt(found.gk) || 0;
+let kashmari = parseInt(found.kashmari) || 0;
+
+let total = english + urdu + math + science + ss + gk + kashmari;
+document.getElementById("total").innerHTML = total;
+
+let percentage = ((total / 350) * 100).toFixed(2);
+document.getElementById("percentage").innerHTML = percentage + "%";
+
+document.getElementById("remarks").innerHTML = found.remarks;
+
+
+}
+else{
+alert("Result Not Found");
+}
+
+}
+
+function goBack(){
+document.getElementById("report").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
