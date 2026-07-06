@@ -240,6 +240,22 @@ Principal
 <script>
 
 var students = {
+
+"8001":{
+name:"Muzamil Bashir",
+father:"Bashir Ahmad Sheikh",
+mother:"Tabasum",
+attendance:"92%",
+height:"4 ft 5 in",
+weight:"43 kg",
+english:40,
+urdu:50,
+math:35,
+science:50,
+sst:34,
+remarks:"Very Good"
+},
+
 "8002":{
 name:"Arsalan Manzoor",
 father:"Manzoor Ahmad Wani",
@@ -247,12 +263,12 @@ mother:"Amina Bano",
 attendance:"93%",
 height:"NA",
 weight:"NA kg",
-
-english:"30",
-science:"48",
-sst:"36",
-math:"43",
-urdu:"47"
+english:30,
+urdu:47,
+math:43,
+science:48,
+sst:36,
+remarks:"Very Good"
 },
 
 "8003":{
@@ -262,12 +278,12 @@ mother:"Shanaza Akther",
 attendance:"92%",
 height:"4 ft 5 in",
 weight:"31 kg",
-
-english:"31",
-science:"37",
-sst:"40",
-math:"38",
-urdu:"42"
+english:31,
+urdu:42,
+math:38,
+science:37,
+sst:40,
+remarks:"Good"
 },
 
 "8004":{
@@ -277,27 +293,12 @@ mother:"Shanaza Bano",
 attendance:"91%",
 height:"NA",
 weight:"NA",
-
-english:"30",
-science:"50",
-sst:"43",
-math:"45",
-urdu:"50"
-},
-
-"8006":{
-name:"Fiza Farooz",
-father:"Farooz Ahmad Sheikh",
-mother:"Haseena",
-attendance:"93%",
-height:"4 ft 5 in",
-weight:"49.5 kg",
-
-english:"30",
-science:"50",
-sst:"35",
-math:"41",
-urdu:"50"
+english:30,
+urdu:50,
+math:45,
+science:50,
+sst:43,
+remarks:"Very Good"
 },
 
 "8005":{
@@ -307,12 +308,27 @@ mother:"Shaheena Bano",
 attendance:"95%",
 height:"5 ft 5 in",
 weight:"57 kg",
+english:28,
+urdu:50,
+math:36,
+science:46,
+sst:38,
+remarks:"Very Good"
+},
 
-english:"28",
-science:"46",
-sst:"38",
-math:"36",
-urdu:"50"
+"8006":{
+name:"Fiza Farooz",
+father:"Farooz Ahmad Sheikh",
+mother:"Haseena",
+attendance:"93%",
+height:"4 ft 5 in",
+weight:"49.5 kg",
+english:30,
+urdu:50,
+math:41,
+science:50,
+sst:35,
+remarks:"Very Good"
 },
 
 "8007":{
@@ -322,27 +338,12 @@ mother:"Fatima Bano",
 attendance:"96%",
 height:"5 ft 2 in",
 weight:"43 kg",
-
-english:"28",
-science:"50",
-sst:"42",
-math:"44",
-urdu:"50"
-},
-
-"8001":{
-name:"Muzamil Bashir",
-father:"Bashir Ahmad Sheikh",
-mother:"Tabasum",
-attendance:"92%",
-height:"4 ft 5 in",
-weight:"43 kg",
-
-english:"40",
-science:"50",
-sst:"34",
-math:"35",
-urdu:"50"
+english:28,
+urdu:50,
+math:44,
+science:50,
+sst:42,
+remarks:"Very Good"
 },
 
 "8008":{
@@ -352,13 +353,14 @@ mother:"Haja Bano",
 attendance:"62%",
 height:"5 ft",
 weight:"49 kg",
-
-english:"05",
-science:"48",
-sst:"26",
-math:"25",
-urdu:"37"
+english:5,
+urdu:37,
+math:25,
+science:48,
+sst:26,
+remarks:"Needs Improvement"
 }
+
 };
 
 function getResult(){
@@ -405,7 +407,13 @@ document.getElementById("math").innerHTML = found.math;
 document.getElementById("science").innerHTML = found.science;
 document.getElementById("sst").innerHTML = found.sst;
 
-let total = found.english + found.urdu + found.math + found.science + found.sst;
+let english = parseInt(found.english) || 0;
+let urdu = parseInt(found.urdu) || 0;
+let math = parseInt(found.math) || 0;
+let science = parseInt(found.science) || 0;
+let sst = parseInt(found.sst) || 0;
+
+let total = english + urdu + math + science + sst;
 document.getElementById("total").innerHTML = total;
 
 let percentage = ((total / 250) * 100).toFixed(2);
