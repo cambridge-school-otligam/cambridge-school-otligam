@@ -401,7 +401,7 @@ urdu:"44",
 math:"43",
 science:"41",
 sst:"40",
-gk:"42
+gk::"42",
 kashmari:"48",
 remarks:"Very Good"
 },
@@ -573,7 +573,7 @@ let sst = parseInt(found.sst) || 0;
 let gk = parseInt(found.gk) || 0;
 let kashmari = parseInt(found.kashmari) || 0;
 
-let total = english + urdu + math + science + ss + gk + kashmari;
+let total = english + urdu + math + science + sst + gk + kashmari;
 document.getElementById("total").innerHTML = total;
 
 let percentage = ((total / 350) * 100).toFixed(2);
