@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEMESTER-1 EXAMINATION RESULT {2025-26}</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#eef3f8;
+margin:0;
+padding:20px;
+}
+
+.search-box{
+text-align:center;
+margin-bottom:20px;
+}
+
+input{
+padding:10px;
+width:250px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+padding:10px 15px;
+background:#002060;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.report{
+display:none;
+max-width:1000px;
+margin:auto;
+background:white;
+border:4px solid #002060;
+border-radius:15px;
+padding:20px;
+}
+
+.header{
+text-align:center;
+}
+
+.logo{
+width:80px;
+}
+
+.school{
+font-size:30px;
+font-weight:bold;
+color:#002060;
+}
+
+.title{
+background:#002060;
+color:white;
+padding:10px;
+margin-top:10px;
+border-radius:5px;
+font-size:22px;
+}
+
+.info-table,
+.marks-table,
+.audit-table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+
+.info-table td,
+.marks-table td,
+.marks-table th,
+.audit-table td,
+.audit-table th{
+border:1px solid #999;
+padding:8px;
+}
+
+.marks-table th,
+.audit-table th{
+background:#002060;
+color:white;
+}
+
+.footer{
+margin-top:30px;
+display:flex;
+justify-content:space-between;
+text-align:center;
+}
+
+.sign{
+width:30%;
+}
+
+.back-btn{
+background:red;
+margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="search-box">
+<input type="text" id="search" placeholder="Enter Roll No or Name">
+<button onclick="getResult()">Search</button>
+</div>
+
+<div class="report" id="report">
+
+<div class="header">
+<img src="../logo.png" class="logo">
+
+<div class="school">
+CAMBRIDGE SCHOOL OF MODERN EDUCATION
+</div>
+
+<div>
+OTLIGAM BEERWAH
+</div>
+
+<div class="title">
+SEMESTER-1 EXAMINATION RESULT {2025-26}
+</div>
+</div>
+
+<table class="info-table">
+  
+<tr>
+<td><b>Student Name:</b> <span
+id="name"></span></td>
+<td><b>Roll No:</b> <span id="roll"></
+span></td>
+<td><b>Class:</b> 3rd</td>
+</tr>
+
+<tr>  
+<td><b>Father Name:</b> <span
+id="father"></span></td>
+<td><b>Mother Name:</b> <span
+id="mother"></span></td>
+<td><b>Session:</b> 2025-26</td>
+</tr>
+  
+<tr>
+<td><b>Height:</b> <span id="height"></
+span></td>
+<td><b>Weight:</b> <span id="weight"></
+span></td>
+<td><b>Attendance:</b> <span
+id="attendance"></span></td>
+</tr>
+  
+</table>
+
+<table class="marks-table">
+
+<tr>
+<th>Subject</th>
+<th>Marks Obtained</th>
+<th>Max Marks</th>
+</tr>
+
+<tr>
+<td>English</td>
+<td id="english"></td>
+<td>50</td>
+</tr>
+
+<tr>
+<td>Urdu</td>
+<td id="urdu"></td>
+<td>50</td>
+</tr>
+
+<tr>
+<td>Mathematics</td>
+<td id="math"></td>
+<td>50</td>
+</tr>
+
+<tr>
+<td>Science</td>
+<td id="science"></td>
+<td>50</td>
+</tr>
+
+<tr>
+<td>Social Science</td>
+<td id="sst"></td>
+<td>50</td>
+</tr>
+
+<tr>
+<td><b>Total</b></td>
+<td id="total"></td>
+<td><b>250</b></td>
+</tr>
+
+<tr>
+<td><b>Percentage</b></td>
+<td colspan="2" id="percentage"></td>
+</tr>
+
+</table>
+<br>
+
+<p><b>Teacher Remarks:</b> <span id="remarks"></span></p>
+
+<p><b>Result:</b> PASS ✔</p>
+
+<button onclick="window.print()">Print Report</button>
+<button class="back-btn" onclick="goBack()">Back</button>
+
+<div class="footer">
+  
+<div class="sign">
+<img src="../school-seal.png" width="100"><br>
+School Seal
+</div>
+
+<div class="sign">
+<img src="../principal-sign.png" width="120"><br>
+Principal
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+
+var students = {
+"1001":{
+name:"Zainul Hamza",
+father:"Mohammad Yousuf Lone",
+mother:"Shafiqa Bano",
+attendance:"88%",
+height:"3 ft 5 in",
+weight:"22 kg",
+english:42,
+urdu:45,
+math:44,
+science:41,
+sst:43,
+remarks:"Good"
+},
+
+"1002":{
+name:"Mohammad Azhar Bhat",
+father:"Mushtaq Ahmad Bhat",
+mother:"Sumeera Bani",
+attendance:"70%",
+height:"3 ft 5 in",
+weight:"22 kg",
+english:39,
+urdu:41,
+math:42,
+science:40,
+sst:43,
+remarks:"Good"
+},
+
+"1003":{
+name:"Mohammad Asrar Dar",
+father:"Irshad Ahmad Dar",
+mother:"Firdoosa Bano",
+attendance:"88%",
+height:"3 ft 5 in",
+weight:"18 kg",
+english:30,
+urdu:31,
+math:35,
+science:36,
+sst:34,
+remarks:"Needs Improvement"
+},
+
+"1004":{
+name:"Aleeza Zainab",
+father:"Shabir Hussain Rather",
+mother:"Suriyana Akhter",
+attendance:"88%",
+height:"3 ft 5 in",
+weight:"23 kg",
+english:45,
+urdu:44,
+math:48,
+science:47,
+sst:48,
+remarks:"Very Good"
+},
+
+"1005":{
+name:"Suhaib Altaf",
+father:"Mohammad Altaf Sheikh",
+mother:"Ulfat Akhter",
+attendance:"86%",
+height:"3 ft 5 in",
+weight:"23 kg",
+english:40,
+urdu:39,
+math:43,
+science:44,
+sst:41,
+remarks:"Good"
+},
+
+"1006":{
+name:"Irtiza Yousuf",
+father:"Mohammad Yousuf Dar",
+mother:"Mahnoora Bano",
+attendance:"78%",
+height:"4 ft",
+weight:"25 kg",
+english:37,
+urdu:43,
+math:39,
+science:38,
+sst:40,
+remarks:"Satisfactory"
+},
+
+"1007":{
+name:"Sehrish Bashir",
+father:"Bashir Ahmad Tantray",
+mother:"Wazeera Bano",
+attendance:"92%",
+height:"3 ft 5 in",
+weight:"25 kg",
+english:49,
+urdu:49,
+math:50,
+science:50,
+sst:49,
+remarks:"Excellent"
+},
+
+"1008":{
+name:"Mohammad Anas Bhat",
+father:"Khazir Mohammad Bhat",
+mother:"Rubeena Bano",
+attendance:"88%",
+height:"3 ft 5 in",
+weight:"25 kg",
+english:36,
+urdu:38,
+math:41,
+science:43,
+sst:42,
+remarks:"Needs Improvement"
+},
+
+"1009":{
+name:"Aiman Hilal",
+father:"Hilal Ahmad",
+mother:"Akhter",
+attendance:"90%",
+height:"4 ft 5 in",
+weight:"34 kg",
+english:38,
+urdu:39,
+math:40,
+science:40,
+sst:39,
+remarks:"Good"
+},
+
+"1010":{
+name:"Iram Showkat",
+father:"Showkat Ahmad Sheikh",
+mother:"Jameela Akhter",
+attendance:"71%",
+height:"3 ft 5 in",
+weight:"22 kg",
+english:34,
+urdu:36,
+math:38,
+science:37,
+sst:38,
+remarks:"Needs Improvement"
+},
+
+"1011":{
+name:"Mubashir Mukhtar",
+father:"Mukhtar Ahmad Tantray",
+mother:"Posha Bano",
+attendance:"89%",
+height:"4 ft",
+weight:"33 kg",
+english:37,
+urdu:38,
+math:39,
+science:38,
+sst:37,
+remarks:"Satisfactory"
+},
+"1012":{
+name:"Rabiya Showkat",
+father:"Showkat Ahmad Tantray",
+mother:"Reehana Akhter",
+attendance:"96%",
+height:"4 ft",
+weight:"23 kg",
+english:46,
+urdu:45,
+math:48,
+science:49,
+sst:48,
+remarks:"Excellent"
+},
+
+"1013":{
+name:"Azan Bashir",
+father:"Bashir Ahmad Dar",
+mother:"Rubeena Bano",
+attendance:"89%",
+height:"4 ft",
+weight:"25 kg",
+english:42,
+urdu:41,
+math:47,
+science:48,
+sst:47,
+remarks:"Very Good"
+},
+
+"1014":{
+name:"Misum Abbas",
+father:"Gulzar Ahmad Najar",
+mother:"Tahira Akhter",
+attendance:"89%",
+height:"3 ft 5 in",
+weight:"23 kg",
+english:40,
+urdu:39,
+math:45,
+science:47,
+sst:46,
+remarks:"Very Good"
+},
+
+"1015":{
+name:"Asma Hilal",
+father:"Hilal Ahmad Sheikh",
+mother:"Mehfooza Akhter",
+attendance:"73%",
+height:"3 ft 5 in",
+weight:"23 kg",
+english:35,
+urdu:34,
+math:40,
+science:39,
+sst:41,
+remarks:"Satisfactory"
+},
+
+"1016":{
+name:"Zeenat Bilal",
+father:"Bilal Ahmad Wani",
+mother:"NA",
+attendance:"92%",
+height:"3 ft 5 in",
+weight:"22 kg",
+english:33,
+urdu:32,
+math:36,
+science:38,
+sst:37,
+remarks:"Satisfactory"
+},
+
+"1017":{
+name:"Shazia Nazir",
+father:"Nazir Ahmad Chopan",
+mother:"NA",
+attendance:"88%",
+height:"4 ft",
+weight:"24 kg",
+english:38,
+urdu:37,
+math:40,
+science:41,
+sst:40,
+remarks:"Good"
+},
+
+"1018":{
+name:"Sana Bilal",
+father:"Bilal Ahmad Sheikh",
+mother:"Sameera Akhter",
+attendance:"86%",
+height:"3 ft 5 in",
+weight:"18 kg",
+english:34,
+urdu:33,
+math:37,
+science:38,
+sst:38,
+remarks:"Satisfactory"
+},
+
+"1019":{
+name:"Reyan Farooq",
+father:"Farooq Ahmad Sheikh",
+mother:"Akhter",
+attendance:"88%",
+height:"4 ft",
+weight:"26 kg",
+english:43,
+urdu:42,
+math:45,
+science:46,
+sst:47,
+remarks:"Very Good"
+},
+
+"1020":{
+name:"Auzair Dar",
+father:"Bilal Ahmad She",
+mother:"Sameera Akhter",
+attendance:"53%",
+height:"4 ft",
+weight:"22 kg",
+english:36,
+urdu:35,
+math:42,
+science:40,
+sst:41,
+remarks:"Good"
+},
+
+"1021":{
+name:"Fazil Firdous",
+father:"Firdous Ahmad Sheikh",
+mother:"Sameera Akhter",
+attendance:"39%",
+height:"4 ft",
+weight:"24 kg",
+english:31,
+urdu:30,
+math:44,
+science:38,
+sst:39,
+remarks:"Needs Improvement"
+}
+
+};
+
+function getResult(){
+
+var input=document.getElementById("search").value.toLowerCase();
+
+var found=null;
+var rollNo="";
+
+for(let roll in students){
+
+if(
+roll===input ||
+students[roll].name.toLowerCase().includes(input)
+){
+found=students[roll];
+rollNo=roll;
+break;
+}
+
+}
+
+if(found){
+document.getElementById("report").style.display = "block";
+
+document.getElementById("name").innerHTML = found.name;
+document.getElementById("roll").innerHTML = rollNo;
+document.getElementById("father").innerHTML = found.father;
+document.getElementById("mother").innerHTML = found.mother;
+document.getElementById("attendance").innerHTML = found.attendance;
+document.getElementById("height").innerHTML = found.height;
+document.getElementById("weight").innerHTML = found.weight;
+
+document.getElementById("english").innerHTML = found.english;
+document.getElementById("urdu").innerHTML = found.urdu;
+document.getElementById("math").innerHTML = found.math;
+document.getElementById("science").innerHTML = found.science;
+document.getElementById("sst").innerHTML = found.sst;
+
+let total = found.english + found.urdu + found.math + found.science + found.sst;
+document.getElementById("total").innerHTML = total;
+
+let percentage = ((total / 250) * 100).toFixed(2);
+document.getElementById("percentage").innerHTML = percentage + "%";
+
+document.getElementById("remarks").innerHTML = found.remarks;
+
+
+}
+else{
+alert("Result Not Found");
+}
+
+}
+
+function goBack(){
+document.getElementById("report").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
