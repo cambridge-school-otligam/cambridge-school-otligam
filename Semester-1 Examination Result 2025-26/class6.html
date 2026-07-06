@@ -466,7 +466,13 @@ document.getElementById("math").innerHTML = found.math;
 document.getElementById("science").innerHTML = found.science;
 document.getElementById("sst").innerHTML = found.sst;
 
-let total = found.english + found.urdu + found.math + found.science + found.sst;
+let english = parseInt(found.english) || 0;
+let urdu = parseInt(found.urdu) || 0;
+let math = parseInt(found.math) || 0;
+let science = parseInt(found.science) || 0;
+let sst = parseInt(found.sst) || 0;
+
+let total = english + urdu + math + science + sst;
 document.getElementById("total").innerHTML = total;
 
 let percentage = ((total / 250) * 100).toFixed(2);
