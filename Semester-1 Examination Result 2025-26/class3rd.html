@@ -201,9 +201,15 @@ id="attendance"></span></td>
 </tr>
 
 <tr>
+<td>General Knowledge</td>
+<td id="gk"></td>
+<td>50</td>
+</tr>
+
+<tr>
 <td><b>Total</b></td>
 <td id="total"></td>
-<td><b>250</b></td>
+<td><b>300</b></td>
 </tr>
 
 <tr>
@@ -471,11 +477,19 @@ document.getElementById("urdu").innerHTML = found.urdu;
 document.getElementById("math").innerHTML = found.math;
 document.getElementById("science").innerHTML = found.science;
 document.getElementById("sst").innerHTML = found.sst;
+document.getElementById("gk").innerHTML = found.gk;
 
-let total = found.english + found.urdu + found.math + found.science + found.sst;
+let english = parseInt(found.english) || 0;
+let urdu = parseInt(found.urdu) || 0;
+let math = parseInt(found.math) || 0;
+let science = parseInt(found.science) || 0;
+let sst = parseInt(found.sst) || 0;
+let gk = parseInt(found.gk) || 0;
+
+let total = english + urdu + math + science + ss + gk;
 document.getElementById("total").innerHTML = total;
 
-let percentage = ((total / 250) * 100).toFixed(2);
+let percentage = ((total / 300) * 100).toFixed(2);
 document.getElementById("percentage").innerHTML = percentage + "%";
 
 document.getElementById("remarks").innerHTML = found.remarks;
