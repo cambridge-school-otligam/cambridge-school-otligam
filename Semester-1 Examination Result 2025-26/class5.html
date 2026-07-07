@@ -455,7 +455,25 @@ document.getElementById("total").innerHTML = total;
 let percentage = ((total / 250) * 100).toFixed(2);
 document.getElementById("percentage").innerHTML = percentage + "%";
 
-document.getElementById("remarks").innerHTML = found.remarks;
+let remark="";
+
+if(percentage >= 90){
+remark="Excellent";
+}
+else if(percentage >= 75){
+remark="Very Good";
+}
+else if(percentage >= 60){
+remark="Good";
+}
+else if(percentage >= 40){
+remark="Satisfactory";
+}
+else{
+remark="Need More Improvement";
+}
+
+document.getElementById("remarks").innerHTML = remark;
 
 
 }
