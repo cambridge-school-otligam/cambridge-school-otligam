@@ -322,7 +322,7 @@ height:"4 ft 5 in",weight:"36 kg",
 english:48,
 science:39,
 sst:49,
-math:40
+math:40,
 urdu:46,
 },
 "4008":{
@@ -368,7 +368,7 @@ attendance:"86%",
 height:"4 ft 5 in",weight:"37 kg",
 
 english:36,
-science:"38,
+science:38,
 sst:48,
 math:25,
 urdu:41,
@@ -419,7 +419,25 @@ document.getElementById("total").innerHTML = total;
 let percentage = ((total / 250) * 100).toFixed(2);
 document.getElementById("percentage").innerHTML = percentage + "%";
 
-document.getElementById("remarks").innerHTML = found.remarks;
+let remark="";
+
+if(percentage >= 90){
+remark="Excellent";
+}
+else if(percentage >= 75){
+remark="Very Good";
+}
+else if(percentage >= 60){
+remark="Good";
+}
+else if(percentage >= 40){
+remark="Satisfactory";
+}
+else{
+remark="Need More Improvement";
+}
+
+document.getElementById("remarks").innerHTML = remark;
 
 
 }
