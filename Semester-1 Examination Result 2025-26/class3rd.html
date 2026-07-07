@@ -560,8 +560,9 @@ let kashmari = parseInt(found.kashmari) || 0;
 let total = english + urdu + math + science + sst + gk + kashmari;
 document.getElementById("total").innerHTML = total;
 
-let percentage = ((total / 350) * 100).toFixed(2);
-document.getElementById("percentage").innerHTML = percentage + "%";
+let percentage = ((total / 350) * 100);
+document.getElementById("percentage").innerHTML =
+percentage + "%";
 
 let remark="";
 
