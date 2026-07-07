@@ -502,4 +502,93 @@ islamic:26,
 }
 
 };
+function getResult(){
 
+// Result Publish Time
+var publishDate = new Date("July 8, 2026 17:00:00");
+
+if(new Date() < publishDate){
+alert("📢 Semester-1 Examination Result will be declared on 08 July 2026 at 5:00 PM.");
+return;
+}
+
+var input = document.getElementById("search").value.trim().toLowerCase();
+
+var found = null;
+var rollNo = "";
+
+for(let roll in students){
+
+if(
+roll === input ||
+students[roll].name.toLowerCase().includes(input)
+){
+found = students[roll];
+rollNo = roll;
+break;
+}
+
+}
+
+if(found){
+
+document.getElementById("report").style.display = "block";
+
+document.getElementById("name").innerHTML = found.name;
+document.getElementById("roll").innerHTML = rollNo;
+document.getElementById("father").innerHTML = found.father;
+document.getElementById("mother").innerHTML = found.mother;
+document.getElementById("attendance").innerHTML = found.attendance;
+document.getElementById("height").innerHTML = found.height;
+document.getElementById("weight").innerHTML = found.weight;
+
+document.getElementById("english").innerHTML = found.english;
+document.getElementById("urdu").innerHTML = found.urdu;
+document.getElementById("math").innerHTML = found.math;
+document.getElementById("evs").innerHTML = found.evs;
+document.getElementById("islamic").innerHTML = found.islamic;
+
+let english = parseInt(found.english) || 0;
+let urdu = parseInt(found.urdu) || 0;
+let math = parseInt(found.math) || 0;
+let evs = parseInt(found.evs) || 0;
+let islamic = parseInt(found.islamic) || 0;
+
+let total = english + urdu + math + evs + islamic;
+
+document.getElementById("total").innerHTML = total;
+
+let percentage = ((total / 250) * 100).toFixed(2);
+
+document.getElementById("percentage").innerHTML = percentage + "%";
+
+let remark = "";
+
+if(percentage >= 90){
+remark = "Excellent";
+}
+else if(percentage >= 75){
+remark = "Very Good";
+}
+else if(percentage >= 60){
+remark = "Good";
+}
+else if(percentage >= 40){
+remark = "Satisfactory";
+}
+else{
+remark = "Need More Improvement";
+}
+
+document.getElementById("remarks").innerHTML = remark;
+
+}
+else{
+alert("Result Not Found");
+}
+
+}
+
+function goBack(){
+document.getElementById("report").style.display = "none";
+}
