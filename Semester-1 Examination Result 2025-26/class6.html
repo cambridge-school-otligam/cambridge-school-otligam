@@ -344,11 +344,11 @@ mother:"Shameema Bano",
 attendance:"75%",
 height:"4 ft 5 in",weight:"38 kg",
 
-english:11s+6,
+english:17,
 science:25,
 sst:17,
 math:21,
-urdu:11s+6,
+urdu:17,
 kashmiri:17,
 },
 "6009":{
@@ -401,7 +401,7 @@ science:25,
 sst:48,
 math:34,
 urdu:39,
-kashmiri:AB,
+kashmiri:"AB",
 },
 "6013":{
 name:"Muntazir Ahmad Khan",father:"Abdul Khaliq Khan",
@@ -414,7 +414,7 @@ science:25,
 sst:39,
 math:34,
 urdu:24,
-kashmiri:AB,
+kashmiri:"AB",
 },
 "6014":{
 name:"Sadiya Jaan",father:"Gh Hassan Milk",
@@ -440,7 +440,7 @@ science:33,
 sst:37,
 math:34,
 urdu:37,
-kashmiri:AB,
+kashmiri:"AB",
 },
 };
 function getResult(){
@@ -495,7 +495,26 @@ document.getElementById("total").innerHTML = total;
 let percentage = ((total / 300) * 100).toFixed(2);
 document.getElementById("percentage").innerHTML = percentage + "%";
 
-document.getElementById("remarks").innerHTML = found.remarks;
+
+let remark="";
+
+if(percentage >= 90){
+    remark="Excellent";
+}
+else if(percentage >= 75){
+    remark="Very Good";
+}
+else if(percentage >= 60){
+    remark="Good";
+}
+else if(percentage >= 40){
+    remark="Satisfactory";
+}
+else{
+    remark="Need More Improvement";
+}
+
+document.getElementById("remarks").innerHTML = remark;
 
 
 }
