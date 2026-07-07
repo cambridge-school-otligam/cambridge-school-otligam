@@ -457,7 +457,7 @@ math:32,
 science:26,
 sst:"NA",
 gk:"NA",
-kashmiri:"30,
+kashmiri:30,
 },
 
 "2014":{
@@ -541,13 +541,31 @@ let sst = parseInt(found.sst) || 0;
 let gk = parseInt(found.gk) || 0;
 let kashmari = parseInt(found.kashmari) || 0;
 
-let total = english + urdu + math + science + ss + gk + kashmari;
+let total = english + urdu + math + science + sst + gk + kashmari;
 document.getElementById("total").innerHTML = total;
 
 let percentage = ((total / 350) * 100).toFixed(2);
 document.getElementById("percentage").innerHTML = percentage + "%";
 
-document.getElementById("remarks").innerHTML = found.remarks;
+let remark="";
+
+if(percentage >= 90){
+remark="Excellent";
+}
+else if(percentage >= 75){
+remark="Very Good";
+}
+else if(percentage >= 60){
+remark="Good";
+}
+else if(percentage >= 40){
+remark="Satisfactory";
+}
+else{
+remark="Need More Improvement";
+}
+
+document.getElementById("remarks").innerHTML = remark;
 
 
 }
