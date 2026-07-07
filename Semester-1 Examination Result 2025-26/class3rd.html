@@ -393,7 +393,7 @@ urdu:40,
 math:44,
 science:41,
 sst:35,
-gk::48,
+gk:48,
 kashmari:39,
 },
 
@@ -493,7 +493,7 @@ gk:12,
 kashmari:42,
 },
 
-"35556016":{
+"3057":{
 name:"Abass Bashir",
 father:"Bashir Ahmad Bhat",
 mother:"Fatima Bano",
@@ -563,7 +563,25 @@ document.getElementById("total").innerHTML = total;
 let percentage = ((total / 350) * 100).toFixed(2);
 document.getElementById("percentage").innerHTML = percentage + "%";
 
-document.getElementById("remarks").innerHTML = found.remarks;
+let remark="";
+
+if(percentage >= 90){
+remark="Excellent";
+}
+else if(percentage >= 75){
+remark="Very Good";
+}
+else if(percentage >= 60){
+remark="Good";
+}
+else if(percentage >= 40){
+remark="Satisfactory";
+}
+else{
+remark="Need More Improvement";
+}
+
+document.getElementById("remarks").innerHTML = remark;
 
 
 }
