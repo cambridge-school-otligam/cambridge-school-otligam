@@ -254,7 +254,6 @@ science:48,
 sst:46,
 math:37,
 urdu:50,
-remarks:"Excellent"
 },
 
 "7002":{
@@ -269,7 +268,6 @@ science:42,
 sst:44,
 math:18,
 urdu:50,
-remarks:"Needs Improvement"
 },
 
 "7003":{
@@ -284,7 +282,6 @@ science:35,
 sst:35,
 math:15,
 urdu:35,
-remarks:"Good"
 },
 
 "7004":{
@@ -299,7 +296,6 @@ science:37,
 sst:29,
 math:18,
 urdu:48,
-remarks:"Good"
 },
 
 "7005":{
@@ -314,7 +310,6 @@ science:34,
 sst:28,
 math:12,
 urdu:50,
-remarks:"Good"
 },
 
 "7006":{
@@ -329,7 +324,6 @@ science:34,
 sst:26,
 math:19,
 urdu:50,
-remarks:"Good"
 },
 
 "7007":{
@@ -344,7 +338,6 @@ science:29,
 sst:29,
 math:16,
 urdu:46,
-remarks:"Satisfactory"
 },
 
 "7008":{
@@ -359,7 +352,6 @@ science:48,
 sst:44,
 math:26,
 urdu:50,
-remarks:"Excellent"
 },
 
 "7009":{
@@ -374,7 +366,6 @@ science:38,
 sst:44,
 math:16,
 urdu:50,
-remarks:"Very Good"
 },
 
 "7010":{
@@ -389,7 +380,6 @@ science:40,
 sst:44,
 math:19,
 urdu:50,
-remarks:"Satisfactory"
 }
 
 };
@@ -444,7 +434,25 @@ document.getElementById("total").innerHTML = total;
 let percentage = ((total / 250) * 100).toFixed(2);
 document.getElementById("percentage").innerHTML = percentage + "%";
 
-document.getElementById("remarks").innerHTML = found.remarks;
+let remark = "";
+
+if (percentage >= 90) {
+    remark = "Excellent";
+}
+else if (percentage >= 75) {
+    remark = "Very Good";
+}
+else if (percentage >= 60) {
+    remark = "Good";
+}
+else if (percentage >= 40) {
+    remark = "Satisfactory";
+}
+else {
+    remark = "Needs Improvement";
+}
+
+document.getElementById("remarks").innerHTML = remark;
 
 
 }
