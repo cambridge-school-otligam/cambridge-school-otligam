@@ -252,8 +252,7 @@ english:40,
 urdu:50,
 math:35,
 science:50,
-sst:34,
-remarks:"Very Good"
+sst:45,
 },
 
 "8002":{
@@ -267,8 +266,7 @@ english:30,
 urdu:47,
 math:43,
 science:48,
-sst:36,
-remarks:"Very Good"
+sst:30,
 },
 
 "8003":{
@@ -282,8 +280,7 @@ english:31,
 urdu:42,
 math:38,
 science:37,
-sst:40,
-remarks:"Good"
+sst:39,
 },
 
 "8004":{
@@ -297,8 +294,7 @@ english:30,
 urdu:50,
 math:45,
 science:50,
-sst:43,
-remarks:"Very Good"
+sst:35,
 },
 
 "8005":{
@@ -312,8 +308,7 @@ english:28,
 urdu:50,
 math:36,
 science:46,
-sst:38,
-remarks:"Very Good"
+sst:30,
 },
 
 "8006":{
@@ -327,8 +322,7 @@ english:30,
 urdu:50,
 math:41,
 science:50,
-sst:35,
-remarks:"Very Good"
+sst:40,
 },
 
 "8007":{
@@ -342,8 +336,7 @@ english:28,
 urdu:50,
 math:44,
 science:50,
-sst:42,
-remarks:"Very Good"
+sst:40,
 },
 
 "8008":{
@@ -358,20 +351,13 @@ urdu:37,
 math:25,
 science:48,
 sst:26,
-remarks:"Needs Improvement"
 }
 
 };
 
 function getResult(){
   
-// Result Publish Time
-var publishDate = new Date("July 8, 2026 17:00:00");
 
-if(new Date() < publishDate){
-alert("📢 Semester-1 Examination Result will be declared on 08 July 2026 at 5:00 PM.");
-return;
-} 
 var input=document.getElementById("search").value.toLowerCase();
 
 var found=null;
@@ -419,7 +405,25 @@ document.getElementById("total").innerHTML = total;
 let percentage = ((total / 250) * 100).toFixed(2);
 document.getElementById("percentage").innerHTML = percentage + "%";
 
-document.getElementById("remarks").innerHTML = found.remarks;
+let remark = "";
+
+if (percentage >= 90) {
+    remark = "Excellent";
+}
+else if (percentage >= 75) {
+    remark = "Very Good";
+}
+else if (percentage >= 60) {
+    remark = "Good";
+}
+else if (percentage >= 40) {
+    remark = "Satisfactory";
+}
+else {
+    remark = "Needs Improvement";
+}
+
+document.getElementById("remarks").innerHTML = remark;
 
 
 }
