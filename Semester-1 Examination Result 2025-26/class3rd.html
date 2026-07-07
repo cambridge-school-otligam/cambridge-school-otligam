@@ -207,8 +207,8 @@ id="attendance"></span></td>
 </tr>
 
 <tr>
-<td>Kashmari</td>
-<td id="kashmari"></td>
+<td>Kashmiri</td>
+<td id="kashmiri"></td>
 <td>50</td>
 </tr>
   
@@ -266,7 +266,7 @@ math:46,
 science:46,
 sst:42,
 gk:44,
-kashmari:49,
+kashmiri:49,
 },
 
 "3002":{
@@ -282,7 +282,7 @@ math:00,
 science:17,
 sst:18,
 gk:15,
-kashmari:00,
+kashmiri:00,
 },
 
 "3003":{
@@ -298,7 +298,7 @@ math:42,
 science:43,
 sst:47,
 gk:43,
-kashmari:49,
+kashmiri:49,
 },
 
 "3004":{
@@ -314,7 +314,7 @@ math:48,
 science:49,
 sst:46,
 gk:47,
-kashmari:49,
+kashmiri:49,
 },
 
 "3005":{
@@ -330,7 +330,7 @@ math:50,
 science:49,
 sst:46,
 gk:42,
-kashmari:49,
+kashmiri:49,
 },
 
 "3006":{
@@ -346,7 +346,7 @@ math:28,
 science:35,
 sst:38,
 gk:44,
-kashmari:06,
+kashmiri:06,
 },
 
 "3007":{
@@ -362,7 +362,7 @@ math:40,
 science:26,
 sst:30,
 gk:23,
-kashmari:26,
+kashmiri:26,
 },
 
 "3008":{
@@ -378,7 +378,7 @@ math:47,
 science:46,
 sst:48,
 gk:47,
-kashmari:49,
+kashmiri:49,
 },
 
 "3009":{
@@ -394,7 +394,7 @@ math:44,
 science:41,
 sst:35,
 gk:48,
-kashmari:39,
+kashmiri:39,
 },
 
 "3010":{
@@ -410,7 +410,7 @@ math:49,
 science:49,
 sst:46,
 gk:47,
-kashmari:49,
+kashmiri:49,
 },
 
 "3011":{
@@ -426,7 +426,7 @@ math:45,
 science:13,
 sst:20,
 gk:32,
-kashmari:13,
+kashmiri:13,
 },
 
 "3012":{
@@ -442,7 +442,7 @@ math:46,
 science:50,
 sst:44,
 gk:50,
-kashmari:50,
+kashmiri:50,
 },
 
 "3013":{
@@ -458,7 +458,7 @@ math:38,
 science:50,
 sst:42,
 gk:50,
-kashmari:37,
+kashmiri:37,
 },
 
 "3014":{
@@ -474,7 +474,7 @@ math:40,
 science:10,
 sst:21,
 gk:18,
-kashmari:05,
+kashmiri:05,
 },
 
 "3015":{
@@ -490,7 +490,7 @@ math:38,
 science:40,
 sst:32,
 gk:12,
-kashmari:42,
+kashmiri:42,
 },
 
 "3057":{
@@ -506,7 +506,7 @@ math:34,
 science:32,
 sst:23,
 gk:34,
-kashmari:43,
+kashmiri:43,
 }
 };
 
@@ -554,7 +554,7 @@ document.getElementById("math").innerHTML = found.math;
 document.getElementById("science").innerHTML = found.science;
 document.getElementById("sst").innerHTML = found.sst;
 document.getElementById("gk").innerHTML = found.gk;
-document.getElementById("kashmari").innerHTML = found.kashmari;
+document.getElementById("kashmiri").innerHTML = found.kashmiri;
 
 let english = parseInt(found.english) || 0;
 let urdu = parseInt(found.urdu) || 0;
@@ -562,9 +562,9 @@ let math = parseInt(found.math) || 0;
 let science = parseInt(found.science) || 0;
 let sst = parseInt(found.sst) || 0;
 let gk = parseInt(found.gk) || 0;
-let kashmari = parseInt(found.kashmari) || 0;
+let kashmiri = parseInt(found.kashmiri) || 0;
 
-let total = english + urdu + math + science + sst + gk + kashmari;
+let total = english + urdu + math + science + sst + gk + kashmiri;
 document.getElementById("total").innerHTML = total;
 
 let percentage = ((total / 350) * 100);
