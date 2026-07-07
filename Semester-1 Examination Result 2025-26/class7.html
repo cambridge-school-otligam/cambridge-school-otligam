@@ -252,7 +252,7 @@ weight:"44 kg",
 english:50,
 science:48,
 sst:46,
-math:49,
+math:37,
 urdu:50,
 remarks:"Excellent"
 },
@@ -267,7 +267,7 @@ weight:"55 kg",
 english:46,
 science:42,
 sst:44,
-math:30,
+math:18,
 urdu:50,
 remarks:"Needs Improvement"
 },
@@ -282,7 +282,7 @@ weight:"44 kg",
 english:34,
 science:35,
 sst:35,
-math:38,
+math:15,
 urdu:35,
 remarks:"Good"
 },
@@ -297,7 +297,7 @@ weight:"49 kg",
 english:26,
 science:37,
 sst:29,
-math:36,
+math:18,
 urdu:48,
 remarks:"Good"
 },
@@ -312,7 +312,7 @@ weight:"44 kg",
 english:26,
 science:34,
 sst:28,
-math:"AB",
+math:12,
 urdu:50,
 remarks:"Good"
 },
@@ -327,7 +327,7 @@ weight:"55 kg",
 english:35,
 science:34,
 sst:26,
-math:41,
+math:19,
 urdu:50,
 remarks:"Good"
 },
@@ -342,7 +342,7 @@ weight:"36 kg",
 english:28,
 science:29,
 sst:29,
-math:33,
+math:16,
 urdu:46,
 remarks:"Satisfactory"
 },
@@ -357,7 +357,7 @@ weight:"46 kg",
 english:50,
 science:48,
 sst:44,
-math:50,
+math:26,
 urdu:50,
 remarks:"Excellent"
 },
@@ -372,7 +372,7 @@ weight:"46 kg",
 english:48,
 science:38,
 sst:44,
-math:46,
+math:16,
 urdu:50,
 remarks:"Very Good"
 },
@@ -387,7 +387,7 @@ weight:"50 kg",
 english:39,
 science:40,
 sst:44,
-math:32,
+math:19,
 urdu:50,
 remarks:"Satisfactory"
 }
@@ -396,13 +396,7 @@ remarks:"Satisfactory"
 
 function getResult(){
 
-// Result Publish Time
-var publishDate = new Date("July 8, 2026 17:00:00");
 
-if(new Date() < publishDate){
-alert("📢 Semester-1 Examination Result will be declared on 08 July 2026 at 5:00 PM.");
-return;
-} 
 var input=document.getElementById("search").value.toLowerCase();
 
 var found=null;
