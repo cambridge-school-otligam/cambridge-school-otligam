@@ -377,13 +377,7 @@ urdu:26,
 
 function getResult(){
 
-// Result Publish Time
-var publishDate = new Date("July 8, 2026 17:00:00");
 
-if(new Date() < publishDate){
-alert("📢 Semester-1 Examination Result will be declared on 08 July 2026 at 5:00 PM.");
-return;
-} 
 var input=document.getElementById("search").value.toLowerCase();
 
 var found=null;
@@ -403,6 +397,15 @@ break;
 }
 
 if(found){
+
+if (
+    rollNo === "4004" ||
+    rollNo === "4010"
+){
+    alert("Result is withheld. Please contact the school office.");
+    return;
+}
+  
 document.getElementById("report").style.display = "block";
 
 document.getElementById("name").innerHTML = found.name;
