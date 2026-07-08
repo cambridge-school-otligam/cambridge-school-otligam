@@ -575,6 +575,18 @@ break;
 
 if(found){
 
+if (
+    rollNo === "l002" ||
+    rollNo === "l009" ||
+    rollNo === "l011" ||
+    rollNo === "l014" ||
+    rollNo === "l016" ||
+    rollNo === "l017"
+){
+    alert("Result is withheld. Please contact the school office.");
+    return;
+}
+  
 document.getElementById("report").style.display = "block";
 
 document.getElementById("name").innerHTML = found.name;
