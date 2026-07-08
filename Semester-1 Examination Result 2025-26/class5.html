@@ -439,6 +439,16 @@ break;
 }
 
 if(found){
+
+if (
+    rollNo === "5004" ||
+    rollNo === "5009" ||
+    rollNo === "5014"
+){
+    alert("Result is withheld. Please contact the school office.");
+    return;
+}
+  
 document.getElementById("report").style.display = "block";
 
 document.getElementById("name").innerHTML = found.name;
