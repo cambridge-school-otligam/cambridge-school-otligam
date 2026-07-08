@@ -475,6 +475,17 @@ break;
 
 if(found){
 
+if (
+    rollNo === "ukg3" ||
+    rollNo === "ukg4" ||
+    rollNo === "ukg8" ||
+    rollNo === "ukg16" ||
+    rollNo === "ukg19"
+){
+    alert("Result is withheld. Please contact the school office.");
+    return;
+}
+
 document.getElementById("report").style.display = "block";
 
 document.getElementById("name").innerHTML = found.name;
