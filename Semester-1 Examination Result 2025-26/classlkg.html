@@ -229,9 +229,6 @@ Principal
 
 
 var students = {
-
-
-  ```javascript
 "lkg1":{
 name:"Areeb Ishfaq Sheikh",
 father:"Ishfaq Ahmad Sheikh",
@@ -375,8 +372,7 @@ english:37,
 urdu:25,
 math:30
 },
-
-```javascript
+  
 "ukg13":{
 name:"Usman Fayaz",
 father:"Fayaz Ahmad Dar",
@@ -503,6 +499,17 @@ break;
 }
 
 if(found){
+
+if (
+    rollNo === "lkg10" ||
+    rollNo === "lkg11" ||
+    rollNo === "lkg17" ||
+    rollNo === "lkg20"
+){
+    alert("Result is withheld. Please contact the school office.");
+    return;
+}
+  
 document.getElementById("report").style.display = "block";
 
 document.getElementById("name").innerHTML = found.name;
