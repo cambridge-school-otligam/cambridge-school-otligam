@@ -199,18 +199,6 @@ id="attendance"></span></td>
 <td id="sst"></td>
 <td>50</td>
 </tr>
-
-<tr>
-<td>General Knowledge</td>
-<td id="gk"></td>
-<td>50</td>
-</tr>
-
-<tr>
-<td>Kashmiri</td>
-<td id="kashmiri"></td>
-<td>50</td>
-</tr>
   
 <tr>
 <td><b>Total</b></td>
@@ -263,8 +251,6 @@ english:01,
 urdu:24,
 math:01,
 science:10,
-sst:"NA",
-gk:"NA",
 kashmiri:15,
 },
 
@@ -279,8 +265,6 @@ english:34,
 urdu:50,
 math:49,
 science:50,
-sst:"NA",
-gk:"NA",
 kashmiri:44,
 },
 
@@ -295,8 +279,6 @@ english:12,
 urdu:27,
 math:27,
 science:16,
-sst:"NA",
-gk:"NA",
 kashmiri:27,
 },
 
@@ -311,8 +293,6 @@ english:22,
 urdu:42,
 math:50,
 science:30,
-sst:"NA",
-gk:"NA",
 kashmiri:27,
 },
 
@@ -327,8 +307,6 @@ english:19,
 urdu:48,
 math:47,
 science:32,
-sst:"NA",
-gk:"NA",
 kashmiri:47,
 },
 
@@ -343,8 +321,6 @@ english:42,
 urdu:50,
 math:50,
 science:50,
-sst:"NA",
-gk:"NA",
 kashmiri:50,
 },
 
@@ -359,8 +335,6 @@ english:12,
 urdu:44,
 math:26,
 science:11,
-sst:"NA",
-gk:"NA",
 kashmiri:31,
 },
 
@@ -375,8 +349,6 @@ english:01,
 urdu:45,
 math:49,
 science:20,
-sst:"NA",
-gk:"NA",
 kashmiri:27,
 },
 
@@ -391,8 +363,6 @@ english:18,
 urdu:47,
 math:47,
 science:21,
-sst:"NA",
-gk:"NA",
 kashmiri:35,
 },
 
@@ -407,8 +377,6 @@ english:01,
 urdu:20,
 math:20,
 science:02,
-sst:"NA",
-gk:"NA",
 kashmiri:27,
 },
 
@@ -423,8 +391,6 @@ english:15,
 urdu:43,
 math:44,
 science:34,
-sst:"NA",
-gk:"NA",
 kashmiri:41,
 },
 
@@ -439,8 +405,6 @@ english:50,
 urdu:50,
 math:50,
 science:50,
-sst:"NA",
-gk:"NA",
 kashmiri:50,
 },
 
@@ -455,8 +419,6 @@ english:12,
 urdu:47,
 math:32,
 science:26,
-sst:"NA",
-gk:"NA",
 kashmiri:30,
 },
 
@@ -471,8 +433,6 @@ english:01,
 urdu:01,
 math:12,
 science:04,
-sst:"NA",
-gk:"NA",
 kashmiri:02,
 },
 
@@ -487,8 +447,6 @@ english:18,
 urdu:43,
 math:32,
 science:30,
-sst:"NA",
-gk:"NA",
 kashmiri:33,
 }
 
@@ -530,19 +488,15 @@ document.getElementById("english").innerHTML = found.english;
 document.getElementById("urdu").innerHTML = found.urdu;
 document.getElementById("math").innerHTML = found.math;
 document.getElementById("science").innerHTML = found.science;
-document.getElementById("sst").innerHTML = found.sst;
-document.getElementById("gk").innerHTML = found.gk;
 document.getElementById("kashmiri").innerHTML = found.kashmiri;
 
 let english = parseInt(found.english) || 0;
 let urdu = parseInt(found.urdu) || 0;
 let math = parseInt(found.math) || 0;
 let science = parseInt(found.science) || 0;
-let sst = parseInt(found.sst) || 0;
-let gk = parseInt(found.gk) || 0;
 let kashmiri = parseInt(found.kashmiri) || 0;
 
-let total = english + urdu + math + science + sst + gk + kashmiri;
+let total = english + urdu + math + science + kashmiri;
 document.getElementById("total").innerHTML = total;
 
 let percentage = ((total / 250) * 100).toFixed(2);
