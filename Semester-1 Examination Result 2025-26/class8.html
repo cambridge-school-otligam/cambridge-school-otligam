@@ -264,7 +264,7 @@ height:"NA",
 weight:"NA kg",
 english:30,
 urdu:47,
-math:43,
+math:33,
 science:48,
 sst:30,
 },
@@ -278,7 +278,7 @@ height:"4 ft 5 in",
 weight:"31 kg",
 english:31,
 urdu:42,
-math:38,
+math:30,
 science:37,
 sst:39,
 },
@@ -292,7 +292,7 @@ height:"NA",
 weight:"NA",
 english:30,
 urdu:50,
-math:45,
+math:31,
 science:50,
 sst:35,
 },
@@ -306,7 +306,7 @@ height:"5 ft 5 in",
 weight:"57 kg",
 english:28,
 urdu:50,
-math:36,
+math:29,
 science:46,
 sst:30,
 },
@@ -334,7 +334,7 @@ height:"5 ft 2 in",
 weight:"43 kg",
 english:28,
 urdu:50,
-math:44,
+math:38,
 science:50,
 sst:40,
 },
@@ -356,7 +356,15 @@ sst:26,
 };
 
 function getResult(){
+
   
+// Result Publish Time
+var publishDate = new Date("July 8, 2026 17:00:00");
+
+if(new Date() < publishDate){
+alert("📢 Semester-1 Examination Result will be declared on 08 July 2026 at 5:00 PM.");
+return;
+} 
 
 var input=document.getElementById("search").value.toLowerCase();
 
