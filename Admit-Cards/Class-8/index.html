@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class 8 Admit Cards - Cambridge School</title>
+<title>Class 8 Admit Card - Cambridge School</title>
 
 <style>
 
@@ -19,19 +19,21 @@ body{
     background:#eaf0f7;
 }
 
+/* SEARCH */
+
 .search-box{
     max-width:900px;
     margin:auto;
     background:white;
-    padding:22px;
+    padding:25px;
     text-align:center;
     border-radius:12px;
     box-shadow:0 3px 12px rgba(0,0,0,.15);
 }
 
-.search-box h2{
+.search-box h1{
     color:#002060;
-    margin:5px;
+    margin:5px 0;
 }
 
 .search-box p{
@@ -39,7 +41,8 @@ body{
 }
 
 input{
-    width:280px;
+    width:300px;
+    max-width:90%;
     padding:12px;
     border:1px solid #aaa;
     border-radius:6px;
@@ -48,7 +51,7 @@ input{
 
 button{
     padding:12px 18px;
-    margin:5px;
+    margin:6px;
     border:0;
     border-radius:6px;
     background:#002060;
@@ -61,6 +64,13 @@ button:hover{
     background:#003b99;
 }
 
+.back-btn{
+    background:#c00000;
+}
+
+
+/* ADMIT CARD */
+
 .admit-card{
     display:none;
     max-width:900px;
@@ -71,11 +81,15 @@ button:hover{
     padding:20px;
 }
 
+
+/* HEADER */
+
 .header{
     text-align:center;
     position:relative;
     padding-bottom:15px;
     border-bottom:3px solid #002060;
+    min-height:125px;
 }
 
 .logo{
@@ -91,17 +105,17 @@ button:hover{
     font-size:28px;
     font-weight:bold;
     color:#002060;
-    padding-left:90px;
-    padding-right:90px;
+    padding-left:100px;
+    padding-right:100px;
 }
 
 .school-address{
-    margin-top:5px;
+    margin-top:6px;
     font-size:15px;
 }
 
 .udise{
-    margin-top:5px;
+    margin-top:6px;
     font-weight:bold;
 }
 
@@ -121,6 +135,9 @@ button:hover{
     font-weight:bold;
 }
 
+
+/* STUDENT DETAILS */
+
 .student-area{
     display:flex;
     gap:20px;
@@ -138,7 +155,7 @@ button:hover{
 
 .info-table td{
     border:1px solid #888;
-    padding:9px;
+    padding:10px;
     font-size:15px;
 }
 
@@ -148,6 +165,9 @@ button:hover{
     color:#002060;
     font-weight:bold;
 }
+
+
+/* PHOTO */
 
 .photo-section{
     width:165px;
@@ -178,6 +198,9 @@ button:hover{
     color:#002060;
 }
 
+
+/* NOTE */
+
 .note{
     margin-top:20px;
     padding:15px;
@@ -194,6 +217,9 @@ button:hover{
 .note li{
     margin-bottom:6px;
 }
+
+
+/* SIGNATURES */
 
 .signatures{
     display:flex;
@@ -224,14 +250,16 @@ button:hover{
     padding-top:7px;
 }
 
+
+/* ACTIONS */
+
 .actions{
     text-align:center;
     margin-top:25px;
 }
 
-.back-btn{
-    background:#c00000;
-}
+
+/* MOBILE */
 
 @media(max-width:650px){
 
@@ -248,6 +276,10 @@ button:hover{
         position:static;
         display:block;
         margin:0 auto 10px;
+    }
+
+    .header{
+        min-height:auto;
     }
 
     .student-area{
@@ -269,7 +301,11 @@ button:hover{
     .signature{
         font-size:12px;
     }
+
 }
+
+
+/* PRINT / PDF */
 
 @media print{
 
@@ -302,21 +338,22 @@ button:hover{
 </style>
 </head>
 
+
 <body>
 
 
-<!-- SEARCH -->
+<!-- SEARCH AREA -->
 
 <div class="search-box">
 
-<h2>CAMBRIDGE SCHOOL OF MODERN EDUCATION</h2>
+<h1>CAMBRIDGE SCHOOL OF MODERN EDUCATION</h1>
 
 <p>Class 8 — Admit Card</p>
 
 <input
-type="text"
-id="search"
-placeholder="Enter Roll No or Candidate Name"
+    type="text"
+    id="search"
+    placeholder="Enter Roll Number or Student Name"
 >
 
 <br>
@@ -338,9 +375,9 @@ Search Admit Card
 <div class="header">
 
 <img
-src="../../../logo.png"
-class="logo"
-alt="School Logo"
+    src="../../logo.png"
+    class="logo"
+    alt="School Logo"
 >
 
 <div class="school-name">
@@ -422,9 +459,8 @@ ANNUAL EXAMINATION
 <div class="photo-box">
 
 <img
-id="studentPhoto"
-src=""
-alt="Student Photo"
+    id="studentPhoto"
+    alt="Student Photo"
 >
 
 </div>
@@ -438,7 +474,7 @@ Student Photo
 </div>
 
 
-<!-- NOTE -->
+<!-- IMPORTANT NOTE -->
 
 <div class="note">
 
@@ -454,14 +490,14 @@ Student Photo
 
 <li>Candidate must follow all instructions given by the examination staff.</li>
 
-<li>Keep this Admit Card safe until the completion of the examination.</li>
+<li>Keep this Admit Card safe until completion of the examination.</li>
 
 </ol>
 
 </div>
 
 
-<!-- SIGNATURES -->
+<!-- SIGNATURES AND SEAL -->
 
 <div class="signatures">
 
@@ -469,8 +505,8 @@ Student Photo
 <div class="signature">
 
 <img
-src="../../../controller-sign.png"
-alt="Controller Signature"
+    src="../../controller-sign.png"
+    alt="Controller Signature"
 >
 
 <div class="signature-line">
@@ -483,9 +519,9 @@ Controller of Examination
 <div class="signature">
 
 <img
-src="../../../school-seal.png"
-class="seal"
-alt="School Seal"
+    src="../../school-seal.png"
+    class="seal"
+    alt="School Seal"
 >
 
 <div>
@@ -498,8 +534,8 @@ School Seal
 <div class="signature">
 
 <img
-src="../../../Principal-sign.png"
-alt="Principal Signature"
+    src="../../Principal-sign.png"
+    alt="Principal Signature"
 >
 
 <div class="signature-line">
@@ -521,8 +557,8 @@ Principal
 </button>
 
 <button
-class="back-btn"
-onclick="goBack()"
+    class="back-btn"
+    onclick="goBack()"
 >
 Back
 </button>
@@ -535,154 +571,167 @@ Back
 <script>
 
 
-/* =========================
-   CLASS 8 STUDENTS
-   ========================= */
+/* =====================================
+   CLASS 8 STUDENT DATA
+   ===================================== */
 
 const students = {
 
 
 "1":{
-name:"Areeb Ishfaq Sheikh",
-father:"Ishfaq Ahmad Sheikh",
-mother:"Rifat Ara",
-dob:"ADD DATE OF BIRTH",
-address:"ADD PERMANENT ADDRESS"
+    name:"Areeb Ishfaq Sheikh",
+    father:"Ishfaq Ahmad Sheikh",
+    mother:"Rifat Ara",
+    dob:"ADD DATE OF BIRTH",
+    address:"ADD PERMANENT ADDRESS"
 },
 
 
 "2":{
-name:"Uzaz Hassan",
-father:"Alataf Ahmad Ratheer",
-mother:"Safina Bano",
-dob:"ADD DATE OF BIRTH",
-address:"ADD PERMANENT ADDRESS"
+    name:"Uzaz Hassan",
+    father:"Alataf Ahmad Ratheer",
+    mother:"Safina Bano",
+    dob:"ADD DATE OF BIRTH",
+    address:"ADD PERMANENT ADDRESS"
 },
 
 
 "3":{
-name:"Irtezah Mushtaq",
-father:"Mushtaq Ahmad Bhat",
-mother:"Ulfat Reheem",
-dob:"ADD DATE OF BIRTH",
-address:"ADD PERMANENT ADDRESS"
+    name:"Irtezah Mushtaq",
+    father:"Mushtaq Ahmad Bhat",
+    mother:"Ulfat Reheem",
+    dob:"ADD DATE OF BIRTH",
+    address:"ADD PERMANENT ADDRESS"
 },
 
 
 "4":{
-name:"Zeeshan Bhat",
-father:"Javed Ahmad Bhat",
-mother:"Nasreena Akhter",
-dob:"ADD DATE OF BIRTH",
-address:"ADD PERMANENT ADDRESS"
+    name:"Zeeshan Bhat",
+    father:"Javed Ahmad Bhat",
+    mother:"Nasreena Akhter",
+    dob:"ADD DATE OF BIRTH",
+    address:"ADD PERMANENT ADDRESS"
 }
 
 };
 
 
-/* =========================
-   SEARCH STUDENT
-   ========================= */
+/* =====================================
+   FIND STUDENT
+   ===================================== */
 
 function findStudent(){
 
-let input =
-document.getElementById("search")
-.value
-.trim()
-.toLowerCase();
+    let input =
+        document.getElementById("search")
+        .value
+        .trim()
+        .toLowerCase();
 
-if(input===""){
-alert("Please enter Roll Number or Candidate Name");
-return;
+
+    if(input === ""){
+
+        alert("Please enter Roll Number or Student Name.");
+
+        return;
+
+    }
+
+
+    let found = null;
+
+    let rollNo = "";
+
+
+    for(let roll in students){
+
+        let student = students[roll];
+
+
+        if(
+            roll === input ||
+            student.name.toLowerCase().includes(input)
+        ){
+
+            found = student;
+
+            rollNo = roll;
+
+            break;
+
+        }
+
+    }
+
+
+    if(!found){
+
+        alert("Admit Card Not Found.");
+
+        return;
+
+    }
+
+
+    /* SHOW ADMIT CARD */
+
+    document.getElementById("admitCard")
+        .style.display = "block";
+
+
+    /* STUDENT DETAILS */
+
+    document.getElementById("roll")
+        .innerHTML = rollNo;
+
+    document.getElementById("name")
+        .innerHTML = found.name;
+
+    document.getElementById("father")
+        .innerHTML = found.father;
+
+    document.getElementById("mother")
+        .innerHTML = found.mother;
+
+    document.getElementById("dob")
+        .innerHTML = found.dob;
+
+    document.getElementById("address")
+        .innerHTML = found.address;
+
+
+    /* STUDENT PHOTO */
+
+    let photo =
+        document.getElementById("studentPhoto");
+
+
+    photo.src = rollNo + ".jpg";
+
+
+    photo.onerror = function(){
+
+        this.removeAttribute("src");
+
+        this.alt = "Photo Not Uploaded";
+
+    };
+
 }
 
-let found=null;
-let rollNo="";
 
-
-for(let roll in students){
-
-let student=students[roll];
-
-if(
-roll===input ||
-student.name.toLowerCase().includes(input)
-){
-
-found=student;
-rollNo=roll;
-break;
-
-}
-
-}
-
-
-if(!found){
-
-alert("Admit Card Not Found");
-return;
-
-}
-
-
-/* SHOW ADMIT CARD */
-
-document.getElementById("admitCard")
-.style.display="block";
-
-
-/* DETAILS */
-
-document.getElementById("roll")
-.innerHTML=rollNo;
-
-document.getElementById("name")
-.innerHTML=found.name;
-
-document.getElementById("father")
-.innerHTML=found.father;
-
-document.getElementById("mother")
-.innerHTML=found.mother;
-
-document.getElementById("dob")
-.innerHTML=found.dob;
-
-document.getElementById("address")
-.innerHTML=found.address;
-
-
-/* PHOTO */
-
-let photo =
-document.getElementById("studentPhoto");
-
-photo.src="../../../photos/"+rollNo+".jpg";
-
-photo.onerror=function(){
-
-this.src="";
-
-this.alt="Photo Not Uploaded";
-
-};
-
-}
-
-
-/* =========================
-   BACK
-   ========================= */
+/* =====================================
+   BACK BUTTON
+   ===================================== */
 
 function goBack(){
 
-document.getElementById("admitCard")
-.style.display="none";
+    document.getElementById("admitCard")
+        .style.display = "none";
 
-document.getElementById("search")
-.value="";
+
+    document.getElementById("search")
+        .value = "";
 
 }
 
