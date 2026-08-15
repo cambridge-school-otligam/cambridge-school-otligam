@@ -19,6 +19,7 @@ body{
     background:#eaf0f7;
 }
 
+
 /* SEARCH */
 
 .search-box{
@@ -305,18 +306,26 @@ button:hover{
 }
 
 
-/* PRINT / PDF */
+/* =========================================
+   PRINT - 2 ADMIT CARDS ON ONE A4 PAGE
+   ========================================= */
 
 @media print{
 
     @page{
-        size:A4;
-        margin:10mm;
+        size:A4 portrait;
+        margin:5mm;
     }
 
+    html,
     body{
-        background:white;
+        width:210mm;
+        height:297mm;
+        margin:0;
         padding:0;
+        background:white;
+        -webkit-print-color-adjust:exact !important;
+        print-color-adjust:exact !important;
     }
 
     .search-box,
@@ -324,15 +333,147 @@ button:hover{
         display:none !important;
     }
 
-    .admit-card{
-        display:block !important;
-        max-width:none;
-        margin:0;
-        border:4px solid #002060;
-        border-radius:0;
-        min-height:277mm;
+    /* Original card hidden during printing.
+       The JavaScript creates two print copies. */
+
+    body > .admit-card{
+        display:none !important;
     }
 
+    #printArea{
+        display:block !important;
+        width:200mm;
+        margin:0 auto;
+    }
+
+    #printArea .admit-card{
+        display:block !important;
+        width:200mm;
+        height:140mm;
+        max-width:none;
+        margin:0 0 5mm 0;
+        padding:8px;
+        background:white;
+        border:3px solid #002060;
+        border-radius:5px;
+        overflow:hidden;
+        page-break-inside:avoid;
+        break-inside:avoid;
+    }
+
+    #printArea .header{
+        min-height:62mm;
+        padding-bottom:5px;
+    }
+
+    #printArea .logo{
+        width:60px;
+        height:60px;
+    }
+
+    #printArea .school-name{
+        font-size:19px;
+        padding-left:70px;
+        padding-right:70px;
+    }
+
+    #printArea .school-address{
+        font-size:11px;
+        margin-top:3px;
+    }
+
+    #printArea .udise{
+        font-size:11px;
+        margin-top:3px;
+    }
+
+    #printArea .exam-title{
+        font-size:14px;
+        padding:5px 14px;
+        margin-top:5px;
+    }
+
+    #printArea .exam-year{
+        font-size:11px;
+        margin-top:4px;
+    }
+
+    #printArea .student-area{
+        gap:10px;
+        margin-top:7px;
+    }
+
+    #printArea .info-table td{
+        padding:5px;
+        font-size:10px;
+    }
+
+    #printArea .photo-section{
+        width:110px;
+    }
+
+    #printArea .photo-box{
+        width:85px;
+        height:105px;
+        border:2px solid #002060;
+    }
+
+    #printArea .photo-text{
+        font-size:9px;
+        margin-top:3px;
+    }
+
+    #printArea .note{
+        margin-top:7px;
+        padding:6px;
+        font-size:8px;
+    }
+
+    #printArea .note h3{
+        font-size:10px;
+        margin:0 0 3px;
+    }
+
+    #printArea .note ol{
+        margin-top:3px;
+        margin-bottom:3px;
+        padding-left:18px;
+    }
+
+    #printArea .note li{
+        margin-bottom:2px;
+    }
+
+    #printArea .signatures{
+        margin-top:10px;
+    }
+
+    #printArea .signature{
+        font-size:8px;
+    }
+
+    #printArea .signature img{
+        max-width:75px;
+        max-height:40px;
+    }
+
+    #printArea .seal{
+        width:50px !important;
+        height:50px !important;
+    }
+
+    #printArea .signature-line{
+        margin-top:2px;
+        padding-top:2px;
+    }
+
+}
+
+
+/* PRINT AREA IS HIDDEN ON SCREEN */
+
+#printArea{
+    display:none;
 }
 
 </style>
@@ -365,7 +506,7 @@ Search Admit Card
 </div>
 
 
-<!-- ADMIT CARD -->
+<!-- ORIGINAL ADMIT CARD -->
 
 <div class="admit-card" id="admitCard">
 
@@ -406,7 +547,6 @@ ANNUAL EXAMINATION
 <!-- STUDENT INFORMATION -->
 
 <div class="student-area">
-
 
 <div class="details">
 
@@ -497,10 +637,9 @@ Student Photo
 </div>
 
 
-<!-- SIGNATURES AND SEAL -->
+<!-- SIGNATURES -->
 
 <div class="signatures">
-
 
 <div class="signature">
 
@@ -544,7 +683,6 @@ Principal
 
 </div>
 
-
 </div>
 
 
@@ -552,8 +690,8 @@ Principal
 
 <div class="actions">
 
-<button onclick="window.print()">
-🖨 Print / Save PDF
+<button onclick="printTwoCopies()">
+🖨 Print 2 Admit Cards
 </button>
 
 <button
@@ -568,6 +706,11 @@ Back
 </div>
 
 
+<!-- PRINT AREA -->
+
+<div id="printArea"></div>
+
+
 <script>
 
 
@@ -577,7 +720,6 @@ Back
 
 const students = {
 
-
 "1":{
     name:"Areeb Ishfaq Sheikh",
     father:"Ishfaq Ahmad Sheikh",
@@ -585,7 +727,6 @@ const students = {
     dob:"ADD DATE OF BIRTH",
     address:"ADD PERMANENT ADDRESS"
 },
-
 
 "2":{
     name:"Uzaz Hassan",
@@ -595,7 +736,6 @@ const students = {
     address:"ADD PERMANENT ADDRESS"
 },
 
-
 "3":{
     name:"Irtezah Mushtaq",
     father:"Mushtaq Ahmad Bhat",
@@ -603,7 +743,6 @@ const students = {
     dob:"ADD DATE OF BIRTH",
     address:"ADD PERMANENT ADDRESS"
 },
-
 
 "4":{
     name:"Zeeshan Bhat",
@@ -639,7 +778,6 @@ function findStudent(){
 
 
     let found = null;
-
     let rollNo = "";
 
 
@@ -654,7 +792,6 @@ function findStudent(){
         ){
 
             found = student;
-
             rollNo = roll;
 
             break;
@@ -679,7 +816,7 @@ function findStudent(){
         .style.display = "block";
 
 
-    /* STUDENT DETAILS */
+    /* DETAILS */
 
     document.getElementById("roll")
         .innerHTML = rollNo;
@@ -700,7 +837,7 @@ function findStudent(){
         .innerHTML = found.address;
 
 
-    /* STUDENT PHOTO */
+    /* PHOTO */
 
     let photo =
         document.getElementById("studentPhoto");
@@ -721,14 +858,92 @@ function findStudent(){
 
 
 /* =====================================
-   BACK BUTTON
+   PRINT TWO COPIES
+   ===================================== */
+
+function printTwoCopies(){
+
+    let original =
+        document.getElementById("admitCard");
+
+
+    if(original.style.display !== "block"){
+
+        alert("Please search for a student first.");
+
+        return;
+
+    }
+
+
+    let printArea =
+        document.getElementById("printArea");
+
+
+    /* Remove previous copies */
+
+    printArea.innerHTML = "";
+
+
+    /* Create first copy */
+
+    let copy1 =
+        original.cloneNode(true);
+
+
+    /* Create second copy */
+
+    let copy2 =
+        original.cloneNode(true);
+
+
+    /* Remove buttons from copies */
+
+    copy1.querySelector(".actions").remove();
+    copy2.querySelector(".actions").remove();
+
+
+    /* Add copies */
+
+    printArea.appendChild(copy1);
+    printArea.appendChild(copy2);
+
+
+    /* Make print area visible */
+
+    printArea.style.display = "block";
+
+
+    /* Print */
+
+    window.print();
+
+}
+
+
+/* =====================================
+   AFTER PRINT
+   ===================================== */
+
+window.addEventListener("afterprint", function(){
+
+    document.getElementById("printArea")
+        .innerHTML = "";
+
+    document.getElementById("printArea")
+        .style.display = "none";
+
+});
+
+
+/* =====================================
+   BACK
    ===================================== */
 
 function goBack(){
 
     document.getElementById("admitCard")
         .style.display = "none";
-
 
     document.getElementById("search")
         .value = "";
