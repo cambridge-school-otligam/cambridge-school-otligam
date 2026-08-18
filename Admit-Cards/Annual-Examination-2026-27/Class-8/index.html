@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class 8 Admit Cards - Cambridge School</title>
+<title>Class 8 Admit Card - Cambridge School</title>
 
 <style>
 
@@ -26,7 +26,7 @@ body{
 
 
 /* ===============================
-   SEARCH
+   SEARCH BOX
 ================================ */
 
 .search-box{
@@ -84,19 +84,21 @@ button:hover{
 .admit-card{
     display:none;
 
-    width:200mm;
+    width:195mm;
     max-width:100%;
 
-    margin:20px auto;
+    margin:25px auto;
 
-    background:linear-gradient(
-        135deg,
-        #ffffff,
-        #eef6ff,
-        #e0efff
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #eef6ff,
+            #dceeff
+        );
 
     border:4px solid #002060;
+
     border-radius:12px;
 
     padding:15px;
@@ -111,6 +113,7 @@ button:hover{
 
 .header{
     text-align:center;
+
     position:relative;
 
     padding-bottom:10px;
@@ -134,6 +137,7 @@ button:hover{
 
 .school-name{
     font-size:25px;
+
     font-weight:bold;
 
     color:#002060;
@@ -144,13 +148,17 @@ button:hover{
 
 .school-address{
     margin-top:5px;
+
     font-size:13px;
+
     font-weight:bold;
 }
 
 .udise{
     margin-top:4px;
+
     font-size:12px;
+
     font-weight:bold;
 }
 
@@ -162,17 +170,21 @@ button:hover{
     padding:7px 20px;
 
     background:#002060;
+
     color:white;
 
     border-radius:6px;
 
     font-size:17px;
+
     font-weight:bold;
 }
 
 .exam-year{
     margin-top:5px;
+
     font-weight:bold;
+
     font-size:12px;
 }
 
@@ -195,6 +207,7 @@ button:hover{
 
 .info-table{
     width:100%;
+
     border-collapse:collapse;
 }
 
@@ -205,7 +218,7 @@ button:hover{
 
     font-size:12px;
 
-    background:rgba(255,255,255,.8);
+    background:rgba(255,255,255,.85);
 }
 
 .label{
@@ -231,6 +244,7 @@ button:hover{
 
 .photo-box{
     width:85px;
+
     height:105px;
 
     margin:auto;
@@ -240,6 +254,7 @@ button:hover{
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     background:#f4f8ff;
@@ -249,6 +264,7 @@ button:hover{
 
 .photo-box img{
     width:100%;
+
     height:100%;
 
     object-fit:cover;
@@ -328,6 +344,7 @@ button:hover{
 
 .signature img{
     max-width:75px;
+
     max-height:40px;
 
     object-fit:contain;
@@ -335,6 +352,7 @@ button:hover{
 
 .seal{
     width:50px !important;
+
     height:50px !important;
 }
 
@@ -379,11 +397,13 @@ button:hover{
 
     .school-name{
         padding:0;
+
         font-size:20px;
     }
 
     .logo{
         position:static;
+
         display:block;
 
         margin:0 auto 6px;
@@ -410,31 +430,37 @@ button:hover{
 
 /* =================================================
    PRINT
-   A4 = 210mm × 297mm
-   3 EQUAL ADMIT CARDS
+   ONE ADMIT CARD ONLY ON A4
 ================================================= */
 
 @media print{
 
     @page{
         size:A4 portrait;
-        margin:4mm;
+
+        margin:5mm;
     }
 
     html,
     body{
 
         width:210mm;
+
         height:297mm;
 
         margin:0;
+
         padding:0;
 
         background:white;
 
         -webkit-print-color-adjust:exact !important;
+
         print-color-adjust:exact !important;
     }
+
+
+    /* Hide search and buttons */
 
     .search-box,
     .actions{
@@ -443,48 +469,54 @@ button:hover{
     }
 
 
+    /* Hide original card */
+
     body > .admit-card{
 
         display:none !important;
     }
 
 
+    /* Print area */
+
     #printArea{
 
         display:block !important;
 
-        width:202mm;
+        width:200mm;
 
         margin:0 auto;
+
+        padding:0;
     }
 
 
     /* =====================================
-       EACH CARD
-       202mm × 94mm
+       ONE CARD ONLY
+       SIZE = 195mm × 92mm
     ====================================== */
 
     #printArea .admit-card{
 
         display:block !important;
 
-        width:202mm;
+        width:195mm;
 
-        height:94mm;
+        height:92mm;
 
         max-width:none;
 
-        margin:0 auto 2mm auto;
+        margin:0 auto;
 
         padding:5px;
 
         background:
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #eef6ff,
-            #dceeff
-        ) !important;
+            linear-gradient(
+                135deg,
+                #ffffff,
+                #eef6ff,
+                #dceeff
+            ) !important;
 
         border:2px solid #002060;
 
@@ -515,6 +547,7 @@ button:hover{
     #printArea .logo{
 
         width:42px;
+
         height:42px;
     }
 
@@ -524,6 +557,7 @@ button:hover{
         font-size:15px;
 
         padding-left:50px;
+
         padding-right:50px;
     }
 
@@ -686,7 +720,7 @@ button:hover{
 
 
 <!-- =================================================
-     SEARCH
+     SEARCH AREA
 ================================================= -->
 
 <div class="search-box">
@@ -724,7 +758,7 @@ Search Admit Card
 >
 
 
-<!-- HEADER -->
+<!-- SCHOOL HEADER -->
 
 <div class="header">
 
@@ -757,7 +791,9 @@ ANNUAL EXAMINATION
 </div>
 
 
-<!-- STUDENT INFORMATION -->
+<!-- =================================================
+     STUDENT INFORMATION
+================================================= -->
 
 <div class="student-area">
 
@@ -767,66 +803,79 @@ ANNUAL EXAMINATION
 <table class="info-table">
 
 <tr>
+
 <td class="label">
 Roll Number
 </td>
 
 <td id="roll">
 </td>
+
 </tr>
 
 
 <tr>
+
 <td class="label">
 Candidate Name
 </td>
 
 <td id="name">
 </td>
+
 </tr>
 
 
 <tr>
+
 <td class="label">
 Father's Name
 </td>
 
 <td id="father">
 </td>
+
 </tr>
 
 
 <tr>
+
 <td class="label">
 Mother's Name
 </td>
 
 <td id="mother">
 </td>
+
 </tr>
 
 
 <tr>
+
 <td class="label">
 Date of Birth
 </td>
 
 <td id="dob">
 </td>
+
 </tr>
 
 
 <tr>
+
 <td class="label">
 Permanent Address
 </td>
 
 <td id="address">
 </td>
+
 </tr>
 
 
 <tr>
+
 <td class="label">
 Class
 </td>
@@ -834,6 +883,7 @@ Class
 <td>
 8th
 </td>
+
 </tr>
 
 </table>
@@ -841,7 +891,9 @@ Class
 </div>
 
 
-<!-- PHOTO -->
+<!-- =================================================
+     PHOTO
+================================================= -->
 
 <div class="photo-section">
 
@@ -863,7 +915,9 @@ Student Photo
 </div>
 
 
-<!-- NOTE -->
+<!-- =================================================
+     IMPORTANT NOTE
+================================================= -->
 
 <div class="note">
 
@@ -898,7 +952,9 @@ Keep this Admit Card safe until completion of the examination.
 </div>
 
 
-<!-- SIGNATURES -->
+<!-- =================================================
+     SIGNATURES
+================================================= -->
 
 <div class="signatures">
 
@@ -949,12 +1005,14 @@ Principal
 </div>
 
 
-<!-- ACTIONS -->
+<!-- =================================================
+     BUTTONS
+================================================= -->
 
 <div class="actions">
 
-<button onclick="printThreeStudents()">
-🖨 Print 3 Students
+<button onclick="printOneStudent()">
+🖨 Print Admit Card
 </button>
 
 <button
@@ -1081,7 +1139,7 @@ function findStudent(){
     }
 
 
-    /* SHOW */
+    /* SHOW ADMIT CARD */
 
     document.getElementById("admitCard")
         .style.display = "block";
@@ -1136,111 +1194,16 @@ function findStudent(){
 
 
 /* =================================================
-   CREATE CARD FOR STUDENT
+   PRINT ONE STUDENT ONLY
 ================================================= */
 
-function createStudentCard(rollNo){
+function printOneStudent(){
 
     let original =
         document.getElementById("admitCard");
 
 
-    let card =
-        original.cloneNode(true);
-
-
-    /* Remove ID duplicates */
-
-    card.removeAttribute("id");
-
-
-    /* Remove buttons */
-
-    let actions =
-        card.querySelector(".actions");
-
-
-    if(actions){
-
-        actions.remove();
-
-    }
-
-
-    let student =
-        students[rollNo];
-
-
-    if(!student){
-
-        return null;
-
-    }
-
-
-    /* DETAILS */
-
-    card.querySelector("#roll").innerHTML =
-        rollNo;
-
-
-    card.querySelector("#name").innerHTML =
-        student.name;
-
-
-    card.querySelector("#father").innerHTML =
-        student.father;
-
-
-    card.querySelector("#mother").innerHTML =
-        student.mother;
-
-
-    card.querySelector("#dob").innerHTML =
-        student.dob;
-
-
-    card.querySelector("#address").innerHTML =
-        student.address;
-
-
-    /* PHOTO */
-
-    let photo =
-        card.querySelector("#studentPhoto");
-
-
-    photo.removeAttribute("id");
-
-
-    photo.src =
-        rollNo + ".jpg";
-
-
-    photo.onerror = function(){
-
-        this.removeAttribute("src");
-
-        this.alt =
-            "Photo Not Uploaded";
-
-    };
-
-
-    return card;
-
-}
-
-
-/* =================================================
-   PRINT 3 DIFFERENT STUDENTS
-================================================= */
-
-function printThreeStudents(){
-
-    let original =
-        document.getElementById("admitCard");
-
+    /* CHECK SEARCH */
 
     if(
         original.style.display !== "block"
@@ -1255,99 +1218,51 @@ function printThreeStudents(){
     }
 
 
-    let selectedRoll =
-        document.getElementById("roll")
-        .innerText
-        .trim();
-
-
-    let rollNumber =
-        parseInt(selectedRoll);
-
-
-    if(
-        isNaN(rollNumber)
-    ){
-
-        alert(
-            "Invalid Roll Number."
-        );
-
-        return;
-
-    }
-
-
     let printArea =
         document.getElementById("printArea");
 
 
-    /* CLEAR OLD PRINT AREA */
+    /* CLEAR OLD PRINT */
 
     printArea.innerHTML = "";
 
 
-    /*
-       If Roll No. 1 is selected:
-       1,2,3 will print.
+    /* CREATE ONE COPY ONLY */
 
-       If Roll No. 4 is selected:
-       4,5,6 will print.
-
-       If Roll No. 7 is selected:
-       7,8,9 will print.
-    */
-
-    let startRoll =
-        Math.floor(
-            (rollNumber - 1) / 3
-        ) * 3 + 1;
+    let card =
+        original.cloneNode(true);
 
 
-    let endRoll =
-        startRoll + 2;
+    /* REMOVE BUTTONS */
+
+    let actions =
+        card.querySelector(".actions");
 
 
-    /* CREATE 3 CARDS */
+    if(actions){
 
-    for(
-        let roll = startRoll;
-        roll <= endRoll;
-        roll++
-    ){
-
-        if(
-            students[String(roll)]
-        ){
-
-            let card =
-                createStudentCard(
-                    String(roll)
-                );
-
-
-            if(card){
-
-                printArea.appendChild(
-                    card
-                );
-
-            }
-
-        }
+        actions.remove();
 
     }
 
 
-    /*
-       If only 1 or 2 students remain,
-       blank cards are NOT created.
-    */
+    /* REMOVE ID FROM COPY */
 
+    card.removeAttribute("id");
+
+
+    /* ADD ONLY ONE CARD */
+
+    printArea.appendChild(card);
+
+
+    /* SHOW PRINT AREA */
 
     printArea.style.display =
         "block";
 
+
+    /* PRINT */
 
     window.print();
 
@@ -1376,7 +1291,7 @@ window.addEventListener(
 
 
 /* =================================================
-   BACK
+   BACK BUTTON
 ================================================= */
 
 function goBack(){
