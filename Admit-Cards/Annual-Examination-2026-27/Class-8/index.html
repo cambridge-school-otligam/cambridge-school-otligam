@@ -310,11 +310,18 @@ button:hover{
     max-height:40px;
 
     object-fit:contain;
+
+    /* White background blending */
+    mix-blend-mode:multiply;
 }
 
 .seal{
     width:50px !important;
     height:50px !important;
+
+    object-fit:contain;
+
+    mix-blend-mode:multiply;
 }
 
 .signature-line{
@@ -381,8 +388,8 @@ button:hover{
 
 /* =====================================================
    PRINT
-   A4 PAGE
-   2 EQUAL HALF-PAGE ADMIT CARDS
+   ONE CARD ONLY
+   HALF OF A4 PAGE
 ===================================================== */
 
 @media print{
@@ -424,26 +431,26 @@ button:hover{
         display:block !important;
 
         width:202mm;
+        height:142mm;
 
         margin:0 auto;
     }
 
 
     /* ===============================
-       ONE HALF-A4 ADMIT CARD
-       =============================== */
+       ONE HALF-A4 CARD
+    ================================ */
 
     #printArea .admit-card{
 
         display:block !important;
 
         width:202mm;
-
         height:142mm;
 
         max-width:none;
 
-        margin:0 auto 3mm auto;
+        margin:0 auto;
 
         padding:6px;
 
@@ -464,7 +471,6 @@ button:hover{
         overflow:hidden;
 
         page-break-inside:avoid;
-
         break-inside:avoid;
     }
 
@@ -558,7 +564,6 @@ button:hover{
     #printArea .photo-box{
 
         width:68px;
-
         height:85px;
 
         border:2px solid #002060;
@@ -624,16 +629,22 @@ button:hover{
     #printArea .signature img{
 
         max-width:55px;
-
         max-height:30px;
+
+        object-fit:contain;
+
+        mix-blend-mode:multiply;
     }
 
 
     #printArea .seal{
 
         width:38px !important;
-
         height:38px !important;
+
+        object-fit:contain;
+
+        mix-blend-mode:multiply;
     }
 
 
@@ -654,7 +665,9 @@ button:hover{
 <body>
 
 
-<!-- ================= SEARCH ================= -->
+<!-- =================================================
+     SEARCH AREA
+================================================= -->
 
 <div class="search-box">
 
@@ -681,7 +694,9 @@ Search Admit Card
 </div>
 
 
-<!-- ================= ORIGINAL CARD ================= -->
+<!-- =================================================
+     ORIGINAL ADMIT CARD
+================================================= -->
 
 <div
     class="admit-card"
@@ -689,7 +704,7 @@ Search Admit Card
 >
 
 
-<!-- HEADER -->
+<!-- SCHOOL HEADER -->
 
 <div class="header">
 
@@ -708,11 +723,11 @@ OTLIGAM BEERWAH
 </div>
 
 <div class="udise">
-UDISE CODE: 06030412201
+UDISE CODE: 01040303905
 </div>
 
 <div class="exam-title">
-ANNUAL EXAMINATION
+SUMMATIVE ASSESSMENT (SA)
 </div>
 
 <div class="exam-year">
@@ -722,7 +737,9 @@ ANNUAL EXAMINATION
 </div>
 
 
-<!-- STUDENT INFORMATION -->
+<!-- =================================================
+     STUDENT INFORMATION
+================================================= -->
 
 <div class="student-area">
 
@@ -731,38 +748,73 @@ ANNUAL EXAMINATION
 <table class="info-table">
 
 <tr>
-<td class="label">Roll Number</td>
-<td id="roll"></td>
+<td class="label">
+Roll Number
+</td>
+
+<td id="roll">
+</td>
 </tr>
 
-<tr>
-<td class="label">Candidate Name</td>
-<td id="name"></td>
-</tr>
 
 <tr>
-<td class="label">Father's Name</td>
-<td id="father"></td>
+<td class="label">
+Candidate Name
+</td>
+
+<td id="name">
+</td>
 </tr>
 
-<tr>
-<td class="label">Mother's Name</td>
-<td id="mother"></td>
-</tr>
 
 <tr>
-<td class="label">Date of Birth</td>
-<td id="dob"></td>
+<td class="label">
+Father's Name
+</td>
+
+<td id="father">
+</td>
 </tr>
 
-<tr>
-<td class="label">Permanent Address</td>
-<td id="address"></td>
-</tr>
 
 <tr>
-<td class="label">Class</td>
-<td>8th</td>
+<td class="label">
+Mother's Name
+</td>
+
+<td id="mother">
+</td>
+</tr>
+
+
+<tr>
+<td class="label">
+Date of Birth
+</td>
+
+<td id="dob">
+</td>
+</tr>
+
+
+<tr>
+<td class="label">
+Permanent Address
+</td>
+
+<td id="address">
+</td>
+</tr>
+
+
+<tr>
+<td class="label">
+Class
+</td>
+
+<td>
+8th
+</td>
 </tr>
 
 </table>
@@ -770,7 +822,7 @@ ANNUAL EXAMINATION
 </div>
 
 
-<!-- PHOTO -->
+<!-- STUDENT PHOTO -->
 
 <div class="photo-section">
 
@@ -792,7 +844,9 @@ Student Photo
 </div>
 
 
-<!-- NOTE -->
+<!-- =================================================
+     IMPORTANT NOTE
+================================================= -->
 
 <div class="note">
 
@@ -827,9 +881,12 @@ Keep this Admit Card safe until completion of the examination.
 </div>
 
 
-<!-- SIGNATURES -->
+<!-- =================================================
+     SIGNATURES
+================================================= -->
 
 <div class="signatures">
+
 
 <div class="signature">
 
@@ -873,15 +930,18 @@ Principal
 
 </div>
 
+
 </div>
 
 
-<!-- BUTTONS -->
+<!-- =================================================
+     BUTTONS
+================================================= -->
 
 <div class="actions">
 
-<button onclick="printTwoStudents()">
-🖨 Print 2 Students
+<button onclick="printOneStudent()">
+🖨 Print Admit Card
 </button>
 
 <button
@@ -897,7 +957,9 @@ Back
 </div>
 
 
-<!-- ================= PRINT AREA ================= -->
+<!-- =================================================
+     PRINT AREA
+================================================= -->
 
 <div id="printArea"></div>
 
@@ -947,7 +1009,7 @@ const students = {
 
 
 /* =================================================
-   FIND STUDENT
+   FIND STUDENT BY ROLL NUMBER OR NAME
 ================================================= */
 
 function findStudent(){
@@ -970,7 +1032,6 @@ function findStudent(){
 
 
     let found = null;
-
     let rollNo = "";
 
 
@@ -982,8 +1043,8 @@ function findStudent(){
         if(
             roll === input ||
             student.name
-            .toLowerCase()
-            .includes(input)
+                .toLowerCase()
+                .includes(input)
         ){
 
             found = student;
@@ -1006,27 +1067,14 @@ function findStudent(){
     }
 
 
-    showStudent(
-        rollNo,
-        found
-    );
-
-}
-
-
-/* =================================================
-   SHOW STUDENT
-================================================= */
-
-function showStudent(
-    rollNo,
-    student
-){
+    /* SHOW ADMIT CARD */
 
     document.getElementById(
         "admitCard"
     ).style.display = "block";
 
+
+    /* STUDENT DETAILS */
 
     document.getElementById(
         "roll"
@@ -1035,28 +1083,30 @@ function showStudent(
 
     document.getElementById(
         "name"
-    ).innerHTML = student.name;
+    ).innerHTML = found.name;
 
 
     document.getElementById(
         "father"
-    ).innerHTML = student.father;
+    ).innerHTML = found.father;
 
 
     document.getElementById(
         "mother"
-    ).innerHTML = student.mother;
+    ).innerHTML = found.mother;
 
 
     document.getElementById(
         "dob"
-    ).innerHTML = student.dob;
+    ).innerHTML = found.dob;
 
 
     document.getElementById(
         "address"
-    ).innerHTML = student.address;
+    ).innerHTML = found.address;
 
+
+    /* STUDENT PHOTO */
 
     let photo =
         document.getElementById(
@@ -1068,36 +1118,26 @@ function showStudent(
         rollNo + ".jpg";
 
 
-    photo.onerror = function(){
+    photo.onerror =
+        function(){
 
-        this.removeAttribute("src");
+            this.removeAttribute(
+                "src"
+            );
 
-        this.alt =
-            "Photo Not Uploaded";
+            this.alt =
+                "Photo Not Uploaded";
 
-    };
+        };
 
 }
 
 
 /* =================================================
-   CREATE PRINT CARD
+   PRINT ONE STUDENT ONLY
 ================================================= */
 
-function createPrintCard(
-    rollNo
-){
-
-    let student =
-        students[String(rollNo)];
-
-
-    if(!student){
-
-        return null;
-
-    }
-
+function printOneStudent(){
 
     let original =
         document.getElementById(
@@ -1105,8 +1145,35 @@ function createPrintCard(
         );
 
 
+    if(
+        original.style.display !== "block"
+    ){
+
+        alert(
+            "Please search for a student first."
+        );
+
+        return;
+    }
+
+
+    let printArea =
+        document.getElementById(
+            "printArea"
+        );
+
+
+    /* REMOVE OLD PRINT CARD */
+
+    printArea.innerHTML = "";
+
+
+    /* CREATE ONE COPY */
+
     let card =
-        original.cloneNode(true);
+        original.cloneNode(
+            true
+        );
 
 
     card.removeAttribute(
@@ -1129,207 +1196,11 @@ function createPrintCard(
     }
 
 
-    /* REMOVE DUPLICATE IDS */
+    /* ADD ONLY ONE CARD */
 
-    let roll =
-        card.querySelector(
-            "#roll"
-        );
-
-    let name =
-        card.querySelector(
-            "#name"
-        );
-
-    let father =
-        card.querySelector(
-            "#father"
-        );
-
-    let mother =
-        card.querySelector(
-            "#mother"
-        );
-
-    let dob =
-        card.querySelector(
-            "#dob"
-        );
-
-    let address =
-        card.querySelector(
-            "#address"
-        );
-
-    let photo =
-        card.querySelector(
-            "#studentPhoto"
-        );
-
-
-    /* STUDENT DATA */
-
-    roll.innerHTML =
-        rollNo;
-
-    name.innerHTML =
-        student.name;
-
-    father.innerHTML =
-        student.father;
-
-    mother.innerHTML =
-        student.mother;
-
-    dob.innerHTML =
-        student.dob;
-
-    address.innerHTML =
-        student.address;
-
-
-    /* PHOTO */
-
-    photo.removeAttribute(
-        "id"
+    printArea.appendChild(
+        card
     );
-
-
-    photo.src =
-        rollNo + ".jpg";
-
-
-    photo.onerror =
-        function(){
-
-            this.removeAttribute(
-                "src"
-            );
-
-            this.alt =
-                "Photo Not Uploaded";
-
-        };
-
-
-    return card;
-
-}
-
-
-/* =================================================
-   PRINT TWO DIFFERENT STUDENTS
-================================================= */
-
-function printTwoStudents(){
-
-    let selectedRoll =
-        document.getElementById(
-            "roll"
-        ).innerText.trim();
-
-
-    if(selectedRoll === ""){
-
-        alert(
-            "Please search for a student first."
-        );
-
-        return;
-
-    }
-
-
-    let rollNo =
-        parseInt(selectedRoll);
-
-
-    if(isNaN(rollNo)){
-
-        alert(
-            "Invalid Roll Number."
-        );
-
-        return;
-
-    }
-
-
-    let printArea =
-        document.getElementById(
-            "printArea"
-        );
-
-
-    /* CLEAR OLD PRINT */
-
-    printArea.innerHTML = "";
-
-
-    /*
-       ROLL 1 → 1 + 2
-       ROLL 2 → 1 + 2
-
-       ROLL 3 → 3 + 4
-       ROLL 4 → 3 + 4
-
-       ROLL 5 → 5 + 6
-       ROLL 6 → 5 + 6
-    */
-
-    let firstRoll;
-
-
-    if(rollNo % 2 === 1){
-
-        firstRoll =
-            rollNo;
-
-    }
-    else{
-
-        firstRoll =
-            rollNo - 1;
-
-    }
-
-
-    let secondRoll =
-        firstRoll + 1;
-
-
-    /* FIRST STUDENT */
-
-    let card1 =
-        createPrintCard(
-            firstRoll
-        );
-
-
-    if(card1){
-
-        printArea.appendChild(
-            card1
-        );
-
-    }
-
-
-    /* SECOND STUDENT */
-
-    let card2 =
-        createPrintCard(
-            secondRoll
-        );
-
-
-    if(card2){
-
-        printArea.appendChild(
-            card2
-        );
-
-    }
 
 
     /* SHOW PRINT AREA */
@@ -1360,14 +1231,15 @@ window.addEventListener(
 
         document.getElementById(
             "printArea"
-        ).style.display = "none";
+        ).style.display =
+            "none";
 
     }
 );
 
 
 /* =================================================
-   BACK
+   BACK BUTTON
 ================================================= */
 
 function goBack(){
