@@ -1568,159 +1568,50 @@ function printOneStudent(){
    CREATE CARD FOR ALL PRINT
 ================================================= */
 
-function createPrintCard(
-    rollNo
-){
+function createPrintCard(rollNo){
 
-
-    let student =
-        students[
-            String(rollNo)
-        ];
-
+    let student = students[String(rollNo)];
 
     if(!student){
-
         return null;
+    }
+
+    let original = document.getElementById("admitCard");
+
+    let card = original.cloneNode(true);
+
+    card.removeAttribute("id");
+
+
+    card.querySelector("#roll").innerHTML = rollNo;
+
+    card.querySelector("#name").innerHTML = student.name;
+
+    card.querySelector("#father").innerHTML = student.father;
+
+    card.querySelector("#mother").innerHTML = student.mother;
+
+    card.querySelector("#dob").innerHTML = student.dob;
+
+    card.querySelector("#address").innerHTML = student.address;
+
+
+    let img = card.querySelector("#studentPhoto");
+
+    if(img){
+
+        img.removeAttribute("id");
+
+        img.src = rollNo + ".jpg";
 
     }
 
 
+    let action = card.querySelector(".actions");
 
-    let original =
-
-        document
-        .getElementById(
-            "admitCard"
-        );
-
-
-    let card =
-
-        original.cloneNode(
-            true
-        );
-
-
-    card.removeAttribute(
-        "id"
-    );
-
-
-
-    /* REMOVE BUTTONS */
-
-    let actions =
-
-        card.querySelector(
-            ".actions"
-        );
-
-
-    if(actions){
-
-        actions.remove();
-
+    if(action){
+        action.remove();
     }
-
-
-
-    /* FIELDS */
-
-    let roll =
-        card.querySelector(
-            "#roll"
-        );
-
-    let name =
-        card.querySelector(
-            "#name"
-        );
-
-    let father =
-        card.querySelector(
-            "#father"
-        );
-
-    let mother =
-        card.querySelector(
-            "#mother"
-        );
-
-    let dob =
-        card.querySelector(
-            "#dob"
-        );
-
-    let address =
-        card.querySelector(
-            "#address"
-        );
-
-    let photo =
-        card.querySelector(
-            "#studentPhoto"
-        );
-
-
-
-    /* ADD DATA */
-
-    roll.innerHTML =
-        rollNo;
-
-
-    name.innerHTML =
-        student.name;
-
-
-    father.innerHTML =
-        student.father;
-
-
-    mother.innerHTML =
-        student.mother;
-
-
-    dob.innerHTML =
-        student.dob;
-
-
-    address.innerHTML =
-        student.address;
-
-
-
-    /* PHOTO */
-
-    if(photo){
-
-
-        photo.removeAttribute(
-            "id"
-        );
-
-
-        photo.src =
-            rollNo + ".jpg";
-
-
-        photo.onerror =
-            function(){
-
-
-                this.removeAttribute(
-                    "src"
-                );
-
-
-                this.alt =
-                    "Photo Not Uploaded";
-
-            };
-
-    }
-
 
 
     return card;
