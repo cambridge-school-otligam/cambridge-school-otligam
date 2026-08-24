@@ -1222,3 +1222,147 @@ return card;
 
 
 }
+/* ADMIN PRINT ALL */
+
+
+function adminPrintAll(){
+
+
+let password = prompt(
+"🔐 Enter Admin Password"
+);
+
+
+
+if(password === null){
+
+return;
+
+}
+
+
+
+if(password !== "01040303905"){
+
+
+alert("❌ Incorrect Password!");
+
+return;
+
+
+}
+
+
+
+printAllAdmitCards();
+
+
+}
+
+
+
+
+/* PRINT ALL STUDENTS */
+
+
+function printAllAdmitCards(){
+
+
+let area=document.getElementById("printArea");
+
+
+area.innerHTML="";
+
+
+
+let rolls=Object.keys(students)
+.sort(function(a,b){
+
+return Number(a)-Number(b);
+
+});
+
+
+
+rolls.forEach(function(roll){
+
+
+let card=createPrintCard(roll);
+
+
+area.appendChild(card);
+
+
+});
+
+
+
+if(area.children.length===0){
+
+
+alert("No student data available.");
+
+return;
+
+
+}
+
+
+
+area.style.display="block";
+
+
+window.print();
+
+
+}
+
+
+
+
+
+/* BACK BUTTON */
+
+
+function goBack(){
+
+
+document.getElementById("admitCard")
+.style.display="none";
+
+
+document.getElementById("search")
+.value="";
+
+
+}
+
+
+
+/* AFTER PRINT */
+
+
+window.addEventListener(
+"afterprint",
+function(){
+
+
+document.getElementById("printArea")
+.innerHTML="";
+
+
+document.getElementById("printArea")
+.style.display="none";
+
+
+}
+);
+
+
+
+</script>
+
+
+</body>
+
+</html>
