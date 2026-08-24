@@ -945,3 +945,280 @@ Back
 
 
 <div id="printArea"></div>
+<script>
+
+
+const students = {
+
+
+"1":{
+
+name:"Areeb Ishfaq Sheikh",
+father:"Ishfaq Ahmad Sheikh",
+mother:"Rifat Ara",
+dob:"20/08/2014",
+address:"OTLIGAM BEERWAH"
+
+},
+
+
+"2":{
+
+name:"Uzaz Hassan",
+father:"Alataf Ahmad Ratheer",
+mother:"Safina Bano",
+dob:"15/04/2014",
+address:"OTLIGAM BEERWAH"
+
+},
+
+
+"3":{
+
+name:"Irtezah Mushtaq",
+father:"Mushtaq Ahmad Bhat",
+mother:"Ulfat Reheem",
+dob:"12/06/2014",
+address:"OTLIGAM BEERWAH"
+
+},
+
+
+"4":{
+
+name:"Zeeshan Bhat",
+father:"Javed Ahmad Bhat",
+mother:"Nasreena Akhter",
+dob:"10/02/2014",
+address:"OTLIGAM BEERWAH"
+
+}
+
+
+};
+
+
+
+
+
+/* SEARCH FUNCTION */
+
+
+function findStudent(){
+
+
+let input =
+document.getElementById("search")
+.value
+.trim()
+.toLowerCase();
+
+
+
+let found=null;
+
+let rollNo="";
+
+
+
+for(let roll in students){
+
+
+let student=students[roll];
+
+
+if(
+
+roll.toLowerCase()==input ||
+
+student.name.toLowerCase().includes(input)
+
+){
+
+
+found=student;
+
+rollNo=roll;
+
+break;
+
+
+}
+
+
+}
+
+
+
+if(!found){
+
+alert("Admit Card Not Found.");
+
+return;
+
+}
+
+
+
+showCard(found,rollNo);
+
+
+}
+
+
+
+
+/* SHOW DATA */
+
+
+function showCard(student,rollNo){
+
+
+document.getElementById("admitCard")
+.style.display="block";
+
+
+document.getElementById("roll").innerHTML=rollNo;
+
+document.getElementById("name").innerHTML=student.name;
+
+document.getElementById("father").innerHTML=student.father;
+
+document.getElementById("mother").innerHTML=student.mother;
+
+document.getElementById("dob").innerHTML=student.dob;
+
+document.getElementById("address").innerHTML=student.address;
+
+
+
+let photo=document.getElementById("studentPhoto");
+
+
+photo.src=rollNo+".jpg";
+
+
+photo.onerror=function(){
+
+this.removeAttribute("src");
+
+this.alt="Photo Not Uploaded";
+
+};
+
+
+}
+
+
+
+
+/* ONE STUDENT PDF */
+
+
+function printOneStudent(){
+
+
+let card=document.getElementById("admitCard");
+
+
+if(card.style.display!="block"){
+
+alert("Please search student first.");
+
+return;
+
+}
+
+
+
+let area=document.getElementById("printArea");
+
+
+area.innerHTML="";
+
+
+let clone=card.cloneNode(true);
+
+
+clone.removeAttribute("id");
+
+
+let btn=clone.querySelector(".actions");
+
+
+if(btn){
+
+btn.remove();
+
+}
+
+
+
+area.appendChild(clone);
+
+
+area.style.display="block";
+
+
+window.print();
+
+
+}
+
+
+
+
+/* CREATE ALL CARDS */
+
+
+function createPrintCard(roll){
+
+
+let student=students[roll];
+
+
+let original=document.getElementById("admitCard");
+
+
+let card=original.cloneNode(true);
+
+
+card.removeAttribute("id");
+
+
+
+card.querySelector("#roll").innerHTML=roll;
+
+card.querySelector("#name").innerHTML=student.name;
+
+card.querySelector("#father").innerHTML=student.father;
+
+card.querySelector("#mother").innerHTML=student.mother;
+
+card.querySelector("#dob").innerHTML=student.dob;
+
+card.querySelector("#address").innerHTML=student.address;
+
+
+
+let img=card.querySelector("#studentPhoto");
+
+
+img.src=roll+".jpg";
+
+
+
+let action=card.querySelector(".actions");
+
+
+if(action){
+
+action.remove();
+
+}
+
+
+return card;
+
+
+}
