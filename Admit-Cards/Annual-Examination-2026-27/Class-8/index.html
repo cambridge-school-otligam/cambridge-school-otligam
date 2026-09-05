@@ -1448,4 +1448,165 @@ function createPrintCard(rollNo){
 
 /* =================================================
    ADMIN PASSWORD
-===============================================
+================================================= */
+
+function adminPrintAll(){
+
+    let password =
+        prompt(
+            "🔐 Enter Admin Password"
+        );
+
+    if(password === null){
+
+        return;
+    }
+
+    if(
+        password !==
+        "01040303905"
+    ){
+
+        alert(
+            "❌ Incorrect Password!"
+        );
+
+        return;
+    }
+
+    printAllAdmitCards();
+
+}
+
+
+/* =================================================
+   PRINT ALL CLASS ADMIT CARDS
+================================================= */
+
+function printAllAdmitCards(){
+
+    let printArea =
+        document
+        .getElementById(
+            "printArea"
+        );
+
+    printArea.innerHTML =
+        "";
+
+
+    /* SORT ROLL NUMBERS */
+
+    let rollNumbers =
+        Object.keys(
+            students
+        )
+        .sort(
+            function(a,b){
+
+                return Number(a)
+                     -
+                       Number(b);
+
+            }
+        );
+
+
+    /* CREATE CARDS */
+
+    rollNumbers.forEach(
+
+        function(rollNo){
+
+            let card =
+                createPrintCard(
+                    rollNo
+                );
+
+            if(card){
+
+                printArea.appendChild(
+                    card
+                );
+
+            }
+
+        }
+
+    );
+
+
+    if(
+        printArea.children.length === 0
+    ){
+
+        alert(
+            "No student data available."
+        );
+
+        return;
+    }
+
+
+    printArea.style.display =
+        "block";
+
+
+    window.print();
+
+}
+
+
+/* =================================================
+   AFTER PRINT
+================================================= */
+
+window.addEventListener(
+
+    "afterprint",
+
+    function(){
+
+        let printArea =
+            document
+            .getElementById(
+                "printArea"
+            );
+
+        printArea.innerHTML =
+            "";
+
+        printArea.style.display =
+            "none";
+
+    }
+
+);
+
+
+/* =================================================
+   BACK BUTTON
+================================================= */
+
+function goBack(){
+
+    document
+    .getElementById(
+        "admitCard"
+    )
+    .style.display =
+        "none";
+
+    document
+    .getElementById(
+        "search"
+    )
+    .value =
+        "";
+
+}
+
+</script>
+
+</body>
+</html>
