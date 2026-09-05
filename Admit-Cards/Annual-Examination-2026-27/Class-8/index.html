@@ -8,3 +8,1444 @@
 <title>Class 8 Admit Card - Cambridge School</title>
 
 <style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    padding:20px;
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#dbeafe,#eef6ff,#dbeafe);
+    color:#111;
+}
+
+/* ================= SEARCH BOX ================= */
+
+.search-box{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    text-align:center;
+    border-radius:14px;
+    box-shadow:0 5px 18px rgba(0,0,0,.15);
+}
+
+.search-box h1{
+    color:#002060;
+    margin:5px 0;
+    font-size:25px;
+    font-weight:900;
+}
+
+.search-box p{
+    color:#555;
+    font-weight:bold;
+}
+
+input{
+    width:320px;
+    max-width:90%;
+    padding:12px;
+    border:2px solid #aaa;
+    border-radius:7px;
+    font-size:15px;
+}
+
+button{
+    padding:12px 20px;
+    margin:6px;
+    border:0;
+    border-radius:7px;
+    background:#002060;
+    color:white;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#003b99;
+}
+
+.all-btn{
+    background:#008000;
+}
+
+.back-btn{
+    background:#c00000;
+}
+
+/* ================= ADMIT CARD ================= */
+
+.admit-card{
+    display:none;
+
+    width:200mm;
+    max-width:100%;
+
+    margin:20px auto;
+
+    background:linear-gradient(
+        135deg,
+        #ffffff,
+        #f1f7ff,
+        #dcecff
+    );
+
+    border:4px solid #002060;
+    border-radius:13px;
+
+    padding:15px;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.18);
+
+    position:relative;
+    overflow:hidden;
+}
+
+/* TOP DECORATION */
+
+.admit-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:7px;
+    background:#002060;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    text-align:center;
+    position:relative;
+
+    padding:8px 0 10px;
+
+    border-bottom:3px solid #002060;
+
+    min-height:105px;
+}
+
+.logo{
+    position:absolute;
+
+    left:5px;
+    top:4px;
+
+    width:75px;
+    height:75px;
+
+    object-fit:contain;
+}
+
+.school-name{
+    font-size:25px;
+    font-weight:900;
+
+    color:#002060;
+
+    padding-left:85px;
+    padding-right:85px;
+
+    line-height:1.15;
+}
+
+.school-address{
+    margin-top:5px;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    color:#222;
+}
+
+.udise{
+    margin-top:4px;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    color:#222;
+}
+
+.exam-title{
+    display:inline-block;
+
+    margin-top:8px;
+
+    padding:8px 22px;
+
+    background:#002060;
+    color:white;
+
+    border-radius:7px;
+
+    font-size:17px;
+
+    font-weight:900;
+
+    letter-spacing:.4px;
+}
+
+.exam-year{
+    margin-top:5px;
+
+    font-weight:900;
+
+    font-size:13px;
+
+    color:#002060;
+}
+
+/* ================= STUDENT AREA ================= */
+
+.student-area{
+    display:flex;
+
+    gap:14px;
+
+    margin-top:12px;
+}
+
+.details{
+    flex:1;
+}
+
+.info-table{
+    width:100%;
+
+    border-collapse:collapse;
+
+    border:2px solid #556;
+}
+
+.info-table td{
+    border:1px solid #667;
+
+    padding:7px;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    background:rgba(255,255,255,.92);
+
+    color:#111;
+
+    line-height:1.2;
+}
+
+.label{
+    width:32%;
+
+    background:#dbeafe !important;
+
+    color:#002060 !important;
+
+    font-weight:900 !important;
+}
+
+/* ================= PHOTO ================= */
+
+.photo-section{
+    width:115px;
+
+    text-align:center;
+
+    flex-shrink:0;
+}
+
+.photo-box{
+    width:88px;
+    height:108px;
+
+    margin:auto;
+
+    border:3px solid #002060;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#f4f8ff;
+
+    overflow:hidden;
+
+    border-radius:4px;
+}
+
+.photo-box img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.photo-text{
+    margin-top:5px;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    color:#002060;
+}
+
+/* ================= IMPORTANT NOTE ================= */
+
+.note{
+    margin-top:9px;
+
+    padding:8px;
+
+    background:#eaf3ff;
+
+    border:1px solid #789;
+
+    border-radius:7px;
+}
+
+.note h3{
+    margin:0 0 4px 0;
+
+    color:#002060;
+
+    font-size:13px;
+
+    font-weight:900;
+}
+
+.note ol{
+    margin:3px 0;
+
+    padding-left:20px;
+}
+
+.note li{
+    margin-bottom:3px;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    line-height:1.2;
+}
+
+/* ================= SIGNATURES ================= */
+
+.signatures{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    margin-top:13px;
+
+    text-align:center;
+}
+
+.signature{
+    width:30%;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    color:#222;
+}
+
+.signature img{
+    max-width:80px;
+
+    max-height:42px;
+
+    object-fit:contain;
+
+    mix-blend-mode:multiply;
+}
+
+.seal{
+    width:52px !important;
+    height:52px !important;
+
+    object-fit:contain;
+
+    mix-blend-mode:multiply;
+}
+
+.signature-line{
+    border-top:1px solid #333;
+
+    margin-top:4px;
+
+    padding-top:3px;
+}
+
+/* ================= ACTIONS ================= */
+
+.actions{
+    text-align:center;
+    margin-top:20px;
+}
+
+#printArea{
+    display:none;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:650px){
+
+    body{
+        padding:8px;
+    }
+
+    .school-name{
+        padding:0;
+        font-size:20px;
+    }
+
+    .logo{
+        position:static;
+
+        display:block;
+
+        margin:0 auto 6px;
+    }
+
+    .header{
+        min-height:auto;
+    }
+
+    .student-area{
+        flex-direction:column-reverse;
+    }
+
+    .photo-section{
+        margin:auto;
+    }
+
+    input{
+        width:90%;
+    }
+
+}
+
+/* =================================================
+   PRINT - TWO CARDS PER A4
+================================================= */
+
+@media print{
+
+    @page{
+        size:A4 portrait;
+        margin:4mm;
+    }
+
+    html,
+    body{
+
+        width:210mm;
+
+        min-height:297mm;
+
+        margin:0;
+        padding:0;
+
+        background:white;
+
+        -webkit-print-color-adjust:exact !important;
+        print-color-adjust:exact !important;
+    }
+
+    .search-box,
+    .actions{
+        display:none !important;
+    }
+
+    body > .admit-card{
+        display:none !important;
+    }
+
+    #printArea{
+
+        display:block !important;
+
+        width:202mm;
+
+        margin:0 auto;
+    }
+
+    /* ================= CARD ================= */
+
+    #printArea .admit-card{
+
+        display:block !important;
+
+        width:202mm;
+
+        height:142mm;
+
+        max-width:none;
+
+        margin:0 auto 3mm auto;
+
+        padding:7px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #ffffff,
+                #f1f7ff,
+                #dcecff
+            ) !important;
+
+        border:3px solid #002060;
+
+        border-radius:6px;
+
+        box-shadow:none;
+
+        overflow:hidden;
+
+        page-break-inside:avoid;
+
+        break-inside:avoid;
+
+        position:relative;
+    }
+
+    /* ================= TOP LINE ================= */
+
+    #printArea .admit-card::before{
+        height:4px;
+    }
+
+    /* ================= HEADER ================= */
+
+    #printArea .header{
+
+        min-height:38mm;
+
+        padding:5px 0 5px;
+
+        border-bottom:2px solid #002060;
+    }
+
+    #printArea .logo{
+
+        width:55px;
+        height:55px;
+
+        left:3px;
+        top:2px;
+    }
+
+    #printArea .school-name{
+
+        font-size:20px;
+
+        padding-left:62px;
+        padding-right:62px;
+
+        line-height:1.15;
+
+        font-weight:900 !important;
+    }
+
+    #printArea .school-address{
+
+        font-size:10px;
+
+        margin-top:3px;
+
+        font-weight:900 !important;
+    }
+
+    #printArea .udise{
+
+        font-size:9px;
+
+        margin-top:2px;
+
+        font-weight:900 !important;
+    }
+
+    #printArea .exam-title{
+
+        font-size:14px;
+
+        padding:5px 15px;
+
+        margin-top:4px;
+
+        font-weight:900 !important;
+
+        border-radius:5px;
+    }
+
+    #printArea .exam-year{
+
+        font-size:10px;
+
+        margin-top:3px;
+
+        font-weight:900 !important;
+    }
+
+    /* ================= STUDENT ================= */
+
+    #printArea .student-area{
+
+        gap:8px;
+
+        margin-top:5px;
+    }
+
+    #printArea .info-table{
+
+        border:2px solid #445;
+    }
+
+    #printArea .info-table td{
+
+        padding:5px 6px;
+
+        font-size:10.5px;
+
+        line-height:1.15;
+
+        font-weight:900 !important;
+
+        color:#111 !important;
+    }
+
+    #printArea .info-table .label{
+
+        width:32%;
+
+        font-size:10.5px;
+
+        font-weight:900 !important;
+
+        color:#002060 !important;
+
+        background:#dbeafe !important;
+    }
+
+    /* ================= PHOTO ================= */
+
+    #printArea .photo-section{
+        width:82px;
+    }
+
+    #printArea .photo-box{
+
+        width:70px;
+
+        height:87px;
+
+        border:3px solid #002060;
+
+        border-radius:4px;
+    }
+
+    #printArea .photo-text{
+
+        font-size:8px;
+
+        margin-top:2px;
+
+        font-weight:900 !important;
+    }
+
+    /* ================= NOTE ================= */
+
+    #printArea .note{
+
+        margin-top:5px;
+
+        padding:5px 7px;
+
+        border:1.5px solid #667;
+
+        background:#eef6ff !important;
+
+        border-radius:5px;
+    }
+
+    #printArea .note h3{
+
+        font-size:10.5px;
+
+        margin:0 0 2px;
+
+        font-weight:900 !important;
+
+        color:#002060 !important;
+    }
+
+    #printArea .note ol{
+
+        margin:2px 0;
+
+        padding-left:17px;
+    }
+
+    #printArea .note li{
+
+        margin-bottom:2px;
+
+        font-size:8.5px;
+
+        line-height:1.15;
+
+        font-weight:900 !important;
+
+        color:#111 !important;
+    }
+
+    /* ================= SIGNATURES ================= */
+
+    #printArea .signatures{
+
+        margin-top:5px;
+    }
+
+    #printArea .signature{
+
+        font-size:8.5px;
+
+        font-weight:900 !important;
+
+        color:#111 !important;
+    }
+
+    #printArea .signature img{
+
+        max-width:60px;
+
+        max-height:30px;
+
+        object-fit:contain;
+
+        mix-blend-mode:multiply;
+    }
+
+    #printArea .seal{
+
+        width:40px !important;
+
+        height:40px !important;
+
+        object-fit:contain;
+
+        mix-blend-mode:multiply;
+    }
+
+    #printArea .signature-line{
+
+        margin-top:2px;
+
+        padding-top:2px;
+    }
+
+    /* ================= EXTRA BOLD ================= */
+
+    #printArea .school-name,
+    #printArea .school-address,
+    #printArea .udise,
+    #printArea .exam-title,
+    #printArea .exam-year,
+    #printArea .info-table td,
+    #printArea .label,
+    #printArea .note h3,
+    #printArea .note li,
+    #printArea .signature,
+    #printArea .photo-text{
+
+        font-weight:900 !important;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =================================================
+     SEARCH AREA
+================================================= -->
+
+<div class="search-box">
+
+<h1>
+CAMBRIDGE SCHOOL OF MODERN EDUCATION
+</h1>
+
+<p>
+Class 8 — Admit Card
+</p>
+
+<input
+    type="text"
+    id="search"
+    placeholder="Enter Roll Number or Student Name"
+>
+
+<br>
+
+<button onclick="findStudent()">
+🔍 Search Admit Card
+</button>
+
+<br>
+
+<button
+    class="all-btn"
+    onclick="adminPrintAll()"
+>
+🔐 Download All Class Admit Cards
+</button>
+
+</div>
+
+
+<!-- =================================================
+     ORIGINAL ADMIT CARD
+================================================= -->
+
+<div
+    class="admit-card"
+    id="admitCard"
+>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<img
+    src="../../../logo.png"
+    class="logo"
+    alt="School Logo"
+>
+
+<div class="school-name">
+CAMBRIDGE SCHOOL OF MODERN EDUCATION
+</div>
+
+<div class="school-address">
+OTLIGAM BEERWAH
+</div>
+
+<div class="udise">
+UDISE CODE: 01040303905
+</div>
+
+<div class="exam-title">
+SUMMATIVE ASSESSMENT (SA)
+</div>
+
+<div class="exam-year">
+2026–27
+</div>
+
+</div>
+
+
+<!-- =================================================
+     STUDENT INFORMATION
+================================================= -->
+
+<div class="student-area">
+
+<div class="details">
+
+<table class="info-table">
+
+<tr>
+
+<td class="label">
+Roll Number
+</td>
+
+<td id="roll">
+</td>
+
+</tr>
+
+<tr>
+
+<td class="label">
+Candidate Name
+</td>
+
+<td id="name">
+</td>
+
+</tr>
+
+<tr>
+
+<td class="label">
+Father's Name
+</td>
+
+<td id="father">
+</td>
+
+</tr>
+
+<tr>
+
+<td class="label">
+Mother's Name
+</td>
+
+<td id="mother">
+</td>
+
+</tr>
+
+<tr>
+
+<td class="label">
+Date of Birth
+</td>
+
+<td id="dob">
+</td>
+
+</tr>
+
+<tr>
+
+<td class="label">
+Permanent Address
+</td>
+
+<td id="address">
+</td>
+
+</tr>
+
+<tr>
+
+<td class="label">
+Class
+</td>
+
+<td>
+8th
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+
+<!-- PHOTO -->
+
+<div class="photo-section">
+
+<div class="photo-box">
+
+<img
+    id="studentPhoto"
+    alt="Student Photo"
+>
+
+</div>
+
+<div class="photo-text">
+Student Photo
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =================================================
+     IMPORTANT NOTE
+================================================= -->
+
+<div class="note">
+
+<h3>
+Important Note
+</h3>
+
+<ol>
+
+<li>
+Candidate must bring this Admit Card to the examination centre.
+</li>
+
+<li>
+Candidate must reach the examination centre before the reporting time.
+</li>
+
+<li>
+Mobile phones and unauthorized material are not allowed.
+</li>
+
+<li>
+Candidate must follow all instructions given by the examination staff.
+</li>
+
+<li>
+Keep this Admit Card safe until completion of the examination.
+</li>
+
+</ol>
+
+</div>
+
+
+<!-- =================================================
+     SIGNATURES
+================================================= -->
+
+<div class="signatures">
+
+<div class="signature">
+
+<img
+    src="../../../controller-sign.png"
+    alt="Controller Signature"
+>
+
+<div class="signature-line">
+Controller of Examination
+</div>
+
+</div>
+
+
+<div class="signature">
+
+<img
+    src="../../../school-seal.png"
+    class="seal"
+    alt="School Seal"
+>
+
+<div>
+School Seal
+</div>
+
+</div>
+
+
+<div class="signature">
+
+<img
+    src="../../../principal-sign.png"
+    alt="Principal Signature"
+>
+
+<div class="signature-line">
+Principal
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =================================================
+     ACTION BUTTON
+================================================= -->
+
+<div class="actions">
+
+<button onclick="printOneStudent()">
+🖨 Print / Save PDF
+</button>
+
+<button
+    class="back-btn"
+    onclick="goBack()"
+>
+Back
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =================================================
+     PRINT AREA
+================================================= -->
+
+<div id="printArea"></div>
+
+
+<script>
+
+/* =================================================
+   STUDENT DATA
+================================================= */
+
+const students = {
+
+"26CS8001":{
+    name:"Muzamil Bashir",
+    father:"Bashir Ahmad Sheikh",
+    mother:"Tabasum",
+    dob:"ADD DATE OF BIRTH",
+    address:"ADD PERMANENT ADDRESS"
+},
+
+"26CS8002":{
+    name:"Arsalan Manzoor",
+    father:"Manzoor Ahmad Wani",
+    mother:"Amina Bano",
+    dob:"ADD DATE OF BIRTH",
+    address:"ADD PERMANENT ADDRESS"
+},
+
+"26CS8003":{
+    name:"Saqib Rashid Bhat",
+    father:"Ab Rashid Bhat",
+    mother:"Shanaza Akther",
+    dob:"ADD DATE OF BIRTH",
+    address:"ADD PERMANENT ADDRESS"
+},
+
+"26CS8004":{
+    name:"Zahid Ahmad Wani",
+    father:"Reyaz Ahmad Wani",
+    mother:"Shanaza Bano",
+    dob:"ADD DATE OF BIRTH",
+    address:"ADD PERMANENT ADDRESS"
+},
+
+"26CS8005":{
+    name:"Ikhlas Ali Bhat",
+    father:"Gh Hassan Bhat",
+    mother:"Shaheena Bano",
+    dob:"ADD DATE OF BIRTH",
+    address:"ADD PERMANENT ADDRESS"
+},
+
+"26CS8006":{
+    name:"Fiza Farooz",
+    father:"Farooz Ahmad Sheikh",
+    mother:"Haseena",
+    dob:"ADD DATE OF BIRTH",
+    address:"ADD PERMANENT ADDRESS"
+},
+
+"26CS8007":{
+    name:"Mizma Majeed",
+    father:"Ab Majeed Sheikh",
+    mother:"Fatima Bano",
+    dob:"ADD DATE OF BIRTH",
+    address:"ADD PERMANENT ADDRESS"
+},
+
+"26CS8008":{
+    name:"Syed Saleem",
+    father:"Syed Shabir",
+    mother:"Haja Bano",
+    dob:"ADD DATE OF BIRTH",
+    address:"ADD PERMANENT ADDRESS"
+}
+
+};
+
+
+/* =================================================
+   SEARCH STUDENT
+================================================= */
+
+function findStudent(){
+
+    let input =
+        document
+        .getElementById("search")
+        .value
+        .trim()
+        .toLowerCase();
+
+    if(input === ""){
+
+        alert(
+            "Please enter Roll Number or Student Name."
+        );
+
+        return;
+    }
+
+    let found = null;
+
+    let rollNo = "";
+
+    for(let roll in students){
+
+        let student =
+            students[roll];
+
+        if(
+
+            roll.toLowerCase() === input ||
+
+            student.name
+            .toLowerCase()
+            .includes(input)
+
+        ){
+
+            found = student;
+
+            rollNo = roll;
+
+            break;
+        }
+    }
+
+    if(!found){
+
+        alert(
+            "Admit Card Not Found."
+        );
+
+        return;
+    }
+
+
+    /* SHOW CARD */
+
+    document
+    .getElementById("admitCard")
+    .style.display =
+        "block";
+
+
+    /* DATA */
+
+    document
+    .getElementById("roll")
+    .innerHTML =
+        rollNo;
+
+    document
+    .getElementById("name")
+    .innerHTML =
+        found.name;
+
+    document
+    .getElementById("father")
+    .innerHTML =
+        found.father;
+
+    document
+    .getElementById("mother")
+    .innerHTML =
+        found.mother;
+
+    document
+    .getElementById("dob")
+    .innerHTML =
+        found.dob;
+
+    document
+    .getElementById("address")
+    .innerHTML =
+        found.address;
+
+
+    /* PHOTO */
+
+    let photo =
+        document
+        .getElementById("studentPhoto");
+
+    photo.src =
+        rollNo + ".jpg";
+
+    photo.onerror =
+        function(){
+
+            this.removeAttribute(
+                "src"
+            );
+
+            this.alt =
+                "Photo Not Uploaded";
+        };
+
+}
+
+
+/* =================================================
+   PRINT ONE STUDENT
+================================================= */
+
+function printOneStudent(){
+
+    let original =
+        document
+        .getElementById("admitCard");
+
+    if(
+        original.style.display !==
+        "block"
+    ){
+
+        alert(
+            "Please search for a student first."
+        );
+
+        return;
+    }
+
+    let printArea =
+        document
+        .getElementById("printArea");
+
+    printArea.innerHTML =
+        "";
+
+
+    /* CLONE ONE CARD */
+
+    let card =
+        original.cloneNode(true);
+
+    card.removeAttribute(
+        "id"
+    );
+
+
+    /* REMOVE BUTTONS */
+
+    let actions =
+        card.querySelector(
+            ".actions"
+        );
+
+    if(actions){
+
+        actions.remove();
+
+    }
+
+
+    printArea.appendChild(
+        card
+    );
+
+
+    printArea.style.display =
+        "block";
+
+
+    window.print();
+
+}
+
+
+/* =================================================
+   CREATE CARD FOR ALL
+================================================= */
+
+function createPrintCard(rollNo){
+
+    let student =
+        students[String(rollNo)];
+
+    if(!student){
+
+        return null;
+    }
+
+    let original =
+        document
+        .getElementById("admitCard");
+
+    let card =
+        original.cloneNode(true);
+
+    card.removeAttribute(
+        "id"
+    );
+
+
+    card.querySelector("#roll").innerHTML =
+        rollNo;
+
+    card.querySelector("#name").innerHTML =
+        student.name;
+
+    card.querySelector("#father").innerHTML =
+        student.father;
+
+    card.querySelector("#mother").innerHTML =
+        student.mother;
+
+    card.querySelector("#dob").innerHTML =
+        student.dob;
+
+    card.querySelector("#address").innerHTML =
+        student.address;
+
+
+    /* PHOTO */
+
+    let img =
+        card.querySelector(
+            "#studentPhoto"
+        );
+
+    if(img){
+
+        img.removeAttribute(
+            "id"
+        );
+
+        img.src =
+            rollNo + ".jpg";
+
+    }
+
+
+    /* REMOVE ACTIONS */
+
+    let action =
+        card.querySelector(
+            ".actions"
+        );
+
+    if(action){
+
+        action.remove();
+
+    }
+
+
+    return card;
+
+}
+
+
+/* =================================================
+   ADMIN PASSWORD
+===============================================
