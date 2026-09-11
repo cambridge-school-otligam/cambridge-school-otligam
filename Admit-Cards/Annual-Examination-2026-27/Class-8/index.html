@@ -9,209 +9,119 @@
 
 <style>
 
-/* =================================================
-   BASIC
-================================================= */
-
 *{
     box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
 }
 
 body{
     margin:0;
     padding:20px;
-
     font-family:Arial, Helvetica, sans-serif;
-
-    background:
-        linear-gradient(
-            135deg,
-            #dbeafe,
-            #eef6ff,
-            #dbeafe
-        );
-
+    background:linear-gradient(135deg,#dbeafe,#eef6ff,#dbeafe);
     color:#111;
 }
 
-/* =================================================
-   SEARCH BOX
-================================================= */
+/* ================= SEARCH BOX ================= */
 
 .search-box{
-
     max-width:900px;
-
     margin:auto;
-
     background:white;
-
     padding:25px;
-
     text-align:center;
-
     border-radius:14px;
-
-    box-shadow:
-        0 5px 18px rgba(0,0,0,.15);
+    box-shadow:0 5px 18px rgba(0,0,0,.15);
 }
 
 .search-box h1{
-
     color:#002060;
-
     margin:5px 0;
-
     font-size:25px;
-
     font-weight:900;
 }
 
 .search-box p{
-
     color:#555;
-
     font-weight:bold;
 }
 
 input{
-
     width:320px;
-
     max-width:90%;
-
     padding:12px;
-
     border:2px solid #aaa;
-
     border-radius:7px;
-
     font-size:15px;
-
-    outline:none;
-}
-
-input:focus{
-
-    border-color:#002060;
-
-    box-shadow:
-        0 0 5px rgba(0,32,96,.25);
 }
 
 button{
-
     padding:12px 20px;
-
     margin:6px;
-
     border:0;
-
     border-radius:7px;
-
     background:#002060;
-
     color:white;
-
     cursor:pointer;
-
     font-size:15px;
-
     font-weight:bold;
 }
 
 button:hover{
-
     background:#003b99;
 }
 
 .all-btn{
-
     background:#008000;
 }
 
-.all-btn:hover{
-
-    background:#006600;
-}
-
 .back-btn{
-
     background:#c00000;
 }
 
-.back-btn:hover{
-
-    background:#900000;
-}
-
-/* =================================================
-   ADMIT CARD
-================================================= */
+/* ================= ADMIT CARD ================= */
 
 .admit-card{
-
     display:none;
 
     width:200mm;
-
     max-width:100%;
 
     margin:20px auto;
 
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #f1f7ff,
-            #dcecff
-        );
+    background:linear-gradient(
+        135deg,
+        #ffffff,
+        #f1f7ff,
+        #dcecff
+    );
 
     border:4px solid #002060;
-
     border-radius:13px;
 
     padding:15px;
 
-    box-shadow:
-        0 6px 20px rgba(0,0,0,.18);
+    box-shadow:0 6px 20px rgba(0,0,0,.18);
 
     position:relative;
-
     overflow:hidden;
 }
 
-/* =================================================
-   TOP DECORATION
-================================================= */
+/* TOP DECORATION */
 
 .admit-card::before{
-
     content:"";
-
     position:absolute;
-
     top:0;
     left:0;
     right:0;
-
     height:7px;
-
     background:#002060;
 }
 
-/* =================================================
-   HEADER
-================================================= */
+/* ================= HEADER ================= */
 
 .header{
-
     text-align:center;
-
     position:relative;
 
     padding:8px 0 10px;
@@ -222,39 +132,30 @@ button:hover{
 }
 
 .logo{
-
     position:absolute;
 
     left:5px;
-
     top:4px;
 
     width:75px;
-
     height:75px;
 
     object-fit:contain;
-
-    display:block;
 }
 
 .school-name{
-
     font-size:25px;
-
     font-weight:900;
 
     color:#002060;
 
     padding-left:85px;
-
     padding-right:85px;
 
     line-height:1.15;
 }
 
 .school-address{
-
     margin-top:5px;
 
     font-size:13px;
@@ -265,7 +166,6 @@ button:hover{
 }
 
 .udise{
-
     margin-top:4px;
 
     font-size:12px;
@@ -276,7 +176,6 @@ button:hover{
 }
 
 .exam-title{
-
     display:inline-block;
 
     margin-top:8px;
@@ -284,7 +183,6 @@ button:hover{
     padding:8px 22px;
 
     background:#002060;
-
     color:white;
 
     border-radius:7px;
@@ -297,7 +195,6 @@ button:hover{
 }
 
 .exam-year{
-
     margin-top:5px;
 
     font-weight:900;
@@ -307,12 +204,9 @@ button:hover{
     color:#002060;
 }
 
-/* =================================================
-   STUDENT AREA
-================================================= */
+/* ================= STUDENT AREA ================= */
 
 .student-area{
-
     display:flex;
 
     gap:14px;
@@ -321,14 +215,10 @@ button:hover{
 }
 
 .details{
-
     flex:1;
-
-    min-width:0;
 }
 
 .info-table{
-
     width:100%;
 
     border-collapse:collapse;
@@ -337,7 +227,6 @@ button:hover{
 }
 
 .info-table td{
-
     border:1px solid #667;
 
     padding:7px;
@@ -351,12 +240,9 @@ button:hover{
     color:#111;
 
     line-height:1.2;
-
-    word-break:normal;
 }
 
 .label{
-
     width:32%;
 
     background:#dbeafe !important;
@@ -366,12 +252,9 @@ button:hover{
     font-weight:900 !important;
 }
 
-/* =================================================
-   HD PHOTO SECTION
-================================================= */
+/* ================= PHOTO ================= */
 
 .photo-section{
-
     width:115px;
 
     text-align:center;
@@ -380,9 +263,7 @@ button:hover{
 }
 
 .photo-box{
-
     width:88px;
-
     height:108px;
 
     margin:auto;
@@ -392,43 +273,23 @@ button:hover{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
-    background:#fff;
+    background:#f4f8ff;
 
     overflow:hidden;
 
     border-radius:4px;
 }
 
-/*
-   IMPORTANT:
-   contain = complete photo visible
-   No unwanted stretching/cropping
-*/
-
 .photo-box img{
-
     width:100%;
-
     height:100%;
 
-    object-fit:contain;
-
-    object-position:center center;
-
-    display:block;
-
-    image-rendering:auto;
-
-    -webkit-transform:translateZ(0);
-
-    transform:translateZ(0);
+    object-fit:cover;
 }
 
 .photo-text{
-
     margin-top:5px;
 
     font-size:10px;
@@ -438,12 +299,9 @@ button:hover{
     color:#002060;
 }
 
-/* =================================================
-   IMPORTANT NOTE
-================================================= */
+/* ================= IMPORTANT NOTE ================= */
 
 .note{
-
     margin-top:9px;
 
     padding:8px;
@@ -456,7 +314,6 @@ button:hover{
 }
 
 .note h3{
-
     margin:0 0 4px 0;
 
     color:#002060;
@@ -467,14 +324,12 @@ button:hover{
 }
 
 .note ol{
-
     margin:3px 0;
 
     padding-left:20px;
 }
 
 .note li{
-
     margin-bottom:3px;
 
     font-size:10px;
@@ -484,12 +339,9 @@ button:hover{
     line-height:1.2;
 }
 
-/* =================================================
-   SIGNATURES
-================================================= */
+/* ================= SIGNATURES ================= */
 
 .signatures{
-
     display:flex;
 
     justify-content:space-between;
@@ -502,7 +354,6 @@ button:hover{
 }
 
 .signature{
-
     width:30%;
 
     font-size:10px;
@@ -513,24 +364,17 @@ button:hover{
 }
 
 .signature img{
-
     max-width:80px;
 
     max-height:42px;
 
     object-fit:contain;
 
-    display:block;
-
-    margin:auto;
-
     mix-blend-mode:multiply;
 }
 
 .seal{
-
     width:52px !important;
-
     height:52px !important;
 
     object-fit:contain;
@@ -539,7 +383,6 @@ button:hover{
 }
 
 .signature-line{
-
     border-top:1px solid #333;
 
     margin-top:4px;
@@ -547,52 +390,31 @@ button:hover{
     padding-top:3px;
 }
 
-/* =================================================
-   ACTIONS
-================================================= */
+/* ================= ACTIONS ================= */
 
 .actions{
-
     text-align:center;
-
     margin-top:20px;
 }
 
 #printArea{
-
     display:none;
 }
 
-/* =================================================
-   MOBILE
-================================================= */
+/* ================= MOBILE ================= */
 
 @media(max-width:650px){
 
     body{
-
         padding:8px;
     }
 
-    .search-box{
-
-        padding:18px 10px;
-    }
-
-    .search-box h1{
-
-        font-size:20px;
-    }
-
     .school-name{
-
         padding:0;
-
         font-size:20px;
     }
 
     .logo{
-
         position:static;
 
         display:block;
@@ -601,38 +423,31 @@ button:hover{
     }
 
     .header{
-
         min-height:auto;
     }
 
     .student-area{
-
         flex-direction:column-reverse;
     }
 
     .photo-section{
-
         margin:auto;
     }
 
     input{
-
         width:90%;
     }
 
 }
 
 /* =================================================
-   PRINT
-   TWO CARDS PER A4
+   PRINT - TWO CARDS PER A4
 ================================================= */
 
 @media print{
 
     @page{
-
         size:A4 portrait;
-
         margin:4mm;
     }
 
@@ -644,24 +459,20 @@ button:hover{
         min-height:297mm;
 
         margin:0;
-
         padding:0;
 
         background:white;
 
         -webkit-print-color-adjust:exact !important;
-
         print-color-adjust:exact !important;
     }
 
     .search-box,
     .actions{
-
         display:none !important;
     }
 
     body > .admit-card{
-
         display:none !important;
     }
 
@@ -674,9 +485,7 @@ button:hover{
         margin:0 auto;
     }
 
-    /* =================================================
-       PRINT CARD
-    ================================================= */
+    /* ================= CARD ================= */
 
     #printArea .admit-card{
 
@@ -715,18 +524,13 @@ button:hover{
         position:relative;
     }
 
-    /* =================================================
-       TOP LINE
-    ================================================= */
+    /* ================= TOP LINE ================= */
 
     #printArea .admit-card::before{
-
         height:4px;
     }
 
-    /* =================================================
-       HEADER
-    ================================================= */
+    /* ================= HEADER ================= */
 
     #printArea .header{
 
@@ -740,11 +544,9 @@ button:hover{
     #printArea .logo{
 
         width:55px;
-
         height:55px;
 
         left:3px;
-
         top:2px;
     }
 
@@ -753,7 +555,6 @@ button:hover{
         font-size:20px;
 
         padding-left:62px;
-
         padding-right:62px;
 
         line-height:1.15;
@@ -801,9 +602,7 @@ button:hover{
         font-weight:900 !important;
     }
 
-    /* =================================================
-       STUDENT INFORMATION
-    ================================================= */
+    /* ================= STUDENT ================= */
 
     #printArea .student-area{
 
@@ -843,12 +642,9 @@ button:hover{
         background:#dbeafe !important;
     }
 
-    /* =================================================
-       HD PRINT PHOTO
-    ================================================= */
+    /* ================= PHOTO ================= */
 
     #printArea .photo-section{
-
         width:82px;
     }
 
@@ -861,35 +657,6 @@ button:hover{
         border:3px solid #002060;
 
         border-radius:4px;
-
-        display:flex;
-
-        align-items:center;
-
-        justify-content:center;
-
-        overflow:hidden;
-
-        background:#fff;
-    }
-
-    #printArea .photo-box img{
-
-        width:100%;
-
-        height:100%;
-
-        object-fit:contain;
-
-        object-position:center center;
-
-        display:block;
-
-        image-rendering:auto;
-
-        -webkit-transform:translateZ(0);
-
-        transform:translateZ(0);
     }
 
     #printArea .photo-text{
@@ -901,9 +668,7 @@ button:hover{
         font-weight:900 !important;
     }
 
-    /* =================================================
-       NOTE
-    ================================================= */
+    /* ================= NOTE ================= */
 
     #printArea .note{
 
@@ -949,9 +714,7 @@ button:hover{
         color:#111 !important;
     }
 
-    /* =================================================
-       SIGNATURES
-    ================================================= */
+    /* ================= SIGNATURES ================= */
 
     #printArea .signatures{
 
@@ -975,10 +738,6 @@ button:hover{
 
         object-fit:contain;
 
-        display:block;
-
-        margin:auto;
-
         mix-blend-mode:multiply;
     }
 
@@ -1000,9 +759,7 @@ button:hover{
         padding-top:2px;
     }
 
-    /* =================================================
-       EXTRA BOLD
-    ================================================= */
+    /* ================= EXTRA BOLD ================= */
 
     #printArea .school-name,
     #printArea .school-address,
@@ -1019,20 +776,6 @@ button:hover{
         font-weight:900 !important;
     }
 
-}
-
-/* =================================================
-   PRINT IMAGE QUALITY
-================================================= */
-
-@media print{
-
-    img{
-
-        -webkit-print-color-adjust:exact !important;
-
-        print-color-adjust:exact !important;
-    }
 }
 
 </style>
@@ -1060,7 +803,6 @@ Class 8 — Admit Card
     type="text"
     id="search"
     placeholder="Enter Roll Number or Student Name"
-    autocomplete="off"
 >
 
 <br>
@@ -1327,7 +1069,7 @@ Principal
 
 
 <!-- =================================================
-     ACTION BUTTONS
+     ACTION BUTTON
 ================================================= -->
 
 <div class="actions">
@@ -1425,22 +1167,21 @@ const students = {
     mother:"Haja Bano",
     dob:"",
     address:""
-}
+},
 
 };
 
 
 /* =================================================
-   FIND STUDENT
+   SEARCH STUDENT
 ================================================= */
 
 function findStudent(){
 
-    const inputElement =
-        document.getElementById("search");
-
-    const input =
-        inputElement.value
+    let input =
+        document
+        .getElementById("search")
+        .value
         .trim()
         .toLowerCase();
 
@@ -1450,8 +1191,6 @@ function findStudent(){
             "Please enter Roll Number or Student Name."
         );
 
-        inputElement.focus();
-
         return;
     }
 
@@ -1459,21 +1198,19 @@ function findStudent(){
 
     let rollNo = "";
 
-    /*
-       Search by:
-       1. Exact roll number
-       2. Exact name
-       3. Partial name
-    */
+    for(let roll in students){
 
-    for(const roll in students){
-
-        const student =
+        let student =
             students[roll];
 
         if(
+
             roll.toLowerCase() === input ||
-            student.name.toLowerCase() === input
+
+            student.name
+            .toLowerCase()
+            .includes(input)
+
         ){
 
             found = student;
@@ -1483,34 +1220,6 @@ function findStudent(){
             break;
         }
     }
-
-
-    /* Partial name search */
-
-    if(!found){
-
-        for(const roll in students){
-
-            const student =
-                students[roll];
-
-            if(
-                student.name
-                .toLowerCase()
-                .includes(input)
-            ){
-
-                found = student;
-
-                rollNo = roll;
-
-                break;
-            }
-        }
-    }
-
-
-    /* NOT FOUND */
 
     if(!found){
 
@@ -1522,103 +1231,68 @@ function findStudent(){
     }
 
 
-    /* =================================================
-       SHOW CARD
-    ================================================= */
+    /* SHOW CARD */
 
-    const card =
-        document.getElementById("admitCard");
-
-    card.style.display = "block";
+    document
+    .getElementById("admitCard")
+    .style.display =
+        "block";
 
 
-    /* =================================================
-       DATA
-    ================================================= */
+    /* DATA */
 
-    document.getElementById("roll").textContent =
+    document
+    .getElementById("roll")
+    .innerHTML =
         rollNo;
 
-    document.getElementById("name").textContent =
+    document
+    .getElementById("name")
+    .innerHTML =
         found.name;
 
-    document.getElementById("father").textContent =
+    document
+    .getElementById("father")
+    .innerHTML =
         found.father;
 
-    document.getElementById("mother").textContent =
+    document
+    .getElementById("mother")
+    .innerHTML =
         found.mother;
 
-    document.getElementById("dob").textContent =
-        found.dob || "ADD DATE OF BIRTH";
+    document
+    .getElementById("dob")
+    .innerHTML =
+        found.dob;
 
-    document.getElementById("address").textContent =
-        found.address || "ADD PERMANENT ADDRESS";
+    document
+    .getElementById("address")
+    .innerHTML =
+        found.address;
 
 
-    /* =================================================
-       PHOTO
-    ================================================= */
+    /* PHOTO */
 
-    const photo =
-        document.getElementById("studentPhoto");
-
-    /*
-       Photos must be:
-       26CS8001.jpg
-       26CS8002.jpg
-       etc.
-    */
-
-    photo.onerror = function(){
-
-        this.removeAttribute("src");
-
-        this.alt =
-            "Photo Not Uploaded";
-    };
-
-    photo.onload = function(){
-
-        this.alt =
-            "Student Photo";
-    };
+    let photo =
+        document
+        .getElementById("studentPhoto");
 
     photo.src =
         rollNo + ".jpg";
 
+    photo.onerror =
+        function(){
 
-    /* Scroll to card */
+            this.removeAttribute(
+                "src"
+            );
 
-    setTimeout(function(){
-
-        card.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
-
-    },100);
+            this.alt =
+                "Photo Not Uploaded";
+        };
 
 }
-
-
-/* =================================================
-   ENTER KEY SEARCH
-================================================= */
-
-document
-.getElementById("search")
-.addEventListener(
-    "keydown",
-    function(event){
-
-        if(event.key === "Enter"){
-
-            findStudent();
-
-        }
-
-    }
-);
 
 
 /* =================================================
@@ -1627,11 +1301,13 @@ document
 
 function printOneStudent(){
 
-    const original =
-        document.getElementById("admitCard");
+    let original =
+        document
+        .getElementById("admitCard");
 
     if(
-        original.style.display !== "block"
+        original.style.display !==
+        "block"
     ){
 
         alert(
@@ -1641,25 +1317,30 @@ function printOneStudent(){
         return;
     }
 
+    let printArea =
+        document
+        .getElementById("printArea");
 
-    const printArea =
-        document.getElementById("printArea");
-
-    printArea.innerHTML = "";
+    printArea.innerHTML =
+        "";
 
 
-    /* Clone one card */
+    /* CLONE ONE CARD */
 
-    const card =
+    let card =
         original.cloneNode(true);
 
-    card.removeAttribute("id");
+    card.removeAttribute(
+        "id"
+    );
 
 
-    /* Remove action buttons */
+    /* REMOVE BUTTONS */
 
-    const actions =
-        card.querySelector(".actions");
+    let actions =
+        card.querySelector(
+            ".actions"
+        );
 
     if(actions){
 
@@ -1668,7 +1349,9 @@ function printOneStudent(){
     }
 
 
-    printArea.appendChild(card);
+    printArea.appendChild(
+        card
+    );
 
 
     printArea.style.display =
@@ -1681,12 +1364,12 @@ function printOneStudent(){
 
 
 /* =================================================
-   CREATE PRINT CARD
+   CREATE CARD FOR ALL
 ================================================= */
 
 function createPrintCard(rollNo){
 
-    const student =
+    let student =
         students[String(rollNo)];
 
     if(!student){
@@ -1694,89 +1377,62 @@ function createPrintCard(rollNo){
         return null;
     }
 
+    let original =
+        document
+        .getElementById("admitCard");
 
-    const original =
-        document.getElementById("admitCard");
-
-
-    const card =
+    let card =
         original.cloneNode(true);
 
-
-    card.removeAttribute("id");
-
-
-    /* DATA */
-
-    const rollElement =
-        card.querySelector("#roll");
-
-    const nameElement =
-        card.querySelector("#name");
-
-    const fatherElement =
-        card.querySelector("#father");
-
-    const motherElement =
-        card.querySelector("#mother");
-
-    const dobElement =
-        card.querySelector("#dob");
-
-    const addressElement =
-        card.querySelector("#address");
+    card.removeAttribute(
+        "id"
+    );
 
 
-    if(rollElement)
-        rollElement.textContent =
-            rollNo;
+    card.querySelector("#roll").innerHTML =
+        rollNo;
 
-    if(nameElement)
-        nameElement.textContent =
-            student.name;
+    card.querySelector("#name").innerHTML =
+        student.name;
 
-    if(fatherElement)
-        fatherElement.textContent =
-            student.father;
+    card.querySelector("#father").innerHTML =
+        student.father;
 
-    if(motherElement)
-        motherElement.textContent =
-            student.mother;
+    card.querySelector("#mother").innerHTML =
+        student.mother;
 
-    if(dobElement)
-        dobElement.textContent =
-            student.dob || "ADD DATE OF BIRTH";
+    card.querySelector("#dob").innerHTML =
+        student.dob;
 
-    if(addressElement)
-        addressElement.textContent =
-            student.address || "ADD PERMANENT ADDRESS";
+    card.querySelector("#address").innerHTML =
+        student.address;
 
 
-    /* =================================================
-       PHOTO
-    ================================================= */
+    /* PHOTO */
 
-    const img =
-        card.querySelector("#studentPhoto");
+    let img =
+        card.querySelector(
+            "#studentPhoto"
+        );
 
     if(img){
 
-        img.removeAttribute("id");
-
-        img.removeAttribute("onerror");
+        img.removeAttribute(
+            "id"
+        );
 
         img.src =
             rollNo + ".jpg";
 
-        img.alt =
-            "Student Photo";
     }
 
 
     /* REMOVE ACTIONS */
 
-    const action =
-        card.querySelector(".actions");
+    let action =
+        card.querySelector(
+            ".actions"
+        );
 
     if(action){
 
@@ -1786,6 +1442,7 @@ function createPrintCard(rollNo){
 
 
     return card;
+
 }
 
 
@@ -1795,17 +1452,15 @@ function createPrintCard(rollNo){
 
 function adminPrintAll(){
 
-    const password =
+    let password =
         prompt(
             "🔐 Enter Admin Password"
         );
-
 
     if(password === null){
 
         return;
     }
-
 
     if(
         password !==
@@ -1819,53 +1474,51 @@ function adminPrintAll(){
         return;
     }
 
-
     printAllAdmitCards();
 
 }
 
 
 /* =================================================
-   PRINT ALL CLASS 8 CARDS
+   PRINT ALL CLASS ADMIT CARDS
 ================================================= */
 
 function printAllAdmitCards(){
 
-    const printArea =
-        document.getElementById(
+    let printArea =
+        document
+        .getElementById(
             "printArea"
         );
 
-    printArea.innerHTML = "";
+    printArea.innerHTML =
+        "";
 
 
-    /* =================================================
-       SORT ROLL NUMBERS
-    ================================================= */
+    /* SORT ROLL NUMBERS */
 
-    const rollNumbers =
-        Object.keys(students)
-        .sort(function(a,b){
+    let rollNumbers =
+        Object.keys(
+            students
+        )
+        .sort(
+            function(a,b){
 
-            return a.localeCompare(
-                b,
-                undefined,
-                {
-                    numeric:true
-                }
-            );
+                return Number(a)
+                     -
+                       Number(b);
 
-        });
+            }
+        );
 
 
-    /* =================================================
-       CREATE CARDS
-    ================================================= */
+    /* CREATE CARDS */
 
     rollNumbers.forEach(
+
         function(rollNo){
 
-            const card =
+            let card =
                 createPrintCard(
                     rollNo
                 );
@@ -1879,6 +1532,7 @@ function printAllAdmitCards(){
             }
 
         }
+
     );
 
 
@@ -1908,20 +1562,25 @@ function printAllAdmitCards(){
 ================================================= */
 
 window.addEventListener(
+
     "afterprint",
+
     function(){
 
-        const printArea =
-            document.getElementById(
+        let printArea =
+            document
+            .getElementById(
                 "printArea"
             );
 
-        printArea.innerHTML = "";
+        printArea.innerHTML =
+            "";
 
         printArea.style.display =
             "none";
 
     }
+
 );
 
 
@@ -1938,21 +1597,12 @@ function goBack(){
     .style.display =
         "none";
 
-
     document
     .getElementById(
         "search"
     )
     .value =
         "";
-
-
-    const photo =
-        document.getElementById(
-            "studentPhoto"
-        );
-
-    photo.removeAttribute("src");
 
 }
 
