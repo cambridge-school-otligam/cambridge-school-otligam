@@ -1174,8 +1174,8 @@ function adminPrintAll(){
 async function downloadAllClassPDF(){
 
     if(
-        typeof html2canvas==="undefined" ||
-        typeof window.jspdf==="undefined"
+        typeof html2canvas === "undefined" ||
+        typeof window.jspdf === "undefined"
     ){
 
         alert(
@@ -1185,86 +1185,66 @@ async function downloadAllClassPDF(){
         return;
     }
 
+    let button = document.querySelector(".all-btn");
 
-    let button =
-        document.querySelector(".all-btn");
+    let oldText = button.innerHTML;
 
+    button.disabled = true;
+    button.innerHTML = "⏳ Creating PDF... Please wait";
 
-    let oldText =
-        button.innerHTML;
+    let printArea = document.getElementById("printArea");
 
+    printArea.innerHTML = "";
 
-    button.disabled=true;
+    /* SORT ROLL NUMBERS */
 
-    button.innerHTML=
-        "⏳ Creating PDF... Please wait";
+    let rollNumbers = Object.keys(students).sort(
+        function(a,b){
 
+            return a.localeCompare(
+                b,
+                undefined,
+                {
+                    numeric:true,
+                    sensitivity:"base"
+                }
+            );
 
-    let printArea =
-        document.getElementById("printArea");
-
-
-    printArea.innerHTML="";
-
-
-    /*
-       SORT ROLL NUMBERS CORRECTLY
-       Example:
-       26CS8001
-       26CS8002
-       26CS8003
-    */
-
-    let rollNumbers =
-        Object.keys(students).sort(
-            function(a,b){
-
-                return a.localeCompare(
-                    b,
-                    undefined,
-                    {
-                        numeric:true,
-                        sensitivity:"base"
-                    }
-                );
-
-            }
-        );
-
+        }
+    );
 
     /* CREATE ALL CARDS */
 
     rollNumbers.forEach(function(rollNo){
 
-        let card =
-            createPrintCard(rollNo);
-
+        let card = createPrintCard(rollNo);
 
         if(card){
 
+            card.style.display = "block";
+            card.style.width = "190mm";
+            card.style.height = "135mm";
+            card.style.maxWidth = "none";
+            card.style.margin = "0";
+            card.style.padding = "7px";
+            card.style.boxShadow = "none";
+            card.style.borderRadius = "6px";
+            card.style.overflow = "hidden";
+
             /*
-               Remove display:none from cloned card
-               so html2canvas can render it.
+              IMPORTANT:
+              Keep all images visible for html2canvas
             */
 
-            card.style.display="block";
+            let images = card.querySelectorAll("img");
 
-            card.style.width="190mm";
+            images.forEach(function(img){
 
-            card.style.height="135mm";
+                img.style.display = "block";
+                img.style.visibility = "visible";
+                img.style.opacity = "1";
 
-            card.style.maxWidth="none";
-
-            card.style.margin="0";
-
-            card.style.padding="7px";
-
-            card.style.boxShadow="none";
-
-            card.style.borderRadius="6px";
-
-            card.style.overflow="hidden";
-
+            });
 
             printArea.appendChild(card);
 
@@ -1272,135 +1252,215 @@ async function downloadAllClassPDF(){
 
     });
 
-
-    if(printArea.children.length===0){
+    if(printArea.children.length === 0){
 
         alert("No student data available.");
 
-        button.disabled=false;
-
-        button.innerHTML=oldText;
+        button.disabled = false;
+        button.innerHTML = oldText;
 
         return;
-
     }
 
+    /* PDF WORKSPACE */
 
-    /*
-       Make PDF workspace visible to html2canvas
-       but keep it outside screen.
-    */
-
-    printArea.style.display="block";
-
-    printArea.style.position="absolute";
-
-    printArea.style.left="-10000px";
-
-    printArea.style.top="0";
-
-    printArea.style.width="190mm";
-
-    printArea.style.background="#ffffff";
-
+    printArea.style.display = "block";
+    printArea.style.position = "absolute";
+    printArea.style.left = "-10000px";
+    printArea.style.top = "0";
+    printArea.style.width = "190mm";
+    printArea.style.background = "#ffffff";
 
     try{
 
-        /* Wait for photos and school images */
+        /*
+          =========================================
+          WAIT FOR ALL IMAGES
+          =========================================
+        */
 
-        await waitForImages(printArea);
+        let images = Array.from(
+            printArea.querySelectorAll("img")
+        );
+
+        await Promise.all(
+
+            images.map(function(img){
+
+                return new Promise(function(resolve){
+
+                    /*
+                      Already loaded
+                    */
+
+                    if(img.complete && img.naturalWidth > 0){
+
+                        resolve();
+                        return;
+
+                    }
+
+                    /*
+                      Image loaded successfully
+                    */
+
+                    img.onload = function(){
+
+                        resolve();
+
+                    };
+
+                    /*
+                      Even if an image fails,
+                      continue PDF creation
+                    */
+
+                    img.onerror = function(){
+
+                        console.warn(
+                            "Image could not be loaded:",
+                            img.src
+                        );
+
+                        resolve();
+
+                    };
+
+                });
+
+            })
+
+        );
 
 
         /*
-           Small delay allows images/fonts/layout
-           to finish rendering.
+          =========================================
+          EXTRA WAIT FOR SIGNATURE + SEAL
+          =========================================
         */
 
         await new Promise(function(resolve){
 
-            setTimeout(resolve,500);
+            setTimeout(resolve, 1000);
 
         });
 
 
-        const {
-            jsPDF
-        } = window.jspdf;
-
-
         /*
-           A4 PORTRAIT
-           210mm × 297mm
+          =========================================
+          CREATE PDF
+          =========================================
         */
 
-        const pdf =
-            new jsPDF({
-                orientation:"portrait",
-                unit:"mm",
-                format:"a4",
-                compress:true
-            });
+        const { jsPDF } = window.jspdf;
+
+        const pdf = new jsPDF({
+
+            orientation:"portrait",
+            unit:"mm",
+            format:"a4",
+            compress:true
+
+        });
 
 
-        const cards =
-            Array.from(
-                printArea.children
-            );
+        const cards = Array.from(
+            printArea.children
+        );
 
 
-        /*
-           CARD SIZE
-           190mm × 135mm
+        const cardWidth = 190;
 
-           Two cards on one A4 page:
-           First:  y = 5mm
-           Second: y = 150mm
-        */
+        const cardHeight = 135;
 
-        const cardWidth=190;
+        const left = 10;
 
-        const cardHeight=135;
-
-        const left=10;
-
-        const topPositions=[
+        const topPositions = [
             5,
             150
         ];
 
 
+        /*
+          =========================================
+          CONVERT EACH CARD TO IMAGE
+          =========================================
+        */
+
         for(
-            let i=0;
-            i<cards.length;
+            let i = 0;
+            i < cards.length;
             i++
         ){
 
-            let card=cards[i];
-
+            let card = cards[i];
 
             button.innerHTML =
-                "⏳ Creating PDF "+
-                (i+1)+
-                " / "+
+                "⏳ Creating PDF " +
+                (i + 1) +
+                " / " +
                 cards.length;
 
 
             /*
-               Convert card to image
+              Make sure every image is visible
             */
 
-            let canvas =
-                await html2canvas(
-                    card,
-                    {
-                        scale:2,
-                        useCORS:true,
-                        allowTaint:false,
-                        backgroundColor:"#ffffff",
-                        logging:false
-                    }
-                );
+            let cardImages =
+                card.querySelectorAll("img");
 
+            cardImages.forEach(function(img){
+
+                img.style.display = "block";
+                img.style.visibility = "visible";
+                img.style.opacity = "1";
+
+            });
+
+
+            /*
+              Wait a little before screenshot
+            */
+
+            await new Promise(function(resolve){
+
+                setTimeout(resolve, 200);
+
+            });
+
+
+            /*
+              HTML TO CANVAS
+            */
+
+            let canvas = await html2canvas(
+
+                card,
+
+                {
+
+                    scale: 2.5,
+
+                    useCORS: true,
+
+                    allowTaint: false,
+
+                    backgroundColor: "#ffffff",
+
+                    logging: false,
+
+                    imageTimeout: 15000,
+
+                    foreignObjectRendering: false
+
+                }
+
+            );
+
+
+            /*
+              CONVERT CANVAS TO IMAGE
+            */
 
             let imageData =
                 canvas.toDataURL(
@@ -1410,11 +1470,13 @@ async function downloadAllClassPDF(){
 
 
             /*
-               Add new page after
-               every second card.
+              NEW PAGE AFTER EVERY 2 CARDS
             */
 
-            if(i>0 && i%2===0){
+            if(
+                i > 0 &&
+                i % 2 === 0
+            ){
 
                 pdf.addPage();
 
@@ -1422,25 +1484,40 @@ async function downloadAllClassPDF(){
 
 
             let position =
-                topPositions[i%2];
+                topPositions[i % 2];
 
+
+            /*
+              ADD CARD TO PDF
+            */
 
             pdf.addImage(
+
                 imageData,
+
                 "JPEG",
+
                 left,
+
                 position,
+
                 cardWidth,
+
                 cardHeight,
+
                 undefined,
+
                 "FAST"
+
             );
 
         }
 
 
         /*
-           AUTOMATIC DOWNLOAD
+          =========================================
+          DOWNLOAD PDF
+          =========================================
         */
 
         pdf.save(
@@ -1449,7 +1526,7 @@ async function downloadAllClassPDF(){
 
 
         alert(
-            "✅ Class 8 Admit Cards PDF downloaded successfully!"
+            "✅ Class 8 Admit Cards PDF downloaded successfully!\n\nSignatures and school seal have been included."
         );
 
 
@@ -1462,28 +1539,29 @@ async function downloadAllClassPDF(){
 
 
         alert(
-            "❌ PDF could not be created. Please check student photos and try again."
+            "❌ PDF could not be created.\nPlease check the image paths for logo, signatures, seal and student photos."
         );
 
     }
 
 
     /*
-       CLEAN UP
+      =========================================
+      CLEAN UP
+      =========================================
     */
 
-    printArea.innerHTML="";
+    printArea.innerHTML = "";
 
-    printArea.style.display="none";
+    printArea.style.display = "none";
 
-    printArea.style.position="absolute";
+    printArea.style.position = "absolute";
 
-    printArea.style.left="-10000px";
+    printArea.style.left = "-10000px";
 
+    button.disabled = false;
 
-    button.disabled=false;
-
-    button.innerHTML=oldText;
+    button.innerHTML = oldText;
 
 }
 
@@ -1499,10 +1577,9 @@ window.addEventListener(
         let printArea =
             document.getElementById("printArea");
 
+        printArea.innerHTML = "";
 
-        printArea.innerHTML="";
-
-        printArea.style.display="none";
+        printArea.style.display = "none";
 
     }
 );
@@ -1516,16 +1593,15 @@ function goBack(){
 
     document.getElementById(
         "admitCard"
-    ).style.display="none";
+    ).style.display = "none";
 
 
     document.getElementById(
         "search"
-    ).value="";
+    ).value = "";
 
 }
 
-</script>
-
-</body>
-</html>
+</script>  
+</body>  
+</html> 
