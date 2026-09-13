@@ -269,7 +269,7 @@ let img=canvas.toDataURL("image/jpeg",0.95);
 if(i>0&&i%2===0) pdf.addPage();
 pdf.addImage(img,"JPEG",left,tops[i%2],W,H,"","FAST");
 }
-pdf.save("Class-7-Admit-Cards-2-Per-Page-Transparent.pdf");
+pdf.save("Class-8-Admit-Cards-2-Per-Page-Transparent.pdf");
 alert("✅ PDF Downloaded! Same style + Transparent seal!");
 }catch(e){alert("Error: "+e.message);console.error(e);}
 area.innerHTML="";area.style.display="none";btn.disabled=false;btn.innerHTML=old;
