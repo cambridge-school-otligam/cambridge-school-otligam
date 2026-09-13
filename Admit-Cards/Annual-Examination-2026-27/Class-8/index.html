@@ -3,98 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Class 7 Admit Card - Cambridge School</title>
+<title>Class 7 Admit Card - 2 Cards Per Page FINAL</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 *{box-sizing:border-box;}
-body{margin:0;padding:20px;font-family:Arial, Helvetica, sans-serif;background:linear-gradient(135deg,#dbeafe,#eef6ff,#dbeafe);color:#111;}
+body{margin:0;padding:20px;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#dbeafe,#eef6ff,#dbeafe);}
 .search-box{max-width:900px;margin:auto;background:white;padding:25px;text-align:center;border-radius:14px;box-shadow:0 5px 18px rgba(0,0,0,.15);}
 .search-box h1{color:#002060;margin:5px 0;font-size:25px;font-weight:900;}
-.search-box p{color:#555;font-weight:bold;}
+.search-box p{font-weight:bold;color:#555;}
 input{width:320px;max-width:90%;padding:12px;border:2px solid #aaa;border-radius:7px;font-size:15px;}
-button{padding:12px 20px;margin:6px;border:0;border-radius:7px;background:#002060;color:white;cursor:pointer;font-size:15px;font-weight:bold;}
-button:hover{background:#003b99;}
-button:disabled{opacity:.6;cursor:not-allowed;}
-.all-btn{background:#008000;}
-.all-btn:hover{background:#006400;}
-.back-btn{background:#c00000;}
-.back-btn:hover{background:#900000;}
-.admit-card{display:none;width:200mm;max-width:100%;margin:20px auto;background:linear-gradient(135deg,#ffffff,#f1f7ff,#dcecff);border:4px solid #002060;border-radius:13px;padding:15px;box-shadow:0 6px 20px rgba(0,0,0,.18);position:relative;overflow:hidden;}
-.admit-card::before{content:"";position:absolute;top:0;left:0;right:0;height:7px;background:#002060;}
-.header{text-align:center;position:relative;padding:8px 0 10px;border-bottom:3px solid #002060;min-height:105px;}
-.logo{position:absolute;left:5px;top:4px;width:75px;height:75px;object-fit:contain;}
-.school-name{font-size:25px;font-weight:900;color:#002060;padding-left:85px;padding-right:85px;line-height:1.15;}
-.school-address{margin-top:5px;font-size:13px;font-weight:900;color:#222;}
-.udise{margin-top:4px;font-size:12px;font-weight:900;color:#222;}
-.exam-title{display:inline-block;margin-top:8px;padding:8px 22px;background:#002060;color:white;border-radius:7px;font-size:17px;font-weight:900;letter-spacing:.4px;}
-.exam-year{margin-top:5px;font-weight:900;font-size:13px;color:#002060;}
-.student-area{display:flex;gap:14px;margin-top:12px;}
+button{padding:12px 20px;margin:6px;border:0;border-radius:7px;background:#002060;color:white;cursor:pointer;font-weight:bold;}
+.all-btn{background:#008000;}.back-btn{background:#c00000;}
+.admit-card{display:none;width:200mm;max-width:100%;margin:20px auto;background:linear-gradient(135deg,#ffffff,#f1f7ff,#dcecff);border:4px solid #002060;border-radius:13px;padding:12px;box-shadow:0 6px 20px rgba(0,0,0,.18);position:relative;}
+.admit-card::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:#002060;}
+.header{text-align:center;position:relative;padding:5px 0 6px;border-bottom:2px solid #002060;min-height:80px;}
+.logo{position:absolute;left:5px;top:2px;width:60px;height:60px;object-fit:contain;}
+.school-name{font-size:21px;font-weight:900;color:#002060;padding:0 70px;line-height:1.1;}
+.school-address{font-size:11px;font-weight:900;margin-top:3px;}
+.udise{font-size:10px;font-weight:900;margin-top:2px;}
+.exam-title{display:inline-block;margin-top:5px;padding:5px 16px;background:#002060;color:white;border-radius:5px;font-size:14px;font-weight:900;}
+.exam-year{margin-top:3px;font-weight:900;font-size:11px;color:#002060;}
+.student-area{display:flex;gap:10px;margin-top:8px;}
 .details{flex:1;}
-.info-table{width:100%;border-collapse:collapse;border:2px solid #556;}
-.info-table td{border:1px solid #667;padding:7px;font-size:12px;font-weight:900;background:rgba(255,255,255,.92);color:#111;line-height:1.2;}
-.label{width:32%;background:#dbeafe!important;color:#002060!important;font-weight:900!important;}
-.photo-section{width:115px;text-align:center;flex-shrink:0;}
-.photo-box{width:88px;height:108px;margin:auto;border:3px solid #002060;display:flex;align-items:center;justify-content:center;background:#f4f8ff;overflow:hidden;border-radius:4px;}
+.info-table{width:100%;border-collapse:collapse;border:1.5px solid #555;}
+.info-table td{border:1px solid #666;padding:4px 6px;font-size:10.5px;font-weight:900;background:rgba(255,255,255,.9);}
+.label{width:32%;background:#dbeafe!important;color:#002060!important;}
+.photo-section{width:90px;text-align:center;flex-shrink:0;}
+.photo-box{width:75px;height:90px;margin:auto;border:2.5px solid #002060;background:#f4f8ff;overflow:hidden;display:flex;align-items:center;justify-content:center;}
 .photo-box img{width:100%;height:100%;object-fit:cover;}
-.photo-text{margin-top:5px;font-size:10px;font-weight:900;color:#002060;}
-.note{margin-top:9px;padding:8px;background:#eaf3ff;border:1px solid #789;border-radius:7px;}
-.note h3{margin:0 0 4px 0;color:#002060;font-size:13px;font-weight:900;}
-.note ol{margin:3px 0;padding-left:20px;}
-.note li{margin-bottom:3px;font-size:10px;font-weight:900;line-height:1.2;}
-.signatures{display:flex;justify-content:space-between;align-items:end;margin-top:13px;text-align:center;}
-.signature{width:30%;font-size:10px;font-weight:900;color:#222;}
-.signature img{display:block;margin:0 auto;max-width:80px;max-height:42px;width:auto;height:auto;object-fit:contain;}
-.seal{width:52px!important;height:52px!important;object-fit:contain!important;}
-.signature-line{border-top:1px solid #333;margin-top:4px;padding-top:3px;}
-.actions{text-align:center;margin-top:20px;}
-#printArea{position:absolute;left:-20000px;top:0;width:190mm;background:white;overflow:visible;}
-@media(max-width:650px){body{padding:8px;}.school-name{padding:0;font-size:20px;}.logo{position:static;display:block;margin:0 auto 6px;}.header{min-height:auto;}.student-area{flex-direction:column-reverse;}.photo-section{margin:auto;}input{width:90%;}}
+.photo-text{margin-top:3px;font-size:8px;font-weight:900;color:#002060;}
+.note{margin-top:6px;padding:5px 7px;background:#eaf3ff;border:1px solid #789;border-radius:5px;}
+.note h3{margin:0 0 2px 0;color:#002060;font-size:10px;font-weight:900;}
+.note ol{margin:2px 0;padding-left:16px;}
+.note li{margin-bottom:1px;font-size:8px;font-weight:900;line-height:1.2;}
+.signatures{display:flex;justify-content:space-between;align-items:end;margin-top:6px;text-align:center;}
+.signature{width:30%;font-size:7.5px;font-weight:900;}
+.signature img{display:block;margin:0 auto;max-width:55px;max-height:28px;background:white;object-fit:contain;}
+.seal{width:38px!important;height:38px!important;}
+.signature-line{border-top:1px solid #333;margin-top:2px;padding-top:2px;}
+.actions{text-align:center;margin-top:15px;}
+#printArea{position:absolute;left:-20000px;top:0;width:190mm;background:white;}
 @media print{
-@page{size:A4 portrait;margin:4mm;}
-html,body{width:210mm;min-height:297mm;margin:0;padding:0;background:white!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
+@page{size:A4 portrait;margin:3mm;}
 .search-box,.actions{display:none!important;}
 body >.admit-card{display:none!important;}
-#printArea{display:block!important;position:static!important;width:202mm;margin:0 auto;background:white;overflow:visible;}
-#printArea >.admit-card{display:block!important;width:202mm;height:142mm;max-width:none;margin:0 auto 3mm auto;padding:7px;background:linear-gradient(135deg,#ffffff,#f1f7ff,#dcecff)!important;border:3px solid #002060;border-radius:6px;box-shadow:none;overflow:hidden;page-break-inside:avoid;break-inside:avoid;position:relative;}
-#printArea >.admit-card::before{height:4px;}
-#printArea >.admit-card.header{min-height:38mm;padding:5px 0 5px;border-bottom:2px solid #002060;}
-#printArea >.admit-card.logo{width:55px;height:55px;left:3px;top:2px;}
-#printArea >.admit-card.school-name{font-size:20px;padding-left:62px;padding-right:62px;line-height:1.15;font-weight:900!important;}
-#printArea >.admit-card.school-address{font-size:10px;margin-top:3px;font-weight:900!important;}
-#printArea >.admit-card.udise{font-size:9px;margin-top:2px;font-weight:900!important;}
-#printArea >.admit-card.exam-title{font-size:14px;padding:5px 15px;margin-top:4px;font-weight:900!important;border-radius:5px;}
-#printArea >.admit-card.exam-year{font-size:10px;margin-top:3px;font-weight:900!important;}
-#printArea >.admit-card.student-area{gap:8px;margin-top:5px;}
-#printArea >.admit-card.info-table{border:2px solid #445;}
-#printArea >.admit-card.info-table td{padding:5px 6px;font-size:10.5px;line-height:1.15;font-weight:900!important;color:#111!important;}
-#printArea >.admit-card.info-table.label{width:32%;font-size:10.5px;font-weight:900!important;color:#002060!important;background:#dbeafe!important;}
-#printArea >.admit-card.photo-section{width:82px;}
-#printArea >.admit-card.photo-box{width:70px;height:87px;border:3px solid #002060;border-radius:4px;}
-#printArea >.admit-card.photo-text{font-size:8px;margin-top:2px;font-weight:900!important;}
-#printArea >.admit-card.note{margin-top:5px;padding:5px 7px;border:1.5px solid #667;background:#eef6ff!important;border-radius:5px;}
-#printArea >.admit-card.note h3{font-size:10.5px;margin:0 0 2px;font-weight:900!important;color:#002060!important;}
-#printArea >.admit-card.note ol{margin:2px 0;padding-left:17px;}
-#printArea >.admit-card.note li{margin-bottom:2px;font-size:8.5px;line-height:1.15;font-weight:900!important;color:#111!important;}
-#printArea >.admit-card.signatures{margin-top:5px;}
-#printArea >.admit-card.signature{font-size:8.5px;font-weight:900!important;color:#111!important;}
-#printArea >.admit-card.signature img{display:block;margin:0 auto;max-width:60px;max-height:30px;width:auto;height:auto;object-fit:contain;}
-#printArea >.admit-card.seal{width:40px!important;height:40px!important;object-fit:contain!important;}
-#printArea >.admit-card.signature-line{margin-top:2px;padding-top:2px;}
+#printArea{display:block!important;position:static!important;width:204mm;margin:0 auto;}
 }
 </style>
 </head>
 <body>
 <div class="search-box">
 <h1>CAMBRIDGE SCHOOL OF MODERN EDUCATION</h1>
-<p>Class 7 — Admit Card</p>
-<input type="text" id="search" placeholder="Enter Roll Number or Student Name" autocomplete="off"><br>
+<p>Class 7 — 2 Cards Per Page — FINAL</p>
+<input type="text" id="search" placeholder="Enter Roll Number or Student Name"><br>
 <button onclick="findStudent()">🔍 Search Admit Card</button><br>
-<button class="all-btn" onclick="adminPrintAll()">🔐 Download All Class Admit Cards</button>
+<button class="all-btn" onclick="adminPrintAll()">🔐 Download All (2 Cards Per Page + Seal)</button>
 </div>
+
 <div class="admit-card" id="admitCard">
 <div class="header">
-<img src="../../../logo.png" class="logo" alt="School Logo" crossorigin="anonymous">
+<img src="../../../logo.png" class="logo" crossorigin="anonymous">
 <div class="school-name">CAMBRIDGE SCHOOL OF MODERN EDUCATION</div>
 <div class="school-address">OTLIGAM BEERWAH</div>
 <div class="udise">UDISE CODE: 01040303905</div>
@@ -113,16 +82,17 @@ body >.admit-card{display:none!important;}
 <tr><td class="label">Class</td><td style="font-weight:900;">7th</td></tr>
 </table>
 </div>
-<div class="photo-section"><div class="photo-box"><img id="studentPhoto" alt="Student Photo" crossorigin="anonymous"></div><div class="photo-text">Student Photo</div></div>
+<div class="photo-section"><div class="photo-box"><img id="studentPhoto" crossorigin="anonymous"></div><div class="photo-text">Student Photo</div></div>
 </div>
-<div class="note"><h3>Important Note</h3><ol><li>Candidate must bring this Admit Card to the examination centre.</li><li>Candidate must reach the examination centre before the reporting time.</li><li>Mobile phones and unauthorized material are not allowed.</li><li>Candidate must follow all instructions given by the examination staff.</li><li>Keep this Admit Card safe until completion of the examination.</li></ol></div>
+<div class="note"><h3>Important Note</h3><ol><li>Bring this Admit Card to examination centre.</li><li>Reach centre before reporting time.</li><li>Mobile phones not allowed.</li><li>Follow instructions of staff.</li><li>Keep this Admit Card safe.</li></ol></div>
 <div class="signatures">
-<div class="signature"><img src="../../../controller-sign.png" alt="Controller Signature" crossorigin="anonymous" class="sign-img"><div class="signature-line">Controller of Examination</div></div>
-<div class="signature"><img src="../../../school-seal.png" class="seal" alt="School Seal" crossorigin="anonymous" class="seal-img"><div>School Seal</div></div>
-<div class="signature"><img src="../../../principal-sign.png" alt="Principal Signature" crossorigin="anonymous" class="sign-img"><div class="signature-line">Principal</div></div>
+<div class="signature"><img src="../../../controller-sign.png" crossorigin="anonymous"><div class="signature-line">Controller of Examination</div></div>
+<div class="signature"><img src="../../../school-seal.png" class="seal" crossorigin="anonymous"><div>School Seal</div></div>
+<div class="signature"><img src="../../../principal-sign.png" crossorigin="anonymous"><div class="signature-line">Principal</div></div>
 </div>
-<div class="actions"><button onclick="printOneStudent()">🖨 Print / Save PDF</button><button class="back-btn" onclick="goBack()">Back</button></div>
+<div class="actions"><button onclick="printOneStudent()">🖨 Print</button><button class="back-btn" onclick="goBack()">Back</button></div>
 </div>
+
 <div id="printArea"></div>
 <script>
 const students = {
@@ -137,188 +107,42 @@ const students = {
 "26CS70017":{name:"Muntazir Farooq Sheikh",father:"Farooq Ahmad Sheikh",mother:"Afroza Akhter",dob:"31-05-2015",address:"Suchin Banit"},
 "26CS7018":{name:"Anamta Maqbool",father:"Maqbool Ahmad Wani",mother:"Chesfeeda Bano",dob:"03-03-2014",address:"Gampora Beerwah"}
 };
-function findStudent(){
-const input=document.getElementById("search").value.trim().toLowerCase();
-if(input===""){alert("Please enter Roll Number or Student Name.");return;}
-let found=null;let rollNo="";
-for(const roll in students){
-const student=students[roll];
-if(roll.toLowerCase()===input||student.name.toLowerCase().includes(input)){found=student;rollNo=roll;break;}
-}
-if(!found){alert("Admit Card Not Found.");return;}
-showStudent(found,rollNo);
-}
-function showStudent(student,rollNo){
-document.getElementById("admitCard").style.display="block";
-document.getElementById("roll").textContent=rollNo;
-document.getElementById("name").textContent=student.name;
-document.getElementById("father").textContent=student.father;
-document.getElementById("mother").textContent=student.mother;
-document.getElementById("dob").textContent=student.dob;
-document.getElementById("address").textContent=student.address;
-const photo=document.getElementById("studentPhoto");
-photo.onerror=function(){this.removeAttribute("src");this.alt="Photo Not Uploaded";};
-photo.src=rollNo+".jpg";
-}
-function printOneStudent(){
-const original=document.getElementById("admitCard");
-if(original.style.display!=="block"){alert("Please search for a student first.");return;}
-const printArea=document.getElementById("printArea");
-printArea.innerHTML="";
-const card=original.cloneNode(true);
-card.removeAttribute("id");
-const actions=card.querySelector(".actions");
-if(actions){actions.remove();}
-printArea.appendChild(card);
-printArea.style.display="block";
-window.print();
-}
-function waitForAllImages(container){
-const images=Array.from(container.querySelectorAll("img"));
-if(images.length===0){return Promise.resolve();}
-return Promise.all(images.map(function(img){
-return new Promise(function(resolve){
-if(img.complete && img.naturalWidth>0){resolve();return;}
-let finished=false;
-function done(){if(finished) return;finished=true;img.removeEventListener("load",done);img.removeEventListener("error",done);resolve();}
-img.addEventListener("load",done);
-img.addEventListener("error",done);
-setTimeout(done,5000);
+function findStudent(){const v=document.getElementById("search").value.trim().toLowerCase();if(!v){alert("Enter Roll or Name");return;}let f=null,r="";for(const k in students){if(k.toLowerCase()===v||students[k].name.toLowerCase().includes(v)){f=students[k];r=k;break;}}if(!f){alert("Not Found");return;}document.getElementById("admitCard").style.display="block";document.getElementById("roll").textContent=r;document.getElementById("name").textContent=f.name;document.getElementById("father").textContent=f.father;document.getElementById("mother").textContent=f.mother;document.getElementById("dob").textContent=f.dob;document.getElementById("address").textContent=f.address;const ph=document.getElementById("studentPhoto");ph.src=r+".jpg";ph.onerror=function(){this.removeAttribute("src");};}
+function printOneStudent(){const o=document.getElementById("admitCard");if(o.style.display!=="block"){alert("Search first");return;}const a=document.getElementById("printArea");a.innerHTML="";const c=o.cloneNode(true);c.querySelector(".actions")?.remove();a.appendChild(c);a.style.display="block";window.print();}
+function waitImgs(con){return Promise.all(Array.from(con.querySelectorAll("img")).map(img=>new Promise(res=>{if(img.complete&&img.naturalWidth>0){res();return;}img.addEventListener("load",res);img.addEventListener("error",res);setTimeout(res,3000);})))};
+function createCard(roll){const s=students[roll];const o=document.getElementById("admitCard");const c=o.cloneNode(true);c.removeAttribute("id");c.querySelector("#roll").textContent=roll;c.querySelector("#name").textContent=s.name;c.querySelector("#father").textContent=s.father;c.querySelector("#mother").textContent=s.mother;c.querySelector("#dob").textContent=s.dob;c.querySelector("#address").textContent=s.address;c.querySelector("#studentPhoto").src=roll+".jpg";c.querySelector(".actions")?.remove();return c;}
+function adminPrintAll(){const p=prompt("🔐 Enter Admin Password");if(p===null)return;if(p!=="01040303905"){alert("❌ Wrong");return;}downloadPDF();}
+async function downloadPDF(){
+const btn=document.querySelector(".all-btn");const old=btn.innerHTML;btn.disabled=true;btn.innerHTML="⏳ PDF ban raha hai...";
+const area=document.getElementById("printArea");area.innerHTML="";
+Object.keys(students).sort((a,b)=>a.localeCompare(b,undefined,{numeric:true})).forEach(roll=>{
+const card=createCard(roll);
+card.style.display="block";card.style.width="190mm";card.style.height="140mm";card.style.margin="0";card.style.border="2px solid #002060";card.style.borderRadius="6px";card.style.overflow="hidden";
+area.appendChild(card);
 });
-}));
-}
-function createPrintCard(rollNo){
-const student=students[String(rollNo)];
-if(!student){return null;}
-const original=document.getElementById("admitCard");
-const card=original.cloneNode(true);
-card.removeAttribute("id");
-const roll=card.querySelector("#roll");
-const name=card.querySelector("#name");
-const father=card.querySelector("#father");
-const mother=card.querySelector("#mother");
-const dob=card.querySelector("#dob");
-const address=card.querySelector("#address");
-const img=card.querySelector("#studentPhoto");
-if(roll) roll.removeAttribute("id");
-if(name) name.removeAttribute("id");
-if(father) father.removeAttribute("id");
-if(mother) mother.removeAttribute("id");
-if(dob) dob.removeAttribute("id");
-if(address) address.removeAttribute("id");
-if(roll) roll.textContent=rollNo;
-if(name) name.textContent=student.name;
-if(father) father.textContent=student.father;
-if(mother) mother.textContent=student.mother;
-if(dob) dob.textContent=student.dob;
-if(address) address.textContent=student.address;
-if(img){
-img.removeAttribute("id");
-img.crossOrigin="anonymous";
-img.onerror=function(){this.removeAttribute("src");};
-img.src=rollNo+".jpg";
-}
-card.querySelectorAll("img").forEach(i=>{i.crossOrigin="anonymous";});
-const action=card.querySelector(".actions");
-if(action){action.remove();}
-return card;
-}
-function adminPrintAll(){
-const password=prompt("🔐 Enter Admin Password");
-if(password===null){return;}
-if(password!=="01040303905"){alert("❌ Incorrect Password!");return;}
-downloadAllClassPDF();
-}
-async function downloadAllClassPDF(){
-if(typeof html2canvas==="undefined"||typeof window.jspdf==="undefined"){alert("PDF system is still loading. Please wait a few seconds and try again.");return;}
-const button=document.querySelector(".all-btn");
-const oldText=button.innerHTML;
-button.disabled=true;
-button.innerHTML="⏳ Preparing PDF...";
-const printArea=document.getElementById("printArea");
-printArea.innerHTML="";
-const rollNumbers=Object.keys(students).sort(function(a,b){return a.localeCompare(b,undefined,{numeric:true,sensitivity:"base"});});
-for(const rollNo of rollNumbers){
-const card=createPrintCard(rollNo);
-if(!card){continue;}
-card.style.display="block";
-card.style.width="190mm";
-card.style.height="142mm";
-card.style.maxWidth="none";
-card.style.margin="0";
-card.style.padding="7px";
-card.style.boxShadow="none";
-card.style.borderRadius="6px";
-card.style.overflow="hidden";
-printArea.appendChild(card);
-}
-if(printArea.children.length===0){alert("No student data available.");button.disabled=false;button.innerHTML=oldText;return;}
-printArea.style.display="block";
-printArea.style.position="absolute";
-printArea.style.left="-20000px";
-printArea.style.top="0";
-printArea.style.width="190mm";
-printArea.style.background="#ffffff";
+area.style.display="block";area.style.left="-20000px";area.style.position="absolute";
 try{
-button.innerHTML="⏳ Loading photos, seal & signatures...";
-await waitForAllImages(printArea);
-await new Promise(function(resolve){setTimeout(resolve,800);});
+await waitImgs(area);
 const {jsPDF}=window.jspdf;
 const pdf=new jsPDF({orientation:"portrait",unit:"mm",format:"a4",compress:true});
-const cards=Array.from(printArea.children);
-const cardWidth=190;
-const cardHeight=142;
-const left=10;
-const topPositions=[4,148];
+const cards=Array.from(area.children);
+const W=190,H=140,left=10,tops=[4,150];
 for(let i=0;i<cards.length;i++){
+btn.innerHTML=`⏳ ${i+1}/${cards.length}...`;
 const card=cards[i];
-button.innerHTML="⏳ Creating PDF "+(i+1)+" / "+cards.length;
-await waitForAllImages(card);
-// IMPORTANT FIX FOR SEAL & SIGN
-card.querySelectorAll("img").forEach(img=>{
-img.style.mixBlendMode="normal";
-img.style.backgroundColor="white";
-});
-const canvas=await html2canvas(card,{
-scale:3,
-useCORS:true,
-allowTaint:true,
-backgroundColor:"#ffffff",
-logging:false,
-imageTimeout:15000,
-onclone:(clonedDoc)=>{
-clonedDoc.querySelectorAll("img").forEach(img=>{
-img.style.mixBlendMode="normal";
-img.style.background="white";
-});
+await waitImgs(card);
+const canvas=await html2canvas(card,{scale:2.5,useCORS:true,allowTaint:true,backgroundColor:"#ffffff",onclone:(doc)=>{doc.querySelectorAll("img").forEach(im=>{im.style.mixBlendMode="normal";im.style.background="white";});}});
+const img=canvas.toDataURL("image/jpeg",0.92);
+if(i>0 && i%2===0) pdf.addPage();
+pdf.addImage(img,"JPEG",left,tops[i%2],W,H,"","FAST");
 }
-});
-const imageData=canvas.toDataURL("image/jpeg",0.98);
-if(i>0 && i%2===0){pdf.addPage();}
-const position=topPositions[i%2];
-pdf.addImage(imageData,"JPEG",left,position,cardWidth,cardHeight,undefined,"FAST");
+pdf.save("Class-7-Admit-Cards-2-Per-Page-WITH-SEAL-2026-27.pdf");
+alert("✅ Ho gaya! 2 Cards Per Page + Seal & Sign dono aa gaye!");
+}catch(e){alert("Error: "+e.message);console.error(e);}
+area.innerHTML="";area.style.display="none";btn.disabled=false;btn.innerHTML=old;
 }
-pdf.save("Class-7-Admit-Cards-2026-27.pdf");
-alert("✅ Class 7 Admit Cards PDF downloaded successfully! Seal & Sign included.");
-}
-catch(error){
-console.error("PDF Error:",error);
-alert("❌ PDF could not be created. Please check that logo, signatures, seal and student photos are available.");
-}
-printArea.innerHTML="";
-printArea.style.display="none";
-printArea.style.position="absolute";
-printArea.style.left="-20000px";
-button.disabled=false;
-button.innerHTML=oldText;
-}
-window.addEventListener("afterprint",function(){
-const printArea=document.getElementById("printArea");
-printArea.innerHTML="";
-printArea.style.display="none";
-});
-document.getElementById("search").addEventListener("keydown",function(event){if(event.key==="Enter"){findStudent();}});
 function goBack(){document.getElementById("admitCard").style.display="none";document.getElementById("search").value="";}
+document.getElementById("search").addEventListener("keydown",e=>{if(e.key==="Enter")findStudent();});
 </script>
 </body>
 </html>
