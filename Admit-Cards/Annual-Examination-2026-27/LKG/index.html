@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LKG Admit Card - Cambridge School - FINAL SAME AS SINGLE</title>
+<!-- PDF LIBRARIES ADDED -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;}
+body{margin:0;padding:20px;font-family:Arial, Helvetica, sans-serif;background:linear-gradient(135deg,#dbeafe,#eef6ff,#dbeafe);color:#111;}
+.search-box{max-width:900px;margin:auto;background:white;padding:25px;text-align:center;border-radius:14px;box-shadow:0 5px 18px rgba(0,0,0,.15);}
+.search-box h1{color:#002060;margin:5px 0;font-size:25px;font-weight:900;}
+.search-box p{color:#555;font-weight:bold;}
+input{width:320px;max-width:90%;padding:12px;border:2px solid #aaa;border-radius:7px;font-size:15px;}
+button{padding:12px 20px;margin:6px;border:0;border-radius:7px;background:#002060;color:white;cursor:pointer;font-size:15px;font-weight:bold;}
+button:hover{background:#003b99;}
+.all-btn{background:#008000;}
+.all-btn:hover{background:#006400;}
+.pdf-btn{background:#b00000;}
+.pdf-btn:hover{background:#800000;}
+.back-btn{background:#c00000;}
+.admit-card{display:none;width:200mm;max-width:100%;margin:20px auto;background:linear-gradient(135deg,#ffffff,#f1f7ff,#dcecff);border:4px solid #002060;border-radius:13px;padding:12px;box-shadow:0 6px 20px rgba(0,0,0,.18);position:relative;overflow:hidden;}
+.admit-card::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:#002060;}
+.header{text-align:center;position:relative;padding:6px 0 6px;border-bottom:2px solid #002060;min-height:80px;}
+.logo{position:absolute;left:5px;top:3px;width:65px;height:65px;object-fit:contain;}
+.school-name{font-size:22px;font-weight:900;color:#002060;padding-left:75px;padding-right:75px;line-height:1.1;}
+.school-address{margin-top:3px;font-size:12px;font-weight:900;color:#222;}
+.udise{margin-top:2px;font-size:11px;font-weight:900;color:#222;}
+.exam-title{display:inline-block;margin-top:5px;padding:6px 18px;background:#002060;color:white;border-radius:6px;font-size:15px;font-weight:900;}
+.exam-year{margin-top:3px;font-weight:900;font-size:12px;color:#002060;}
+.student-area{display:flex;gap:10px;margin-top:8px;}
+.details{flex:1;}
+.info-table{width:100%;border-collapse:collapse;border:1.5px solid #555;}
+.info-table td{border:1px solid #666;padding:4px 6px;font-size:11px;font-weight:900;background:rgba(255,255,255,.92);color:#111;line-height:1.15;}
+.label{width:32%;background:#dbeafe!important;color:#002060!important;}
+.photo-section{width:95px;text-align:center;flex-shrink:0;}
+.photo-box{width:80px;height:95px;margin:auto;border:2.5px solid #002060;display:flex;align-items:center;justify-content:center;background:#f4f8ff;overflow:hidden;border-radius:4px;}
+.photo-box img{width:100%;height:100%;object-fit:cover;}
+.photo-text{margin-top:3px;font-size:9px;font-weight:900;color:#002060;}
+.note{margin-top:6px;padding:5px 7px;background:#eaf3ff;border:1px solid #789;border-radius:5px;}
+.note h3{margin:0 0 2px 0;color:#002060;font-size:11px;font-weight:900;}
+.note ol{margin:2px 0;padding-left:18px;}
+.note li{margin-bottom:1px;font-size:8.5px;font-weight:900;line-height:1.2;}
+.signatures{display:flex;justify-content:space-between;align-items:end;margin-top:6px;text-align:center;}
+.signature{width:30%;font-size:8.5px;font-weight:900;color:#222;}
+.signature img{max-width:65px;max-height:34px;object-fit:contain;display:block;margin:0 auto;background:transparent;mix-blend-mode:multiply;}
+.seal{width:42px!important;height:42px!important;mix-blend-mode:multiply!important;background:transparent!important;}
+.signature-line{border-top:1px solid #333;margin-top:3px;padding-top:2px;}
+.actions{text-align:center;margin-top:15px;}
+#printArea{position:absolute;left:-10000px;top:0;width:190mm;background:white;}
+@media(max-width:650px){body{padding:8px;}.school-name{padding:0;font-size:20px;}.logo{position:static;display:block;margin:0 auto 6px;}.header{min-height:auto;}.student-area{flex-direction:column-reverse;}.photo-section{margin:auto;}input{width:90%;}}
+@media print{
+@page{size:A4 portrait;margin:3mm;}
+html,body{width:210mm;margin:0;padding:0;background:white!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
+.search-box,.actions{display:none!important;}
+body >.admit-card{display:none!important;}
+#printArea{display:block!important;position:static!important;width:202mm;margin:0 auto;background:white;}
+#printArea >.admit-card{display:block!important;width:202mm;height:141mm;max-width:none;margin:0 auto 4mm auto;padding:5px;background:linear-gradient(135deg,#ffffff,#f1f7ff,#dcecff)!important;border:2.5px solid #002060;border-radius:5px;box-shadow:none;overflow:hidden;page-break-inside:avoid;break-inside:avoid;position:relative;}
+#printArea >.admit-card::before{height:3px;}
+#printArea >.admit-card.header{padding:3px 0 3px;border-bottom:2px solid #002060;min-height:auto;}
+#printArea >.admit-card.logo{width:52px;height:52px;left:3px;top:2px;}
+#printArea >.admit-card.school-name{font-size:18px;padding-left:60px;padding-right:60px;}
+#printArea >.admit-card.school-address{font-size:9px;margin-top:2px;}
+#printArea >.admit-card.udise{font-size:8px;margin-top:1px;}
+#printArea >.admit-card.exam-title{font-size:12px;padding:4px 12px;margin-top:3px;}
+#printArea >.admit-card.exam-year{font-size:9px;margin-top:2px;}
+#printArea >.admit-card.student-area{gap:6px;margin-top:4px;}
+#printArea >.admit-card.info-table td{padding:3px 5px;font-size:9.5px;line-height:1.1;}
+#printArea >.admit-card.photo-section{width:70px;}
+#printArea >.admit-card.photo-box{width:62px;height:75px;}
+#printArea >.admit-card.photo-text{font-size:7px;}
+#printArea >.admit-card.note{margin-top:3px;padding:3px 5px;}
+#printArea >.admit-card.note h3{font-size:9px;}
+#printArea >.admit-card.note li{font-size:7.5px;}
+#printArea >.admit-card.signatures{margin-top:3px;}
+#printArea >.admit-card.signature{font-size:7px;}
+#printArea >.admit-card.signature img{max-width:50px;max-height:26px;mix-blend-mode:multiply!important;background:transparent!important;}
+#printArea >.admit-card.seal{width:34px!important;height:34px!important;}
+}
+</style>
+</head>
+<body>
+<div class="search-box">
+<h1>CAMBRIDGE SCHOOL OF MODERN EDUCATION</h1>
+<p>LKG — Admit Card</p>
+<input type="text" id="search" placeholder="Enter Roll Number or Student Name"><br>
+<button onclick="findStudent()">🔍 Search Admit Card</button><br>
+<button class="all-btn" onclick="adminPrintAll()">🖨 Print All (2 Per Page)</button>
+<button class="pdf-btn" onclick="adminDownloadPDF()">📥 Download PDF (2 Per Page + Transparent)</button>
+</div>
+<div class="admit-card" id="admitCard">
+<div class="header">
+<img src="../../../logo.png" class="logo" alt="School Logo" crossorigin="anonymous">
+<div class="school-name">CAMBRIDGE SCHOOL OF MODERN EDUCATION</div>
+<div class="school-address">OTLIGAM BEERWAH</div>
+<div class="udise">UDISE CODE: 01040303905</div>
+<div class="exam-title">SUMMATIVE ASSESSMENT (SA)</div>
+<div class="exam-year">2026–27</div>
+</div>
+<div class="student-area">
+<div class="details">
+<table class="info-table">
+<tr><td class="label">Roll Number</td><td id="roll"></td></tr>
+<tr><td class="label">Candidate Name</td><td id="name"></td></tr>
+<tr><td class="label">Father's Name</td><td id="father"></td></tr>
+<tr><td class="label">Mother's Name</td><td id="mother"></td></tr>
+<tr><td class="label">Date of Birth</td><td id="dob"></td></tr>
+<tr><td class="label">Permanent Address</td><td id="address"></td></tr>
+<tr><td class="label">Class</td><td style="font-weight:900;">7th</td></tr>
+</table>
+</div>
+<div class="photo-section"><div class="photo-box"><img id="studentPhoto" alt="Student Photo" crossorigin="anonymous"></div><div class="photo-text">Student Photo</div></div>
+</div>
+<div class="note"><h3>Important Note</h3><ol><li>Candidate must bring this Admit Card to the examination centre.</li><li>Candidate must reach the examination centre before the reporting time.</li><li>Mobile phones and unauthorized material are not allowed.</li><li>Candidate must follow all instructions given by the examination staff.</li><li>Keep this Admit Card safe until completion of the examination.</li></ol></div>
+<div class="signatures">
+<div class="signature"><img src="../../../controller-sign.png" alt="Controller Signature" class="sign-img" crossorigin="anonymous"><div class="signature-line">Controller of Examination</div></div>
+<div class="signature"><img src="../../../school-seal.png" class="seal sign-img" alt="School Seal" crossorigin="anonymous"><div>School Seal</div></div>
+<div class="signature"><img src="../../../principal-sign.png" alt="Principal Signature" class="sign-img" crossorigin="anonymous"><div class="signature-line">Principal</div></div>
+</div>
+<div class="actions"><button onclick="printOneStudent()">🖨 Print / Save PDF</button><button class="back-btn" onclick="goBack()">Back</button></div>
+</div>
+<div id="printArea"></div>
+<script>
+const students = {
+"26CS7009":{name:"Jannat Ul Firdous",father:"Firdous Ahmad Mir",mother:"Afrooza Akhther",dob:"01-09-2014",address:"Otligam Beerwah"},
+"26CS70010":{name:"Suliam Jan",father:"Khazir Mohammad Bhat",mother:"Rubeena Bano",dob:"09-11-2013",address:"Otligam Beerwah"},
+"26CS70011":{name:"Aruja Nazir",father:"Nazir Ahmad Khan",mother:"Haneefa Bano",dob:"27-08-2014",address:"Suchin Banit"},
+"26CS70012":{name:"Muntazir Mukhtar Bhat",father:"Mukhtar Ahmad Bhat",mother:"Fareeda Bano",dob:"28-01-2014",address:"Otligam Beerwah"},
+"26CS70013":{name:"Firdous Ahmad Tantary",father:"Bashir Ahmad Tantary",mother:"Wazira Bano",dob:"26-08-2014",address:"Otligam Beerwah"},
+"26CS70014":{name:"Farhan Shabir",father:"Shabir Ahmad Wani",mother:"Shada Bano",dob:"20-01-2025",address:"Gampora Beerwah"},
+"26CS70015":{name:"Umer Riyaz",father:"Riyaz Ahmad Sheikh",mother:"Haseena Begum",dob:"28-10-2013",address:"Chideren Kegam Shopian"},
+"26CS70016":{name:"Irtiqa Habib",father:"Habibullah Ganie",mother:"Shahnaza Bano",dob:"11-03-2015",address:"Gampora Beerwah"},
+"26CS70017":{name:"Muntazir Farooq Sheikh",father:"Farooq Ahmad Sheikh",mother:"Afroza Akhter",dob:"31-05-2015",address:"Suchin Banit"},
+"26CS7018":{name:"Anamta Maqbool",father:"Maqbool Ahmad Wani",mother:"Chesfeeda Bano",dob:"03-03-2014",address:"Gampora Beerwah"}
+};
+function findStudent(){
+let input=document.getElementById("search").value.trim().toLowerCase();
+if(input===""){alert("Please enter Roll Number or Student Name.");return;}
+let found=null;let rollNo="";
+for(let roll in students){let s=students[roll];if(roll.toLowerCase()===input||s.name.toLowerCase().includes(input)){found=s;rollNo=roll;break;}}
+if(!found){alert("Admit Card Not Found.");return;}
+document.getElementById("admitCard").style.display="block";
+document.getElementById("roll").innerHTML=rollNo;
+document.getElementById("name").innerHTML=found.name;
+document.getElementById("father").innerHTML=found.father;
+document.getElementById("mother").innerHTML=found.mother;
+document.getElementById("dob").innerHTML=found.dob;
+document.getElementById("address").innerHTML=found.address;
+let photo=document.getElementById("studentPhoto");photo.src=rollNo+".jpg";photo.onerror=function(){this.removeAttribute("src");};
+}
+function printOneStudent(){
+let original=document.getElementById("admitCard");
+if(original.style.display!=="block"){alert("Please search for a student first.");return;}
+let printArea=document.getElementById("printArea");printArea.innerHTML="";
+let card=original.cloneNode(true);card.removeAttribute("id");card.querySelector(".actions")?.remove();
+printArea.appendChild(card);printArea.style.display="block";window.print();
+}
+function createPrintCard(rollNo){
+let student=students[String(rollNo)];if(!student) return null;
+let original=document.getElementById("admitCard");let card=original.cloneNode(true);
+card.removeAttribute("id");card.querySelector("#roll").innerHTML=rollNo;card.querySelector("#name").innerHTML=student.name;card.querySelector("#father").innerHTML=student.father;card.querySelector("#mother").innerHTML=student.mother;card.querySelector("#dob").innerHTML=student.dob;card.querySelector("#address").innerHTML=student.address;
+let img=card.querySelector("#studentPhoto");if(img){img.removeAttribute("id");img.src=rollNo+".jpg";img.onerror=function(){this.style.display='none';};}
+card.querySelector(".actions")?.remove();return card;
+}
+// PRINT ALL - SAME STYLE
+function adminPrintAll(){
+let p=prompt("🔐 Enter Admin Password");if(p===null) return;if(p!=="01040303905"){alert("❌ Incorrect Password!");return;}
+let pa=document.getElementById("printArea");pa.innerHTML="";
+let rolls=Object.keys(students).sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
+rolls.forEach(roll=>{let c=createPrintCard(roll);if(c){c.style.display="block";pa.appendChild(c);}});
+pa.style.display="block";window.print();
+}
+// PDF DOWNLOAD - SAME STYLE + TRANSPARENT
+function adminDownloadPDF(){
+let p=prompt("🔐 Enter Admin Password For PDF");if(p===null) return;if(p!=="01040303905"){alert("❌ Incorrect Password!");return;}
+downloadAllPDF();
+}
+function waitImgs(con){return Promise.all(Array.from(con.querySelectorAll("img")).map(im=>new Promise(r=>{if(im.complete&&im.naturalWidth>0){r();return;}im.onload=r;im.onerror=r;setTimeout(r,3000);})))}
+
+// White ko transparent banane ka logic
+async function makeTransparent(img){
+try{
+let c=document.createElement("canvas");c.width=img.naturalWidth;c.height=img.naturalHeight;
+let ctx=c.getContext("2d");ctx.drawImage(img,0,0);
+let d=ctx.getImageData(0,0,c.width,c.height);
+for(let i=0;i<d.data.length;i+=4){if(d.data[i]>230&&d.data[i+1]>230&&d.data[i+2]>230){d.data[i+3]=0;}}
+ctx.putImageData(d,0,0);
+let n=new Image();n.src=c.toDataURL("image/png");n.className=img.className;n.style.cssText=img.style.cssText;
+await new Promise(res=>{n.onload=res;n.onerror=res;});
+return n;
+}catch(e){return img;}
+}
+
+async function downloadAllPDF(){
+let btn=document.querySelector(".pdf-btn");let old=btn.innerHTML;btn.disabled=true;btn.innerHTML="⏳ Making Transparent...";
+let area=document.getElementById("printArea");area.innerHTML="";
+let rolls=Object.keys(students).sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
+rolls.forEach(r=>{let card=createPrintCard(r);card.style.display="block";card.style.width="190mm";card.style.height="141mm";card.style.margin="0";card.style.border="2.5px solid #002060";card.style.overflow="hidden";area.appendChild(card);});
+area.style.display="block";area.style.position="absolute";area.style.left="-10000px";
+await waitImgs(area);
+btn.innerHTML="⏳ Processing Seal...";
+for(let card of area.children){
+let imgs=card.querySelectorAll(".sign-img");
+for(let im of imgs){let t=await makeTransparent(im);im.parentNode.replaceChild(t,im);}
+}
+await new Promise(r=>setTimeout(r,500));
+try{
+const {jsPDF}=window.jspdf;const pdf=new jsPDF({orientation:"portrait",unit:"mm",format:"a4",compress:true});
+let cards=Array.from(area.children);let W=190,H=141,left=10,tops=[4,149];
+for(let i=0;i<cards.length;i++){
+btn.innerHTML=`⏳ PDF ${i+1}/${cards.length}`;
+let canvas=await html2canvas(cards[i],{scale:3,useCORS:true,allowTaint:true,backgroundColor:"#ffffff",logging:false});
+let img=canvas.toDataURL("image/jpeg",0.95);
+if(i>0&&i%2===0) pdf.addPage();
+pdf.addImage(img,"JPEG",left,tops[i%2],W,H,"","FAST");
+}
+pdf.save("LKG-Admit-Cards-2-Per-Page-Transparent.pdf");
+alert("✅ PDF Downloaded! Same style + Transparent seal!");
+}catch(e){alert("Error: "+e.message);console.error(e);}
+area.innerHTML="";area.style.display="none";btn.disabled=false;btn.innerHTML=old;
+}
+window.addEventListener("afterprint",function(){let pa=document.getElementById("printArea");pa.innerHTML="";pa.style.display="none";pa.style.left="-10000px";pa.style.position="absolute";});
+function goBack(){document.getElementById("admitCard").style.display="none";document.getElementById("search").value="";}
+document.getElementById("search").addEventListener("keydown",e=>{if(e.key==="Enter") findStudent();});
+</script>
+</body>
+</html>
