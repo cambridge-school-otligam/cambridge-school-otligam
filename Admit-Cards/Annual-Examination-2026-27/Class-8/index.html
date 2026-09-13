@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Class 7 Admit Card - 2 Cards Per Page FINAL</title>
+<title>Class 7 Admit Card - 2 Per Page Transparent Seal</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
@@ -39,8 +39,16 @@ button{padding:12px 20px;margin:6px;border:0;border-radius:7px;background:#00206
 .note li{margin-bottom:1px;font-size:8px;font-weight:900;line-height:1.2;}
 .signatures{display:flex;justify-content:space-between;align-items:end;margin-top:6px;text-align:center;}
 .signature{width:30%;font-size:7.5px;font-weight:900;}
-.signature img{display:block;margin:0 auto;max-width:55px;max-height:28px;background:white;object-fit:contain;}
-.seal{width:38px!important;height:38px!important;}
+.signature img{display:block;margin:0 auto;max-width:58px;max-height:32px;object-fit:contain;}
+.seal{width:42px!important;height:42px!important;}
+
+/* TRANSPARENT SEAL & SIGN - MAIN FIX */
+.transparent-seal{
+  mix-blend-mode: multiply!important;
+  background: transparent!important;
+  background-color: transparent!important;
+}
+
 .signature-line{border-top:1px solid #333;margin-top:2px;padding-top:2px;}
 .actions{text-align:center;margin-top:15px;}
 #printArea{position:absolute;left:-20000px;top:0;width:190mm;background:white;}
@@ -55,10 +63,10 @@ body >.admit-card{display:none!important;}
 <body>
 <div class="search-box">
 <h1>CAMBRIDGE SCHOOL OF MODERN EDUCATION</h1>
-<p>Class 7 — 2 Cards Per Page — FINAL</p>
+<p>Class 7 — 2 Cards Per Page — Transparent Seal</p>
 <input type="text" id="search" placeholder="Enter Roll Number or Student Name"><br>
 <button onclick="findStudent()">🔍 Search Admit Card</button><br>
-<button class="all-btn" onclick="adminPrintAll()">🔐 Download All (2 Cards Per Page + Seal)</button>
+<button class="all-btn" onclick="adminPrintAll()">🔐 Download All (2 Per Page + Transparent Seal)</button>
 </div>
 
 <div class="admit-card" id="admitCard">
@@ -86,9 +94,9 @@ body >.admit-card{display:none!important;}
 </div>
 <div class="note"><h3>Important Note</h3><ol><li>Bring this Admit Card to examination centre.</li><li>Reach centre before reporting time.</li><li>Mobile phones not allowed.</li><li>Follow instructions of staff.</li><li>Keep this Admit Card safe.</li></ol></div>
 <div class="signatures">
-<div class="signature"><img src="../../../controller-sign.png" crossorigin="anonymous"><div class="signature-line">Controller of Examination</div></div>
-<div class="signature"><img src="../../../school-seal.png" class="seal" crossorigin="anonymous"><div>School Seal</div></div>
-<div class="signature"><img src="../../../principal-sign.png" crossorigin="anonymous"><div class="signature-line">Principal</div></div>
+<div class="signature"><img src="../../../controller-sign.png" crossorigin="anonymous" class="transparent-seal"><div class="signature-line">Controller of Examination</div></div>
+<div class="signature"><img src="../../../school-seal.png" class="seal transparent-seal" crossorigin="anonymous"><div>School Seal</div></div>
+<div class="signature"><img src="../../../principal-sign.png" crossorigin="anonymous" class="transparent-seal"><div class="signature-line">Principal</div></div>
 </div>
 <div class="actions"><button onclick="printOneStudent()">🖨 Print</button><button class="back-btn" onclick="goBack()">Back</button></div>
 </div>
@@ -131,13 +139,28 @@ for(let i=0;i<cards.length;i++){
 btn.innerHTML=`⏳ ${i+1}/${cards.length}...`;
 const card=cards[i];
 await waitImgs(card);
-const canvas=await html2canvas(card,{scale:2.5,useCORS:true,allowTaint:true,backgroundColor:"#ffffff",onclone:(doc)=>{doc.querySelectorAll("img").forEach(im=>{im.style.mixBlendMode="normal";im.style.background="white";});}});
-const img=canvas.toDataURL("image/jpeg",0.92);
+const canvas=await html2canvas(card,{
+scale:3,
+useCORS:true,
+allowTaint:true,
+backgroundColor:"#ffffff",
+onclone:(doc)=>{
+  doc.querySelectorAll(".transparent-seal").forEach(im=>{
+    im.style.mixBlendMode="multiply";
+    im.style.background="transparent";
+    im.style.backgroundColor="transparent";
+  });
+  doc.querySelectorAll(".admit-card").forEach(c=>{
+    c.style.background="#ffffff";
+  });
+}
+});
+const img=canvas.toDataURL("image/jpeg",0.95);
 if(i>0 && i%2===0) pdf.addPage();
 pdf.addImage(img,"JPEG",left,tops[i%2],W,H,"","FAST");
 }
-pdf.save("Class-7-Admit-Cards-2-Per-Page-WITH-SEAL-2026-27.pdf");
-alert("✅ Ho gaya! 2 Cards Per Page + Seal & Sign dono aa gaye!");
+pdf.save("Class-7-Admit-Cards-2-Per-Page-Transparent-Seal-2026-27.pdf");
+alert("✅ Done! 2 Cards Per Page + Transparent Seal & Sign!");
 }catch(e){alert("Error: "+e.message);console.error(e);}
 area.innerHTML="";area.style.display="none";btn.disabled=false;btn.innerHTML=old;
 }
