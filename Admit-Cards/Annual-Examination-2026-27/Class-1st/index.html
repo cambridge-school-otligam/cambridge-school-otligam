@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Class 7 Admit Card - Cambridge School - FINAL SAME AS SINGLE</title>
+<title>Class 1st Admit Card - Cambridge School - FINAL SAME AS SINGLE</title>
 <!-- PDF LIBRARIES ADDED -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -84,7 +84,7 @@ body >.admit-card{display:none!important;}
 <body>
 <div class="search-box">
 <h1>CAMBRIDGE SCHOOL OF MODERN EDUCATION</h1>
-<p>Class 7 — Admit Card</p>
+<p>Class 1st — Admit Card</p>
 <input type="text" id="search" placeholder="Enter Roll Number or Student Name"><br>
 <button onclick="findStudent()">🔍 Search Admit Card</button><br>
 <button class="all-btn" onclick="adminPrintAll()">🖨 Print All (2 Per Page)</button>
@@ -124,16 +124,165 @@ body >.admit-card{display:none!important;}
 <div id="printArea"></div>
 <script>
 const students = {
-"26CS7009":{name:"Jannat Ul Firdous",father:"Firdous Ahmad Mir",mother:"Afrooza Akhther",dob:"01-09-2014",address:"Otligam Beerwah"},
-"26CS70010":{name:"Suliam Jan",father:"Khazir Mohammad Bhat",mother:"Rubeena Bano",dob:"09-11-2013",address:"Otligam Beerwah"},
-"26CS70011":{name:"Aruja Nazir",father:"Nazir Ahmad Khan",mother:"Haneefa Bano",dob:"27-08-2014",address:"Suchin Banit"},
-"26CS70012":{name:"Muntazir Mukhtar Bhat",father:"Mukhtar Ahmad Bhat",mother:"Fareeda Bano",dob:"28-01-2014",address:"Otligam Beerwah"},
-"26CS70013":{name:"Firdous Ahmad Tantary",father:"Bashir Ahmad Tantary",mother:"Wazira Bano",dob:"26-08-2014",address:"Otligam Beerwah"},
-"26CS70014":{name:"Farhan Shabir",father:"Shabir Ahmad Wani",mother:"Shada Bano",dob:"20-01-2025",address:"Gampora Beerwah"},
-"26CS70015":{name:"Umer Riyaz",father:"Riyaz Ahmad Sheikh",mother:"Haseena Begum",dob:"28-10-2013",address:"Chideren Kegam Shopian"},
-"26CS70016":{name:"Irtiqa Habib",father:"Habibullah Ganie",mother:"Shahnaza Bano",dob:"11-03-2015",address:"Gampora Beerwah"},
-"26CS70017":{name:"Muntazir Farooq Sheikh",father:"Farooq Ahmad Sheikh",mother:"Afroza Akhter",dob:"31-05-2015",address:"Suchin Banit"},
-"26CS7018":{name:"Anamta Maqbool",father:"Maqbool Ahmad Wani",mother:"Chesfeeda Bano",dob:"03-03-2014",address:"Gampora Beerwah"}
+"26CS10086":{
+    name:"Zainul Hamza",
+    father:"Mohammad Yousuf Lone",
+    mother:"Shafiqa Bano",
+    dob:"04-20-2017",
+    address:"Otligam Beerwah"
+},
+
+"26CS10087":{
+    name:"Mohammad Azhar Bhat",
+    father:"Mushtaq Ahmad Bhat",
+    mother:"Sumeera Bani",
+    dob:"12-02-2018",
+    address:"Otligam Beerwah"
+},
+
+"26CS10088":{
+    name:"Mohammad Asrar Dar",
+    father:"Irshad Ahmad Dar",
+    mother:"Firdoosa Bano",
+    dob:"03-09-2019",
+    address:"Otligam Beerwah"
+},
+
+"26CS10089":{
+    name:"Aleeza Zainab",
+    father:"Shabir Hussain Rather",
+    mother:"Suriyana Akhter",
+    dob:"18-07-2018",
+    address:"Ranopora Beerwah"
+},
+
+"26CS10090":{
+    name:"Suhaib Altaf",
+    father:"Mohammad Altaf Sheikh",
+    mother:"Ulfat Akhter",
+    dob:"05-09-2017",
+    address:"Suchin Banit"
+},
+
+"26CS10091":{
+    name:"Irtiza Yousuf",
+    father:"Mohammad Yousuf Dar",
+    mother:"Mahnoora Bano",
+    dob:"02-05-2017",
+    address:"Otligam Beerwah"
+},
+
+"26CS10092":{
+    name:"Sehrish Bashir",
+    father:"Bashir Ahmad Tantray",
+    mother:"Wazeera Bano",
+    dob:"20-07-2018",
+    address:"Otligam Beerwah"
+},
+
+"26CS10093":{
+    name:"Mohammad Anas Bhat",
+    father:"Khazir Mohammad Bhat",
+    mother:"Rubeena Bano",
+    dob:"27-05-2018",
+    address:"Otligam Beerwah"
+},
+
+"26CS10094":{
+    name:"Iram Showkat",
+    father:"Showkat Ahmad Sheikh",
+    mother:"Jameela Akhter",
+    dob:"12-06-2018",
+    address:"Charangam Beerwah"
+},
+
+"26CS10095":{
+    name:"Mubashir Mukhtar",
+    father:"Mukhtar Ahmad Tantray",
+    mother:"Posha Bano",
+    dob:"14-07-2019",
+    address:"Otligam Beerwah"
+},
+
+"26CS10096":{
+    name:"Rabiya Showkat",
+    father:"Showkat Ahmad Tantray",
+    mother:"Reehana Akhter",
+    dob:"21-01-2018",
+    address:"Otligam Beerwah"
+},
+
+"26CS10097":{
+    name:"Azan Bashir",
+    father:"Bashir Ahmad Dar",
+    mother:"Rubeena Bano",
+    dob:"04-07-2018",
+    address:"Otligam Beerwah"
+},
+
+"26CS10098":{
+    name:"Misum Abbas",
+    father:"Gulzar Ahmad Najar",
+    mother:"Tahira Akhter",
+    dob:"17-04-2018",
+    address:"Ranopora Beerwah"
+},
+
+"26CS10099":{
+    name:"Asma Hilal",
+    father:"Hilal Ahmad Sheikh",
+    mother:"Mehfooza Akhter",
+    dob:"18-12-2018",
+    address:"Garnpora Beerwah"
+},
+
+"26CS10100":{
+    name:"Zeenat Bilal",
+    father:"Bilal Ahmad Wani",
+    mother:"NA",
+    dob:"04-06-2018",
+    address:"Gondipora Beerwah"
+},
+
+"26CS10101":{
+    name:"Shazia Nazir",
+    father:"Nazir Ahmad Chopan",
+    mother:"Zahoora Bano",
+    dob:"07-01-2018",
+    address:"Charangam Beerwah"
+},
+
+"26CS10102":{
+    name:"Sana Bilal",
+    father:"Bilal Ahmad Sheikh",
+    mother:"Sameera Akhter",
+    dob:"15-07-2018",
+    address:"Charangam Beerwah"
+},
+
+"26CS10103":{
+    name:"Reyan Farooq",
+    father:"Farooq Ahmad Sheikh",
+    mother:"Akhter",
+    dob:"ADD DATE OF BIRTH",
+    address:"ADD PERMANENT ADDRESS"
+},
+
+"26CS10104":{
+    name:"Uzair Dar",
+    father:"Bilal Ahmad She",
+    mother:"Sameera Akhter",
+    dob:"ADD DATE OF BIRTH",
+    address:"ADD PERMANENT ADDRESS"
+},
+
+"26CS10105":{
+    name:"Fazil Firdous",
+    father:"Firdous Ahmad Sheikh",
+    mother:"Sameera Akhter",
+    dob:"ADD DATE OF BIRTH",
+    address:"ADD PERMANENT ADDRESS"
+},
 };
 function findStudent(){
 let input=document.getElementById("search").value.trim().toLowerCase();
@@ -216,7 +365,7 @@ let img=canvas.toDataURL("image/jpeg",0.95);
 if(i>0&&i%2===0) pdf.addPage();
 pdf.addImage(img,"JPEG",left,tops[i%2],W,H,"","FAST");
 }
-pdf.save("Class-7-Admit-Cards-2-Per-Page-Transparent.pdf");
+pdf.save("Class-1st-Admit-Cards-2-Per-Page-Transparent.pdf");
 alert("✅ PDF Downloaded! Same style + Transparent seal!");
 }catch(e){alert("Error: "+e.message);console.error(e);}
 area.innerHTML="";area.style.display="none";btn.disabled=false;btn.innerHTML=old;
