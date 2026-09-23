@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Students Progress Report Card 2026-27</title>
+<title>Class 8 - Summative Assessment Result 2026-27</title>
+
+<!-- PDF LIBRARIES -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
-
-/* =========================
-   BASIC
-========================= */
 
 *{
     box-sizing:border-box;
@@ -21,164 +20,166 @@
 body{
     margin:0;
     padding:20px;
-    background:#e9f1f8;
-    font-family:Arial, Helvetica, sans-serif;
-    color:#123;
+    background:linear-gradient(135deg,#eaf6ff,#fdfdfd,#eef9f0);
+    font-family:Arial,sans-serif;
 }
 
-/* =========================
-   SEARCH AREA
-========================= */
+/* SEARCH */
 
 .search-box{
-    max-width:800px;
+    width:650px;
+    max-width:100%;
     margin:0 auto 20px;
     background:white;
-    padding:20px;
+    padding:25px;
     border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,.15);
     text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.18);
 }
 
 .search-box h2{
-    margin:0 0 15px;
+    margin:0 0 8px;
     color:#003b73;
 }
 
-.search-box input{
+.search-box p{
+    margin:5px 0 18px;
+    color:#666;
+    font-size:14px;
+}
+
+.search-input{
     width:70%;
-    padding:12px;
-    border:2px solid #168acb;
+    padding:13px;
+    border:2px solid #0077b6;
     border-radius:8px;
     font-size:16px;
+    outline:none;
 }
 
-.search-box button{
-    padding:12px 20px;
-    margin-left:5px;
-    border:0;
-    border-radius:8px;
-    background:#0066b3;
+.search-input:focus{
+    border-color:#003b73;
+}
+
+.search-btn,
+.download-btn{
+    border:none;
     color:white;
+    padding:13px 18px;
+    border-radius:8px;
     font-weight:bold;
     cursor:pointer;
+    margin:5px;
 }
 
-.search-box button:hover{
-    background:#004d87;
+.search-btn{
+    background:#0066b3;
 }
 
-/* =========================
-   REPORT CARD
-========================= */
+.search-btn:hover{
+    background:#004b87;
+}
+
+.download-btn{
+    background:#168a45;
+}
+
+.download-btn:hover{
+    background:#0d6d34;
+}
+
+.message{
+    margin-top:12px;
+    color:#c00000;
+    font-weight:bold;
+}
+
+/* REPORT CARD */
+
+#resultArea{
+    display:none;
+}
 
 .report-card{
     width:210mm;
     min-height:297mm;
     margin:20px auto;
     background:white;
+    padding:8mm;
     position:relative;
-    overflow:hidden;
-    padding:9mm;
-
     border:3px solid #0066b3;
-
-    box-shadow:
-        0 8px 30px rgba(0,0,0,.25);
+    box-shadow:0 5px 25px rgba(0,0,0,.2);
+    overflow:hidden;
 }
 
-/* Decorative border */
-
-.report-card::before{
+.report-card:before{
     content:"";
     position:absolute;
     inset:4mm;
-    border:1px solid #e2a900;
+    border:1px solid #e2ad00;
     pointer-events:none;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 .header{
-    position:relative;
     text-align:center;
-    padding-bottom:8px;
+    position:relative;
+    padding-bottom:5px;
 }
 
 .logo{
-    width:80px;
-    height:80px;
-    object-fit:contain;
     position:absolute;
     left:5px;
     top:0;
+    width:75px;
+    height:75px;
+    object-fit:contain;
 }
 
 .school-name{
-    margin:0;
     color:#003b73;
-    font-size:23px;
+    font-size:21px;
     font-weight:900;
-    text-transform:uppercase;
+    padding-left:55px;
+    padding-right:55px;
 }
 
 .school-location{
-    margin-top:3px;
-    font-size:17px;
-    color:#075b9a;
+    color:#0066a8;
+    font-size:15px;
     font-weight:bold;
+    margin-top:3px;
 }
 
 .school-info{
-    margin-top:5px;
-    font-size:11px;
-    color:#333;
+    font-size:10px;
+    margin-top:4px;
 }
 
 .session{
     display:inline-block;
-    margin-top:6px;
+    margin-top:5px;
     background:#0066b3;
     color:white;
-    padding:5px 20px;
+    padding:5px 18px;
     border-radius:15px;
+    font-size:11px;
     font-weight:bold;
-    font-size:13px;
 }
 
-/* =========================
-   TITLE
-========================= */
-
-.report-title{
-    margin-top:8px;
-    background:linear-gradient(90deg,#004b88,#008fd5,#004b88);
-    color:white;
-    border-radius:12px;
-    padding:9px;
-    text-align:center;
-    font-size:20px;
-    font-weight:900;
-    border:2px solid #e3b100;
-    letter-spacing:.5px;
-}
-
-/* =========================
-   STUDENT PHOTO
-========================= */
+/* PHOTO */
 
 .photo-box{
     position:absolute;
     right:10px;
-    top:9mm;
-    width:28mm;
-    height:34mm;
+    top:8mm;
+    width:27mm;
+    height:32mm;
     border:2px solid #0066b3;
-    border-radius:6px;
-    background:#eee;
+    border-radius:5px;
     overflow:hidden;
+    background:#eee;
 }
 
 .photo-box img{
@@ -187,202 +188,176 @@ body{
     object-fit:cover;
 }
 
-/* =========================
-   STUDENT DETAILS
-========================= */
+/* TITLE */
+
+.report-title{
+    margin-top:8px;
+    background:linear-gradient(90deg,#004b88,#008fd5,#004b88);
+    color:white;
+    border:2px solid #e3b100;
+    border-radius:10px;
+    text-align:center;
+    padding:8px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+/* DETAILS */
 
 .student-details{
-    margin-top:10px;
-    border:1.5px solid #168acb;
-    border-radius:7px;
+    margin-top:8px;
+    border:1px solid #168acb;
+    border-radius:6px;
     overflow:hidden;
 }
 
 .detail-row{
     display:grid;
-    grid-template-columns:25% 25% 20% 30%;
-    min-height:27px;
+    grid-template-columns:22% 28% 20% 30%;
 }
 
 .detail-cell{
+    min-height:25px;
+    padding:5px;
     border-right:1px solid #168acb;
     border-bottom:1px solid #168acb;
-    padding:6px;
-    font-size:11px;
-}
-
-.detail-cell:last-child{
-    border-right:0;
+    font-size:10px;
 }
 
 .detail-label{
     background:#dff2fb;
-    font-weight:bold;
     color:#003b73;
+    font-weight:bold;
 }
 
-/* =========================
-   MARKS TABLE
-========================= */
+/* MARKS */
 
 .marks-title{
-    margin-top:10px;
-    margin-bottom:4px;
+    margin-top:8px;
+    font-size:12px;
     color:#003b73;
     font-weight:bold;
-    font-size:13px;
 }
 
 .marks-table{
     width:100%;
     border-collapse:collapse;
     table-layout:fixed;
-    font-size:9px;
+    font-size:8px;
 }
 
 .marks-table th{
     background:#0066a8;
     color:white;
     border:1px solid white;
-    padding:5px 2px;
-    text-align:center;
-    font-size:8.5px;
+    padding:4px 1px;
+    font-size:7.5px;
 }
 
 .marks-table td{
     border:1px solid #168acb;
     text-align:center;
-    padding:6px 2px;
-    height:27px;
+    height:25px;
+    padding:3px 1px;
 }
 
-.marks-table td.subject{
-    text-align:left;
-    padding-left:7px;
+.subject{
+    text-align:left !important;
+    padding-left:5px !important;
     font-weight:bold;
     color:#003b73;
     background:#edf8fd;
 }
 
-/* different column backgrounds */
-
-.f1{background:#dff4ff !important;}
-.f2{background:#e7f8e1 !important;}
-.f3{background:#fff4c7 !important;}
-.f4{background:#f3e5ff !important;}
-.f5{background:#ffe9d6 !important;}
-.f6{background:#e4f0ff !important;}
-
 .fa{
-    background:#d8f1ff !important;
+    background:#d8f1ff;
     font-weight:bold;
 }
 
 .cca{
-    background:#e6f7dd !important;
+    background:#e6f7dd;
     font-weight:bold;
 }
 
 .sa{
-    background:#fff0cf !important;
+    background:#fff0cf;
     font-weight:bold;
 }
 
-.final-total{
-    background:#cfeeff !important;
+.total100{
+    background:#dceeff;
     font-weight:bold;
 }
 
 .grade{
-    background:#e8e8ff !important;
+    background:#eeeaff;
     font-weight:bold;
 }
 
-/* total row */
-
 .total-row td{
-    background:#087ebd !important;
+    background:#087ebd;
     color:white;
     font-weight:bold;
 }
 
-/* =========================
-   BOTTOM SECTION
-========================= */
+/* BOTTOM */
 
 .bottom-section{
     display:grid;
     grid-template-columns:48% 50%;
     gap:2%;
-    margin-top:10px;
+    margin-top:8px;
 }
 
-/* =========================
-   GRADE KEY
-========================= */
+.grade-box,
+.performance-box{
+    border-radius:6px;
+    overflow:hidden;
+}
 
 .grade-box{
-    border:1.5px solid #168acb;
-    border-radius:7px;
-    overflow:hidden;
+    border:1px solid #168acb;
+}
+
+.performance-box{
+    border:1px solid #28a745;
 }
 
 .box-heading{
     background:#0066a8;
     color:white;
-    padding:7px;
+    padding:6px;
+    font-size:10px;
     font-weight:bold;
-    font-size:12px;
-}
-
-.grade-table{
-    width:100%;
-    border-collapse:collapse;
-    font-size:9px;
-}
-
-.grade-table th,
-.grade-table td{
-    border:1px solid #168acb;
-    padding:5px;
-}
-
-.grade-table th{
-    background:#dff2fb;
-    color:#003b73;
-}
-
-/* =========================
-   PERFORMANCE BOX
-========================= */
-
-.performance-box{
-    border:1.5px solid #28a745;
-    border-radius:7px;
-    overflow:hidden;
 }
 
 .performance-heading{
     background:#168d42;
     color:white;
-    padding:7px;
+    padding:6px;
+    font-size:10px;
     font-weight:bold;
-    font-size:12px;
 }
 
+.grade-table,
 .performance-table{
     width:100%;
     border-collapse:collapse;
-    font-size:10px;
+    font-size:8px;
 }
 
+.grade-table td,
+.grade-table th,
 .performance-table td{
-    border:1px solid #78b88d;
-    padding:7px;
+    border:1px solid #9bcde3;
+    padding:4px;
+}
+
+.grade-table th{
+    background:#dff2fb;
 }
 
 .performance-table td:first-child{
-    width:58%;
     background:#e8f5ec;
     font-weight:bold;
 }
@@ -390,28 +365,27 @@ body{
 .performance-table td:last-child{
     background:#fffdf0;
     font-weight:bold;
+    text-align:center;
 }
 
-/* =========================
-   SIGNATURE AREA
-========================= */
+/* SIGNATURE */
 
 .signature-area{
-    margin-top:13px;
+    margin-top:10px;
     display:grid;
     grid-template-columns:1fr 1fr 1fr 1fr;
-    gap:12px;
+    gap:8px;
     text-align:center;
 }
 
 .signature-box{
-    font-size:9px;
+    font-size:8px;
     color:#003b73;
 }
 
 .signature-box img{
-    width:80px;
-    height:38px;
+    width:65px;
+    height:32px;
     object-fit:contain;
     display:block;
     margin:auto;
@@ -419,52 +393,23 @@ body{
 
 .signature-line{
     border-top:1px solid #003b73;
-    margin-top:2px;
-    padding-top:4px;
+    padding-top:3px;
     font-weight:bold;
 }
 
 .signature-sub{
-    font-size:8px;
+    font-size:7px;
 }
-
-/* =========================
-   SEAL
-========================= */
-
-.seal-box{
-    text-align:center;
-}
-
-.seal-box img{
-    width:60px;
-    height:60px;
-    object-fit:contain;
-}
-
-/* =========================
-   FOOTER
-========================= */
 
 .footer{
-    margin-top:8px;
     text-align:center;
-    color:#555;
+    margin-top:7px;
     font-size:8px;
+    color:#555;
     font-style:italic;
 }
 
-/* =========================
-   HIDDEN
-========================= */
-
-#resultArea{
-    display:none;
-}
-
-/* =========================
-   PRINT
-========================= */
+/* PRINT */
 
 @page{
     size:A4 portrait;
@@ -474,7 +419,6 @@ body{
 @media print{
 
     body{
-        margin:0;
         padding:0;
         background:white;
     }
@@ -488,27 +432,28 @@ body{
         width:210mm;
         min-height:297mm;
         box-shadow:none;
-        border:2px solid #0066b3;
         page-break-after:always;
-    }
-
-    #resultArea{
-        display:block !important;
     }
 
 }
 
 @media(max-width:700px){
 
-    body{
-        padding:5px;
+    .search-input{
+        width:100%;
+        margin-bottom:8px;
+    }
+
+    .search-btn,
+    .download-btn{
+        width:100%;
+        margin:4px 0;
     }
 
     .report-card{
         width:100%;
         min-height:auto;
         padding:12px;
-        transform:none;
     }
 
     .logo{
@@ -519,23 +464,12 @@ body{
 
     .photo-box{
         position:static;
-        margin:10px auto;
+        margin:8px auto;
     }
 
     .school-name{
-        font-size:18px;
-    }
-
-    .student-details{
-        overflow-x:auto;
-    }
-
-    .marks-table{
-        font-size:7px;
-    }
-
-    .marks-table th{
-        font-size:7px;
+        padding:0;
+        font-size:17px;
     }
 
     .bottom-section{
@@ -544,16 +478,6 @@ body{
 
     .signature-area{
         grid-template-columns:1fr 1fr;
-    }
-
-    .search-box input{
-        width:100%;
-        margin-bottom:8px;
-    }
-
-    .search-box button{
-        width:100%;
-        margin:0;
     }
 
 }
@@ -565,26 +489,48 @@ body{
 <body>
 
 
-<!-- =========================
-     SEARCH
-========================= -->
+<!-- SEARCH BOX -->
 
 <div class="search-box">
 
-<h2>Students Progress Report Card</h2>
+    <h2>Class 8 Result 2026–27</h2>
 
-<input
-    type="text"
-    id="searchInput"
-    placeholder="Enter Roll Number or Student Name"
->
+    <p>
+        Enter Roll Number or Student Name
+    </p>
 
-<button onclick="findStudent()">
-    Search Result
-</button>
+    <input
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="Example: 26CS8001 or Muzamil"
+    >
+
+    <br>
+
+    <button
+        class="search-btn"
+        onclick="findStudent()">
+        🔍 Search Result
+    </button>
+
+    <button
+        class="download-btn"
+        id="downloadBtn"
+        onclick="downloadPDF()"
+        style="display:none;">
+        📥 Download PDF
+    </button>
+
+    <div
+        id="message"
+        class="message">
+    </div>
 
 </div>
 
+
+<!-- RESULT -->
 
 <div id="resultArea"></div>
 
@@ -592,11 +538,8 @@ body{
 <script>
 
 /* =====================================================
-   STUDENT DATA
-   Add your students here
+   STUDENTS
 ===================================================== */
-
-const students = {
 
 const students = {
 
@@ -644,7 +587,6 @@ const students = {
         }
 
     }
-
 },
 
 
@@ -692,7 +634,6 @@ const students = {
         }
 
     }
-
 },
 
 
@@ -740,31 +681,96 @@ const students = {
         }
 
     }
-
 }
 
 };
 
 
 /* =====================================================
-   GRADE FUNCTION
+   GRADE
 ===================================================== */
 
-function getGrade(percentage){
+function getGrade(percent){
 
-    if(percentage > 90) return "A+";
-    if(percentage > 80) return "A";
-    if(percentage > 70) return "B+";
-    if(percentage > 60) return "B";
-    if(percentage > 50) return "C+";
-    if(percentage > 40) return "C";
+    if(percent > 90) return "A+";
+    if(percent > 80) return "A";
+    if(percent > 70) return "B+";
+    if(percent > 60) return "B";
+    if(percent > 50) return "C+";
+    if(percent > 40) return "C";
 
     return "D";
 }
 
 
 /* =====================================================
-   CREATE MARKS ROW
+   FIND STUDENT
+===================================================== */
+
+function findStudent(){
+
+    const input =
+        document
+        .getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const message =
+        document.getElementById("message");
+
+    message.innerHTML="";
+
+    if(input === ""){
+
+        message.innerHTML =
+        "Please enter Roll Number or Student Name.";
+
+        return;
+    }
+
+    let foundStudent = null;
+
+    /* SEARCH BY ROLL OR NAME */
+
+    for(const roll in students){
+
+        const student = students[roll];
+
+        const rollMatch =
+            student.roll.toLowerCase() === input;
+
+        const nameMatch =
+            student.name.toLowerCase().includes(input);
+
+        if(rollMatch || nameMatch){
+
+            foundStudent = student;
+            break;
+        }
+    }
+
+    if(!foundStudent){
+
+        message.innerHTML =
+        "❌ Student not found. Please check Roll Number or Name.";
+
+        document.getElementById("resultArea").style.display="none";
+
+        document.getElementById("downloadBtn").style.display="none";
+
+        return;
+    }
+
+    /* SHOW STUDENT */
+
+    showReport(foundStudent);
+
+}
+
+
+/* =====================================================
+   CREATE SUBJECT ROW
 ===================================================== */
 
 function createSubjectRow(subject,data){
@@ -782,7 +788,8 @@ function createSubjectRow(subject,data){
         Number(data.cca) +
         Number(data.sa);
 
-    const grade = getGrade(total);
+    const grade =
+        getGrade(total);
 
     return `
 
@@ -811,7 +818,7 @@ function createSubjectRow(subject,data){
             ${data.sa}
         </td>
 
-        <td class="final-total">
+        <td class="total100">
             ${total}
         </td>
 
@@ -826,56 +833,7 @@ function createSubjectRow(subject,data){
 
 
 /* =====================================================
-   FIND STUDENT
-===================================================== */
-
-function findStudent(){
-
-    const input =
-        document.getElementById("searchInput")
-        .value
-        .trim()
-        .toLowerCase();
-
-    if(!input){
-
-        alert("Please enter Roll Number or Student Name.");
-        return;
-
-    }
-
-    let student = null;
-
-    for(const key in students){
-
-        const s = students[key];
-
-        if(
-            key.toLowerCase() === input ||
-            s.name.toLowerCase().includes(input)
-        ){
-
-            student = s;
-            break;
-
-        }
-
-    }
-
-    if(!student){
-
-        alert("Student not found.");
-        return;
-
-    }
-
-    showReport(student);
-
-}
-
-
-/* =====================================================
-   SHOW REPORT CARD
+   SHOW REPORT
 ===================================================== */
 
 function showReport(student){
@@ -889,7 +847,7 @@ function showReport(student){
         "Kashmiri"
     ];
 
-    let subjectRows = "";
+    let rows = "";
 
     let grandTotal = 0;
 
@@ -912,7 +870,7 @@ function showReport(student){
 
         grandTotal += total;
 
-        subjectRows += createSubjectRow(subject,data);
+        rows += createSubjectRow(subject,data);
 
     });
 
@@ -927,14 +885,9 @@ function showReport(student){
         getGrade(percentage);
 
 
-    document.getElementById("resultArea").style.display="block";
-
-
     document.getElementById("resultArea").innerHTML = `
 
-    <div class="report-card">
-
-        <!-- HEADER -->
+    <div class="report-card" id="printCard">
 
         <div class="header">
 
@@ -952,18 +905,16 @@ function showReport(student){
             </div>
 
             <div class="school-info">
-                ZONE: BEERWAH &nbsp; | &nbsp;
+                ZONE: BEERWAH |
                 UDISE CODE: 01040303905
             </div>
 
             <div class="session">
-                Academic Session: 2026 – 27
+                Academic Session: 2026–27
             </div>
 
         </div>
 
-
-        <!-- PHOTO -->
 
         <div class="photo-box">
 
@@ -975,14 +926,10 @@ function showReport(student){
         </div>
 
 
-        <!-- TITLE -->
-
         <div class="report-title">
             STUDENTS PROGRESS REPORT CARD
         </div>
 
-
-        <!-- STUDENT DETAILS -->
 
         <div class="student-details">
 
@@ -1072,8 +1019,6 @@ function showReport(student){
         </div>
 
 
-        <!-- MARKS -->
-
         <div class="marks-title">
             Academic Performance
         </div>
@@ -1082,22 +1027,19 @@ function showReport(student){
         <table class="marks-table">
 
             <colgroup>
-
-                <col style="width:19%">
-                <col style="width:6%">
-                <col style="width:6%">
-                <col style="width:6%">
-                <col style="width:6%">
-                <col style="width:6%">
-                <col style="width:6%">
+                <col style="width:18%">
+                <col style="width:5.5%">
+                <col style="width:5.5%">
+                <col style="width:5.5%">
+                <col style="width:5.5%">
+                <col style="width:5.5%">
+                <col style="width:5.5%">
                 <col style="width:9%">
                 <col style="width:10%">
                 <col style="width:10%">
-                <col style="width:11%">
+                <col style="width:12%">
                 <col style="width:7%">
-
             </colgroup>
-
 
             <thead>
 
@@ -1105,55 +1047,34 @@ function showReport(student){
 
                     <th>Subject</th>
 
-                    <th class="f1">
-                        F1<br>(5)
-                    </th>
+                    <th>F1<br>(5)</th>
+                    <th>F2<br>(5)</th>
+                    <th>F3<br>(5)</th>
+                    <th>F4<br>(5)</th>
+                    <th>F5<br>(5)</th>
+                    <th>F6<br>(5)</th>
 
-                    <th class="f2">
-                        F2<br>(5)
-                    </th>
+                    <th>Total FA<br>(30)</th>
 
-                    <th class="f3">
-                        F3<br>(5)
-                    </th>
-
-                    <th class="f4">
-                        F4<br>(5)
-                    </th>
-
-                    <th class="f5">
-                        F5<br>(5)
-                    </th>
-
-                    <th class="f6">
-                        F6<br>(5)
-                    </th>
-
-                    <th class="fa">
-                        Total FA<br>(30)
-                    </th>
-
-                    <th class="cca">
+                    <th>
                         Co-Curricular<br>
                         Activities<br>
                         (20)
                     </th>
 
-                    <th class="sa">
+                    <th>
                         Summative<br>
                         Assessment<br>
                         (50)
                     </th>
 
-                    <th class="final-total">
+                    <th>
                         Total<br>
                         FA + CCA + SA<br>
                         (100)
                     </th>
 
-                    <th class="grade">
-                        Grade
-                    </th>
+                    <th>Grade</th>
 
                 </tr>
 
@@ -1162,30 +1083,13 @@ function showReport(student){
 
             <tbody>
 
-                ${subjectRows}
-
+                ${rows}
 
                 <tr class="total-row">
 
-                    <td>
-                        GRAND TOTAL
-                    </td>
+                    <td>GRAND TOTAL</td>
 
-                    <td colspan="6">
-                        —
-                    </td>
-
-                    <td>
-                        —
-                    </td>
-
-                    <td>
-                        —
-                    </td>
-
-                    <td>
-                        —
-                    </td>
+                    <td colspan="9">—</td>
 
                     <td>
                         ${grandTotal}
@@ -1202,12 +1106,7 @@ function showReport(student){
         </table>
 
 
-        <!-- BOTTOM -->
-
         <div class="bottom-section">
-
-
-            <!-- GRADE KEY -->
 
             <div class="grade-box">
 
@@ -1262,8 +1161,6 @@ function showReport(student){
             </div>
 
 
-            <!-- PERFORMANCE -->
-
             <div class="performance-box">
 
                 <div class="performance-heading">
@@ -1273,67 +1170,30 @@ function showReport(student){
                 <table class="performance-table">
 
                     <tr>
-
-                        <td>
-                            Total Marks Obtained
-                        </td>
-
-                        <td>
-                            ${grandTotal}
-                        </td>
-
+                        <td>Total Marks Obtained</td>
+                        <td>${grandTotal}</td>
                     </tr>
 
-
                     <tr>
-
-                        <td>
-                            Maximum Marks
-                        </td>
-
-                        <td>
-                            ${maximumMarks}
-                        </td>
-
+                        <td>Maximum Marks</td>
+                        <td>${maximumMarks}</td>
                     </tr>
 
-
                     <tr>
-
-                        <td>
-                            Overall Percentage
-                        </td>
-
-                        <td>
-                            ${percentage.toFixed(2)}%
-                        </td>
-
+                        <td>Overall Percentage</td>
+                        <td>${percentage.toFixed(2)}%</td>
                     </tr>
 
-
                     <tr>
-
-                        <td>
-                            Overall Grade
-                        </td>
-
-                        <td>
-                            ${overallGrade}
-                        </td>
-
+                        <td>Overall Grade</td>
+                        <td>${overallGrade}</td>
                     </tr>
 
-
                     <tr>
-
-                        <td>
-                            Result
-                        </td>
-
+                        <td>Result</td>
                         <td>
                             ${percentage >= 40 ? "PASS" : "NEEDS IMPROVEMENT"}
                         </td>
-
                     </tr>
 
                 </table>
@@ -1343,10 +1203,7 @@ function showReport(student){
         </div>
 
 
-        <!-- SIGNATURES -->
-
         <div class="signature-area">
-
 
             <div class="signature-box">
 
@@ -1384,7 +1241,7 @@ function showReport(student){
             </div>
 
 
-            <div class="signature-box seal-box">
+            <div class="signature-box">
 
                 <img
                     src="school-seal.png"
@@ -1426,23 +1283,155 @@ function showReport(student){
             Education Builds a Better Tomorrow
         </div>
 
-
     </div>
 
     `;
+
+
+    document.getElementById("resultArea").style.display="block";
+
+    document.getElementById("downloadBtn").style.display="inline-block";
+
+    document.getElementById("message").innerHTML =
+        "✅ Result found: " + student.name;
 
 }
 
 
 /* =====================================================
-   ENTER KEY SEARCH
+   DOWNLOAD PDF
 ===================================================== */
 
-document.getElementById("searchInput")
-.addEventListener("keypress",function(event){
+async function downloadPDF(){
+
+    const card =
+        document.getElementById("printCard");
+
+    if(!card){
+
+        alert("Please search a student first.");
+
+        return;
+    }
+
+    const button =
+        document.getElementById("downloadBtn");
+
+    button.innerHTML =
+        "⏳ Preparing PDF...";
+
+    button.disabled=true;
+
+
+    try{
+
+        const canvas =
+            await html2canvas(card,{
+                scale:2,
+                useCORS:true,
+                backgroundColor:"#ffffff"
+            });
+
+
+        const imgData =
+            canvas.toDataURL("image/jpeg",0.95);
+
+
+        const {
+            jsPDF
+        } = window.jspdf;
+
+
+        const pdf =
+            new jsPDF(
+                "p",
+                "mm",
+                "a4"
+            );
+
+
+        const pageWidth =
+            210;
+
+        const pageHeight =
+            297;
+
+
+        const imgWidth =
+            pageWidth;
+
+        const imgHeight =
+            canvas.height *
+            imgWidth /
+            canvas.width;
+
+
+        let height =
+            imgHeight;
+
+
+        if(height > pageHeight){
+
+            height = pageHeight;
+
+        }
+
+
+        pdf.addImage(
+            imgData,
+            "JPEG",
+            0,
+            0,
+            imgWidth,
+            height
+        );
+
+
+        const studentName =
+            document
+            .querySelector(".school-name")
+            ? "Report-Card"
+            : "Student";
+
+
+        pdf.save(
+            studentName +
+            "-2026-27.pdf"
+        );
+
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "PDF download failed. Please try again."
+        );
+
+    }
+
+
+    button.innerHTML =
+        "📥 Download PDF";
+
+    button.disabled=false;
+
+}
+
+
+/* =====================================================
+   ENTER KEY
+===================================================== */
+
+document
+.getElementById("searchInput")
+.addEventListener("keydown",function(event){
 
     if(event.key === "Enter"){
+
         findStudent();
+
     }
 
 });
