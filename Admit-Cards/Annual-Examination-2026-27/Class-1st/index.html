@@ -84,7 +84,7 @@ body >.admit-card{display:none!important;}
 <body>
 <div class="search-box">
 <h1>CAMBRIDGE SCHOOL OF MODERN EDUCATION</h1>
-<p>Class 1st — Admit Card</p>
+<p>Class ukg — Admit Card</p>
 <input type="text" id="search" placeholder="Enter Roll Number or Student Name"><br>
 <button onclick="findStudent()">🔍 Search Admit Card</button><br>
 <button class="all-btn" onclick="adminPrintAll()">🖨 Print All (2 Per Page)</button>
@@ -283,6 +283,7 @@ const students = {
     dob:"ADD DATE OF BIRTH",
     address:"ADD PERMANENT ADDRESS"
 },
+  
 };
 function findStudent(){
 let input=document.getElementById("search").value.trim().toLowerCase();
@@ -365,7 +366,7 @@ let img=canvas.toDataURL("image/jpeg",0.95);
 if(i>0&&i%2===0) pdf.addPage();
 pdf.addImage(img,"JPEG",left,tops[i%2],W,H,"","FAST");
 }
-pdf.save("Class-1st-Admit-Cards-2-Per-Page-Transparent.pdf");
+pdf.save("Class-ukg-Admit-Cards-2-Per-Page-Transparent.pdf");
 alert("✅ PDF Downloaded! Same style + Transparent seal!");
 }catch(e){alert("Error: "+e.message);console.error(e);}
 area.innerHTML="";area.style.display="none";btn.disabled=false;btn.innerHTML=old;
