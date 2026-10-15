@@ -9,631 +9,573 @@
 <style>
 *{box-sizing:border-box}
 
-html,body{margin:0;padding:0}
-
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:linear-gradient(135deg,#dbeafe,#fef3c7,#ede9fe);
-    color:#172033;
-    padding:18px;
-}
-
-.search-panel{
-    max-width:950px;
-    margin:0 auto 20px;
-    padding:18px;
-    background:#fff;
-    border-radius:16px;
-    box-shadow:0 8px 25px rgba(0,0,0,.15);
-    text-align:center;
-}
-
-.search-panel h2{
     margin:0;
-    color:#123c69;
-    font-size:24px;
+    padding:15px;
+    background:#eaf1fa;
+    font-family:Arial,sans-serif;
+    color:#172d50;
 }
 
-.search-panel p{
-    margin:6px 0 15px;
-    color:#64748b;
-}
-
-.search-row{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-}
-
-.search-row input{
-    width:60%;
-    padding:13px;
-    border:2px solid #bfdbfe;
-    border-radius:9px;
-    outline:none;
-    font-size:15px;
-}
-
-.search-row button{
-    border:0;
-    border-radius:9px;
-    padding:12px 18px;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-    background:#2563eb;
-}
-
-.print-btn{background:#059669!important}
-
-.message{
-    display:none;
-    margin-top:10px;
-    color:#dc2626;
-    font-weight:bold;
-}
-
-.report-card{
-    width:210mm;
-    height:297mm;
+.page{
+    max-width:1100px;
     margin:auto;
     background:white;
-    position:relative;
-    overflow:hidden;
-    box-shadow:0 8px 30px rgba(0,0,0,.2);
-}
-
-.outer-border{
-    position:absolute;
-    top:4mm;
-    left:4mm;
-    right:4mm;
-    bottom:4mm;
-    border:3px solid #164e63;
-    border-radius:4mm;
-}
-
-.inner-border{
-    position:absolute;
-    top:7mm;
-    left:7mm;
-    right:7mm;
-    bottom:7mm;
-    border:1px solid #93c5fd;
-}
-
-.card-content{
-    position:absolute;
-    top:9mm;
-    left:9mm;
-    right:9mm;
-    bottom:9mm;
-    display:flex;
-    flex-direction:column;
-}
-
-.top-logo{
-    text-align:center;
-    height:25mm;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.top-logo img{
-    width:24mm;
-    height:24mm;
-    object-fit:contain;
+    border:4px solid #123b78;
+    border-radius:12px;
+    padding:15px;
 }
 
 .header{
-    position:relative;
     text-align:center;
-    padding:0 34mm 3mm;
-    border-bottom:3px solid #2563eb;
+    border-bottom:3px solid #123b78;
+    padding-bottom:12px;
 }
 
-.school-name{
-    margin:0;
+.school-logo{
+    width:80px;
+    height:80px;
+    object-fit:contain;
+}
+
+.header h1{
+    font-size:27px;
+    margin:5px 0;
+    color:#123b78;
+}
+
+.header h2{
     font-size:18px;
-    font-weight:900;
-    color:#123c69;
+    margin:5px 0;
 }
 
-.school-place{
-    margin:3px 0;
-    font-size:12px;
-    font-weight:bold;
-    color:#475569;
+.header h3{
+    font-size:16px;
+    margin:8px 0;
 }
 
-.exam-name{
-    margin-top:5px;
-    display:inline-block;
-    padding:5px 14px;
-    border-radius:20px;
-    background:linear-gradient(90deg,#2563eb,#7c3aed);
-    color:#fff;
-    font-size:11px;
-    font-weight:bold;
-}
-
-.session{
-    margin-top:4px;
-    font-size:10px;
-    font-weight:bold;
-    color:#92400e;
-}
-
-.udise{
-    font-size:7.5px;
-    color:#64748b;
-    margin-top:2px;
-}
-
-.photo-container{
-    position:absolute;
-    right:0;
-    top:0;
-    width:27mm;
-    height:32mm;
-    border:3px solid #2563eb;
-    border-radius:3mm;
-    padding:1mm;
-    background:#eff6ff;
-}
-
-.photo-container img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    border-radius:1.5mm;
-}
-
-.section-title{
-    margin-top:2.5mm;
-    margin-bottom:1.5mm;
-    padding:4px;
+.search-area{
+    background:#edf5ff;
+    padding:15px;
     text-align:center;
-    color:#fff;
-    font-size:9px;
-    font-weight:900;
-    letter-spacing:.5px;
-    border-radius:2px;
-    background:linear-gradient(90deg,#1d4ed8,#7c3aed,#be185d);
+    margin:15px 0;
+    border:1px solid #9bbce8;
+    border-radius:10px;
+}
+
+.search-area input{
+    width:70%;
+    max-width:450px;
+    padding:12px;
+    font-size:16px;
+    border:2px solid #123b78;
+    border-radius:7px;
+}
+
+.search-area button{
+    padding:12px 18px;
+    background:#123b78;
+    color:white;
+    border:0;
+    border-radius:7px;
+    font-size:15px;
+    cursor:pointer;
+    margin:5px;
+}
+
+#message{
+    color:#c00000;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.report{
+    border:2px solid #123b78;
+    border-radius:10px;
+    padding:12px;
+    margin:15px 0;
+    page-break-inside:avoid;
+}
+
+.student-heading{
+    background:linear-gradient(90deg,#123b78,#247ac4);
+    color:white;
+    padding:10px;
+    border-radius:6px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.student-top{
+    display:flex;
+    gap:15px;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+.student-photo{
+    width:105px;
+    height:125px;
+    object-fit:cover;
+    border:2px solid #123b78;
+    border-radius:5px;
+    background:#edf2f8;
 }
 
 .details{
-    display:grid;
-    grid-template-columns:24mm 1fr 24mm 1fr;
-    border:1px solid #94a3b8;
-    font-size:8px;
-}
-
-.detail-label{
-    padding:4px;
-    background:#dbeafe;
-    color:#123c69;
-    font-weight:bold;
-    border-right:1px solid #94a3b8;
-    border-bottom:1px solid #94a3b8;
-}
-
-.detail-value{
-    padding:4px;
-    font-weight:bold;
-    overflow-wrap:anywhere;
-    border-right:1px solid #94a3b8;
-    border-bottom:1px solid #94a3b8;
-}
-
-.marks-table{
+    flex:1;
     width:100%;
     border-collapse:collapse;
-    table-layout:fixed;
-    font-size:7px;
 }
 
-.marks-table th,
-.marks-table td{
-    border:1px solid #64748b;
+.details td{
+    border:1px solid #9bbce8;
+    padding:8px;
+    font-size:13px;
+}
+
+.details td:nth-child(odd){
+    background:#edf5ff;
+    font-weight:bold;
+}
+
+.section-title{
+    background:#123b78;
+    color:white;
+    padding:8px;
+    margin:12px 0 6px;
+    font-weight:bold;
+    border-radius:4px;
+}
+
+.marks{
+    width:100%;
+    border-collapse:collapse;
+    font-size:11px;
     text-align:center;
-    padding:3.5px 1px;
 }
 
-.marks-table th{
-    color:#fff;
-    background:#2563eb;
-    font-weight:900;
+.marks th{
+    background:#123b78;
+    color:white;
+    padding:7px 2px;
+    border:1px solid white;
 }
 
-.marks-table th:first-child,
-.marks-table td:first-child{
-    width:30mm;
-    text-align:left;
-    padding-left:4px;
+.marks td{
+    border:1px solid #a5bddb;
+    padding:7px 2px;
 }
 
-.marks-table th:last-child,
-.marks-table td:last-child{
-    width:15mm;
+.marks tbody tr:nth-child(even){
+    background:#edf5ff;
 }
 
-.marks-table tbody tr:nth-child(even) td{
-    background:#f8fafc;
-}
-
-.marks-table .total-row td{
-    background:#fef3c7!important;
-    color:#713f12;
-    font-weight:900;
+.total-row{
+    background:#fff0bf!important;
+    font-weight:bold;
 }
 
 .summary{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    margin-top:2.5mm;
-    border:1px solid #64748b;
+    gap:5px;
+    margin-top:10px;
 }
 
-.summary-box{
+.summary div{
     text-align:center;
-    padding:4px;
-    border-right:1px solid #64748b;
+    border:1px solid #123b78;
+    border-radius:5px;
+    overflow:hidden;
 }
 
-.summary-box:last-child{border-right:0}
+.summary strong{
+    display:block;
+    background:#123b78;
+    color:white;
+    padding:7px 2px;
+    font-size:11px;
+}
 
-.summary-label{
-    font-size:7px;
-    color:#64748b;
+.summary span{
+    display:block;
+    padding:10px 2px;
+    font-size:18px;
     font-weight:bold;
 }
 
-.summary-value{
-    margin-top:2px;
-    font-size:11px;
-    color:#123c69;
-    font-weight:900;
+.performance{
+    border:2px solid #168d9c;
+    border-radius:9px;
+    padding:10px;
+    margin-top:14px;
+}
+
+.performance-title{
+    background:linear-gradient(90deg,#087f8c,#21b5bd);
+    color:white;
+    padding:10px;
+    border-radius:5px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.landscapes{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.scene{
+    position:relative;
+    overflow:hidden;
+    border:3px solid #d2e2f0;
+    border-radius:9px;
+    background:#eef6ff;
+}
+
+.scene img{
+    display:block;
+    width:100%;
+    height:145px;
+    object-fit:cover;
+}
+
+.scene-name{
+    text-align:center;
+    color:white;
+    background:#123b78;
+    font-weight:bold;
+    padding:8px 3px;
+}
+
+.tick{
+    display:none;
+    position:absolute;
+    top:8px;
+    right:8px;
+    width:35px;
+    height:35px;
+    line-height:31px;
+    border-radius:50%;
+    background:#00a63c;
+    color:white;
+    text-align:center;
+    font-size:25px;
+    font-weight:bold;
+    border:2px solid white;
+    box-shadow:0 2px 8px #555;
+}
+
+.scene.selected{
+    border:4px solid #00a63c;
+}
+
+.scene.selected .tick{
+    display:block;
 }
 
 .proficiency{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:3mm;
-    margin-top:2.5mm;
-}
-
-.prof-box{
-    border:1px solid #64748b;
-    min-width:0;
-}
-
-.prof-title{
-    background:linear-gradient(90deg,#0f766e,#0891b2);
-    color:white;
-    text-align:center;
-    padding:4px;
-    font-size:8px;
-    font-weight:bold;
-}
-
-.prof-content{
-    padding:5px;
-    font-size:7.5px;
-    line-height:1.35;
-}
-
-.prof-table{
-    width:100%;
-    border-collapse:collapse;
-    text-align:center;
-}
-
-.prof-table td,
-.prof-table th{
-    border:1px solid #cbd5e1;
-    padding:2px;
-}
-
-.prof-table th{background:#e0f2fe}
-
-.performance-landscapes{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:5px;
-    width:100%;
-    margin-bottom:7px;
-}
-
-.performance-card{
-    position:relative;
-    min-width:0;
-    padding:3px;
-    border:2px solid #cbd5e1;
-    border-radius:5px;
-    background:#fff;
-    text-align:center;
-}
-
-.performance-card img{
-    display:block;
-    width:100%;
-    height:22mm;
-    object-fit:cover;
-    border-radius:3px;
-}
-
-.performance-name{
-    margin-top:4px;
-    color:#002060;
-    font-size:8px;
-    font-weight:bold;
-}
-
-.performance-tick{
-    display:none;
-    position:absolute;
-    top:5px;
-    right:5px;
-    z-index:2;
-    width:19px;
-    height:19px;
-    line-height:15px;
-    border-radius:50%;
-    border:2px solid #fff;
-    background:#16803c;
-    color:#fff;
-    font-size:13px;
-    font-weight:bold;
-}
-
-.performance-card.active{
-    border:2px solid #16803c;
-    background:#f0fff4;
-}
-
-.performance-card.active .performance-tick{
-    display:block;
-}
-
-.performance-details{
-    border-top:1px solid #d1d5db;
-    padding-top:5px;
-    font-size:7.5px;
-    line-height:1.7;
+    background:#edf9ff;
+    border:1px solid #9bbce8;
+    border-radius:6px;
+    padding:10px;
+    line-height:1.9;
+    margin-top:10px;
 }
 
 .remarks{
-    margin-top:2.5mm;
-    border:1px solid #64748b;
-}
-
-.remarks-title{
-    text-align:center;
-    padding:4px;
-    color:#fff;
-    background:#7c3aed;
-    font-size:8px;
-    font-weight:bold;
-}
-
-.remarks-area{
-    height:12mm;
-    padding:4px;
-    font-size:7px;
-    line-height:8mm;
-}
-
-.signature-title{
-    margin-top:2.5mm;
-    text-align:center;
-    padding:4px;
-    color:#fff;
-    background:linear-gradient(90deg,#1e3a8a,#2563eb,#7c3aed);
-    font-size:8px;
-    font-weight:900;
+    border:1px solid #9bbce8;
+    min-height:45px;
+    padding:10px;
+    border-radius:5px;
 }
 
 .signatures{
     display:grid;
-    grid-template-columns:1fr 1fr 1fr 1fr;
-    border:1px solid #64748b;
-    border-top:0;
-    min-height:29mm;
-    padding:2.5mm 1.5mm;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-top:30px;
+    text-align:center;
 }
 
 .signature-box{
+    min-height:65px;
+    font-size:12px;
+    font-weight:bold;
+    padding-top:35px;
+    border-top:1px solid #123b78;
+}
+
+.school-seal{
     text-align:center;
-    position:relative;
-    border-right:1px dashed #94a3b8;
+    margin-top:12px;
 }
 
-.signature-box:last-child{border-right:0}
-
-.signature-image{
-    height:17mm;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.signature-image img{
-    max-width:28mm;
-    max-height:14mm;
+.school-seal img{
+    max-width:90px;
+    max-height:75px;
     object-fit:contain;
 }
 
-.signature-image .seal{
-    max-width:20mm;
-    max-height:17mm;
-}
-
-.signature-line{
-    margin:1mm 3mm 0;
-    padding-top:2px;
-    border-top:1px solid #334155;
-    font-size:7px;
-    font-weight:bold;
-}
-
-.signature-sub{
-    margin-top:1px;
-    font-size:6px;
-    color:#64748b;
-}
-
 .footer{
-    margin-top:auto;
-    padding-top:2mm;
-    border-top:1px solid #cbd5e1;
     display:flex;
     justify-content:space-between;
-    font-size:6px;
-    color:#64748b;
+    border-top:1px solid #123b78;
+    padding-top:8px;
+    margin-top:15px;
+    font-size:11px;
 }
 
-@page{
-    size:A4 portrait;
-    margin:0;
+@media(max-width:650px){
+    body{padding:4px}
+    .page{padding:6px}
+    .header h1{font-size:20px}
+    .student-top{gap:7px}
+    .student-photo{width:78px;height:100px}
+    .details td{font-size:10px;padding:5px 3px}
+    .marks{font-size:8px}
+    .marks th,.marks td{padding:5px 1px}
+    .scene img{height:80px}
+    .scene-name{font-size:10px}
+    .tick{width:27px;height:27px;line-height:23px;font-size:19px}
+    .summary strong{font-size:9px}
+    .summary span{font-size:14px}
+    .search-area input{width:100%}
 }
 
 @media print{
-    html,body{
-        width:210mm;
-        height:297mm;
-        margin:0!important;
-        padding:0!important;
-        background:white!important;
-    }
-
-    .search-panel{display:none!important}
-
-    .report-card{
-        display:block!important;
-        width:210mm!important;
-        height:297mm!important;
-        margin:0!important;
-        box-shadow:none!important;
-        page-break-after:avoid;
-    }
-
-    body{
-        -webkit-print-color-adjust:exact!important;
-        print-color-adjust:exact!important;
-    }
-
-    .performance-card,
-    .performance-card img,
-    .performance-card.active{
-        -webkit-print-color-adjust:exact;
-        print-color-adjust:exact;
-    }
-}
-
-@media screen and (max-width:900px){
-    body{padding:8px}
-
-    .search-row{flex-direction:column}
-
-    .search-row input{width:100%}
-
-    .report-card{
-        transform:scale(.55);
-        transform-origin:top left;
-        margin-bottom:-130mm;
-        margin-left:0;
-    }
+    body{background:white;padding:0}
+    .search-area{display:none}
+    .page{border:2px solid #123b78}
+    .report{break-inside:avoid}
+    @page{size:A4 portrait;margin:7mm}
 }
 </style>
 </head>
 
 <body>
 
-<div class="search-panel">
-    <h2>Class 8 — Summative Assessment Result 2026–27</h2>
-    <p>Search Student by Roll Number or Name</p>
+<div class="page">
 
-    <div class="search-row">
-        <input
-            id="searchInput"
-            type="text"
-            placeholder="Enter Roll Number or Student Name"
-            autocomplete="off"
-        >
+<header class="header">
+    <img class="school-logo" src="../../logo.png"
+         alt="School Logo"
+         onerror="this.style.display='none'">
 
-        <button onclick="findStudent()">Search</button>
-        <button class="print-btn" onclick="printCard()">Print / Save PDF</button>
-    </div>
+    <h1>CAMBRIDGE SCHOOL OF MODERN EDUCATION</h1>
+    <h2>OTLIGAM BEERWAH</h2>
+    <h3>SUMMATIVE ASSESSMENT EXAMINATION RESULT</h3>
+    <h3>SESSION 2026–27 | CLASS 8th</h3>
+    <b>UDISE CODE: 01040303905</b>
+</header>
 
-    <div id="message" class="message"></div>
+<div class="search-area">
+    <h3>SEARCH STUDENT RESULT</h3>
+
+    <input type="text" id="searchInput"
+           placeholder="Enter Student Name or Roll Number">
+
+    <button onclick="searchStudent()">Get Result</button>
+    <button onclick="showAll()">Show All</button>
+    <button onclick="window.print()">Print Result</button>
+
+    <div id="message"></div>
 </div>
 
-<div id="reportCard" class="report-card" style="display:none;">
+<div id="results"></div>
 
-    <div class="outer-border"></div>
-    <div class="inner-border"></div>
+<div class="signatures">
+    <div class="signature-box">Form Teacher</div>
+    <div class="signature-box">Checked By</div>
+    <div class="signature-box">Exam Incharge</div>
+    <div class="signature-box">Principal</div>
+</div>
 
-    <div class="card-content">
+<div class="school-seal">
+    <img src="../../school-seal.png"
+         alt="School Seal"
+         onerror="this.style.display='none'">
+</div>
 
-        <div class="top-logo">
-            <img src="../../logo.png" alt="School Logo">
+<div class="footer">
+    <span>Cambridge School of Modern Education</span>
+    <span>Session 2026–27</span>
+</div>
+
+</div>
+
+<script>
+/* LANDSCAPE IMAGES */
+const landscapeImages = {
+    stream:
+    "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=700",
+
+    mountain:
+    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700",
+
+    sky:
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=700"
+};
+
+/* STUDENT DATA
+   Replace details and marks with verified school records.
+*/
+const students = [
+{
+    roll:"26CS80001",
+    name:"Muzamil Bashir",
+    father:"Bashir Ahmad Sheikh",
+    mother:"Tabasum",
+    dob:"05-01-2012",
+    admission:"ADM-8001",
+
+    photo:"../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80001.jpg",
+
+    marks:[
+        ["English",5,5,4,5,5,4,18,44],
+        ["Mathematics",5,4,5,5,4,5,19,46],
+        ["Science",4,5,5,4,5,5,18,45],
+        ["Social Science",5,5,4,5,5,4,19,43],
+        ["Urdu",5,4,5,5,4,5,20,46],
+        ["Kashmiri",4,5,5,4,5,5,18,44]
+    ]
+},
+
+{
+    roll:"26CS80002",
+    name:"Arsalan Manzoor",
+    father:"Manzoor Ahmad",
+    mother:"Enter Mother's Name",
+    dob:"Enter Date of Birth",
+    admission:"ADM-8002",
+
+    photo:"../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80002.jpg",
+
+    marks:[
+        ["English",5,5,4,5,5,4,18,44],
+        ["Mathematics",5,4,5,5,4,5,19,46],
+        ["Science",4,5,5,4,5,5,18,45],
+        ["Social Science",5,5,4,5,5,4,19,43],
+        ["Urdu",5,4,5,5,4,5,20,46],
+        ["Kashmiri",4,5,5,4,5,5,18,44]
+    ]
+}
+];
+
+function getGrade(p){
+    if(p>=90)return "A+";
+    if(p>=80)return "A";
+    if(p>=70)return "B+";
+    if(p>=60)return "B";
+    if(p>=50)return "C";
+    return "D";
+}
+
+function getProficiency(p){
+    if(p>=90)return "Outstanding";
+    if(p>=80)return "Excellent";
+    if(p>=70)return "Very Good";
+    if(p>=60)return "Good";
+    if(p>=50)return "Satisfactory";
+    return "Needs Improvement";
+}
+
+function getLandscape(p){
+    if(p<50)return "stream";
+    if(p<80)return "mountain";
+    return "sky";
+}
+
+function renderStudent(s){
+
+    let grandTotal=0;
+
+    const rows=s.marks.map(m=>{
+        const fa=m[1]+m[2]+m[3]+m[4]+m[5]+m[6];
+        const total=fa+m[7]+m[8];
+
+        grandTotal+=total;
+
+        return `
+        <tr>
+            <td style="text-align:left">${m[0]}</td>
+            <td>${m[1]}</td>
+            <td>${m[2]}</td>
+            <td>${m[3]}</td>
+            <td>${m[4]}</td>
+            <td>${m[5]}</td>
+            <td>${m[6]}</td>
+            <td>${fa}</td>
+            <td>${m[7]}</td>
+            <td>${m[8]}</td>
+            <td><b>${total}</b></td>
+            <td>${getGrade(total)}</td>
+        </tr>`;
+    }).join("");
+
+    const percentage=(grandTotal/600)*100;
+    const selected=getLandscape(percentage);
+
+    const landscapeCards=[
+        ["stream","STREAM"],
+        ["mountain","MOUNTAIN"],
+        ["sky","SKY"]
+    ].map(([key,label])=>`
+        <div class="scene ${selected===key?"selected":""}">
+            <span class="tick">✓</span>
+            <img src="${landscapeImages[key]}" alt="${label}">
+            <div class="scene-name">${label}</div>
+        </div>
+    `).join("");
+
+    return `
+    <section class="report">
+
+        <div class="student-heading">
+            STUDENT RESULT — ${s.roll}
         </div>
 
-        <div class="header">
+        <div class="student-top">
 
-            <div class="school-name">
-                CAMBRIDGE SCHOOL OF MODERN EDUCATION
-            </div>
+            <img class="student-photo"
+                 src="${s.photo}"
+                 alt="${s.name}"
+                 onerror="this.onerror=null;this.src='https://placehold.co/105x125/eaf1fa/123b78?text=Student+Photo'">
 
-            <div class="school-place">OTLIGAM BEERWAH</div>
-
-            <div class="exam-name">
-                SUMMATIVE ASSESSMENT EXAMINATION RESULT
-            </div>
-
-            <div class="session">
-                SESSION 2026–27 | CLASS 8th
-            </div>
-
-            <div class="udise">UDISE CODE: 01040303905</div>
-
-            <div class="photo-container">
-                <img id="studentPhoto" src="" alt="Student Photo">
-            </div>
-
-        </div>
-
-        <div class="section-title">STUDENT DETAILS</div>
-
-        <div class="details">
-
-            <div class="detail-label">Student Name</div>
-            <div class="detail-value" id="studentName"></div>
-
-            <div class="detail-label">Roll No.</div>
-            <div class="detail-value" id="studentRoll"></div>
-
-            <div class="detail-label">Father's Name</div>
-            <div class="detail-value" id="studentFather"></div>
-
-            <div class="detail-label">Mother's Name</div>
-            <div class="detail-value" id="studentMother"></div>
-
-            <div class="detail-label">Date of Birth</div>
-            <div class="detail-value" id="studentDob"></div>
-
-            <div class="detail-label">Admission No.</div>
-            <div class="detail-value" id="studentAdmission"></div>
+            <table class="details">
+                <tr>
+                    <td>Student Name</td>
+                    <td>${s.name}</td>
+                </tr>
+                <tr>
+                    <td>Roll Number</td>
+                    <td>${s.roll}</td>
+                </tr>
+                <tr>
+                    <td>Father's Name</td>
+                    <td>${s.father}</td>
+                </tr>
+                <tr>
+                    <td>Mother's Name</td>
+                    <td>${s.mother}</td>
+                </tr>
+                <tr>
+                    <td>Date of Birth</td>
+                    <td>${s.dob}</td>
+                </tr>
+                <tr>
+                    <td>Admission No.</td>
+                    <td>${s.admission}</td>
+                </tr>
+            </table>
 
         </div>
 
         <div class="section-title">SCHOLASTIC PERFORMANCE</div>
 
-        <table class="marks-table">
-
+        <table class="marks">
             <thead>
                 <tr>
                     <th>SUBJECT</th>
@@ -651,557 +593,101 @@ body{
                 </tr>
             </thead>
 
-            <tbody id="marksBody"></tbody>
-
+            <tbody>
+                ${rows}
+                <tr class="total-row">
+                    <td colspan="10">GRAND TOTAL</td>
+                    <td>${grandTotal}</td>
+                    <td>${getGrade(percentage)}</td>
+                </tr>
+            </tbody>
         </table>
 
         <div class="summary">
-
-            <div class="summary-box">
-                <div class="summary-label">GRAND TOTAL</div>
-                <div class="summary-value" id="grandTotal">-</div>
+            <div>
+                <strong>GRAND TOTAL</strong>
+                <span>${grandTotal}</span>
             </div>
-
-            <div class="summary-box">
-                <div class="summary-label">MAXIMUM MARKS</div>
-                <div class="summary-value">600</div>
+            <div>
+                <strong>MAXIMUM MARKS</strong>
+                <span>600</span>
             </div>
-
-            <div class="summary-box">
-                <div class="summary-label">PERCENTAGE</div>
-                <div class="summary-value" id="percentage">-</div>
+            <div>
+                <strong>PERCENTAGE</strong>
+                <span>${percentage.toFixed(2)}%</span>
             </div>
-
-            <div class="summary-box">
-                <div class="summary-label">OVERALL GRADE</div>
-                <div class="summary-value" id="overallGrade">-</div>
+            <div>
+                <strong>OVERALL GRADE</strong>
+                <span>${getGrade(percentage)}</span>
             </div>
-
         </div>
 
-        <div class="proficiency">
-
-            <div class="prof-box">
-
-                <div class="prof-title">LEVEL OF PROFICIENCY</div>
-
-                <div class="prof-content">
-
-                    <table class="prof-table">
-
-                        <tr>
-                            <th>Grade</th>
-                            <th>Percentage</th>
-                            <th>Level</th>
-                        </tr>
-
-                        <tr><td>A+</td><td>90–100%</td><td>Outstanding</td></tr>
-                        <tr><td>A</td><td>80–89%</td><td>Excellent</td></tr>
-                        <tr><td>B+</td><td>70–79%</td><td>Very Good</td></tr>
-                        <tr><td>B</td><td>60–69%</td><td>Good</td></tr>
-                        <tr><td>C</td><td>50–59%</td><td>Satisfactory</td></tr>
-                        <tr><td>D</td><td>Below 50%</td><td>Needs Improvement</td></tr>
-
-                    </table>
-
-                </div>
-
+        <div class="performance">
+            <div class="performance-title">
+                PERFORMANCE LEVEL
             </div>
 
-            <div class="prof-box">
-
-                <div class="prof-title">STUDENT PERFORMANCE</div>
-
-                <div class="prof-content">
-
-                    <div class="performance-landscapes">
-
-                        <div class="performance-card" id="streamCard">
-                            <span class="performance-tick">✓</span>
-                            <img
-                                src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=500&q=80"
-                                alt="Stream Landscape"
-                            >
-                            <div class="performance-name">STREAM</div>
-                        </div>
-
-                        <div class="performance-card" id="mountainCard">
-                            <span class="performance-tick">✓</span>
-                            <img
-                                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=500&q=80"
-                                alt="Mountain Landscape"
-                            >
-                            <div class="performance-name">MOUNTAIN</div>
-                        </div>
-
-                        <div class="performance-card" id="skyCard">
-                            <span class="performance-tick">✓</span>
-                            <img
-                                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=500&q=80"
-                                alt="Sky Landscape"
-                            >
-                            <div class="performance-name">SKY</div>
-                        </div>
-
-                    </div>
-
-                    <div class="performance-details">
-
-                        <div>
-                            <b>Level of Proficiency:</b>
-                            <span id="performanceLevel">-</span>
-                        </div>
-
-                        <div>
-                            <b>Overall Percentage:</b>
-                            <span id="performancePercentage">-</span>
-                        </div>
-
-                        <div>
-                            <b>Overall Grade:</b>
-                            <span id="performanceGrade">-</span>
-                        </div>
-
-                        <div>
-                            <b>Total Marks:</b>
-                            <span id="performanceTotal">-</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
+            <div class="landscapes">
+                ${landscapeCards}
             </div>
 
+            <div class="proficiency">
+                <b>Proficiency:</b> ${getProficiency(percentage)}<br>
+                <b>Percentage:</b> ${percentage.toFixed(2)}%<br>
+                <b>Overall Grade:</b> ${getGrade(percentage)}<br>
+                <b>Total Marks:</b> ${grandTotal}/600
+            </div>
         </div>
 
-        <div class="remarks">
+        <div class="section-title">TEACHER'S REMARKS</div>
+        <div class="remarks"></div>
 
-            <div class="remarks-title">REMARKS</div>
-
-            <div class="remarks-area">
-                _______________________________________________________________<br>
-                _______________________________________________________________
-            </div>
-
-        </div>
-
-        <div class="signature-title">
-            AUTHENTICATION &amp; SIGNATURES
-        </div>
-
-        <div class="signatures">
-
-            <div class="signature-box">
-                <div class="signature-image">
-                    <img src="../../exam-incharge-sign.png" alt="Exam Incharge Signature">
-                </div>
-                <div class="signature-line">Exam Incharge</div>
-                <div class="signature-sub">Signature</div>
-            </div>
-
-            <div class="signature-box">
-                <div class="signature-image">
-                    <img src="../../checked-sign.png" alt="Checked By Signature">
-                </div>
-                <div class="signature-line">Checked By</div>
-                <div class="signature-sub">Signature</div>
-            </div>
-
-            <div class="signature-box">
-                <div class="signature-image">
-                    <img class="seal" src="../../school-seal.png" alt="School Seal">
-                </div>
-                <div class="signature-line">Exam Incharge</div>
-                <div class="signature-sub">School Seal</div>
-            </div>
-
-            <div class="signature-box">
-                <div class="signature-image">
-                    <img src="../../principal-sign.png" alt="Principal Signature">
-                </div>
-                <div class="signature-line">Principal</div>
-                <div class="signature-sub">Signature</div>
-            </div>
-
-        </div>
-
-        <div class="footer">
-            <span>Cambridge School of Modern Education, Otligam Beerwah</span>
-            <span>Session 2026–27</span>
-        </div>
-
-    </div>
-</div>
-
-<script>
-/* ONLY ONE STUDENT */
-
-const students = [
-"26CS80001":{
-    name:"Muzamil Bashir",
-    father:"Bashir Ahmad Sheikh",
-    mother:"Tabasum",
-    dob:"05-01-2012",
-    className:"8th",
-    roll:"26CS80001",
-    admission:"ADM-8001",
-    photo:"../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80001.jpg",
-    marks:{
-        English:{ f1:5,f2:5,f3:4,f4:5,f5:5,f6:4, cca:18,sa:44 },
-        Mathematics:{ f1:5,f2:4,f3:5,f4:5,f5:4,f6:5, cca:19,sa:46 },
-        Science:{ f1:4,f2:5,f3:5,f4:4,f5:5,f6:5, cca:18,sa:45 },
-        "Social Science":{ f1:5,f2:5,f3:4,f4:5,f5:5,f6:4, cca:19,sa:43 },
-        Urdu:{ f1:5,f2:4,f3:5,f4:5,f5:4,f6:5, cca:20,sa:46 },
-        Kashmiri:{ f1:4,f2:5,f3:5,f4:4,f5:5,f6:5, cca:18,sa:44 }
-    }
-},
-
-"26CS80002":{
-    name:"Arsalan Manzoor Wani",
-    father:"Manzoor Ahmad Wani",
-    mother:"Amina Bano",
-    dob:"30-07-2013",
-    className:"8th",
-    roll:"26CS80002",
-    admission:"ADM-8002",
-    photo:"../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80002.jpg",
-    marks:{
-        English:{ f1:5,f2:5,f3:4,f4:5,f5:5,f6:4, cca:18,sa:44 },
-        Mathematics:{ f1:5,f2:4,f3:5,f4:5,f5:4,f6:5, cca:19,sa:46 },
-        Science:{ f1:4,f2:5,f3:5,f4:4,f5:5,f6:5, cca:18,sa:45 },
-        "Social Science":{ f1:5,f2:5,f3:4,f4:5,f5:5,f6:4, cca:19,sa:43 },
-        Urdu:{ f1:5,f2:4,f3:5,f4:5,f5:4,f6:5, cca:20,sa:46 },
-        Kashmiri:{ f1:4,f2:5,f3:5,f4:4,f5:5,f6:5, cca:18,sa:44 }
-    }
-},
-
-"26CS80003":{
-    name:"Saqib Rashid Bhat",
-    father:"Ab Rashid Bhat",
-    mother:"Shanaza Akther",
-    dob:"21-04-2013",
-    className:"8th",
-    roll:"26CS80003",
-    admission:"ADM-8003",
-    photo:"../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80003.jpg",
-    marks:{
-        English:{ f1:5,f2:5,f3:4,f4:5,f5:5,f6:4, cca:18,sa:44 },
-        Mathematics:{ f1:5,f2:4,f3:5,f4:5,f5:4,f6:5, cca:19,sa:46 },
-        Science:{ f1:4,f2:5,f3:5,f4:4,f5:5,f6:5, cca:18,sa:45 },
-        "Social Science":{ f1:5,f2:5,f3:4,f4:5,f5:5,f6:4, cca:19,sa:43 },
-        Urdu:{ f1:5,f2:4,f3:5,f4:5,f5:4,f6:5, cca:20,sa:46 },
-        Kashmiri:{ f1:4,f2:5,f3:5,f4:4,f5:5,f6:5, cca:18,sa:44 }
-    }
-},
-
-"26CS80004":{
-    name:"Zahid Ahmad Wani",
-    father:"Reyaz Ahmad Wani",
-    mother:"Shahnaza Bano",
-    dob:"01-01-2014",
-    className:"8th",
-    roll:"26CS80004",
-    admission:"ADM-8004",
-    photo:"../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80004.jpg",
-    marks:{
-        English:{ f1:5,f2:5,f3:4,f4:5,f5:5,f6:4, cca:18,sa:44 },
-        Mathematics:{ f1:5,f2:4,f3:5,f4:5,f5:4,f6:5, cca:19,sa:46 },
-        Science:{ f1:4,f2:5,f3:5,f4:4,f5:5,f6:5, cca:18,sa:45 },
-        "Social Science":{ f1:5,f2:5,f3:4,f4:5,f5:5,f6:4, cca:19,sa:43 },
-        Urdu:{ f1:5,f2:4,f3:5,f4:5,f5:4,f6:5, cca:20,sa:46 },
-        Kashmiri:{ f1:4,f2:5,f3:5,f4:4,f5:5,f6:5, cca:18,sa:44 }
-    }
-},
-
-"26CS80005":{
-    name:"Ikhlas Ali Bhat",
-    father:"Gh Hassan Bhat",
-    mother:"Shaheena Bano",
-    dob:"11-08-2014",
-    className:"8th",
-    roll:"26CS80005",
-    admission:"ADM-8005",
-    photo:"../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80005.jpg",
-    marks:{
-        English:{ f1:5,f2:5,f3:4,f4:5,f5:5,f6:4, cca:18,sa:44 },
-        Mathematics:{ f1:5,f2:4,f3:5,f4:5,f5:4,f6:5, cca:19,sa:46 },
-        Science:{ f1:4,f2:5,f3:5,f4:4,f5:5,f6:5, cca:18,sa:45 },
-        "Social Science":{ f1:5,f2:5,f3:4,f4:5,f5:5,f6:4, cca:19,sa:43 },
-        Urdu:{ f1:5,f2:4,f3:5,f4:5,f5:4,f6:5, cca:20,sa:46 },
-        Kashmiri:{ f1:4,f2:5,f3:5,f4:4,f5:5,f6:5, cca:18,sa:44 }
-    }
-},
-
-"26CS80006":{
-    name:"Fiza Farooz",
-    father:"Farooz Ahmad Sheikh",
-    mother:"Haseena",
-    dob:"12-06-2013",
-    className:"8th",
-    roll:"26CS80006",
-    admission:"ADM-8006",
-    photo:"../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80006.jpg",
-    marks:{
-        English:{ f1:5,f2:5,f3:4,f4:5,f5:5,f6:4, cca:18,sa:44 },
-        Mathematics:{ f1:5,f2:4,f3:5,f4:5,f5:4,f6:5, cca:19,sa:46 },
-        Science:{ f1:4,f2:5,f3:5,f4:4,f5:5,f6:5, cca:18,sa:45 },
-        "Social Science":{ f1:5,f2:5,f3:4,f4:5,f5:5,f6:4, cca:19,sa:43 },
-        Urdu:{ f1:5,f2:4,f3:5,f4:5,f5:4,f6:5, cca:20,sa:46 },
-        Kashmiri:{ f1:4,f2:5,f3:5,f4:4,f5:5,f6:5, cca:18,sa:44 }
-    }
-},
-
-"26CS80007":{
-    name:"Mizma Majeed",
-    father:"Ab Majeed Sheikh",
-    mother:"Fatima Bano",
-    dob:"06-03-2012",
-    className:"8th",
-    roll:"26CS80007",
-    admission:"ADM-8007",
-    photo:"../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80007.jpg",
-    marks:{
-        English:{ f1:5,f2:5,f3:4,f4:5,f5:5,f6:4, cca:18,sa:44 },
-        Mathematics:{ f1:5,f2:4,f3:5,f4:5,f5:4,f6:5, cca:19,sa:46 },
-        Science:{ f1:4,f2:5,f3:5,f4:4,f5:5,f6:5, cca:18,sa:45 },
-        "Social Science":{ f1:5,f2:5,f3:4,f4:5,f5:5,f6:4, cca:19,sa:43 },
-        Urdu:{ f1:5,f2:4,f3:5,f4:5,f5:4,f6:5, cca:20,sa:46 },
-        Kashmiri:{ f1:4,f2:5,f3:5,f4:4,f5:5,f6:5, cca:18,sa:44 }
-    }
-},
-
-"26CS80008":{
-    name:"Syed Saleem",
-    father:"Syed Shabir",
-    mother:"Haja Bano",
-    dob:"",
-    className:"8th",
-    roll:"26CS80008",
-    admission:"ADM-8008",
-    photo:"../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80008.jpg",
-    marks:{
-        English:{ f1:5,f2:5,f3:4,f4:5,f5:5,f6:4, cca:18,sa:44 },
-        Mathematics:{ f1:5,f2:4,f3:5,f4:5,f5:4,f6:5, cca:19,sa:46 },
-        Science:{ f1:4,f2:5,f3:5,f4:4,f5:5,f6:5, cca:18,sa:45 },
-        "Social Science":{ f1:5,f2:5,f3:4,f4:5,f5:5,f6:4, cca:19,sa:43 },
-        Urdu:{ f1:5,f2:4,f3:5,f4:5,f5:4,f6:5, cca:20,sa:46 },
-        Kashmiri:{ f1:4,f2:5,f3:5,f4:4,f5:5,f6:5, cca:18,sa:44 }
-    }
-},
-];
-
-
-/* GRADE CALCULATION */
-
-function getGrade(percentage) {
-    if (percentage >= 90) return "A+";
-    if (percentage >= 80) return "A";
-    if (percentage >= 70) return "B+";
-    if (percentage >= 60) return "B";
-    if (percentage >= 50) return "C";
-    return "D";
+    </section>`;
 }
 
+function showAll(){
+    document.getElementById("results").innerHTML=
+        students.map(renderStudent).join("");
 
-/* PERFORMANCE LEVEL */
-
-function getProficiency(percentage) {
-    if (percentage >= 90) return "Outstanding";
-    if (percentage >= 80) return "Excellent";
-    if (percentage >= 70) return "Very Good";
-    if (percentage >= 60) return "Good";
-    if (percentage >= 50) return "Satisfactory";
-    return "Needs Improvement";
+    document.getElementById("message").textContent="";
 }
 
+function searchStudent(){
 
-/* SEARCH STUDENT */
-
-function findStudent() {
-
-    const input = document
-        .getElementById("searchInput")
+    const query=document.getElementById("searchInput")
         .value.trim().toLowerCase();
 
-    const message = document.getElementById("message");
+    const message=document.getElementById("message");
+    const results=document.getElementById("results");
 
-    const student = students.find(function(s) {
-        return s.roll.toLowerCase() === input ||
-               s.name.toLowerCase().includes(input);
-    });
-
-    if (student) {
-
-        showReport(student);
-
-        document.getElementById("reportCard").style.display = "block";
-
-        message.style.display = "none";
-        message.textContent = "";
-
-    } else {
-
-        document.getElementById("reportCard").style.display = "none";
-
-        message.textContent =
-            "Student not found. Please enter the correct name or roll number.";
-
-        message.style.display = "block";
-    }
-}
-
-
-/* DISPLAY RESULT */
-
-function showReport(student) {
-
-    document.getElementById("studentName").textContent = student.name;
-    document.getElementById("studentRoll").textContent = student.roll;
-    document.getElementById("studentFather").textContent = student.father;
-    document.getElementById("studentMother").textContent = student.mother;
-    document.getElementById("studentDob").textContent = student.dob || "—";
-    document.getElementById("studentAdmission").textContent = student.admission;
-
-    const photo = document.getElementById("studentPhoto");
-
-    photo.src = student.photo;
-    photo.alt = student.name;
-
-    const tableBody = document.getElementById("marksBody");
-
-    tableBody.innerHTML = "";
-
-    let grandTotal = 0;
-
-    Object.entries(student.subjects).forEach(function(entry) {
-
-        const subject = entry[0];
-        const marks = entry[1];
-
-        const fa =
-            marks.f1 +
-            marks.f2 +
-            marks.f3 +
-            marks.f4 +
-            marks.f5 +
-            marks.f6;
-
-        const total = fa + marks.cca + marks.sa;
-
-        grandTotal += total;
-
-        const subjectGrade = getGrade(total);
-
-        const row = document.createElement("tr");
-
-        row.innerHTML = `
-            <td>${subject}</td>
-            <td>${marks.f1}</td>
-            <td>${marks.f2}</td>
-            <td>${marks.f3}</td>
-            <td>${marks.f4}</td>
-            <td>${marks.f5}</td>
-            <td>${marks.f6}</td>
-            <td>${fa}</td>
-            <td>${marks.cca}</td>
-            <td>${marks.sa}</td>
-            <td>${total}</td>
-            <td>${subjectGrade}</td>
-        `;
-
-        tableBody.appendChild(row);
-    });
-
-
-    /* TOTAL AND PERCENTAGE */
-
-    const overallPercentage = (grandTotal / 600) * 100;
-
-    const overallGrade = getGrade(overallPercentage);
-
-    const overallProficiency = getProficiency(overallPercentage);
-
-    document.getElementById("grandTotal").textContent = grandTotal;
-
-    document.getElementById("percentage").textContent =
-        overallPercentage.toFixed(2) + "%";
-
-    document.getElementById("overallGrade").textContent = overallGrade;
-
-
-    /* STUDENT PERFORMANCE DETAILS */
-
-    document.getElementById("performanceLevel").textContent =
-        overallProficiency;
-
-    document.getElementById("performancePercentage").textContent =
-        overallPercentage.toFixed(2) + "%";
-
-    document.getElementById("performanceGrade").textContent =
-        overallGrade;
-
-    document.getElementById("performanceTotal").textContent =
-        grandTotal + " / 600";
-
-
-    /* SELECT ONE LANDSCAPE */
-
-    const streamCard = document.getElementById("streamCard");
-    const mountainCard = document.getElementById("mountainCard");
-    const skyCard = document.getElementById("skyCard");
-
-    streamCard.classList.remove("active");
-    mountainCard.classList.remove("active");
-    skyCard.classList.remove("active");
-
-    if (overallPercentage < 50) {
-
-        streamCard.classList.add("active");
-
-    } else if (overallPercentage < 80) {
-
-        mountainCard.classList.add("active");
-
-    } else {
-
-        skyCard.classList.add("active");
-    }
-}
-
-
-/* PRINT RESULT */
-
-function printCard() {
-
-    if (document.getElementById("reportCard").style.display === "none") {
-        alert("Please search for the student first.");
+    if(!query){
+        message.textContent="Please enter student name or roll number.";
+        results.innerHTML="";
         return;
     }
 
-    window.print();
-}
+    const found=students.filter(s=>
+        s.name.toLowerCase().includes(query) ||
+        s.roll.toLowerCase().includes(query)
+    );
 
-
-/* ENTER KEY SEARCH */
-
-document.getElementById("searchInput").addEventListener("keydown", function(event) {
-
-    if (event.key === "Enter") {
-        findStudent();
+    if(found.length===0){
+        results.innerHTML="";
+        message.textContent="No student found. Please check the name or roll number.";
+        return;
     }
 
+    message.textContent=found.length+" student(s) found.";
+    results.innerHTML=found.map(renderStudent).join("");
+}
+
+/* Search when Enter key is pressed */
+document.getElementById("searchInput").addEventListener("keydown",function(e){
+    if(e.key==="Enter")searchStudent();
 });
 
-
-/* SHOW THE ONE STUDENT AUTOMATICALLY */
-
-showReport(students[0]);
-
-document.getElementById("reportCard").style.display = "block";
-
-document.getElementById("searchInput").value = students[0].roll;
-
+/* Show both students initially */
+showAll();
 </script>
 
 </body>
