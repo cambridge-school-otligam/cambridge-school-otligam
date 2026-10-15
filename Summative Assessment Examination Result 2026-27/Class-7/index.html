@@ -2,580 +2,652 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Class 8 Result 2026-27 - Cambridge School</title>
 
 <style>
 *{box-sizing:border-box}
 
+html,body{margin:0;padding:0}
+
 body{
-    margin:0;
-    padding:15px;
-    background:#eaf1fa;
-    font-family:Arial,sans-serif;
-    color:#172d50;
+    font-family:Arial,Helvetica,sans-serif;
+    background:linear-gradient(135deg,#dbeafe,#fef3c7,#ede9fe);
+    color:#172033;
+    padding:18px;
 }
 
-.page{
-    max-width:1100px;
+/* SEARCH */
+
+.search-panel{
+    max-width:950px;
+    margin:0 auto 20px;
+    padding:18px;
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+    text-align:center;
+}
+
+.search-panel h2{
+    margin:0;
+    color:#123c69;
+    font-size:24px;
+}
+
+.search-panel p{
+    margin:6px 0 15px;
+    color:#64748b;
+}
+
+.search-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+.search-row input{
+    width:60%;
+    padding:13px;
+    border:2px solid #bfdbfe;
+    border-radius:9px;
+    outline:none;
+    font-size:15px;
+}
+
+.search-row input:focus{border-color:#2563eb}
+
+.search-row button{
+    border:0;
+    border-radius:9px;
+    padding:12px 18px;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    background:#2563eb;
+}
+
+.print-btn{background:#059669!important}
+
+.message{
+    display:none;
+    margin-top:10px;
+    color:#dc2626;
+    font-weight:bold;
+}
+
+/* A4 REPORT CARD */
+
+.report-card{
+    width:210mm;
+    height:297mm;
     margin:auto;
     background:white;
-    border:4px solid #123b78;
-    border-radius:12px;
-    padding:15px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 8px 30px rgba(0,0,0,.2);
 }
 
-.header{
+.outer-border{
+    position:absolute;
+    top:4mm;
+    left:4mm;
+    right:4mm;
+    bottom:4mm;
+    border:3px solid #164e63;
+    border-radius:4mm;
+}
+
+.inner-border{
+    position:absolute;
+    top:7mm;
+    left:7mm;
+    right:7mm;
+    bottom:7mm;
+    border:1px solid #93c5fd;
+}
+
+.card-content{
+    position:absolute;
+    top:9mm;
+    left:9mm;
+    right:9mm;
+    bottom:9mm;
+    display:flex;
+    flex-direction:column;
+}
+
+/* LOGO */
+
+.top-logo{
     text-align:center;
-    border-bottom:3px solid #123b78;
-    padding-bottom:12px;
+    height:25mm;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.school-logo{
-    width:80px;
-    height:80px;
+.top-logo img{
+    width:24mm;
+    height:24mm;
     object-fit:contain;
 }
 
-.header h1{
-    font-size:27px;
-    margin:5px 0;
-    color:#123b78;
-}
+/* HEADER */
 
-.header h2{
-    font-size:18px;
-    margin:5px 0;
-}
-
-.header h3{
-    font-size:16px;
-    margin:8px 0;
-}
-
-.search-area{
-    background:#edf5ff;
-    padding:15px;
+.header{
+    position:relative;
     text-align:center;
-    margin:15px 0;
-    border:1px solid #9bbce8;
-    border-radius:10px;
+    padding:0 34mm 3mm;
+    border-bottom:3px solid #2563eb;
 }
 
-.search-area input{
-    width:70%;
-    max-width:450px;
-    padding:12px;
-    font-size:16px;
-    border:2px solid #123b78;
-    border-radius:7px;
+.school-name{
+    margin:0;
+    font-size:18px;
+    font-weight:900;
+    color:#123c69;
 }
 
-.search-area button{
-    padding:12px 18px;
-    background:#123b78;
-    color:white;
-    border:0;
-    border-radius:7px;
-    font-size:15px;
-    cursor:pointer;
-    margin:5px;
-}
-
-#message{
-    color:#c00000;
+.school-place{
+    margin:3px 0;
+    font-size:12px;
     font-weight:bold;
-    margin-top:10px;
+    color:#475569;
 }
 
-.report{
-    border:2px solid #123b78;
-    border-radius:10px;
-    padding:12px;
-    margin:15px 0;
-    page-break-inside:avoid;
-}
-
-.student-heading{
-    background:linear-gradient(90deg,#123b78,#247ac4);
-    color:white;
-    padding:10px;
-    border-radius:6px;
+.exam-name{
+    margin-top:5px;
+    display:inline-block;
+    padding:5px 14px;
+    border-radius:20px;
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+    color:#fff;
+    font-size:11px;
     font-weight:bold;
-    margin-bottom:10px;
 }
 
-.student-top{
-    display:flex;
-    gap:15px;
-    align-items:center;
-    margin-bottom:12px;
+.session{
+    margin-top:4px;
+    font-size:10px;
+    font-weight:bold;
+    color:#92400e;
 }
 
-.student-photo{
-    width:105px;
-    height:125px;
-    object-fit:cover;
-    border:2px solid #123b78;
-    border-radius:5px;
-    background:#edf2f8;
+.udise{
+    font-size:7.5px;
+    color:#64748b;
+    margin-top:2px;
 }
 
-.details{
-    flex:1;
+/* STUDENT PHOTO */
+
+.photo-container{
+    position:absolute;
+    right:0;
+    top:0;
+    width:27mm;
+    height:32mm;
+    border:3px solid #2563eb;
+    border-radius:3mm;
+    padding:1mm;
+    background:#eff6ff;
+}
+
+.photo-container img{
     width:100%;
-    border-collapse:collapse;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    border-radius:1.5mm;
 }
 
-.details td{
-    border:1px solid #9bbce8;
-    padding:8px;
-    font-size:13px;
-}
-
-.details td:nth-child(odd){
-    background:#edf5ff;
-    font-weight:bold;
-}
+/* SECTION TITLES */
 
 .section-title{
-    background:#123b78;
-    color:white;
-    padding:8px;
-    margin:12px 0 6px;
-    font-weight:bold;
-    border-radius:4px;
+    margin-top:2.5mm;
+    margin-bottom:1.5mm;
+    padding:4px;
+    text-align:center;
+    color:#fff;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:.5px;
+    border-radius:2px;
+    background:linear-gradient(90deg,#1d4ed8,#7c3aed,#be185d);
 }
 
-.marks{
+/* STUDENT DETAILS */
+
+.details{
+    display:grid;
+    grid-template-columns:24mm 1fr 24mm 1fr;
+    border:1px solid #94a3b8;
+    font-size:8px;
+}
+
+.detail-label{
+    padding:4px;
+    background:#dbeafe;
+    color:#123c69;
+    font-weight:bold;
+    border-right:1px solid #94a3b8;
+    border-bottom:1px solid #94a3b8;
+}
+
+.detail-value{
+    padding:4px;
+    font-weight:bold;
+    border-right:1px solid #94a3b8;
+    border-bottom:1px solid #94a3b8;
+    overflow-wrap:anywhere;
+}
+
+/* MARKS TABLE */
+
+.marks-table{
     width:100%;
     border-collapse:collapse;
-    font-size:11px;
+    table-layout:fixed;
+    font-size:7px;
+}
+
+.marks-table th,
+.marks-table td{
+    border:1px solid #64748b;
     text-align:center;
+    padding:3.5px 1px;
 }
 
-.marks th{
-    background:#123b78;
-    color:white;
-    padding:7px 2px;
-    border:1px solid white;
+.marks-table th{
+    color:#fff;
+    background:#2563eb;
+    font-weight:900;
 }
 
-.marks td{
-    border:1px solid #a5bddb;
-    padding:7px 2px;
+.marks-table th:first-child,
+.marks-table td:first-child{
+    width:30mm;
+    text-align:left;
+    padding-left:4px;
 }
 
-.marks tbody tr:nth-child(even){
-    background:#edf5ff;
+.marks-table th:last-child,
+.marks-table td:last-child{
+    width:22mm;
 }
 
-.total-row{
-    background:#fff0bf!important;
-    font-weight:bold;
+.marks-table tbody tr:nth-child(even) td{
+    background:#f8fafc;
 }
+
+.marks-table .total-row td{
+    background:#fef3c7!important;
+    color:#713f12;
+    font-weight:900;
+}
+
+/* SUMMARY */
 
 .summary{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:5px;
-    margin-top:10px;
+    margin-top:2.5mm;
+    border:1px solid #64748b;
 }
 
-.summary div{
+.summary-box{
     text-align:center;
-    border:1px solid #123b78;
-    border-radius:5px;
-    overflow:hidden;
+    padding:4px;
+    border-right:1px solid #64748b;
 }
 
-.summary strong{
-    display:block;
-    background:#123b78;
-    color:white;
-    padding:7px 2px;
+.summary-box:last-child{border-right:0}
+
+.summary-label{
+    font-size:7px;
+    color:#64748b;
+    font-weight:bold;
+}
+
+.summary-value{
+    margin-top:2px;
     font-size:11px;
+    color:#123c69;
+    font-weight:900;
 }
 
-.summary span{
-    display:block;
-    padding:10px 2px;
-    font-size:18px;
-    font-weight:bold;
-}
-
-.performance{
-    border:2px solid #168d9c;
-    border-radius:9px;
-    padding:10px;
-    margin-top:14px;
-}
-
-.performance-title{
-    background:linear-gradient(90deg,#087f8c,#21b5bd);
-    color:white;
-    padding:10px;
-    border-radius:5px;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-
-.landscapes{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-}
-
-.scene{
-    position:relative;
-    overflow:hidden;
-    border:3px solid #d2e2f0;
-    border-radius:9px;
-    background:#eef6ff;
-}
-
-.scene img{
-    display:block;
-    width:100%;
-    height:145px;
-    object-fit:cover;
-}
-
-.scene-name{
-    text-align:center;
-    color:white;
-    background:#123b78;
-    font-weight:bold;
-    padding:8px 3px;
-}
-
-.tick{
-    display:none;
-    position:absolute;
-    top:8px;
-    right:8px;
-    width:35px;
-    height:35px;
-    line-height:31px;
-    border-radius:50%;
-    background:#00a63c;
-    color:white;
-    text-align:center;
-    font-size:25px;
-    font-weight:bold;
-    border:2px solid white;
-    box-shadow:0 2px 8px #555;
-}
-
-.scene.selected{
-    border:4px solid #00a63c;
-}
-
-.scene.selected .tick{
-    display:block;
-}
+/* PROFICIENCY */
 
 .proficiency{
-    background:#edf9ff;
-    border:1px solid #9bbce8;
-    border-radius:6px;
-    padding:10px;
-    line-height:1.9;
-    margin-top:10px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3mm;
+    margin-top:2.5mm;
 }
 
+.prof-box{border:1px solid #64748b}
+
+.prof-title{
+    background:linear-gradient(90deg,#0f766e,#0891b2);
+    color:white;
+    text-align:center;
+    padding:4px;
+    font-size:8px;
+    font-weight:bold;
+}
+
+.prof-content{
+    padding:5px;
+    font-size:7.5px;
+    line-height:1.35;
+}
+
+.prof-table{
+    width:100%;
+    border-collapse:collapse;
+    text-align:center;
+}
+
+.prof-table td,
+.prof-table th{
+    border:1px solid #cbd5e1;
+    padding:2px;
+}
+
+.prof-table th{background:#e0f2fe}
+
+/* SKY, MOUNTAIN AND STREAM */
+
+.landscape-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:4px;
+}
+
+.landscape-card{
+    position:relative;
+    min-width:0;
+    overflow:hidden;
+    text-align:center;
+    border:2px solid #cbd5e1;
+    border-radius:7px;
+    background:#fff;
+    transition:border-color .2s;
+}
+
+.landscape-card.selected{
+    border:3px solid #16a34a;
+    box-shadow:0 0 5px rgba(22,163,74,.35);
+}
+
+.landscape-picture{
+    width:100%;
+    height:62px;
+    display:block;
+}
+
+.landscape-name{
+    padding:4px 1px;
+    font-size:8px;
+    font-weight:900;
+    letter-spacing:.3px;
+}
+
+.landscape-tick{
+    height:19px;
+    font-size:18px;
+    line-height:19px;
+    font-weight:900;
+    color:#15803d;
+    background:#f0fdf4;
+}
+
+.performance-details{
+    margin-top:6px;
+    text-align:center;
+    font-size:8px;
+    line-height:1.6;
+}
+
+/* REMARKS */
+
 .remarks{
-    border:1px solid #9bbce8;
-    min-height:45px;
-    padding:10px;
-    border-radius:5px;
+    margin-top:2.5mm;
+    border:1px solid #64748b;
+}
+
+.remarks-title{
+    text-align:center;
+    padding:4px;
+    color:#fff;
+    background:#7c3aed;
+    font-size:8px;
+    font-weight:bold;
+}
+
+.remarks-area{
+    height:12mm;
+    padding:4px;
+    font-size:7px;
+    line-height:8mm;
+}
+
+/* SIGNATURES */
+
+.signature-title{
+    margin-top:2.5mm;
+    text-align:center;
+    padding:4px;
+    color:#fff;
+    background:linear-gradient(90deg,#1e3a8a,#2563eb,#7c3aed);
+    font-size:8px;
+    font-weight:900;
 }
 
 .signatures{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
-    margin-top:30px;
-    text-align:center;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    border:1px solid #64748b;
+    border-top:0;
+    min-height:29mm;
+    padding:2.5mm 1.5mm;
 }
 
 .signature-box{
-    min-height:65px;
-    font-size:12px;
-    font-weight:bold;
-    padding-top:35px;
-    border-top:1px solid #123b78;
-}
-
-.school-seal{
     text-align:center;
-    margin-top:12px;
+    position:relative;
+    border-right:1px dashed #94a3b8;
 }
 
-.school-seal img{
-    max-width:90px;
-    max-height:75px;
+.signature-box:last-child{border-right:0}
+
+.signature-image{
+    height:17mm;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.signature-image img{
+    max-width:28mm;
+    max-height:14mm;
     object-fit:contain;
 }
 
-.footer{
-    display:flex;
-    justify-content:space-between;
-    border-top:1px solid #123b78;
-    padding-top:8px;
-    margin-top:15px;
-    font-size:11px;
+.signature-image .seal{
+    max-width:20mm;
+    max-height:17mm;
 }
 
-@media(max-width:650px){
-    body{padding:4px}
-    .page{padding:6px}
-    .header h1{font-size:20px}
-    .student-top{gap:7px}
-    .student-photo{width:78px;height:100px}
-    .details td{font-size:10px;padding:5px 3px}
-    .marks{font-size:8px}
-    .marks th,.marks td{padding:5px 1px}
-    .scene img{height:80px}
-    .scene-name{font-size:10px}
-    .tick{width:27px;height:27px;line-height:23px;font-size:19px}
-    .summary strong{font-size:9px}
-    .summary span{font-size:14px}
-    .search-area input{width:100%}
+.signature-line{
+    margin:1mm 3mm 0;
+    padding-top:2px;
+    border-top:1px solid #334155;
+    font-size:7px;
+    font-weight:bold;
+}
+
+.signature-sub{
+    margin-top:1px;
+    font-size:6px;
+    color:#64748b;
+}
+
+/* FOOTER */
+
+.footer{
+    margin-top:auto;
+    padding-top:2mm;
+    border-top:1px solid #cbd5e1;
+    display:flex;
+    justify-content:space-between;
+    font-size:6px;
+    color:#64748b;
+}
+
+/* PRINT */
+
+@page{
+    size:A4 portrait;
+    margin:0;
 }
 
 @media print{
-    body{background:white;padding:0}
-    .search-area{display:none}
-    .page{border:2px solid #123b78}
-    .report{break-inside:avoid}
-    @page{size:A4 portrait;margin:7mm}
+    html,body{
+        width:210mm;
+        height:297mm;
+        margin:0!important;
+        padding:0!important;
+        background:white!important;
+    }
+
+    .search-panel{display:none!important}
+
+    .report-card{
+        display:block!important;
+        width:210mm!important;
+        height:297mm!important;
+        margin:0!important;
+        box-shadow:none!important;
+        page-break-after:always;
+    }
+
+    body{
+        -webkit-print-color-adjust:exact!important;
+        print-color-adjust:exact!important;
+    }
+}
+
+/* MOBILE */
+
+@media screen and (max-width:900px){
+    body{padding:8px}
+
+    .search-row{flex-direction:column}
+
+    .search-row input{width:100%}
+
+    .report-card{
+        transform:scale(.55);
+        transform-origin:top center;
+        margin-bottom:-130mm;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="page">
+<!-- SEARCH -->
 
-<header class="header">
-    <img class="school-logo" src="../../logo.png"
-         alt="School Logo"
-         onerror="this.style.display='none'">
+<div class="search-panel">
+    <h2>Class 8 — Summative Assessment Result 2026–27</h2>
+    <p>Search Student by Roll Number or Name</p>
 
-    <h1>CAMBRIDGE SCHOOL OF MODERN EDUCATION</h1>
-    <h2>OTLIGAM BEERWAH</h2>
-    <h3>SUMMATIVE ASSESSMENT EXAMINATION RESULT</h3>
-    <h3>SESSION 2026–27 | CLASS 8th</h3>
-    <b>UDISE CODE: 01040303905</b>
-</header>
+    <div class="search-row">
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Enter Roll Number or Student Name"
+            autocomplete="off"
+        >
 
-<div class="search-area">
-    <h3>SEARCH STUDENT RESULT</h3>
+        <button onclick="findStudent()">🔍 Search</button>
+        <button class="print-btn" onclick="printCard()">🖨️ Print / Save PDF</button>
+    </div>
 
-    <input type="text" id="searchInput"
-           placeholder="Enter Student Name or Roll Number">
-
-    <button onclick="searchStudent()">Get Result</button>
-    <button onclick="showAll()">Show All</button>
-    <button onclick="window.print()">Print Result</button>
-
-    <div id="message"></div>
+    <div id="message" class="message"></div>
 </div>
 
-<div id="results"></div>
+<!-- REPORT CARD -->
 
-<div class="signatures">
-    <div class="signature-box">Form Teacher</div>
-    <div class="signature-box">Checked By</div>
-    <div class="signature-box">Exam Incharge</div>
-    <div class="signature-box">Principal</div>
-</div>
+<div id="reportCard" class="report-card" style="display:none;">
 
-<div class="school-seal">
-    <img src="../../school-seal.png"
-         alt="School Seal"
-         onerror="this.style.display='none'">
-</div>
+    <div class="outer-border"></div>
+    <div class="inner-border"></div>
 
-<div class="footer">
-    <span>Cambridge School of Modern Education</span>
-    <span>Session 2026–27</span>
-</div>
+    <div class="card-content">
 
-</div>
-
-<script>
-/* LANDSCAPE IMAGES */
-const landscapeImages = {
-    stream:
-    "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=700",
-
-    mountain:
-    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700",
-
-    sky:
-    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=700"
-};
-
-/* STUDENT DATA
-   Replace details and marks with verified school records.
-*/
-const students = [
-{
-    roll:"26CS80001",
-    name:"Muzamil Bashir",
-    father:"Bashir Ahmad Sheikh",
-    mother:"Tabasum",
-    dob:"05-01-2012",
-    admission:"ADM-8001",
-
-    photo:"../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80001.jpg",
-
-    marks:[
-        ["English",5,5,4,5,5,4,18,44],
-        ["Mathematics",5,4,5,5,4,5,19,46],
-        ["Science",4,5,5,4,5,5,18,45],
-        ["Social Science",5,5,4,5,5,4,19,43],
-        ["Urdu",5,4,5,5,4,5,20,46],
-        ["Kashmiri",4,5,5,4,5,5,18,44]
-    ]
-},
-
-{
-    roll:"26CS80002",
-    name:"Arsalan Manzoor",
-    father:"Manzoor Ahmad",
-    mother:"Enter Mother's Name",
-    dob:"Enter Date of Birth",
-    admission:"ADM-8002",
-
-    photo:"../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80002.jpg",
-
-    marks:[
-        ["English",5,5,4,5,5,4,18,44],
-        ["Mathematics",5,4,5,5,4,5,19,46],
-        ["Science",4,5,5,4,5,5,18,45],
-        ["Social Science",5,5,4,5,5,4,19,43],
-        ["Urdu",5,4,5,5,4,5,20,46],
-        ["Kashmiri",4,5,5,4,5,5,18,44]
-    ]
-}
-];
-
-function getGrade(p){
-    if(p>=90)return "A+";
-    if(p>=80)return "A";
-    if(p>=70)return "B+";
-    if(p>=60)return "B";
-    if(p>=50)return "C";
-    return "D";
-}
-
-function getProficiency(p){
-    if(p>=90)return "Outstanding";
-    if(p>=80)return "Excellent";
-    if(p>=70)return "Very Good";
-    if(p>=60)return "Good";
-    if(p>=50)return "Satisfactory";
-    return "Needs Improvement";
-}
-
-function getLandscape(p){
-    if(p<50)return "stream";
-    if(p<80)return "mountain";
-    return "sky";
-}
-
-function renderStudent(s){
-
-    let grandTotal=0;
-
-    const rows=s.marks.map(m=>{
-        const fa=m[1]+m[2]+m[3]+m[4]+m[5]+m[6];
-        const total=fa+m[7]+m[8];
-
-        grandTotal+=total;
-
-        return `
-        <tr>
-            <td style="text-align:left">${m[0]}</td>
-            <td>${m[1]}</td>
-            <td>${m[2]}</td>
-            <td>${m[3]}</td>
-            <td>${m[4]}</td>
-            <td>${m[5]}</td>
-            <td>${m[6]}</td>
-            <td>${fa}</td>
-            <td>${m[7]}</td>
-            <td>${m[8]}</td>
-            <td><b>${total}</b></td>
-            <td>${getGrade(total)}</td>
-        </tr>`;
-    }).join("");
-
-    const percentage=(grandTotal/600)*100;
-    const selected=getLandscape(percentage);
-
-    const landscapeCards=[
-        ["stream","STREAM"],
-        ["mountain","MOUNTAIN"],
-        ["sky","SKY"]
-    ].map(([key,label])=>`
-        <div class="scene ${selected===key?"selected":""}">
-            <span class="tick">✓</span>
-            <img src="${landscapeImages[key]}" alt="${label}">
-            <div class="scene-name">${label}</div>
-        </div>
-    `).join("");
-
-    return `
-    <section class="report">
-
-        <div class="student-heading">
-            STUDENT RESULT — ${s.roll}
+        <div class="top-logo">
+            <img src="../../logo.png" alt="School Logo">
         </div>
 
-        <div class="student-top">
+        <div class="header">
 
-            <img class="student-photo"
-                 src="${s.photo}"
-                 alt="${s.name}"
-                 onerror="this.onerror=null;this.src='https://placehold.co/105x125/eaf1fa/123b78?text=Student+Photo'">
+            <div class="school-name">
+                CAMBRIDGE SCHOOL OF MODERN EDUCATION
+            </div>
 
-            <table class="details">
-                <tr>
-                    <td>Student Name</td>
-                    <td>${s.name}</td>
-                </tr>
-                <tr>
-                    <td>Roll Number</td>
-                    <td>${s.roll}</td>
-                </tr>
-                <tr>
-                    <td>Father's Name</td>
-                    <td>${s.father}</td>
-                </tr>
-                <tr>
-                    <td>Mother's Name</td>
-                    <td>${s.mother}</td>
-                </tr>
-                <tr>
-                    <td>Date of Birth</td>
-                    <td>${s.dob}</td>
-                </tr>
-                <tr>
-                    <td>Admission No.</td>
-                    <td>${s.admission}</td>
-                </tr>
-            </table>
+            <div class="school-place">OTLIGAM BEERWAH</div>
+
+            <div class="exam-name">
+                SUMMATIVE ASSESSMENT EXAMINATION RESULT
+            </div>
+
+            <div class="session">
+                SESSION 2026–27 &nbsp; | &nbsp; CLASS 8th
+            </div>
+
+            <div class="udise">UDISE CODE: 01040303905</div>
+
+            <div class="photo-container">
+                <img id="studentPhoto" src="" alt="Student Photo">
+            </div>
+        </div>
+
+        <!-- STUDENT DETAILS -->
+
+        <div class="section-title">STUDENT DETAILS</div>
+
+        <div class="details">
+
+            <div class="detail-label">Student Name</div>
+            <div class="detail-value" id="studentName"></div>
+
+            <div class="detail-label">Roll No.</div>
+            <div class="detail-value" id="studentRoll"></div>
+
+            <div class="detail-label">Father's Name</div>
+            <div class="detail-value" id="studentFather"></div>
+
+            <div class="detail-label">Mother's Name</div>
+            <div class="detail-value" id="studentMother"></div>
+
+            <div class="detail-label">Date of Birth</div>
+            <div class="detail-value" id="studentDob"></div>
+
+            <div class="detail-label">Admission No.</div>
+            <div class="detail-value" id="studentAdmission"></div>
 
         </div>
+
+        <!-- MARKS -->
 
         <div class="section-title">SCHOLASTIC PERFORMANCE</div>
 
-        <table class="marks">
+        <table class="marks-table">
             <thead>
                 <tr>
                     <th>SUBJECT</th>
@@ -592,102 +664,599 @@ function renderStudent(s){
                     <th>GRADE</th>
                 </tr>
             </thead>
-
-            <tbody>
-                ${rows}
-                <tr class="total-row">
-                    <td colspan="10">GRAND TOTAL</td>
-                    <td>${grandTotal}</td>
-                    <td>${getGrade(percentage)}</td>
-                </tr>
-            </tbody>
+            <tbody id="marksBody"></tbody>
         </table>
 
+        <!-- SUMMARY -->
+
         <div class="summary">
-            <div>
-                <strong>GRAND TOTAL</strong>
-                <span>${grandTotal}</span>
+
+            <div class="summary-box">
+                <div class="summary-label">GRAND TOTAL</div>
+                <div class="summary-value" id="grandTotal">-</div>
             </div>
-            <div>
-                <strong>MAXIMUM MARKS</strong>
-                <span>600</span>
+
+            <div class="summary-box">
+                <div class="summary-label">MAXIMUM MARKS</div>
+                <div class="summary-value">600</div>
             </div>
-            <div>
-                <strong>PERCENTAGE</strong>
-                <span>${percentage.toFixed(2)}%</span>
+
+            <div class="summary-box">
+                <div class="summary-label">PERCENTAGE</div>
+                <div class="summary-value" id="percentage">-</div>
             </div>
-            <div>
-                <strong>OVERALL GRADE</strong>
-                <span>${getGrade(percentage)}</span>
+
+            <div class="summary-box">
+                <div class="summary-label">OVERALL GRADE</div>
+                <div class="summary-value" id="overallGrade">-</div>
+            </div>
+
+        </div>
+
+        <!-- PROFICIENCY -->
+
+        <div class="proficiency">
+
+            <div class="prof-box">
+
+                <div class="prof-title">LEVEL OF PROFICIENCY</div>
+
+                <div class="prof-content">
+                    <table class="prof-table">
+                        <tr>
+                            <th>Grade</th>
+                            <th>Percentage</th>
+                            <th>Level</th>
+                        </tr>
+                        <tr><td>A+</td><td>90–100%</td><td>Outstanding</td></tr>
+                        <tr><td>A</td><td>80–89%</td><td>Excellent</td></tr>
+                        <tr><td>B+</td><td>70–79%</td><td>Very Good</td></tr>
+                        <tr><td>B</td><td>60–69%</td><td>Good</td></tr>
+                        <tr><td>C</td><td>50–59%</td><td>Satisfactory</td></tr>
+                        <tr><td>D</td><td>Below 50%</td><td>Needs Improvement</td></tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <!-- UPDATED STUDENT PERFORMANCE BOX -->
+
+            <div class="prof-box">
+
+                <div class="prof-title">STUDENT PERFORMANCE</div>
+
+                <div class="prof-content">
+
+                    <div class="landscape-grid">
+
+                        <!-- SKY -->
+
+                        <div class="landscape-card" id="skyBox">
+
+                            <svg class="landscape-picture"
+                                 viewBox="0 0 120 75"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 role="img"
+                                 aria-label="Blue sky with sun and clouds">
+
+                                <defs>
+                                    <linearGradient id="skyGradient"
+                                        x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#38bdf8"/>
+                                        <stop offset="100%" stop-color="#dbeafe"/>
+                                    </linearGradient>
+                                </defs>
+
+                                <rect width="120" height="75"
+                                      fill="url(#skyGradient)"/>
+
+                                <circle cx="89" cy="20" r="11"
+                                        fill="#facc15"/>
+
+                                <g fill="#ffffff">
+                                    <ellipse cx="28" cy="28" rx="17" ry="8"/>
+                                    <circle cx="21" cy="23" r="9"/>
+                                    <circle cx="31" cy="20" r="11"/>
+                                    <circle cx="40" cy="27" r="7"/>
+
+                                    <ellipse cx="77" cy="47" rx="17" ry="7"/>
+                                    <circle cx="69" cy="43" r="8"/>
+                                    <circle cx="79" cy="40" r="10"/>
+                                    <circle cx="88" cy="46" r="7"/>
+                                </g>
+
+                                <path d="M0 65 Q30 56 60 65 T120 62 V75 H0Z"
+                                      fill="#86efac"/>
+                            </svg>
+
+                            <div class="landscape-name">SKY</div>
+                            <div class="landscape-tick" id="skyTick"></div>
+
+                        </div>
+
+                        <!-- MOUNTAIN -->
+
+                        <div class="landscape-card" id="mountainBox">
+
+                            <svg class="landscape-picture"
+                                 viewBox="0 0 120 75"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 role="img"
+                                 aria-label="Green mountains with snowy peaks">
+
+                                <defs>
+                                    <linearGradient id="mountainSky"
+                                        x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#7dd3fc"/>
+                                        <stop offset="100%" stop-color="#e0f2fe"/>
+                                    </linearGradient>
+                                </defs>
+
+                                <rect width="120" height="75"
+                                      fill="url(#mountainSky)"/>
+
+                                <circle cx="96" cy="15" r="8"
+                                        fill="#fde047"/>
+
+                                <path d="M-8 65 L25 20 L53 65Z"
+                                      fill="#64748b"/>
+
+                                <path d="M12 38 L25 20 L38 40 L27 35 L22 40Z"
+                                      fill="#ffffff"/>
+
+                                <path d="M28 68 L68 10 L111 68Z"
+                                      fill="#15803d"/>
+
+                                <path d="M49 37 L68 10 L87 37 L73 31 L66 37 L59 31Z"
+                                      fill="#ffffff"/>
+
+                                <path d="M63 68 L94 31 L127 68Z"
+                                      fill="#166534"/>
+
+                                <path d="M0 67 Q30 57 60 68 T120 65 V75 H0Z"
+                                      fill="#4ade80"/>
+
+                            </svg>
+
+                            <div class="landscape-name">MOUNTAIN</div>
+                            <div class="landscape-tick" id="mountainTick"></div>
+
+                        </div>
+
+                        <!-- STREAM -->
+
+                        <div class="landscape-card" id="streamBox">
+
+                            <svg class="landscape-picture"
+                                 viewBox="0 0 120 75"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 role="img"
+                                 aria-label="Blue stream flowing between green banks">
+
+                                <defs>
+                                    <linearGradient id="streamSky"
+                                        x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#bae6fd"/>
+                                        <stop offset="100%" stop-color="#f0f9ff"/>
+                                    </linearGradient>
+                                </defs>
+
+                                <rect width="120" height="75"
+                                      fill="url(#streamSky)"/>
+
+                                <circle cx="94" cy="15" r="8"
+                                        fill="#facc15"/>
+
+                                <path d="M0 15 L28 0 L52 27 L71 5 L95 29 L120 12 V75 H0Z"
+                                      fill="#86a873"/>
+
+                                <path d="M0 38 Q25 30 44 43 T82 42 T120 35 V75 H0Z"
+                                      fill="#16a34a"/>
+
+                                <path d="M44 27
+                                         C60 35 39 45 54 54
+                                         C66 62 52 68 60 75
+                                         H91
+                                         C79 64 96 58 80 47
+                                         C68 38 85 32 74 27Z"
+                                      fill="#38bdf8"/>
+
+                                <path d="M58 38 Q68 43 59 48
+                                         M63 57 Q75 62 65 67"
+                                      fill="none"
+                                      stroke="#e0f2fe"
+                                      stroke-width="2"
+                                      stroke-linecap="round"/>
+
+                                <path d="M0 68 Q25 60 44 70 L44 75 H0Z"
+                                      fill="#4d7c0f"/>
+
+                            </svg>
+
+                            <div class="landscape-name">STREAM</div>
+                            <div class="landscape-tick" id="streamTick"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="performance-details" id="performanceText">
+                        Search student to view performance.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- REMARKS -->
+
+        <div class="remarks">
+            <div class="remarks-title">REMARKS</div>
+            <div class="remarks-area">
+                ________________________________________________________________
+                <br>
+                ________________________________________________________________
             </div>
         </div>
 
-        <div class="performance">
-            <div class="performance-title">
-                PERFORMANCE LEVEL
+        <!-- SIGNATURES -->
+
+        <div class="signature-title">AUTHENTICATION &amp; SIGNATURES</div>
+
+        <div class="signatures">
+
+            <div class="signature-box">
+                <div class="signature-image">
+                    <img src="../../exam-incharge-sign.png"
+                         alt="Exam Incharge Signature">
+                </div>
+                <div class="signature-line">Exam Incharge</div>
+                <div class="signature-sub">Signature</div>
             </div>
 
-            <div class="landscapes">
-                ${landscapeCards}
+            <div class="signature-box">
+                <div class="signature-image">
+                    <img src="../../checked-sign.png"
+                         alt="Checked By Signature">
+                </div>
+                <div class="signature-line">Checked By</div>
+                <div class="signature-sub">Signature</div>
             </div>
 
-            <div class="proficiency">
-                <b>Proficiency:</b> ${getProficiency(percentage)}<br>
-                <b>Percentage:</b> ${percentage.toFixed(2)}%<br>
-                <b>Overall Grade:</b> ${getGrade(percentage)}<br>
-                <b>Total Marks:</b> ${grandTotal}/600
+            <div class="signature-box">
+                <div class="signature-image">
+                    <img class="seal"
+                         src="../../school-seal.png"
+                         alt="School Seal">
+                </div>
+                <div class="signature-line">Exam Incharge</div>
+                <div class="signature-sub">School Seal</div>
             </div>
+
+            <div class="signature-box">
+                <div class="signature-image">
+                    <img src="../../principal-sign.png"
+                         alt="Principal Signature">
+                </div>
+                <div class="signature-line">Principal</div>
+                <div class="signature-sub">Signature</div>
+            </div>
+
         </div>
 
-        <div class="section-title">TEACHER'S REMARKS</div>
-        <div class="remarks"></div>
+        <!-- FOOTER -->
 
-    </section>`;
+        <div class="footer">
+            <span>Cambridge School of Modern Education, Otligam Beerwah</span>
+            <span>Session 2026–27</span>
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+/* STUDENT DATA: ONLY TWO STUDENTS */
+
+const students = {
+
+"26CS80001":{
+    name:"Muzamil Bashir",
+    father:"Bashir Ahmad Sheikh",
+    mother:"Tabasum",
+    dob:"05-01-2012",
+    className:"8th",
+    roll:"26CS80001",
+    admission:"ADM-8001",
+    photo:"../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80001.jpg",
+
+    marks:{
+        English:{
+            f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,
+            cca:18,sa:44
+        },
+        Mathematics:{
+            f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,
+            cca:19,sa:46
+        },
+        Science:{
+            f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,
+            cca:18,sa:45
+        },
+        "Social Science":{
+            f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,
+            cca:19,sa:43
+        },
+        Urdu:{
+            f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,
+            cca:20,sa:46
+        },
+        Kashmiri:{
+            f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,
+            cca:18,sa:44
+        }
+    }
+},
+
+"26CS80002":{
+    name:"Arsalan Manzoor Wani",
+    father:"Manzoor Ahmad Wani",
+    mother:"Amina Bano",
+    dob:"30-07-2013",
+    className:"8th",
+    roll:"26CS80002",
+    admission:"ADM-8002",
+    photo:"../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80002.jpg",
+
+    marks:{
+        English:{
+            f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,
+            cca:18,sa:44
+        },
+        Mathematics:{
+            f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,
+            cca:19,sa:46
+        },
+        Science:{
+            f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,
+            cca:18,sa:45
+        },
+        "Social Science":{
+            f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,
+            cca:19,sa:43
+        },
+        Urdu:{
+            f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,
+            cca:20,sa:46
+        },
+        Kashmiri:{
+            f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,
+            cca:18,sa:44
+        }
+    }
 }
 
-function showAll(){
-    document.getElementById("results").innerHTML=
-        students.map(renderStudent).join("");
+};
 
-    document.getElementById("message").textContent="";
+/* GRADE */
+
+function getGrade(percent){
+    if(percent>=90) return "A+";
+    if(percent>=80) return "A";
+    if(percent>=70) return "B+";
+    if(percent>=60) return "B";
+    if(percent>=50) return "C";
+    return "D";
 }
 
-function searchStudent(){
+/* PROFICIENCY */
 
-    const query=document.getElementById("searchInput")
+function getProficiency(percent){
+    if(percent>=90) return "Outstanding";
+    if(percent>=80) return "Excellent";
+    if(percent>=70) return "Very Good";
+    if(percent>=60) return "Good";
+    if(percent>=50) return "Satisfactory";
+    return "Needs Improvement";
+}
+
+/* SEARCH */
+
+function findStudent(){
+
+    const input=document
+        .getElementById("searchInput")
         .value.trim().toLowerCase();
 
     const message=document.getElementById("message");
-    const results=document.getElementById("results");
+    const card=document.getElementById("reportCard");
 
-    if(!query){
-        message.textContent="Please enter student name or roll number.";
-        results.innerHTML="";
+    if(!input){
+        message.innerText="Please enter Roll Number or Student Name.";
+        message.style.display="block";
+        card.style.display="none";
         return;
     }
 
-    const found=students.filter(s=>
-        s.name.toLowerCase().includes(query) ||
-        s.roll.toLowerCase().includes(query)
-    );
+    let found=null;
 
-    if(found.length===0){
-        results.innerHTML="";
-        message.textContent="No student found. Please check the name or roll number.";
+    for(const key in students){
+        const s=students[key];
+
+        const roll=String(s.roll).toLowerCase();
+        const name=String(s.name).toLowerCase();
+
+        if(roll===input || name.includes(input)){
+            found=s;
+            break;
+        }
+    }
+
+    if(!found){
+        message.innerText="Student not found. Please check Roll Number or Name.";
+        message.style.display="block";
+        card.style.display="none";
         return;
     }
 
-    message.textContent=found.length+" student(s) found.";
-    results.innerHTML=found.map(renderStudent).join("");
+    message.style.display="none";
+    showReport(found);
 }
 
-/* Search when Enter key is pressed */
+/* SHOW REPORT */
+
+function showReport(student){
+
+    document.getElementById("reportCard").style.display="block";
+
+    document.getElementById("studentName").innerText=student.name;
+    document.getElementById("studentRoll").innerText=student.roll;
+    document.getElementById("studentFather").innerText=student.father;
+    document.getElementById("studentMother").innerText=student.mother;
+    document.getElementById("studentDob").innerText=student.dob || "—";
+    document.getElementById("studentAdmission").innerText=student.admission;
+
+    document.getElementById("studentPhoto").src=student.photo;
+
+    const body=document.getElementById("marksBody");
+    body.innerHTML="";
+
+    const subjects=[
+        "English",
+        "Mathematics",
+        "Science",
+        "Social Science",
+        "Urdu",
+        "Kashmiri"
+    ];
+
+    let grandTotal=0;
+
+    subjects.forEach(subject=>{
+
+        const m=student.marks[subject];
+        if(!m) return;
+
+        const fa=
+            Number(m.f1)+
+            Number(m.f2)+
+            Number(m.f3)+
+            Number(m.f4)+
+            Number(m.f5)+
+            Number(m.f6);
+
+        const total=fa+Number(m.cca)+Number(m.sa);
+        grandTotal+=total;
+
+        const row=document.createElement("tr");
+
+        row.innerHTML=`
+            <td>${subject}</td>
+            <td>${m.f1}</td>
+            <td>${m.f2}</td>
+            <td>${m.f3}</td>
+            <td>${m.f4}</td>
+            <td>${m.f5}</td>
+            <td>${m.f6}</td>
+            <td>${fa}</td>
+            <td>${m.cca}</td>
+            <td>${m.sa}</td>
+            <td>${total}</td>
+            <td>${getGrade(total)}</td>
+        `;
+
+        body.appendChild(row);
+    });
+
+    /* GRAND TOTAL ROW */
+
+    const totalRow=document.createElement("tr");
+    totalRow.className="total-row";
+
+    totalRow.innerHTML=`
+        <td>GRAND TOTAL</td>
+        <td colspan="9">—</td>
+        <td>${grandTotal}</td>
+        <td>${getGrade((grandTotal/600)*100)}</td>
+    `;
+
+    body.appendChild(totalRow);
+
+    /* OVERALL RESULTS */
+
+    const percentage=(grandTotal/600)*100;
+    const grade=getGrade(percentage);
+    const proficiency=getProficiency(percentage);
+
+    document.getElementById("grandTotal").innerText=
+        grandTotal+" / 600";
+
+    document.getElementById("percentage").innerText=
+        percentage.toFixed(2)+"%";
+
+    document.getElementById("overallGrade").innerText=grade;
+
+    /* PERFORMANCE TEXT */
+
+    document.getElementById("performanceText").innerHTML=`
+        <b>Percentage:</b> ${percentage.toFixed(2)}%<br>
+        <b>Grade:</b> ${grade}<br>
+        <b>Level:</b> ${proficiency}
+    `;
+
+    /* RESET ALL TICKS */
+
+    const landscapeIds=["sky","mountain","stream"];
+
+    landscapeIds.forEach(id=>{
+        document.getElementById(id+"Tick").innerText="";
+        document.getElementById(id+"Box").classList.remove("selected");
+    });
+
+    /* AUTOMATIC LANDSCAPE SELECTION */
+
+    if(percentage>=80){
+
+        document.getElementById("skyTick").innerText="✓";
+        document.getElementById("skyBox").classList.add("selected");
+
+    }else if(percentage>=50){
+
+        document.getElementById("mountainTick").innerText="✓";
+        document.getElementById("mountainBox").classList.add("selected");
+
+    }else{
+
+        document.getElementById("streamTick").innerText="✓";
+        document.getElementById("streamBox").classList.add("selected");
+
+    }
+}
+
+/* PRINT / SAVE PDF */
+
+function printCard(){
+
+    const card=document.getElementById("reportCard");
+
+    if(card.style.display==="none" || card.style.display===""){
+        alert("Please search a student first.");
+        return;
+    }
+
+    window.print();
+}
+
+/* ENTER KEY SEARCH */
+
 document.getElementById("searchInput").addEventListener("keydown",function(e){
-    if(e.key==="Enter")searchStudent();
+    if(e.key==="Enter"){
+        findStudent();
+    }
 });
 
-/* Show both students initially */
-showAll();
 </script>
 
 </body>
