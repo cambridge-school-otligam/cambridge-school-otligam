@@ -7,580 +7,567 @@
 <title>Class 7 Result 2026-27 - Cambridge School</title>
 
 <style>
-*{
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-body{
-    margin:0;
-    padding:20px;
-    font-family:Arial,Helvetica,sans-serif;
-    background:linear-gradient(135deg,#dbeafe,#f0fdfa,#ede9fe);
-    color:#172554;
+body {
+    margin: 0;
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eaf1f8;
+    color: #172554;
 }
 
-.search-panel{
-    max-width:1000px;
-    margin:0 auto 20px;
-    padding:22px;
-    background:white;
-    border-radius:16px;
-    box-shadow:0 8px 25px #00000018;
-    text-align:center;
+button, input {
+    font-family: inherit;
 }
 
-.search-panel h2{
-    color:#123c7a;
-    margin:0 0 8px;
-    font-size:25px;
+.search-panel {
+    max-width: 900px;
+    margin: 0 auto 18px;
+    padding: 18px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.12);
+    text-align: center;
 }
 
-.search-panel p{
-    margin:8px 0 15px;
-    color:#475569;
+.search-panel h2 {
+    margin: 0 0 12px;
+    color: #123c70;
 }
 
-.search-row{
-    display:flex;
-    gap:10px;
-    justify-content:center;
-    flex-wrap:wrap;
+.search-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
 }
 
-.search-row input{
-    width:min(450px,100%);
-    padding:13px;
-    border:2px solid #bfdbfe;
-    border-radius:8px;
-    font-size:16px;
-    outline:none;
+.search-row input {
+    flex: 1;
+    min-width: 220px;
+    padding: 11px;
+    border: 1px solid #94a3b8;
+    border-radius: 6px;
+    font-size: 15px;
 }
 
-.search-row input:focus{
-    border-color:#2563eb;
+.search-row button {
+    padding: 11px 17px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background: #1d4ed8;
 }
 
-button{
-    border:none;
-    padding:12px 20px;
-    border-radius:8px;
-    color:white;
-    font-size:14px;
-    font-weight:bold;
-    cursor:pointer;
+.search-row .clear-btn {
+    background: #64748b;
 }
 
-.search-btn{
-    background:#1d4ed8;
+.search-row .print-btn {
+    background: #047857;
 }
 
-.print-btn{
-    background:#047857;
+#message {
+    margin-top: 10px;
+    color: #b91c1c;
+    font-weight: bold;
 }
 
-.clear-btn{
-    background:#64748b;
+#card {
+    display: none;
 }
 
-button:hover{
-    opacity:.88;
+.report-card {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 7mm;
+    background: white;
+    border: 2px solid #1d4ed8;
+    position: relative;
+    overflow: hidden;
 }
 
-#message{
-    margin-top:12px;
-    font-weight:bold;
-    color:#b91c1c;
+.report-card::before {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border: 1px solid #93c5fd;
+    pointer-events: none;
 }
 
-.report-card{
-    display:none;
-    width:210mm;
-    min-height:297mm;
-    margin:0 auto;
-    padding:8mm;
-    background:white;
-    border:3px solid #1d4ed8;
-    border-radius:12px;
-    box-shadow:0 10px 30px #00000020;
-    position:relative;
-    overflow:hidden;
+.report-content {
+    position: relative;
+    z-index: 1;
 }
 
-.report-card:before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:8px;
-    background:linear-gradient(90deg,#1d4ed8,#06b6d4,#16a34a,#f59e0b);
+.school-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding-bottom: 7px;
+    border-bottom: 3px solid #1d4ed8;
 }
 
-.school-header{
-    display:grid;
-    grid-template-columns:85px 1fr 85px;
-    gap:8px;
-    align-items:center;
-    text-align:center;
-    padding:5px 0 10px;
-    border-bottom:3px double #1d4ed8;
+.school-logo {
+    width: 78px;
+    height: 78px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
-.school-logo{
-    width:76px;
-    height:76px;
-    object-fit:contain;
+.school-heading {
+    text-align: center;
+    flex: 1;
 }
 
-.school-title{
-    margin:0;
-    font-size:20px;
-    font-weight:900;
-    color:#123c7a;
-    line-height:1.25;
+.school-heading h1 {
+    margin: 0;
+    color: #123c70;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1.2;
 }
 
-.school-address{
-    font-size:12px;
-    font-weight:bold;
-    margin:5px 0;
-    color:#334155;
+.school-heading h2 {
+    margin: 4px 0;
+    color: #047857;
+    font-size: 13px;
+    font-weight: 800;
 }
 
-.school-info{
-    font-size:10px;
-    line-height:1.5;
-    color:#475569;
+.school-heading p {
+    margin: 3px 0;
+    font-size: 10px;
+    color: #334155;
 }
 
-.exam-title{
-    margin:12px 0 4px;
-    padding:8px;
-    border-radius:6px;
-    background:linear-gradient(90deg,#1d4ed8,#0f766e);
-    color:white;
-    text-align:center;
-    font-size:17px;
-    font-weight:900;
-    letter-spacing:.5px;
+.result-title {
+    margin: 8px 0;
+    padding: 7px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(90deg, #1d4ed8, #0f766e);
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: .5px;
 }
 
-.session-title{
-    text-align:center;
-    color:#1d4ed8;
-    font-size:13px;
-    font-weight:bold;
-    margin:7px 0 12px;
+.student-section {
+    display: grid;
+    grid-template-columns: 1fr 95px;
+    gap: 9px;
+    margin-bottom: 8px;
 }
 
-.student-area{
-    display:grid;
-    grid-template-columns:1fr 100px;
-    gap:10px;
-    align-items:start;
-    margin-bottom:12px;
+.student-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
 }
 
-.student-details{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:8px;
+.detail-item {
+    padding: 5px 6px;
+    border: 1px solid #bfdbfe;
+    border-radius: 3px;
+    background: #f8fbff;
+    font-size: 10px;
+    min-height: 25px;
 }
 
-.detail-box{
-    border:1px solid #bfdbfe;
-    border-radius:5px;
-    padding:7px;
-    min-height:36px;
-    background:#f8fbff;
-    font-size:11px;
+.detail-item b {
+    color: #1e40af;
 }
 
-.detail-box strong{
-    color:#1d4ed8;
-    display:block;
-    margin-bottom:3px;
-    font-size:10px;
-    text-transform:uppercase;
+.student-photo {
+    width: 90px;
+    height: 105px;
+    object-fit: cover;
+    border: 2px solid #1d4ed8;
+    border-radius: 4px;
+    background: #f1f5f9;
 }
 
-.detail-box span{
-    font-weight:bold;
-    color:#172554;
-    overflow-wrap:anywhere;
+.section-heading {
+    margin: 7px 0 4px;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    background: #1e40af;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 900;
 }
 
-.photo-box{
-    width:95px;
-    height:112px;
-    border:2px solid #2563eb;
-    border-radius:6px;
-    padding:3px;
-    background:#eff6ff;
-    text-align:center;
-    overflow:hidden;
+.marks-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 9px;
 }
 
-.photo-box img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.marks-table th,
+.marks-table td {
+    border: 1px solid #64748b;
+    padding: 5px 2px;
+    text-align: center;
+    overflow-wrap: anywhere;
 }
 
-.section-heading{
-    color:#123c7a;
-    font-size:13px;
-    font-weight:900;
-    padding:7px 9px;
-    margin:10px 0 6px;
-    border-left:5px solid #0d9488;
-    background:#e0f2fe;
-    border-radius:3px;
+.marks-table th {
+    color: white;
+    background: #2563eb;
+    font-weight: 800;
 }
 
-.marks-table{
-    width:100%;
-    border-collapse:collapse;
-    font-size:10px;
-    text-align:center;
+.marks-table tbody tr:nth-child(even) {
+    background: #eff6ff;
 }
 
-.marks-table th{
-    background:#1e40af;
-    color:white;
-    padding:7px 3px;
-    border:1px solid #93c5fd;
+.marks-table td:first-child,
+.marks-table th:first-child {
+    text-align: left;
+    padding-left: 5px;
 }
 
-.marks-table td{
-    border:1px solid #cbd5e1;
-    padding:6px 3px;
+.marks-table .total-row {
+    background: #dbeafe !important;
+    font-weight: 900;
+    color: #123c70;
 }
 
-.marks-table tbody tr:nth-child(even){
-    background:#f0f9ff;
+.summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    margin: 8px 0;
 }
 
-.marks-table td:first-child{
-    text-align:left;
-    font-weight:bold;
-    padding-left:6px;
+.summary-box {
+    padding: 7px 3px;
+    text-align: center;
+    border: 1px solid #93c5fd;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #eff6ff, #ecfdf5);
 }
 
-.marks-table tfoot{
-    background:#dbeafe;
-    font-weight:900;
+.summary-box span {
+    display: block;
+    font-size: 9px;
+    font-weight: bold;
+    color: #334155;
 }
 
-.grade-badge{
-    display:inline-block;
-    padding:3px 8px;
-    border-radius:5px;
-    background:#dcfce7;
-    color:#166534;
-    font-weight:900;
+.summary-box strong {
+    display: block;
+    margin-top: 4px;
+    font-size: 13px;
+    color: #1d4ed8;
 }
 
-.summary-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:7px;
-    margin:10px 0;
+/* LEVEL OF PROFICIENCY AND STUDENT PERFORMANCE */
+
+.proficiency {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 8px;
 }
 
-.summary-box{
-    text-align:center;
-    padding:10px 4px;
-    border:1px solid #bfdbfe;
-    border-radius:7px;
-    background:linear-gradient(135deg,#eff6ff,#f0fdfa);
+.prof-box {
+    border: 1px solid #64748b;
+    border-radius: 5px;
+    overflow: hidden;
+    background: white;
 }
 
-.summary-box small{
-    display:block;
-    font-size:9px;
-    color:#475569;
-    font-weight:bold;
-    margin-bottom:5px;
+.prof-title {
+    padding: 6px 3px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(90deg, #1e40af, #0f766e);
+    font-size: 10px;
+    font-weight: 900;
 }
 
-.summary-box strong{
-    display:block;
-    font-size:16px;
-    color:#1d4ed8;
+.prof-content {
+    padding: 6px;
 }
 
-.overall-grade{
-    color:#047857!important;
-}
-
-.prof-table{
-    width:100%;
-    border-collapse:collapse;
-    font-size:10px;
-    margin-top:6px;
+.prof-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9px;
 }
 
 .prof-table th,
-.prof-table td{
-    border:1px solid #cbd5e1;
-    padding:6px;
-    text-align:center;
+.prof-table td {
+    border: 1px solid #94a3b8;
+    padding: 5px 4px;
+    text-align: center;
 }
 
-.prof-table th{
-    background:#dbeafe;
-    color:#123c7a;
+.prof-table th {
+    color: #123c70;
+    background: #dbeafe;
 }
 
-.prof-table tr.grade-b-row{
-    background:#bbf7d0;
-    color:#14532d;
-    font-weight:900;
-    outline:2px solid #16a34a;
-    outline-offset:-2px;
+.prof-table td:first-child {
+    text-align: left;
+    font-weight: bold;
 }
 
-.grade-b-row td:first-child:after{
-    content:"  ✓";
-    font-size:13px;
+.prof-table .grade-b {
+    background: #bbf7d0 !important;
+    color: #14532d;
+    font-weight: 900;
+    outline: 2px solid #16a34a;
+    outline-offset: -2px;
 }
 
-.prof-note{
-    font-size:9px;
-    margin:5px 0;
-    color:#475569;
-    font-style:italic;
+#performanceText {
+    padding: 5px;
+    text-align: center;
+    font-size: 9px;
+    line-height: 1.5;
+    color: #334155;
+    min-height: 43px;
 }
 
-.nature-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:8px;
-    margin:8px 0;
+#performanceText strong {
+    color: #1d4ed8;
 }
 
-.nature-card{
-    overflow:hidden;
-    border:1px solid #bfdbfe;
-    border-radius:8px;
-    background:#f8fafc;
-    text-align:center;
+/* ATTRACTIVE STREAM, MOUNTAIN AND SKY ILLUSTRATIONS */
+
+.performance-landscapes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px;
+    margin-top: 5px;
 }
 
-.nature-card svg{
-    display:block;
-    width:100%;
-    height:76px;
+.landscape-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #93c5fd;
+    border-radius: 6px;
+    background: #eff6ff;
+    box-shadow: 0 2px 5px rgba(30,64,175,.16);
 }
 
-.nature-card strong{
-    display:block;
-    padding:6px 3px;
-    font-size:11px;
-    color:#1e3a8a;
-    background:#eff6ff;
+.landscape-card svg {
+    width: 100%;
+    height: 67px;
+    display: block;
 }
 
-.performance-box{
-    padding:9px;
-    background:#f0fdf4;
-    border:1px solid #86efac;
-    border-radius:7px;
-    font-size:11px;
-    line-height:1.6;
+.landscape-label {
+    padding: 4px 1px;
+    text-align: center;
+    font-size: 8px;
+    font-weight: 900;
+    color: white;
+    background: linear-gradient(90deg, #2563eb, #0f766e);
 }
 
-.performance-box strong{
-    color:#166534;
+.level-tick {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    display: none;
+    width: 21px;
+    height: 21px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    border-radius: 50%;
+    background: #16a34a;
+    color: white;
+    font-size: 14px;
+    font-weight: 900;
+    box-shadow: 0 1px 5px rgba(0,0,0,.3);
+    z-index: 2;
 }
 
-.remarks{
-    margin-top:9px;
-    padding:9px;
-    min-height:42px;
-    border:1px dashed #94a3b8;
-    border-radius:5px;
-    font-size:11px;
+.landscape-card.selected {
+    border: 3px solid #16a34a;
+    box-shadow: 0 0 0 2px #bbf7d0;
 }
 
-.signature-area{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:12px;
-    margin-top:22px;
-    align-items:end;
-    text-align:center;
+.landscape-card.selected .level-tick {
+    display: flex;
 }
 
-.signature-box{
-    min-height:75px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:flex-end;
-    font-size:10px;
-    font-weight:bold;
-    color:#334155;
+.landscape-card.selected .landscape-label {
+    background: linear-gradient(90deg, #15803d, #047857);
 }
 
-.signature-image{
-    width:75px;
-    height:42px;
-    object-fit:contain;
-    margin-bottom:4px;
+.remarks {
+    margin-top: 8px;
+    padding: 7px;
+    border: 1px solid #93c5fd;
+    border-radius: 4px;
+    background: #f8fbff;
+    font-size: 10px;
+    min-height: 37px;
 }
 
-.school-seal{
-    width:64px;
-    height:64px;
-    object-fit:contain;
-    margin-bottom:2px;
+.remarks b {
+    color: #1e40af;
 }
 
-.signature-line{
-    width:100%;
-    border-top:1px solid #334155;
-    padding-top:5px;
+.signature-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 17px;
+    align-items: end;
 }
 
-.footer-note{
-    margin-top:12px;
-    padding-top:6px;
-    border-top:1px solid #cbd5e1;
-    text-align:center;
-    font-size:9px;
-    color:#64748b;
-    font-weight:bold;
+.signature-box {
+    text-align: center;
+    min-height: 58px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
 
-@media(max-width:800px){
-    body{
-        padding:8px;
+.signature-image img {
+    max-width: 70px;
+    max-height: 35px;
+    object-fit: contain;
+    background: transparent;
+}
+
+.seal-image img {
+    max-width: 58px;
+    max-height: 42px;
+    object-fit: contain;
+    background: transparent;
+}
+
+.signature-line {
+    width: 100%;
+    border-top: 1px solid #334155;
+    margin-top: 5px;
+    padding-top: 4px;
+    font-size: 8px;
+    font-weight: bold;
+    color: #334155;
+}
+
+.footer-note {
+    margin-top: 8px;
+    padding-top: 5px;
+    border-top: 1px solid #93c5fd;
+    text-align: center;
+    font-size: 8px;
+    color: #475569;
+    font-style: italic;
+}
+
+@media screen and (max-width: 760px) {
+    body {
+        padding: 5px;
     }
 
-    .report-card{
-        width:100%;
-        min-height:auto;
-        padding:12px;
-        border-width:2px;
+    .report-card {
+        width: 100%;
+        min-height: auto;
+        padding: 8px;
     }
 
-    .school-header{
-        grid-template-columns:55px 1fr 55px;
+    .school-heading h1 {
+        font-size: 15px;
     }
 
-    .school-logo{
-        width:50px;
-        height:50px;
+    .school-logo {
+        width: 55px;
+        height: 55px;
     }
 
-    .school-title{
-        font-size:14px;
-    }
-
-    .school-address{
-        font-size:10px;
-    }
-
-    .student-area{
-        grid-template-columns:1fr 75px;
-    }
-
-    .photo-box{
-        width:72px;
-        height:90px;
-    }
-
-    .marks-table{
-        font-size:8px;
+    .marks-table {
+        font-size: 8px;
     }
 
     .marks-table th,
-    .marks-table td{
-        padding:4px 2px;
+    .marks-table td {
+        padding: 4px 1px;
     }
 
-    .summary-grid{
-        grid-template-columns:repeat(2,1fr);
+    .student-details {
+        grid-template-columns: 1fr;
     }
 
-    .nature-card svg{
-        height:55px;
+    .summary-box span {
+        font-size: 8px;
+    }
+
+    .summary-box strong {
+        font-size: 11px;
+    }
+
+    .proficiency {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .landscape-card svg {
+        height: 50px;
+    }
+
+    .signature-section {
+        gap: 4px;
     }
 }
 
-@page{
-    size:A4 portrait;
-    margin:5mm;
+@page {
+    size: A4 portrait;
+    margin: 0;
 }
 
-@media print{
-    body{
-        padding:0;
-        margin:0;
-        background:white;
-        -webkit-print-color-adjust:exact;
-        print-color-adjust:exact;
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        background: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
     }
 
-    .search-panel{
-        display:none!important;
+    .search-panel {
+        display: none !important;
     }
 
-    .report-card{
-        display:block!important;
-        width:200mm;
-        min-height:287mm;
-        margin:0 auto;
-        padding:6mm;
-        box-shadow:none;
-        border-radius:0;
-        border:2px solid #1d4ed8;
-        page-break-inside:avoid;
+    #card {
+        display: block !important;
     }
 
-    .report-card:before{
-        display:block;
+    .report-card {
+        width: 210mm;
+        height: 297mm;
+        min-height: 297mm;
+        margin: 0;
+        padding: 7mm;
+        border: 2px solid #1d4ed8;
+        page-break-after: avoid;
+        break-after: avoid;
     }
 
-    .school-header{
-        grid-template-columns:75px 1fr 75px;
+    .landscape-card svg {
+        height: 67px;
     }
 
-    .school-logo{
-        width:68px;
-        height:68px;
-    }
-
-    .school-title{
-        font-size:18px;
-    }
-
-    .student-area{
-        grid-template-columns:1fr 90px;
-    }
-
-    .photo-box{
-        width:88px;
-        height:103px;
-    }
-
-    .marks-table{
-        font-size:9px;
-    }
-
-    .marks-table th,
-    .marks-table td{
-        padding:5px 3px;
-    }
-
-    .nature-card svg{
-        height:65px;
-    }
-
-    button{
-        display:none!important;
+    .performance-landscapes {
+        gap: 4px;
     }
 }
 </style>
@@ -590,469 +577,496 @@ button:hover{
 
 <div class="search-panel">
     <h2>CAMBRIDGE SCHOOL OF MODERN EDUCATION</h2>
-    <p>Class 7th — Summative Assessment Result 2026–27</p>
+    <p>Class 7 — Summative Assessment Result 2026–27</p>
 
     <div class="search-row">
         <input
             type="text"
             id="search"
             placeholder="Enter Roll Number or Student Name"
-            autocomplete="off"
+            onkeydown="if(event.key==='Enter') findStudent()"
         >
 
-        <button class="search-btn" onclick="searchStudent()">
-            Search Result
-        </button>
-
-        <button class="clear-btn" onclick="clearSearch()">
-            Clear
-        </button>
-
-        <button class="print-btn" onclick="printResult()">
-            Print / Save PDF
-        </button>
+        <button onclick="findStudent()">Search Result</button>
+        <button class="clear-btn" onclick="goBack()">Clear</button>
+        <button class="print-btn" onclick="printResult()">Print / Save PDF</button>
     </div>
 
     <div id="message"></div>
 </div>
 
-<div class="report-card" id="card">
+<div id="card">
 
-    <div class="school-header">
+    <div class="report-card">
+        <div class="report-content">
 
-        <img
-            src="../../logo.png"
-            class="school-logo"
-            alt="School Logo"
-            onerror="this.style.visibility='hidden'"
-        >
+            <div class="school-header">
+                <img
+                    src="../../logo.png"
+                    class="school-logo"
+                    alt="School Logo"
+                    onerror="this.style.display='none'"
+                >
 
-        <div>
-            <h1 class="school-title">
-                CAMBRIDGE SCHOOL OF MODERN EDUCATION
-            </h1>
-
-            <div class="school-address">
-                OTLIGAM BEERWAH, BUDGAM — 193411
+                <div class="school-heading">
+                    <h1>CAMBRIDGE SCHOOL OF MODERN EDUCATION</h1>
+                    <h2>OTLIGAM BEERWAH, BUDGAM 193411</h2>
+                    <p>SUMMATIVE ASSESSMENT — 2026–27</p>
+                    <p>STUDENT PROGRESS REPORT</p>
+                </div>
             </div>
 
-            <div class="school-info">
-                Estd. 2013 |
-                Rgd. No. 05-CEOB of 2015 |
-                UDISE: 01040303905
-            </div>
-        </div>
-
-        <div></div>
-
-    </div>
-
-    <div class="exam-title">
-        SUMMATIVE ASSESSMENT — REPORT CARD
-    </div>
-
-    <div class="session-title">
-        ACADEMIC SESSION 2026–27 | CLASS 7TH
-    </div>
-
-    <div class="student-area">
-
-        <div class="student-details">
-
-            <div class="detail-box">
-                <strong>Student Name</strong>
-                <span id="studentName">—</span>
+            <div class="result-title">
+                CLASS 7TH — REPORT CARD
             </div>
 
-            <div class="detail-box">
-                <strong>Roll Number</strong>
-                <span id="rollNumber">—</span>
+            <div class="student-section">
+
+                <div class="student-details">
+
+                    <div class="detail-item">
+                        <b>Student Name:</b>
+                        <span id="studentName">—</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <b>Roll Number:</b>
+                        <span id="rollNumber">—</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <b>Father's Name:</b>
+                        <span id="fatherName">—</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <b>Mother's Name:</b>
+                        <span id="motherName">—</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <b>Date of Birth:</b>
+                        <span id="dob">—</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <b>Admission No.:</b>
+                        <span id="admissionNo">—</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <b>Class:</b> 7th
+                    </div>
+
+                    <div class="detail-item">
+                        <b>Academic Session:</b> 2026–27
+                    </div>
+
+                </div>
+
+                <img
+                    id="studentPhoto"
+                    class="student-photo"
+                    src=""
+                    alt="Student Photo"
+                >
             </div>
 
-            <div class="detail-box">
-                <strong>Father's Name</strong>
-                <span id="fatherName">—</span>
+            <div class="section-heading">
+                SCHOLASTIC PERFORMANCE
             </div>
 
-            <div class="detail-box">
-                <strong>Mother's Name</strong>
-                <span id="motherName">—</span>
+            <table class="marks-table">
+                <thead>
+                    <tr>
+                        <th style="width:20%">Subject</th>
+                        <th>F1</th>
+                        <th>F2</th>
+                        <th>F3</th>
+                        <th>F4</th>
+                        <th>F5</th>
+                        <th>F6</th>
+                        <th>FA<br>/30</th>
+                        <th>CCA<br>/20</th>
+                        <th>SA<br>/50</th>
+                        <th>Total<br>/100</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+
+                <tbody id="marksBody"></tbody>
+
+                <tfoot>
+                    <tr class="total-row">
+                        <td colspan="10">GRAND TOTAL</td>
+                        <td id="grandTotal">—</td>
+                        <td id="overallGradeTable">—</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="summary">
+
+                <div class="summary-box">
+                    <span>GRAND TOTAL</span>
+                    <strong id="summaryTotal">—</strong>
+                </div>
+
+                <div class="summary-box">
+                    <span>MAXIMUM MARKS</span>
+                    <strong>600</strong>
+                </div>
+
+                <div class="summary-box">
+                    <span>PERCENTAGE</span>
+                    <strong id="percentage">—</strong>
+                </div>
+
+                <div class="summary-box">
+                    <span>OVERALL GRADE</span>
+                    <strong id="overallGrade">—</strong>
+                </div>
+
             </div>
 
-            <div class="detail-box">
-                <strong>Date of Birth</strong>
-                <span id="dob">—</span>
+            <div class="proficiency">
+
+                <!-- LEFT: LEVEL OF PROFICIENCY -->
+
+                <div class="prof-box">
+                    <div class="prof-title">
+                        LEVEL OF PROFICIENCY
+                    </div>
+
+                    <div class="prof-content">
+                        <table class="prof-table">
+                            <thead>
+                                <tr>
+                                    <th>Grade</th>
+                                    <th>Percentage</th>
+                                    <th>Level</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>A+</td>
+                                    <td>90–100%</td>
+                                    <td>Outstanding</td>
+                                </tr>
+
+                                <tr>
+                                    <td>A</td>
+                                    <td>80–89%</td>
+                                    <td>Excellent</td>
+                                </tr>
+
+                                <tr>
+                                    <td>B+</td>
+                                    <td>70–79%</td>
+                                    <td>Very Good</td>
+                                </tr>
+
+                                <tr class="grade-b">
+                                    <td>B</td>
+                                    <td>60–69%</td>
+                                    <td>Good</td>
+                                </tr>
+
+                                <tr>
+                                    <td>C</td>
+                                    <td>50–59%</td>
+                                    <td>Satisfactory</td>
+                                </tr>
+
+                                <tr>
+                                    <td>D</td>
+                                    <td>Below 50%</td>
+                                    <td>Needs Improvement</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- RIGHT: STUDENT PERFORMANCE -->
+
+                <div class="prof-box">
+
+                    <div class="prof-title">
+                        STUDENT PERFORMANCE
+                    </div>
+
+                    <div class="prof-content">
+
+                        <div id="performanceText">
+                            <b>Level of Performance:</b><br>
+                            Student academic performance.
+                        </div>
+
+                        <div class="performance-landscapes">
+
+                            <!-- STREAM -->
+
+                            <div class="landscape-card" id="streamCard">
+
+                                <div class="level-tick">✓</div>
+
+                                <svg viewBox="0 0 120 75"
+                                     xmlns="http://www.w3.org/2000/svg">
+
+                                    <defs>
+                                        <linearGradient id="streamSky"
+                                            x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%"
+                                                  stop-color="#38bdf8"/>
+                                            <stop offset="100%"
+                                                  stop-color="#e0f2fe"/>
+                                        </linearGradient>
+
+                                        <linearGradient id="streamWater"
+                                            x1="0" y1="0" x2="1" y2="1">
+                                            <stop offset="0%"
+                                                  stop-color="#7dd3fc"/>
+                                            <stop offset="100%"
+                                                  stop-color="#0369a1"/>
+                                        </linearGradient>
+                                    </defs>
+
+                                    <rect width="120" height="75"
+                                          fill="url(#streamSky)"/>
+
+                                    <circle cx="96" cy="13" r="8"
+                                            fill="#fde047"/>
+
+                                    <path d="M0 42 L25 14 L48 42
+                                             L72 10 L120 43
+                                             L120 75 L0 75Z"
+                                          fill="#65a30d"/>
+
+                                    <path d="M0 51 Q25 39 45 53
+                                             T90 48 L120 57
+                                             L120 75 L0 75Z"
+                                          fill="#166534"/>
+
+                                    <path d="M47 39 Q64 46 56 57
+                                             Q48 65 63 75
+                                             L96 75 Q80 60 94 52
+                                             Q103 44 87 38Z"
+                                          fill="url(#streamWater)"/>
+
+                                    <path d="M63 49 Q76 54 67 61"
+                                          stroke="#ffffff"
+                                          stroke-width="2"
+                                          fill="none"/>
+
+                                    <path d="M12 46 L19 25 L26 46Z"
+                                          fill="#14532d"/>
+
+                                    <path d="M22 49 L31 20 L40 49Z"
+                                          fill="#166534"/>
+
+                                    <path d="M100 49 L108 24 L116 49Z"
+                                          fill="#14532d"/>
+                                </svg>
+
+                                <div class="landscape-label">STREAM</div>
+                            </div>
+
+                            <!-- MOUNTAIN -->
+
+                            <div class="landscape-card" id="mountainCard">
+
+                                <div class="level-tick">✓</div>
+
+                                <svg viewBox="0 0 120 75"
+                                     xmlns="http://www.w3.org/2000/svg">
+
+                                    <defs>
+                                        <linearGradient id="mountainSky"
+                                            x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%"
+                                                  stop-color="#0284c7"/>
+                                            <stop offset="100%"
+                                                  stop-color="#bae6fd"/>
+                                        </linearGradient>
+                                    </defs>
+
+                                    <rect width="120" height="75"
+                                          fill="url(#mountainSky)"/>
+
+                                    <circle cx="98" cy="14" r="8"
+                                            fill="#fde047"/>
+
+                                    <g fill="#ffffff">
+                                        <ellipse cx="19" cy="17"
+                                                 rx="10" ry="4"/>
+                                        <ellipse cx="25" cy="13"
+                                                 rx="8" ry="6"/>
+                                        <ellipse cx="32" cy="17"
+                                                 rx="9" ry="4"/>
+                                    </g>
+
+                                    <path d="M-8 69 L31 17 L69 69Z"
+                                          fill="#64748b"/>
+
+                                    <path d="M31 17 L43 34 L31 29 L23 39Z"
+                                          fill="#ffffff"/>
+
+                                    <path d="M36 69 L79 5 L128 69Z"
+                                          fill="#475569"/>
+
+                                    <path d="M79 5 L95 28 L79 21 L67 36Z"
+                                          fill="#ffffff"/>
+
+                                    <path d="M0 61 L27 48 L48 65
+                                             L77 49 L120 62
+                                             L120 75 L0 75Z"
+                                          fill="#16a34a"/>
+
+                                    <path d="M0 69 Q30 59 58 69
+                                             T120 67 L120 75 L0 75Z"
+                                          fill="#166534"/>
+                                </svg>
+
+                                <div class="landscape-label">MOUNTAIN</div>
+                            </div>
+
+                            <!-- SKY -->
+
+                            <div class="landscape-card" id="skyCard">
+
+                                <div class="level-tick">✓</div>
+
+                                <svg viewBox="0 0 120 75"
+                                     xmlns="http://www.w3.org/2000/svg">
+
+                                    <defs>
+                                        <linearGradient id="blueSky"
+                                            x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%"
+                                                  stop-color="#0369a1"/>
+                                            <stop offset="100%"
+                                                  stop-color="#7dd3fc"/>
+                                        </linearGradient>
+                                    </defs>
+
+                                    <rect width="120" height="75"
+                                          fill="url(#blueSky)"/>
+
+                                    <circle cx="92" cy="18" r="11"
+                                            fill="#fde047"/>
+
+                                    <g fill="#ffffff">
+                                        <ellipse cx="23" cy="30"
+                                                 rx="14" ry="7"/>
+                                        <ellipse cx="30" cy="23"
+                                                 rx="10" ry="9"/>
+                                        <ellipse cx="39" cy="30"
+                                                 rx="13" ry="7"/>
+
+                                        <ellipse cx="72" cy="43"
+                                                 rx="14" ry="7"/>
+                                        <ellipse cx="80" cy="35"
+                                                 rx="10" ry="9"/>
+                                        <ellipse cx="90" cy="43"
+                                                 rx="13" ry="7"/>
+                                    </g>
+
+                                    <path d="M0 63 Q25 55 50 64
+                                             T120 61 L120 75 L0 75Z"
+                                          fill="#4ade80"/>
+
+                                    <path d="M0 69 Q35 62 65 70
+                                             T120 68 L120 75 L0 75Z"
+                                          fill="#15803d"/>
+                                </svg>
+
+                                <div class="landscape-label">SKY</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="detail-box">
-                <strong>Permanent Address</strong>
-                <span id="address">—</span>
+            <div class="remarks">
+                <b>REMARKS:</b>
+                <span id="remarksText">
+                    Keep working hard and continue learning.
+                </span>
             </div>
 
-        </div>
+            <div class="signature-section">
+
+                <div class="signature-box">
+                    <div class="signature-image">
+                        <img
+                            src="../../controller-sign.png"
+                            alt="Controller Signature"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="signature-line">
+                        Exam Incharge
+                    </div>
+                </div>
+
+                <div class="signature-box">
+                    <div class="signature-image">
+                        <img
+                            src="../../Principal-sign.png"
+                            alt="Checked By"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="signature-line">
+                        Checked By
+                    </div>
+                </div>
+
+                <div class="signature-box">
+                    <div class="seal-image">
+                        <img
+                            src="../../school-seal.png"
+                            alt="School Seal"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="signature-line">
+                        School Seal
+                    </div>
+                </div>
+
+                <div class="signature-box">
+                    <div class="signature-image">
+                        <img
+                            src="../../Principal-sign.png"
+                            alt="Principal Signature"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="signature-line">
+                        Principal
+                    </div>
+                </div>
 
-        <div class="photo-box">
-            <img id="studentPhoto" src="" alt="Student Photo">
-        </div>
-
-    </div>
-
-    <div class="section-heading">
-        ACADEMIC PERFORMANCE AND MARKS
-    </div>
-
-    <table class="marks-table">
-
-        <thead>
-            <tr>
-                <th>Subject</th>
-                <th>F1</th>
-                <th>F2</th>
-                <th>F3</th>
-                <th>F4</th>
-                <th>F5</th>
-                <th>F6</th>
-                <th>FA / 30</th>
-                <th>CCA / 20</th>
-                <th>SA / 50</th>
-                <th>Total / 100</th>
-                <th>Grade</th>
-            </tr>
-        </thead>
-
-        <tbody id="marksBody"></tbody>
-
-        <tfoot>
-            <tr>
-                <td colspan="10" style="text-align:right">
-                    GRAND TOTAL
-                </td>
-                <td id="grandTotal">0 / 600</td>
-                <td id="finalGrade">—</td>
-            </tr>
-        </tfoot>
-
-    </table>
-
-    <div class="summary-grid">
-
-        <div class="summary-box">
-            <small>MAXIMUM MARKS</small>
-            <strong>600</strong>
-        </div>
-
-        <div class="summary-box">
-            <small>MARKS OBTAINED</small>
-            <strong id="obtainedMarks">0</strong>
-        </div>
-
-        <div class="summary-box">
-            <small>PERCENTAGE</small>
-            <strong id="percentage">0%</strong>
-        </div>
-
-        <div class="summary-box">
-            <small>OVERALL GRADE</small>
-            <strong class="overall-grade" id="overallGrade">—</strong>
-        </div>
-
-    </div>
-
-    <div class="section-heading">
-        LEVEL OF PROFICIENCY
-    </div>
-
-    <table class="prof-table">
-
-        <thead>
-            <tr>
-                <th>Grade</th>
-                <th>Percentage Range</th>
-                <th>Level of Proficiency</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <td>A+</td>
-                <td>90–100%</td>
-                <td>Outstanding</td>
-            </tr>
-
-            <tr>
-                <td>A</td>
-                <td>80–89%</td>
-                <td>Excellent</td>
-            </tr>
-
-            <tr>
-                <td>B+</td>
-                <td>70–79%</td>
-                <td>Very Good</td>
-            </tr>
-
-            <tr class="grade-b-row">
-                <td>B</td>
-                <td>60–69%</td>
-                <td>Good</td>
-            </tr>
-
-            <tr>
-                <td>C</td>
-                <td>50–59%</td>
-                <td>Satisfactory</td>
-            </tr>
-
-            <tr>
-                <td>D</td>
-                <td>Below 50%</td>
-                <td>Needs Improvement</td>
-            </tr>
-        </tbody>
-
-    </table>
-
-    <div class="prof-note">
-        Grade B is highlighted as requested. The student's actual grade
-        is calculated automatically from the marks obtained.
-    </div>
-
-    <div class="section-heading">
-        NATURE, ENVIRONMENT AND VISUAL LEARNING
-    </div>
-
-    <div class="nature-grid">
-
-        <!-- STREAM IMAGE -->
-        <div class="nature-card">
-
-            <svg viewBox="0 0 180 95" xmlns="http://www.w3.org/2000/svg"
-                 role="img" aria-label="Stream flowing through nature">
-
-                <defs>
-                    <linearGradient id="streamSky" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#bae6fd"/>
-                        <stop offset="100%" stop-color="#ecfeff"/>
-                    </linearGradient>
-
-                    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="#38bdf8"/>
-                        <stop offset="100%" stop-color="#0369a1"/>
-                    </linearGradient>
-                </defs>
-
-                <rect width="180" height="95" fill="url(#streamSky)"/>
-
-                <circle cx="145" cy="18" r="10" fill="#fde047"/>
-
-                <path d="M0 44 Q35 10 70 45 T140 38 L180 48 L180 95 L0 95Z"
-                      fill="#65a30d"/>
-
-                <path d="M0 58 Q35 40 65 65 T125 56 L180 65 L180 95 L0 95Z"
-                      fill="#15803d"/>
-
-                <path d="M65 43 Q80 58 73 71 Q68 83 84 95
-                         L126 95 Q111 79 119 67 Q126 54 111 43Z"
-                      fill="url(#water)"/>
-
-                <path d="M85 59 Q96 67 87 78"
-                      fill="none" stroke="#e0f2fe" stroke-width="3"/>
-
-                <path d="M103 73 Q93 80 110 89"
-                      fill="none" stroke="#e0f2fe" stroke-width="2"/>
-
-                <g fill="#166534">
-                    <path d="M15 48 L24 17 L33 48Z"/>
-                    <path d="M25 49 L37 10 L48 49Z"/>
-                    <path d="M140 49 L151 16 L162 49Z"/>
-                    <path d="M150 49 L164 9 L177 49Z"/>
-                </g>
-
-                <g fill="#854d0e">
-                    <rect x="22" y="43" width="4" height="12"/>
-                    <rect x="149" y="42" width="4" height="13"/>
-                </g>
-
-            </svg>
-
-            <strong>STREAM</strong>
-
-        </div>
-
-        <!-- MOUNTAIN IMAGE -->
-        <div class="nature-card">
-
-            <svg viewBox="0 0 180 95" xmlns="http://www.w3.org/2000/svg"
-                 role="img" aria-label="Mountain scenery">
-
-                <defs>
-                    <linearGradient id="mountainSky" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#7dd3fc"/>
-                        <stop offset="100%" stop-color="#f0f9ff"/>
-                    </linearGradient>
-                </defs>
-
-                <rect width="180" height="95" fill="url(#mountainSky)"/>
-
-                <circle cx="145" cy="19" r="10" fill="#facc15"/>
-
-                <g fill="#ffffff" opacity=".9">
-                    <ellipse cx="34" cy="22" rx="15" ry="5"/>
-                    <ellipse cx="43" cy="18" rx="10" ry="7"/>
-                    <ellipse cx="52" cy="23" rx="12" ry="5"/>
-                </g>
-
-                <path d="M0 82 L49 19 L90 82Z" fill="#64748b"/>
-                <path d="M49 19 L61 39 L49 34 L39 44Z" fill="#ffffff"/>
-
-                <path d="M55 84 L113 7 L172 84Z" fill="#475569"/>
-                <path d="M113 7 L131 32 L113 25 L98 42Z" fill="#ffffff"/>
-
-                <path d="M0 79 L49 53 L79 81 L115 52 L180 80 L180 95 L0 95Z"
-                      fill="#16a34a"/>
-
-                <path d="M0 88 Q50 77 90 90 T180 87 L180 95 L0 95Z"
-                      fill="#15803d"/>
-
-                <g fill="#14532d">
-                    <path d="M15 78 L22 57 L29 78Z"/>
-                    <path d="M27 82 L35 59 L43 82Z"/>
-                    <path d="M148 78 L156 54 L164 78Z"/>
-                    <path d="M161 82 L169 61 L177 82Z"/>
-                </g>
-
-            </svg>
-
-            <strong>MOUNTAIN</strong>
-
-        </div>
-
-        <!-- SKY IMAGE -->
-        <div class="nature-card">
-
-            <svg viewBox="0 0 180 95" xmlns="http://www.w3.org/2000/svg"
-                 role="img" aria-label="Blue sky and clouds">
-
-                <defs>
-                    <linearGradient id="skyBlue" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#0284c7"/>
-                        <stop offset="100%" stop-color="#bae6fd"/>
-                    </linearGradient>
-                </defs>
-
-                <rect width="180" height="95" fill="url(#skyBlue)"/>
-
-                <circle cx="139" cy="24" r="14" fill="#fde047"/>
-                <circle cx="139" cy="24" r="20"
-                        fill="#fde047" opacity=".2"/>
-
-                <g fill="#ffffff">
-                    <ellipse cx="35" cy="37" rx="20" ry="10"/>
-                    <ellipse cx="45" cy="29" rx="15" ry="12"/>
-                    <ellipse cx="57" cy="38" rx="19" ry="9"/>
-
-                    <ellipse cx="104" cy="56" rx="19" ry="8"/>
-                    <ellipse cx="113" cy="49" rx="13" ry="11"/>
-                    <ellipse cx="126" cy="56" rx="17" ry="8"/>
-                </g>
-
-                <path d="M0 80 Q35 71 65 81 T125 78 T180 80 L180 95 L0 95Z"
-                      fill="#4ade80"/>
-
-                <path d="M0 89 Q50 81 90 90 T180 88 L180 95 L0 95Z"
-                      fill="#15803d"/>
-
-            </svg>
-
-            <strong>SKY</strong>
-
-        </div>
-
-    </div>
-
-    <div class="section-heading">
-        STUDENT PERFORMANCE
-    </div>
-
-    <div class="performance-box">
-        <strong>Academic Performance:</strong>
-        <span id="performanceText">
-            Student performance will appear here.
-        </span>
-        <br>
-
-        <strong>Result Status:</strong>
-        <span id="resultStatus">—</span>
-    </div>
-
-    <div class="remarks">
-        <strong>Teacher's Remarks:</strong>
-        <span id="remarksText">Keep learning and continue to do your best.</span>
-    </div>
-
-    <div class="signature-area">
-
-        <div class="signature-box">
-
-            <img
-                src="../../exam-incharge-sign.png"
-                class="signature-image"
-                alt="Exam Incharge Signature"
-                onerror="this.style.visibility='hidden'"
-            >
-
-            <div class="signature-line">
-                Exam Incharge
             </div>
 
-        </div>
-
-        <div class="signature-box">
-
-            <img
-                src="../../school-seal.png"
-                class="school-seal"
-                alt="School Seal"
-                onerror="this.style.visibility='hidden'"
-            >
-
-            <div class="signature-line">
-                School Seal
+            <div class="footer-note">
+                Cambridge School of Modern Education, Otligam Beerwah —
+                Summative Assessment 2026–27
             </div>
 
         </div>
-
-        <div class="signature-box">
-
-            <img
-                src="../../principal-sign.png"
-                class="signature-image"
-                alt="Principal Signature"
-                onerror="this.style.visibility='hidden'"
-            >
-
-            <div class="signature-line">
-                Principal
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="footer-note">
-        CAMBRIDGE SCHOOL OF MODERN EDUCATION, OTLIGAM BEERWAH
-        <br>
-        Education is the key to a brighter future.
     </div>
 
 </div>
 
 <script>
-/*
-  Class 7 student records.
-  Marks are out of 100 per subject:
-  FA = 30, CCA = 20, Summative Assessment = 50.
-*/
+
+/* ================= STUDENT MARKS ================= */
 
 const commonMarks = {
     "English": {
@@ -1086,145 +1100,163 @@ const commonMarks = {
     }
 };
 
+
+/* ================= STUDENT DATA ================= */
+
 const students = {
 
     "26CS70009": {
-        name:"Jannat Ul Firdous",
-        father:"Firdous Ahmad Mir",
-        mother:"Afrooza Akhther",
-        dob:"01-09-2014",
-        address:"Otligam Beerwah"
+        name: "Jannat Ul Firdous",
+        father: "Firdous Ahmad Mir",
+        mother: "Afrooza Akhther",
+        dob: "01-09-2014",
+        admission: "ADM-7009",
+        marks: commonMarks
     },
 
     "26CS70010": {
-        name:"Suliam Jan",
-        father:"Khazir Mohammad Bhat",
-        mother:"Rubeena Bano",
-        dob:"09-11-2013",
-        address:"Otligam Beerwah"
+        name: "Suliam Jan",
+        father: "Khazir Mohammad Bhat",
+        mother: "Rubeena Bano",
+        dob: "09-11-2013",
+        admission: "ADM-7010",
+        marks: commonMarks
     },
 
     "26CS70011": {
-        name:"Aruja Nazir",
-        father:"Nazir Ahmad Khan",
-        mother:"Haneefa Bano",
-        dob:"27-08-2014",
-        address:"Otligam Beerwah"
+        name: "Aruja Nazir",
+        father: "Nazir Ahmad Khan",
+        mother: "Haneefa Bano",
+        dob: "27-08-2014",
+        admission: "ADM-7011",
+        marks: commonMarks
     },
 
     "26CS70012": {
-        name:"Muntazir Mukhtar Bhat",
-        father:"Mukhtar Ahmad Bhat",
-        mother:"Fareeda Bano",
-        dob:"28-01-2014",
-        address:"Otligam Beerwah"
+        name: "Muntazir Mukhtar Bhat",
+        father: "Mukhtar Ahmad Bhat",
+        mother: "Fareeda Bano",
+        dob: "28-01-2014",
+        admission: "ADM-7012",
+        marks: commonMarks
     },
 
     "26CS70013": {
-        name:"Firdous Ahmad Tantary",
-        father:"Bashir Ahmad Tantary",
-        mother:"Wazira Bano",
-        dob:"26-08-2014",
-        address:"Otligam Beerwah"
+        name: "Firdous Ahmad Tantary",
+        father: "Bashir Ahmad Tantary",
+        mother: "Wazira Bano",
+        dob: "26-08-2014",
+        admission: "ADM-7013",
+        marks: commonMarks
     },
 
     "26CS70014": {
-        name:"Farhan Shabir",
-        father:"Shabir Ahmad Wani",
-        mother:"Shada Bano",
-        dob:"20-01-2025",
-        address:"Otligam Beerwah"
+        name: "Farhan Shabir",
+        father: "Shabir Ahmad Wani",
+        mother: "Shada Bano",
+        dob: "20-01-2025",
+        admission: "ADM-7014",
+        marks: commonMarks
     },
 
     "26CS70015": {
-        name:"Umer Riyaz",
-        father:"Riyaz Ahmad Sheikh",
-        mother:"Haseena Begum",
-        dob:"28-10-2013",
-        address:"Otligam Beerwah"
+        name: "Umer Riyaz",
+        father: "Riyaz Ahmad Sheikh",
+        mother: "Haseena Begum",
+        dob: "28-10-2013",
+        admission: "ADM-7015",
+        marks: commonMarks
     },
 
     "26CS70016": {
-        name:"Irtiqa Habib",
-        father:"Habibullah Ganie",
-        mother:"Shahnaza Bano",
-        dob:"11-03-2015",
-        address:"Otligam Beerwah"
+        name: "Irtiqa Habib",
+        father: "Habibullah Ganie",
+        mother: "Shahnaza Bano",
+        dob: "11-03-2015",
+        admission: "ADM-7016",
+        marks: commonMarks
     },
 
     "26CS70017": {
-        name:"Muntazir Farooq Sheikh",
-        father:"Farooq Ahmad Sheikh",
-        mother:"Afroza Akhter",
-        dob:"31-05-2015",
-        address:"Otligam Beerwah"
+        name: "Muntazir Farooq Sheikh",
+        father: "Farooq Ahmad Sheikh",
+        mother: "Afroza Akhter",
+        dob: "31-05-2015",
+        admission: "ADM-7017",
+        marks: commonMarks
     },
 
     "26CS70018": {
-        name:"Anamta Maqbool",
-        father:"Maqbool Ahmad Wani",
-        mother:"Chesfeeda Bano",
-        dob:"03-03-2014",
-        address:"Otligam Beerwah"
+        name: "Anamta Maqbool",
+        father: "Maqbool Ahmad Wani",
+        mother: "Chesfeeda Bano",
+        dob: "03-03-2014",
+        admission: "ADM-7018",
+        marks: commonMarks
     }
 
 };
 
-function getGrade(percentage){
 
-    if(percentage >= 90) return "A+";
-    if(percentage >= 80) return "A";
-    if(percentage >= 70) return "B+";
-    if(percentage >= 60) return "B";
-    if(percentage >= 50) return "C";
+/* ================= GRADE CALCULATION ================= */
+
+function getGrade(percentage) {
+
+    if (percentage >= 90) return "A+";
+    if (percentage >= 80) return "A";
+    if (percentage >= 70) return "B+";
+    if (percentage >= 60) return "B";
+    if (percentage >= 50) return "C";
 
     return "D";
 }
 
-function getPerformance(percentage){
 
-    if(percentage >= 90){
+/* ================= PERFORMANCE LEVEL ================= */
+
+function getProficiency(percentage) {
+
+    if (percentage >= 90) return "Outstanding";
+    if (percentage >= 80) return "Excellent";
+    if (percentage >= 70) return "Very Good";
+    if (percentage >= 60) return "Good";
+    if (percentage >= 50) return "Satisfactory";
+
+    return "Needs Improvement";
+}
+
+
+/* ================= REMARKS ================= */
+
+function getRemarks(percentage) {
+
+    if (percentage >= 90) {
         return "Outstanding performance. Keep up the excellent work!";
     }
 
-    if(percentage >= 80){
+    if (percentage >= 80) {
         return "Excellent performance. Continue working hard!";
     }
 
-    if(percentage >= 70){
+    if (percentage >= 70) {
         return "Very good performance. Keep improving!";
     }
 
-    if(percentage >= 60){
+    if (percentage >= 60) {
         return "Good performance. More practice will help you improve.";
     }
 
-    if(percentage >= 50){
-        return "Satisfactory performance. Continue regular study and revision.";
+    if (percentage >= 50) {
+        return "Satisfactory performance. Work regularly to improve.";
     }
 
-    return "Needs improvement. Regular practice and teacher guidance are recommended.";
+    return "Needs improvement. Practice daily and seek guidance.";
 }
 
-function safeText(value){
 
-    return String(value ?? "").replace(/[&<>"']/g, function(char){
+/* ================= STUDENT SEARCH ================= */
 
-        const entities = {
-            "&":"&amp;",
-            "<":"&lt;",
-            ">":"&gt;",
-            '"':"&quot;",
-            "'":"&#39;"
-        };
-
-        return entities[char];
-
-    });
-
-}
-
-function searchStudent(){
+function findStudent() {
 
     const input = document
         .getElementById("search")
@@ -1234,103 +1266,113 @@ function searchStudent(){
 
     const message = document.getElementById("message");
 
-    if(!input){
+    message.textContent = "";
+
+    if (!input) {
         message.textContent = "Please enter a roll number or student name.";
         document.getElementById("card").style.display = "none";
         return;
     }
 
-    let foundRoll = Object.keys(students).find(function(roll){
-
+    let foundRoll = Object.keys(students).find(roll => {
         return roll.toLowerCase() === input;
-
     });
 
-    if(!foundRoll){
+    if (!foundRoll) {
 
-        const matches = Object.keys(students).filter(function(roll){
+        const matches = Object.keys(students).filter(roll => {
 
-            return roll.toLowerCase().includes(input) ||
-                   students[roll].name.toLowerCase().includes(input);
+            const student = students[roll];
+
+            return (
+                student.name.toLowerCase().includes(input) ||
+                roll.toLowerCase().includes(input)
+            );
 
         });
 
-        if(matches.length === 1){
-
+        if (matches.length === 1) {
             foundRoll = matches[0];
-
-        }else if(matches.length > 1){
-
+        } else if (matches.length > 1) {
             message.textContent =
-                "Multiple students found. Please enter a more specific name or roll number.";
-
+                "Multiple students found. Please enter the full roll number.";
             document.getElementById("card").style.display = "none";
             return;
-
         }
-
     }
 
-    if(!foundRoll){
-
-        message.textContent = "No student found. Please check the roll number or name.";
+    if (!foundRoll) {
+        message.textContent = "Student not found. Please check the details.";
         document.getElementById("card").style.display = "none";
         return;
-
     }
 
-    message.textContent = "";
-
-    showResult(foundRoll);
-
+    showReport(foundRoll);
 }
 
-function showResult(roll){
+
+/* ================= DISPLAY REPORT CARD ================= */
+
+function showReport(roll) {
 
     const student = students[roll];
 
-    document.getElementById("studentName").textContent = student.name;
-    document.getElementById("rollNumber").textContent = roll;
-    document.getElementById("fatherName").textContent = student.father;
-    document.getElementById("motherName").textContent = student.mother;
-    document.getElementById("dob").textContent = student.dob;
-    document.getElementById("address").textContent = student.address;
+    if (!student) return;
+
+    document.getElementById("card").style.display = "block";
+
+    document.getElementById("studentName").textContent =
+        student.name;
+
+    document.getElementById("rollNumber").textContent =
+        roll;
+
+    document.getElementById("fatherName").textContent =
+        student.father;
+
+    document.getElementById("motherName").textContent =
+        student.mother;
+
+    document.getElementById("dob").textContent =
+        student.dob;
+
+    document.getElementById("admissionNo").textContent =
+        student.admission;
+
+
+    /* Student photograph */
 
     const photo = document.getElementById("studentPhoto");
 
-    photo.onerror = function(){
+    photo.style.display = "block";
 
-        this.onerror = null;
+    photo.src =
+        "../../Admit-Cards/Annual-Examination-2026-27/Class-7/" +
+        roll + ".jpg";
 
-        this.src = "data:image/svg+xml;charset=UTF-8," +
-            encodeURIComponent(
-                '<svg xmlns="http://www.w3.org/2000/svg" width="100" height="120">' +
-                '<rect width="100%" height="100%" fill="#dbeafe"/>' +
-                '<circle cx="50" cy="38" r="18" fill="#93c5fd"/>' +
-                '<path d="M15 112 Q15 68 50 68 Q85 68 85 112Z" fill="#60a5fa"/>' +
-                '<text x="50" y="119" font-size="7" text-anchor="middle" fill="#1e3a8a">PHOTO</text>' +
-                '</svg>'
-            );
-
+    photo.onerror = function () {
+        this.style.display = "none";
     };
 
-    photo.src = "../../Admit-Cards/Annual-Examination-2026-27/Class-7/" +
-                roll + ".jpg";
 
-    const tbody = document.getElementById("marksBody");
+    /* Marks table */
 
-    tbody.innerHTML = "";
+    const marksBody = document.getElementById("marksBody");
+
+    marksBody.innerHTML = "";
 
     let grandTotal = 0;
 
-    Object.keys(commonMarks).forEach(function(subject){
+    const subjects = Object.keys(student.marks);
 
-        const marks = commonMarks[subject];
+    subjects.forEach(subject => {
 
-        const fa = marks.f1 + marks.f2 + marks.f3 +
-                   marks.f4 + marks.f5 + marks.f6;
+        const m = student.marks[subject];
 
-        const total = fa + marks.cca + marks.sa;
+        const fa =
+            m.f1 + m.f2 + m.f3 + m.f4 + m.f5 + m.f6;
+
+        const total = fa + m.cca + m.sa;
 
         const grade = getGrade(total);
 
@@ -1338,34 +1380,42 @@ function showResult(roll){
 
         const row = document.createElement("tr");
 
-        row.innerHTML =
-            "<td>" + safeText(subject) + "</td>" +
-            "<td>" + marks.f1 + "</td>" +
-            "<td>" + marks.f2 + "</td>" +
-            "<td>" + marks.f3 + "</td>" +
-            "<td>" + marks.f4 + "</td>" +
-            "<td>" + marks.f5 + "</td>" +
-            "<td>" + marks.f6 + "</td>" +
-            "<td>" + fa + "</td>" +
-            "<td>" + marks.cca + "</td>" +
-            "<td>" + marks.sa + "</td>" +
-            "<td><strong>" + total + "</strong></td>" +
-            '<td><span class="grade-badge">' + grade + "</span></td>";
+        row.innerHTML = `
+            <td>${subject}</td>
+            <td>${m.f1}</td>
+            <td>${m.f2}</td>
+            <td>${m.f3}</td>
+            <td>${m.f4}</td>
+            <td>${m.f5}</td>
+            <td>${m.f6}</td>
+            <td>${fa}</td>
+            <td>${m.cca}</td>
+            <td>${m.sa}</td>
+            <td><b>${total}</b></td>
+            <td><b>${grade}</b></td>
+        `;
 
-        tbody.appendChild(row);
+        marksBody.appendChild(row);
 
     });
 
-    const percentage = (grandTotal / 600) * 100;
+
+    /* Grand total and percentage */
+
+    const maximumMarks = subjects.length * 100;
+
+    const percentage =
+        (grandTotal / maximumMarks) * 100;
+
     const overallGrade = getGrade(percentage);
 
     document.getElementById("grandTotal").textContent =
-        grandTotal + " / 600";
+        grandTotal;
 
-    document.getElementById("finalGrade").textContent =
+    document.getElementById("overallGradeTable").textContent =
         overallGrade;
 
-    document.getElementById("obtainedMarks").textContent =
+    document.getElementById("summaryTotal").textContent =
         grandTotal;
 
     document.getElementById("percentage").textContent =
@@ -1374,58 +1424,91 @@ function showResult(roll){
     document.getElementById("overallGrade").textContent =
         overallGrade;
 
-    document.getElementById("performanceText").textContent =
-        getPerformance(percentage);
 
-    document.getElementById("resultStatus").textContent =
-        "Result calculated from the recorded marks.";
+    /* Performance description */
+
+    const proficiency = getProficiency(percentage);
+
+    document.getElementById("performanceText").innerHTML = `
+        <b>Level of Performance:</b><br>
+        <strong>${proficiency}</strong><br>
+        Overall Percentage: <strong>${percentage.toFixed(2)}%</strong>
+    `;
+
+
+    /* Highlight the appropriate landscape */
+
+    document.getElementById("streamCard")
+        .classList.remove("selected");
+
+    document.getElementById("mountainCard")
+        .classList.remove("selected");
+
+    document.getElementById("skyCard")
+        .classList.remove("selected");
+
+
+    /*
+       STREAM: 50%–69.99%
+       MOUNTAIN: 70%–89.99%
+       SKY: 90%–100%
+    */
+
+    if (percentage >= 90) {
+
+        document.getElementById("skyCard")
+            .classList.add("selected");
+
+    } else if (percentage >= 70) {
+
+        document.getElementById("mountainCard")
+            .classList.add("selected");
+
+    } else if (percentage >= 50) {
+
+        document.getElementById("streamCard")
+            .classList.add("selected");
+
+    }
+
+
+    /* Remarks */
 
     document.getElementById("remarksText").textContent =
-        percentage >= 80
-            ? "Excellent work. Keep learning and continue to do your best."
-            : percentage >= 60
-                ? "Good effort. Continue regular practice to improve further."
-                : "Please focus on regular study and revision.";
+        getRemarks(percentage);
 
-    document.getElementById("card").style.display = "block";
-
-    window.scrollTo({
-        top:document.getElementById("card").offsetTop,
-        behavior:"smooth"
-    });
-
-}
-
-function clearSearch(){
-
-    document.getElementById("search").value = "";
-    document.getElementById("card").style.display = "none";
     document.getElementById("message").textContent = "";
 
 }
 
-function printResult(){
 
-    if(document.getElementById("card").style.display !== "block"){
+/* ================= CLEAR SEARCH ================= */
 
-        document.getElementById("message").textContent =
-            "Please search for a student before printing.";
+function goBack() {
+
+    document.getElementById("card").style.display = "none";
+
+    document.getElementById("search").value = "";
+
+    document.getElementById("message").textContent = "";
+
+}
+
+
+/* ================= PRINT / SAVE PDF ================= */
+
+function printResult() {
+
+    if (document.getElementById("card").style.display === "none") {
+
+        alert("Please search for a student before printing.");
 
         return;
-
     }
 
     window.print();
 
 }
-
-document.getElementById("search").addEventListener("keydown",function(event){
-
-    if(event.key === "Enter"){
-        searchStudent();
-    }
-
-});
 
 </script>
 
