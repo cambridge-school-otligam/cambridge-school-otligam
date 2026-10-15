@@ -337,3 +337,284 @@ body{
         </div>
     </div>
 </div>
+<script>
+const students = [
+{
+    name: "Muzamil Bashir",
+    father: "Bashir Ahmad Sheikh",
+    mother: "Tabasum",
+    dob: "05-01-2012",
+    roll: "26CS80001",
+    admission: "ADM-8001",
+    photo: "../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80001.jpg",
+    subjects: {
+        "English": {f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,cca:18,sa:44},
+        "Mathematics": {f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,cca:19,sa:46},
+        "Science": {f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,cca:18,sa:45},
+        "Social Science": {f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,cca:19,sa:43},
+        "Urdu": {f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,cca:20,sa:46},
+        "Kashmiri": {f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,cca:18,sa:44}
+    }
+},
+{
+    name: "Arsalan Manzoor Wani",
+    father: "Manzoor Ahmad Wani",
+    mother: "Amina Bano",
+    dob: "30-07-2013",
+    roll: "26CS80002",
+    admission: "ADM-8002",
+    photo: "../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80002.jpg",
+    subjects: {
+        "English": {f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,cca:18,sa:44},
+        "Mathematics": {f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,cca:19,sa:46},
+        "Science": {f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,cca:18,sa:45},
+        "Social Science": {f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,cca:19,sa:43},
+        "Urdu": {f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,cca:20,sa:46},
+        "Kashmiri": {f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,cca:18,sa:44}
+    }
+},
+{
+    name: "Saqib Rashid Bhat",
+    father: "Ab Rashid Bhat",
+    mother: "Shanaza Akther",
+    dob: "21-04-2013",
+    roll: "26CS80003",
+    admission: "ADM-8003",
+    photo: "../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80003.jpg",
+    subjects: {
+        "English": {f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,cca:18,sa:44},
+        "Mathematics": {f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,cca:19,sa:46},
+        "Science": {f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,cca:18,sa:45},
+        "Social Science": {f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,cca:19,sa:43},
+        "Urdu": {f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,cca:20,sa:46},
+        "Kashmiri": {f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,cca:18,sa:44}
+    }
+},
+{
+    name: "Zahid Ahmad Wani",
+    father: "Reyaz Ahmad Wani",
+    mother: "Shahnaza Bano",
+    dob: "01-01-2014",
+    roll: "26CS80004",
+    admission: "ADM-8004",
+    photo: "../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80004.jpg",
+    subjects: {
+        "English": {f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,cca:18,sa:44},
+        "Mathematics": {f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,cca:19,sa:46},
+        "Science": {f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,cca:18,sa:45},
+        "Social Science": {f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,cca:19,sa:43},
+        "Urdu": {f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,cca:20,sa:46},
+        "Kashmiri": {f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,cca:18,sa:44}
+    }
+},
+{
+    name: "Ikhlas Ali Bhat",
+    father: "Gh Hassan Bhat",
+    mother: "Shaheena Bano",
+    dob: "11-08-2014",
+    roll: "26CS80005",
+    admission: "ADM-8005",
+    photo: "../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80005.jpg",
+    subjects: {
+        "English": {f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,cca:18,sa:44},
+        "Mathematics": {f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,cca:19,sa:46},
+        "Science": {f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,cca:18,sa:45},
+        "Social Science": {f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,cca:19,sa:43},
+        "Urdu": {f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,cca:20,sa:46},
+        "Kashmiri": {f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,cca:18,sa:44}
+    }
+},
+{
+    name: "Fiza Farooz",
+    father: "Farooz Ahmad Sheikh",
+    mother: "Haseena",
+    dob: "12-06-2013",
+    roll: "26CS80006",
+    admission: "ADM-8006",
+    photo: "../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80006.jpg",
+    subjects: {
+        "English": {f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,cca:18,sa:44},
+        "Mathematics": {f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,cca:19,sa:46},
+        "Science": {f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,cca:18,sa:45},
+        "Social Science": {f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,cca:19,sa:43},
+        "Urdu": {f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,cca:20,sa:46},
+        "Kashmiri": {f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,cca:18,sa:44}
+    }
+},
+{
+    name: "Mizma Majeed",
+    father: "Ab Majeed Sheikh",
+    mother: "Fatima Bano",
+    dob: "06-03-2012",
+    roll: "26CS80007",
+    admission: "ADM-8007",
+    photo: "../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80007.jpg",
+    subjects: {
+        "English": {f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,cca:18,sa:44},
+        "Mathematics": {f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,cca:19,sa:46},
+        "Science": {f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,cca:18,sa:45},
+        "Social Science": {f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,cca:19,sa:43},
+        "Urdu": {f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,cca:20,sa:46},
+        "Kashmiri": {f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,cca:18,sa:44}
+    }
+},
+{
+    name: "Syed Saleem",
+    father: "Syed Shabir",
+    mother: "Haja Bano",
+    dob: "",
+    roll: "26CS80008",
+    admission: "ADM-8008",
+    photo: "../../Admit-Cards/Annual-Examination-2026-27/Class-8/26CS80008.jpg",
+    subjects: {
+        "English": {f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,cca:18,sa:44},
+        "Mathematics": {f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,cca:19,sa:46},
+        "Science": {f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,cca:18,sa:45},
+        "Social Science": {f1:5,f2:5,f3:4,f4:5,f5:5,f6:4,cca:19,sa:43},
+        "Urdu": {f1:5,f2:4,f3:5,f4:5,f5:4,f6:5,cca:20,sa:46},
+        "Kashmiri": {f1:4,f2:5,f3:5,f4:4,f5:5,f6:5,cca:18,sa:44}
+    }
+}
+];
+
+function getGrade(percentage) {
+    if (percentage >= 90) return "A+";
+    if (percentage >= 80) return "A";
+    if (percentage >= 70) return "B+";
+    if (percentage >= 60) return "B";
+    if (percentage >= 50) return "C";
+    return "D";
+}
+
+function getProficiency(percentage) {
+    if (percentage >= 90) return "Outstanding";
+    if (percentage >= 80) return "Excellent";
+    if (percentage >= 70) return "Very Good";
+    if (percentage >= 60) return "Good";
+    if (percentage >= 50) return "Satisfactory";
+    return "Needs Improvement";
+}
+
+function findStudent() {
+    const input = document.getElementById("searchInput").value
+        .trim().toLowerCase();
+
+    const student = students.find(s =>
+        s.roll.toLowerCase() === input ||
+        s.name.toLowerCase().includes(input)
+    );
+
+    if (student) {
+        showReport(student);
+        document.getElementById("reportCard").style.display = "block";
+        document.getElementById("errorMessage").textContent = "";
+    } else {
+        document.getElementById("reportCard").style.display = "none";
+        document.getElementById("errorMessage").textContent =
+            "Student not found. Please check the name or roll number.";
+    }
+}
+
+function showReport(student) {
+    document.getElementById("studentName").textContent = student.name;
+    document.getElementById("fatherName").textContent = student.father;
+    document.getElementById("motherName").textContent = student.mother;
+    document.getElementById("dob").textContent = student.dob || "—";
+    document.getElementById("rollNumber").textContent = student.roll;
+    document.getElementById("admissionNumber").textContent = student.admission;
+
+    const photo = document.getElementById("studentPhoto");
+    if (photo) {
+        photo.src = student.photo;
+        photo.alt = student.name;
+    }
+
+    const tableBody = document.getElementById("marksTableBody");
+    tableBody.innerHTML = "";
+
+    let grandTotal = 0;
+
+    Object.entries(student.subjects).forEach(([subject, marks]) => {
+        const fa = marks.f1 + marks.f2 + marks.f3 +
+                   marks.f4 + marks.f5 + marks.f6;
+
+        const total = fa + marks.cca + marks.sa;
+        grandTotal += total;
+
+        const percentage = total;
+        const grade = getGrade(percentage);
+        const proficiency = getProficiency(percentage);
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${subject}</td>
+            <td>${marks.f1}</td>
+            <td>${marks.f2}</td>
+            <td>${marks.f3}</td>
+            <td>${marks.f4}</td>
+            <td>${marks.f5}</td>
+            <td>${marks.f6}</td>
+            <td>${marks.cca}</td>
+            <td>${marks.sa}</td>
+            <td>${total}</td>
+            <td>${grade}</td>
+        `;
+
+        tableBody.appendChild(row);
+    });
+
+    const overallPercentage = (grandTotal / 600) * 100;
+    const overallGrade = getGrade(overallPercentage);
+    const overallProficiency = getProficiency(overallPercentage);
+
+    document.getElementById("grandTotal").textContent = grandTotal;
+    document.getElementById("overallPercentage").textContent =
+        overallPercentage.toFixed(2) + "%";
+
+    document.getElementById("overallGrade").textContent = overallGrade;
+
+    document.getElementById("performanceLevel").textContent =
+        overallProficiency;
+
+    document.getElementById("performancePercentage").textContent =
+        overallPercentage.toFixed(2) + "%";
+
+    document.getElementById("performanceGrade").textContent =
+        overallGrade;
+
+    document.getElementById("performanceTotal").textContent =
+        grandTotal + " / 600";
+
+    /* STREAM, MOUNTAIN, SKY selection */
+
+    const streamCard = document.getElementById("streamCard");
+    const mountainCard = document.getElementById("mountainCard");
+    const skyCard = document.getElementById("skyCard");
+
+    streamCard.classList.remove("active");
+    mountainCard.classList.remove("active");
+    skyCard.classList.remove("active");
+
+    if (overallPercentage < 50) {
+        streamCard.classList.add("active");
+    } else if (overallPercentage < 80) {
+        mountainCard.classList.add("active");
+    } else {
+        skyCard.classList.add("active");
+    }
+}
+
+function printCard() {
+    window.print();
+}
+
+document.getElementById("searchInput").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        findStudent();
+    }
+});
+</script>
+
+</body>
+</html>
