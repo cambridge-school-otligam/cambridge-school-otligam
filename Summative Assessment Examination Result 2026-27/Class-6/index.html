@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Class 7 Result 2026-27 - Cambridge School</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    padding:20px;
+    font-family:Arial,Helvetica,sans-serif;
+    background:linear-gradient(135deg,#dbeafe,#f0fdfa,#ede9fe);
+    color:#172554;
+}
+
+.search-panel{
+    max-width:1000px;
+    margin:0 auto 20px;
+    padding:22px;
+    background:white;
+    border-radius:16px;
+    box-shadow:0 8px 25px #00000018;
+    text-align:center;
+}
+
+.search-panel h2{
+    color:#123c7a;
+    margin:0 0 8px;
+    font-size:25px;
+}
+
+.search-panel p{
+    margin:8px 0 15px;
+    color:#475569;
+}
+
+.search-row{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.search-row input{
+    width:min(450px,100%);
+    padding:13px;
+    border:2px solid #bfdbfe;
+    border-radius:8px;
+    font-size:16px;
+    outline:none;
+}
+
+.search-row input:focus{
+    border-color:#2563eb;
+}
+
+button{
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.search-btn{
+    background:#1d4ed8;
+}
+
+.print-btn{
+    background:#047857;
+}
+
+.clear-btn{
+    background:#64748b;
+}
+
+button:hover{
+    opacity:.88;
+}
+
+#message{
+    margin-top:12px;
+    font-weight:bold;
+    color:#b91c1c;
+}
+
+.report-card{
+    display:none;
+    width:210mm;
+    min-height:297mm;
+    margin:0 auto;
+    padding:8mm;
+    background:white;
+    border:3px solid #1d4ed8;
+    border-radius:12px;
+    box-shadow:0 10px 30px #00000020;
+    position:relative;
+    overflow:hidden;
+}
+
+.report-card:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:8px;
+    background:linear-gradient(90deg,#1d4ed8,#06b6d4,#16a34a,#f59e0b);
+}
+
+.school-header{
+    display:grid;
+    grid-template-columns:85px 1fr 85px;
+    gap:8px;
+    align-items:center;
+    text-align:center;
+    padding:5px 0 10px;
+    border-bottom:3px double #1d4ed8;
+}
+
+.school-logo{
+    width:76px;
+    height:76px;
+    object-fit:contain;
+}
+
+.school-title{
+    margin:0;
+    font-size:20px;
+    font-weight:900;
+    color:#123c7a;
+    line-height:1.25;
+}
+
+.school-address{
+    font-size:12px;
+    font-weight:bold;
+    margin:5px 0;
+    color:#334155;
+}
+
+.school-info{
+    font-size:10px;
+    line-height:1.5;
+    color:#475569;
+}
+
+.exam-title{
+    margin:12px 0 4px;
+    padding:8px;
+    border-radius:6px;
+    background:linear-gradient(90deg,#1d4ed8,#0f766e);
+    color:white;
+    text-align:center;
+    font-size:17px;
+    font-weight:900;
+    letter-spacing:.5px;
+}
+
+.session-title{
+    text-align:center;
+    color:#1d4ed8;
+    font-size:13px;
+    font-weight:bold;
+    margin:7px 0 12px;
+}
+
+.student-area{
+    display:grid;
+    grid-template-columns:1fr 100px;
+    gap:10px;
+    align-items:start;
+    margin-bottom:12px;
+}
+
+.student-details{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+}
+
+.detail-box{
+    border:1px solid #bfdbfe;
+    border-radius:5px;
+    padding:7px;
+    min-height:36px;
+    background:#f8fbff;
+    font-size:11px;
+}
+
+.detail-box strong{
+    color:#1d4ed8;
+    display:block;
+    margin-bottom:3px;
+    font-size:10px;
+    text-transform:uppercase;
+}
+
+.detail-box span{
+    font-weight:bold;
+    color:#172554;
+    overflow-wrap:anywhere;
+}
+
+.photo-box{
+    width:95px;
+    height:112px;
+    border:2px solid #2563eb;
+    border-radius:6px;
+    padding:3px;
+    background:#eff6ff;
+    text-align:center;
+    overflow:hidden;
+}
+
+.photo-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.section-heading{
+    color:#123c7a;
+    font-size:13px;
+    font-weight:900;
+    padding:7px 9px;
+    margin:10px 0 6px;
+    border-left:5px solid #0d9488;
+    background:#e0f2fe;
+    border-radius:3px;
+}
+
+.marks-table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:10px;
+    text-align:center;
+}
+
+.marks-table th{
+    background:#1e40af;
+    color:white;
+    padding:7px 3px;
+    border:1px solid #93c5fd;
+}
+
+.marks-table td{
+    border:1px solid #cbd5e1;
+    padding:6px 3px;
+}
+
+.marks-table tbody tr:nth-child(even){
+    background:#f0f9ff;
+}
+
+.marks-table td:first-child{
+    text-align:left;
+    font-weight:bold;
+    padding-left:6px;
+}
+
+.marks-table tfoot{
+    background:#dbeafe;
+    font-weight:900;
+}
+
+.grade-badge{
+    display:inline-block;
+    padding:3px 8px;
+    border-radius:5px;
+    background:#dcfce7;
+    color:#166534;
+    font-weight:900;
+}
+
+.summary-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:7px;
+    margin:10px 0;
+}
+
+.summary-box{
+    text-align:center;
+    padding:10px 4px;
+    border:1px solid #bfdbfe;
+    border-radius:7px;
+    background:linear-gradient(135deg,#eff6ff,#f0fdfa);
+}
+
+.summary-box small{
+    display:block;
+    font-size:9px;
+    color:#475569;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.summary-box strong{
+    display:block;
+    font-size:16px;
+    color:#1d4ed8;
+}
+
+.overall-grade{
+    color:#047857!important;
+}
+
+.prof-table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:10px;
+    margin-top:6px;
+}
+
+.prof-table th,
+.prof-table td{
+    border:1px solid #cbd5e1;
+    padding:6px;
+    text-align:center;
+}
+
+.prof-table th{
+    background:#dbeafe;
+    color:#123c7a;
+}
+
+.prof-table tr.grade-b-row{
+    background:#bbf7d0;
+    color:#14532d;
+    font-weight:900;
+    outline:2px solid #16a34a;
+    outline-offset:-2px;
+}
+
+.grade-b-row td:first-child:after{
+    content:"  ✓";
+    font-size:13px;
+}
+
+.prof-note{
+    font-size:9px;
+    margin:5px 0;
+    color:#475569;
+    font-style:italic;
+}
+
+.nature-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin:8px 0;
+}
+
+.nature-card{
+    overflow:hidden;
+    border:1px solid #bfdbfe;
+    border-radius:8px;
+    background:#f8fafc;
+    text-align:center;
+}
+
+.nature-card svg{
+    display:block;
+    width:100%;
+    height:76px;
+}
+
+.nature-card strong{
+    display:block;
+    padding:6px 3px;
+    font-size:11px;
+    color:#1e3a8a;
+    background:#eff6ff;
+}
+
+.performance-box{
+    padding:9px;
+    background:#f0fdf4;
+    border:1px solid #86efac;
+    border-radius:7px;
+    font-size:11px;
+    line-height:1.6;
+}
+
+.performance-box strong{
+    color:#166534;
+}
+
+.remarks{
+    margin-top:9px;
+    padding:9px;
+    min-height:42px;
+    border:1px dashed #94a3b8;
+    border-radius:5px;
+    font-size:11px;
+}
+
+.signature-area{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:12px;
+    margin-top:22px;
+    align-items:end;
+    text-align:center;
+}
+
+.signature-box{
+    min-height:75px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-end;
+    font-size:10px;
+    font-weight:bold;
+    color:#334155;
+}
+
+.signature-image{
+    width:75px;
+    height:42px;
+    object-fit:contain;
+    margin-bottom:4px;
+}
+
+.school-seal{
+    width:64px;
+    height:64px;
+    object-fit:contain;
+    margin-bottom:2px;
+}
+
+.signature-line{
+    width:100%;
+    border-top:1px solid #334155;
+    padding-top:5px;
+}
+
+.footer-note{
+    margin-top:12px;
+    padding-top:6px;
+    border-top:1px solid #cbd5e1;
+    text-align:center;
+    font-size:9px;
+    color:#64748b;
+    font-weight:bold;
+}
+
+@media(max-width:800px){
+    body{
+        padding:8px;
+    }
+
+    .report-card{
+        width:100%;
+        min-height:auto;
+        padding:12px;
+        border-width:2px;
+    }
+
+    .school-header{
+        grid-template-columns:55px 1fr 55px;
+    }
+
+    .school-logo{
+        width:50px;
+        height:50px;
+    }
+
+    .school-title{
+        font-size:14px;
+    }
+
+    .school-address{
+        font-size:10px;
+    }
+
+    .student-area{
+        grid-template-columns:1fr 75px;
+    }
+
+    .photo-box{
+        width:72px;
+        height:90px;
+    }
+
+    .marks-table{
+        font-size:8px;
+    }
+
+    .marks-table th,
+    .marks-table td{
+        padding:4px 2px;
+    }
+
+    .summary-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .nature-card svg{
+        height:55px;
+    }
+}
+
+@page{
+    size:A4 portrait;
+    margin:5mm;
+}
+
+@media print{
+    body{
+        padding:0;
+        margin:0;
+        background:white;
+        -webkit-print-color-adjust:exact;
+        print-color-adjust:exact;
+    }
+
+    .search-panel{
+        display:none!important;
+    }
+
+    .report-card{
+        display:block!important;
+        width:200mm;
+        min-height:287mm;
+        margin:0 auto;
+        padding:6mm;
+        box-shadow:none;
+        border-radius:0;
+        border:2px solid #1d4ed8;
+        page-break-inside:avoid;
+    }
+
+    .report-card:before{
+        display:block;
+    }
+
+    .school-header{
+        grid-template-columns:75px 1fr 75px;
+    }
+
+    .school-logo{
+        width:68px;
+        height:68px;
+    }
+
+    .school-title{
+        font-size:18px;
+    }
+
+    .student-area{
+        grid-template-columns:1fr 90px;
+    }
+
+    .photo-box{
+        width:88px;
+        height:103px;
+    }
+
+    .marks-table{
+        font-size:9px;
+    }
+
+    .marks-table th,
+    .marks-table td{
+        padding:5px 3px;
+    }
+
+    .nature-card svg{
+        height:65px;
+    }
+
+    button{
+        display:none!important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="search-panel">
+    <h2>CAMBRIDGE SCHOOL OF MODERN EDUCATION</h2>
+    <p>Class 7th — Summative Assessment Result 2026–27</p>
+
+    <div class="search-row">
+        <input
+            type="text"
+            id="search"
+            placeholder="Enter Roll Number or Student Name"
+            autocomplete="off"
+        >
+
+        <button class="search-btn" onclick="searchStudent()">
+            Search Result
+        </button>
+
+        <button class="clear-btn" onclick="clearSearch()">
+            Clear
+        </button>
+
+        <button class="print-btn" onclick="printResult()">
+            Print / Save PDF
+        </button>
+    </div>
+
+    <div id="message"></div>
+</div>
+
+<div class="report-card" id="card">
+
+    <div class="school-header">
+
+        <img
+            src="../../logo.png"
+            class="school-logo"
+            alt="School Logo"
+            onerror="this.style.visibility='hidden'"
+        >
+
+        <div>
+            <h1 class="school-title">
+                CAMBRIDGE SCHOOL OF MODERN EDUCATION
+            </h1>
+
+            <div class="school-address">
+                OTLIGAM BEERWAH, BUDGAM — 193411
+            </div>
+
+            <div class="school-info">
+                Estd. 2013 |
+                Rgd. No. 05-CEOB of 2015 |
+                UDISE: 01040303905
+            </div>
+        </div>
+
+        <div></div>
+
+    </div>
+
+    <div class="exam-title">
+        SUMMATIVE ASSESSMENT — REPORT CARD
+    </div>
+
+    <div class="session-title">
+        ACADEMIC SESSION 2026–27 | CLASS 7TH
+    </div>
+
+    <div class="student-area">
+
+        <div class="student-details">
+
+            <div class="detail-box">
+                <strong>Student Name</strong>
+                <span id="studentName">—</span>
+            </div>
+
+            <div class="detail-box">
+                <strong>Roll Number</strong>
+                <span id="rollNumber">—</span>
+            </div>
+
+            <div class="detail-box">
+                <strong>Father's Name</strong>
+                <span id="fatherName">—</span>
+            </div>
+
+            <div class="detail-box">
+                <strong>Mother's Name</strong>
+                <span id="motherName">—</span>
+            </div>
+
+            <div class="detail-box">
+                <strong>Date of Birth</strong>
+                <span id="dob">—</span>
+            </div>
+
+            <div class="detail-box">
+                <strong>Permanent Address</strong>
+                <span id="address">—</span>
+            </div>
+
+        </div>
+
+        <div class="photo-box">
+            <img id="studentPhoto" src="" alt="Student Photo">
+        </div>
+
+    </div>
+
+    <div class="section-heading">
+        ACADEMIC PERFORMANCE AND MARKS
+    </div>
+
+    <table class="marks-table">
+
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>F1</th>
+                <th>F2</th>
+                <th>F3</th>
+                <th>F4</th>
+                <th>F5</th>
+                <th>F6</th>
+                <th>FA / 30</th>
+                <th>CCA / 20</th>
+                <th>SA / 50</th>
+                <th>Total / 100</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+
+        <tbody id="marksBody"></tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="10" style="text-align:right">
+                    GRAND TOTAL
+                </td>
+                <td id="grandTotal">0 / 600</td>
+                <td id="finalGrade">—</td>
+            </tr>
+        </tfoot>
+
+    </table>
+
+    <div class="summary-grid">
+
+        <div class="summary-box">
+            <small>MAXIMUM MARKS</small>
+            <strong>600</strong>
+        </div>
+
+        <div class="summary-box">
+            <small>MARKS OBTAINED</small>
+            <strong id="obtainedMarks">0</strong>
+        </div>
+
+        <div class="summary-box">
+            <small>PERCENTAGE</small>
+            <strong id="percentage">0%</strong>
+        </div>
+
+        <div class="summary-box">
+            <small>OVERALL GRADE</small>
+            <strong class="overall-grade" id="overallGrade">—</strong>
+        </div>
+
+    </div>
+
+    <div class="section-heading">
+        LEVEL OF PROFICIENCY
+    </div>
+
+    <table class="prof-table">
+
+        <thead>
+            <tr>
+                <th>Grade</th>
+                <th>Percentage Range</th>
+                <th>Level of Proficiency</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>A+</td>
+                <td>90–100%</td>
+                <td>Outstanding</td>
+            </tr>
+
+            <tr>
+                <td>A</td>
+                <td>80–89%</td>
+                <td>Excellent</td>
+            </tr>
+
+            <tr>
+                <td>B+</td>
+                <td>70–79%</td>
+                <td>Very Good</td>
+            </tr>
+
+            <tr class="grade-b-row">
+                <td>B</td>
+                <td>60–69%</td>
+                <td>Good</td>
+            </tr>
+
+            <tr>
+                <td>C</td>
+                <td>50–59%</td>
+                <td>Satisfactory</td>
+            </tr>
+
+            <tr>
+                <td>D</td>
+                <td>Below 50%</td>
+                <td>Needs Improvement</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <div class="prof-note">
+        Grade B is highlighted as requested. The student's actual grade
+        is calculated automatically from the marks obtained.
+    </div>
+
+    <div class="section-heading">
+        NATURE, ENVIRONMENT AND VISUAL LEARNING
+    </div>
+
+    <div class="nature-grid">
+
+        <!-- STREAM IMAGE -->
+        <div class="nature-card">
+
+            <svg viewBox="0 0 180 95" xmlns="http://www.w3.org/2000/svg"
+                 role="img" aria-label="Stream flowing through nature">
+
+                <defs>
+                    <linearGradient id="streamSky" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#bae6fd"/>
+                        <stop offset="100%" stop-color="#ecfeff"/>
+                    </linearGradient>
+
+                    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#38bdf8"/>
+                        <stop offset="100%" stop-color="#0369a1"/>
+                    </linearGradient>
+                </defs>
+
+                <rect width="180" height="95" fill="url(#streamSky)"/>
+
+                <circle cx="145" cy="18" r="10" fill="#fde047"/>
+
+                <path d="M0 44 Q35 10 70 45 T140 38 L180 48 L180 95 L0 95Z"
+                      fill="#65a30d"/>
+
+                <path d="M0 58 Q35 40 65 65 T125 56 L180 65 L180 95 L0 95Z"
+                      fill="#15803d"/>
+
+                <path d="M65 43 Q80 58 73 71 Q68 83 84 95
+                         L126 95 Q111 79 119 67 Q126 54 111 43Z"
+                      fill="url(#water)"/>
+
+                <path d="M85 59 Q96 67 87 78"
+                      fill="none" stroke="#e0f2fe" stroke-width="3"/>
+
+                <path d="M103 73 Q93 80 110 89"
+                      fill="none" stroke="#e0f2fe" stroke-width="2"/>
+
+                <g fill="#166534">
+                    <path d="M15 48 L24 17 L33 48Z"/>
+                    <path d="M25 49 L37 10 L48 49Z"/>
+                    <path d="M140 49 L151 16 L162 49Z"/>
+                    <path d="M150 49 L164 9 L177 49Z"/>
+                </g>
+
+                <g fill="#854d0e">
+                    <rect x="22" y="43" width="4" height="12"/>
+                    <rect x="149" y="42" width="4" height="13"/>
+                </g>
+
+            </svg>
+
+            <strong>STREAM</strong>
+
+        </div>
+
+        <!-- MOUNTAIN IMAGE -->
+        <div class="nature-card">
+
+            <svg viewBox="0 0 180 95" xmlns="http://www.w3.org/2000/svg"
+                 role="img" aria-label="Mountain scenery">
+
+                <defs>
+                    <linearGradient id="mountainSky" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#7dd3fc"/>
+                        <stop offset="100%" stop-color="#f0f9ff"/>
+                    </linearGradient>
+                </defs>
+
+                <rect width="180" height="95" fill="url(#mountainSky)"/>
+
+                <circle cx="145" cy="19" r="10" fill="#facc15"/>
+
+                <g fill="#ffffff" opacity=".9">
+                    <ellipse cx="34" cy="22" rx="15" ry="5"/>
+                    <ellipse cx="43" cy="18" rx="10" ry="7"/>
+                    <ellipse cx="52" cy="23" rx="12" ry="5"/>
+                </g>
+
+                <path d="M0 82 L49 19 L90 82Z" fill="#64748b"/>
+                <path d="M49 19 L61 39 L49 34 L39 44Z" fill="#ffffff"/>
+
+                <path d="M55 84 L113 7 L172 84Z" fill="#475569"/>
+                <path d="M113 7 L131 32 L113 25 L98 42Z" fill="#ffffff"/>
+
+                <path d="M0 79 L49 53 L79 81 L115 52 L180 80 L180 95 L0 95Z"
+                      fill="#16a34a"/>
+
+                <path d="M0 88 Q50 77 90 90 T180 87 L180 95 L0 95Z"
+                      fill="#15803d"/>
+
+                <g fill="#14532d">
+                    <path d="M15 78 L22 57 L29 78Z"/>
+                    <path d="M27 82 L35 59 L43 82Z"/>
+                    <path d="M148 78 L156 54 L164 78Z"/>
+                    <path d="M161 82 L169 61 L177 82Z"/>
+                </g>
+
+            </svg>
+
+            <strong>MOUNTAIN</strong>
+
+        </div>
+
+        <!-- SKY IMAGE -->
+        <div class="nature-card">
+
+            <svg viewBox="0 0 180 95" xmlns="http://www.w3.org/2000/svg"
+                 role="img" aria-label="Blue sky and clouds">
+
+                <defs>
+                    <linearGradient id="skyBlue" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#0284c7"/>
+                        <stop offset="100%" stop-color="#bae6fd"/>
+                    </linearGradient>
+                </defs>
+
+                <rect width="180" height="95" fill="url(#skyBlue)"/>
+
+                <circle cx="139" cy="24" r="14" fill="#fde047"/>
+                <circle cx="139" cy="24" r="20"
+                        fill="#fde047" opacity=".2"/>
+
+                <g fill="#ffffff">
+                    <ellipse cx="35" cy="37" rx="20" ry="10"/>
+                    <ellipse cx="45" cy="29" rx="15" ry="12"/>
+                    <ellipse cx="57" cy="38" rx="19" ry="9"/>
+
+                    <ellipse cx="104" cy="56" rx="19" ry="8"/>
+                    <ellipse cx="113" cy="49" rx="13" ry="11"/>
+                    <ellipse cx="126" cy="56" rx="17" ry="8"/>
+                </g>
+
+                <path d="M0 80 Q35 71 65 81 T125 78 T180 80 L180 95 L0 95Z"
+                      fill="#4ade80"/>
+
+                <path d="M0 89 Q50 81 90 90 T180 88 L180 95 L0 95Z"
+                      fill="#15803d"/>
+
+            </svg>
+
+            <strong>SKY</strong>
+
+        </div>
+
+    </div>
+
+    <div class="section-heading">
+        STUDENT PERFORMANCE
+    </div>
+
+    <div class="performance-box">
+        <strong>Academic Performance:</strong>
+        <span id="performanceText">
+            Student performance will appear here.
+        </span>
+        <br>
+
+        <strong>Result Status:</strong>
+        <span id="resultStatus">—</span>
+    </div>
+
+    <div class="remarks">
+        <strong>Teacher's Remarks:</strong>
+        <span id="remarksText">Keep learning and continue to do your best.</span>
+    </div>
+
+    <div class="signature-area">
+
+        <div class="signature-box">
+
+            <img
+                src="../../exam-incharge-sign.png"
+                class="signature-image"
+                alt="Exam Incharge Signature"
+                onerror="this.style.visibility='hidden'"
+            >
+
+            <div class="signature-line">
+                Exam Incharge
+            </div>
+
+        </div>
+
+        <div class="signature-box">
+
+            <img
+                src="../../school-seal.png"
+                class="school-seal"
+                alt="School Seal"
+                onerror="this.style.visibility='hidden'"
+            >
+
+            <div class="signature-line">
+                School Seal
+            </div>
+
+        </div>
+
+        <div class="signature-box">
+
+            <img
+                src="../../principal-sign.png"
+                class="signature-image"
+                alt="Principal Signature"
+                onerror="this.style.visibility='hidden'"
+            >
+
+            <div class="signature-line">
+                Principal
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-note">
+        CAMBRIDGE SCHOOL OF MODERN EDUCATION, OTLIGAM BEERWAH
+        <br>
+        Education is the key to a brighter future.
+    </div>
+
+</div>
+
+<script>
+/*
+  Class 7 student records.
+  Marks are out of 100 per subject:
+  FA = 30, CCA = 20, Summative Assessment = 50.
+*/
+
+const commonMarks = {
+    "English": {
+        f1:5, f2:5, f3:4, f4:5, f5:5, f6:4,
+        cca:18, sa:44
+    },
+
+    "Mathematics": {
+        f1:5, f2:4, f3:5, f4:5, f5:4, f6:5,
+        cca:19, sa:46
+    },
+
+    "Science": {
+        f1:4, f2:5, f3:5, f4:4, f5:5, f6:5,
+        cca:18, sa:45
+    },
+
+    "Social Science": {
+        f1:5, f2:5, f3:4, f4:5, f5:5, f6:4,
+        cca:19, sa:43
+    },
+
+    "Urdu": {
+        f1:5, f2:4, f3:5, f4:5, f5:4, f6:5,
+        cca:20, sa:46
+    },
+
+    "Kashmiri": {
+        f1:4, f2:5, f3:5, f4:4, f5:5, f6:5,
+        cca:18, sa:44
+    }
+};
+
+const students = {
+
+    "26CS70009": {
+        name:"Jannat Ul Firdous",
+        father:"Firdous Ahmad Mir",
+        mother:"Afrooza Akhther",
+        dob:"01-09-2014",
+        address:"Otligam Beerwah"
+    },
+
+    "26CS70010": {
+        name:"Suliam Jan",
+        father:"Khazir Mohammad Bhat",
+        mother:"Rubeena Bano",
+        dob:"09-11-2013",
+        address:"Otligam Beerwah"
+    },
+
+    "26CS70011": {
+        name:"Aruja Nazir",
+        father:"Nazir Ahmad Khan",
+        mother:"Haneefa Bano",
+        dob:"27-08-2014",
+        address:"Otligam Beerwah"
+    },
+
+    "26CS70012": {
+        name:"Muntazir Mukhtar Bhat",
+        father:"Mukhtar Ahmad Bhat",
+        mother:"Fareeda Bano",
+        dob:"28-01-2014",
+        address:"Otligam Beerwah"
+    },
+
+    "26CS70013": {
+        name:"Firdous Ahmad Tantary",
+        father:"Bashir Ahmad Tantary",
+        mother:"Wazira Bano",
+        dob:"26-08-2014",
+        address:"Otligam Beerwah"
+    },
+
+    "26CS70014": {
+        name:"Farhan Shabir",
+        father:"Shabir Ahmad Wani",
+        mother:"Shada Bano",
+        dob:"20-01-2025",
+        address:"Otligam Beerwah"
+    },
+
+    "26CS70015": {
+        name:"Umer Riyaz",
+        father:"Riyaz Ahmad Sheikh",
+        mother:"Haseena Begum",
+        dob:"28-10-2013",
+        address:"Otligam Beerwah"
+    },
+
+    "26CS70016": {
+        name:"Irtiqa Habib",
+        father:"Habibullah Ganie",
+        mother:"Shahnaza Bano",
+        dob:"11-03-2015",
+        address:"Otligam Beerwah"
+    },
+
+    "26CS70017": {
+        name:"Muntazir Farooq Sheikh",
+        father:"Farooq Ahmad Sheikh",
+        mother:"Afroza Akhter",
+        dob:"31-05-2015",
+        address:"Otligam Beerwah"
+    },
+
+    "26CS70018": {
+        name:"Anamta Maqbool",
+        father:"Maqbool Ahmad Wani",
+        mother:"Chesfeeda Bano",
+        dob:"03-03-2014",
+        address:"Otligam Beerwah"
+    }
+
+};
+
+function getGrade(percentage){
+
+    if(percentage >= 90) return "A+";
+    if(percentage >= 80) return "A";
+    if(percentage >= 70) return "B+";
+    if(percentage >= 60) return "B";
+    if(percentage >= 50) return "C";
+
+    return "D";
+}
+
+function getPerformance(percentage){
+
+    if(percentage >= 90){
+        return "Outstanding performance. Keep up the excellent work!";
+    }
+
+    if(percentage >= 80){
+        return "Excellent performance. Continue working hard!";
+    }
+
+    if(percentage >= 70){
+        return "Very good performance. Keep improving!";
+    }
+
+    if(percentage >= 60){
+        return "Good performance. More practice will help you improve.";
+    }
+
+    if(percentage >= 50){
+        return "Satisfactory performance. Continue regular study and revision.";
+    }
+
+    return "Needs improvement. Regular practice and teacher guidance are recommended.";
+}
+
+function safeText(value){
+
+    return String(value ?? "").replace(/[&<>"']/g, function(char){
+
+        const entities = {
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            '"':"&quot;",
+            "'":"&#39;"
+        };
+
+        return entities[char];
+
+    });
+
+}
+
+function searchStudent(){
+
+    const input = document
+        .getElementById("search")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const message = document.getElementById("message");
+
+    if(!input){
+        message.textContent = "Please enter a roll number or student name.";
+        document.getElementById("card").style.display = "none";
+        return;
+    }
+
+    let foundRoll = Object.keys(students).find(function(roll){
+
+        return roll.toLowerCase() === input;
+
+    });
+
+    if(!foundRoll){
+
+        const matches = Object.keys(students).filter(function(roll){
+
+            return roll.toLowerCase().includes(input) ||
+                   students[roll].name.toLowerCase().includes(input);
+
+        });
+
+        if(matches.length === 1){
+
+            foundRoll = matches[0];
+
+        }else if(matches.length > 1){
+
+            message.textContent =
+                "Multiple students found. Please enter a more specific name or roll number.";
+
+            document.getElementById("card").style.display = "none";
+            return;
+
+        }
+
+    }
+
+    if(!foundRoll){
+
+        message.textContent = "No student found. Please check the roll number or name.";
+        document.getElementById("card").style.display = "none";
+        return;
+
+    }
+
+    message.textContent = "";
+
+    showResult(foundRoll);
+
+}
+
+function showResult(roll){
+
+    const student = students[roll];
+
+    document.getElementById("studentName").textContent = student.name;
+    document.getElementById("rollNumber").textContent = roll;
+    document.getElementById("fatherName").textContent = student.father;
+    document.getElementById("motherName").textContent = student.mother;
+    document.getElementById("dob").textContent = student.dob;
+    document.getElementById("address").textContent = student.address;
+
+    const photo = document.getElementById("studentPhoto");
+
+    photo.onerror = function(){
+
+        this.onerror = null;
+
+        this.src = "data:image/svg+xml;charset=UTF-8," +
+            encodeURIComponent(
+                '<svg xmlns="http://www.w3.org/2000/svg" width="100" height="120">' +
+                '<rect width="100%" height="100%" fill="#dbeafe"/>' +
+                '<circle cx="50" cy="38" r="18" fill="#93c5fd"/>' +
+                '<path d="M15 112 Q15 68 50 68 Q85 68 85 112Z" fill="#60a5fa"/>' +
+                '<text x="50" y="119" font-size="7" text-anchor="middle" fill="#1e3a8a">PHOTO</text>' +
+                '</svg>'
+            );
+
+    };
+
+    photo.src = "../../Admit-Cards/Annual-Examination-2026-27/Class-7/" +
+                roll + ".jpg";
+
+    const tbody = document.getElementById("marksBody");
+
+    tbody.innerHTML = "";
+
+    let grandTotal = 0;
+
+    Object.keys(commonMarks).forEach(function(subject){
+
+        const marks = commonMarks[subject];
+
+        const fa = marks.f1 + marks.f2 + marks.f3 +
+                   marks.f4 + marks.f5 + marks.f6;
+
+        const total = fa + marks.cca + marks.sa;
+
+        const grade = getGrade(total);
+
+        grandTotal += total;
+
+        const row = document.createElement("tr");
+
+        row.innerHTML =
+            "<td>" + safeText(subject) + "</td>" +
+            "<td>" + marks.f1 + "</td>" +
+            "<td>" + marks.f2 + "</td>" +
+            "<td>" + marks.f3 + "</td>" +
+            "<td>" + marks.f4 + "</td>" +
+            "<td>" + marks.f5 + "</td>" +
+            "<td>" + marks.f6 + "</td>" +
+            "<td>" + fa + "</td>" +
+            "<td>" + marks.cca + "</td>" +
+            "<td>" + marks.sa + "</td>" +
+            "<td><strong>" + total + "</strong></td>" +
+            '<td><span class="grade-badge">' + grade + "</span></td>";
+
+        tbody.appendChild(row);
+
+    });
+
+    const percentage = (grandTotal / 600) * 100;
+    const overallGrade = getGrade(percentage);
+
+    document.getElementById("grandTotal").textContent =
+        grandTotal + " / 600";
+
+    document.getElementById("finalGrade").textContent =
+        overallGrade;
+
+    document.getElementById("obtainedMarks").textContent =
+        grandTotal;
+
+    document.getElementById("percentage").textContent =
+        percentage.toFixed(2) + "%";
+
+    document.getElementById("overallGrade").textContent =
+        overallGrade;
+
+    document.getElementById("performanceText").textContent =
+        getPerformance(percentage);
+
+    document.getElementById("resultStatus").textContent =
+        "Result calculated from the recorded marks.";
+
+    document.getElementById("remarksText").textContent =
+        percentage >= 80
+            ? "Excellent work. Keep learning and continue to do your best."
+            : percentage >= 60
+                ? "Good effort. Continue regular practice to improve further."
+                : "Please focus on regular study and revision.";
+
+    document.getElementById("card").style.display = "block";
+
+    window.scrollTo({
+        top:document.getElementById("card").offsetTop,
+        behavior:"smooth"
+    });
+
+}
+
+function clearSearch(){
+
+    document.getElementById("search").value = "";
+    document.getElementById("card").style.display = "none";
+    document.getElementById("message").textContent = "";
+
+}
+
+function printResult(){
+
+    if(document.getElementById("card").style.display !== "block"){
+
+        document.getElementById("message").textContent =
+            "Please search for a student before printing.";
+
+        return;
+
+    }
+
+    window.print();
+
+}
+
+document.getElementById("search").addEventListener("keydown",function(event){
+
+    if(event.key === "Enter"){
+        searchStudent();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
