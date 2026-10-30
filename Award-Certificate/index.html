@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Students Award Certificate - Cambridge School</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background: #eef2f7;
+    font-family: Arial, sans-serif;
+    color: #222;
+}
+
+h1 {
+    text-align: center;
+    color: #002060;
+}
+
+.form-box {
+    max-width: 950px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #0002;
+}
+
+.form-box h2 {
+    color: #002060;
+    text-align: center;
+}
+
+.student-row {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 12px 0;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.student-row h3 {
+    color: #002060;
+    margin-top: 0;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 11px;
+    margin-top: 5px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #002060;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 8px 5px;
+}
+
+button:hover {
+    background: #b8860b;
+}
+
+#certificates {
+    margin-top: 25px;
+}
+
+/* CERTIFICATE DESIGN */
+
+.certificate {
+    width: 100%;
+    min-height: 185mm;
+    padding: 12mm;
+    margin: 20px auto;
+    background: #fff;
+    border: 10px double #c49a35;
+    outline: 3px solid #002060;
+    outline-offset: -17px;
+    text-align: center;
+    position: relative;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.certificate-inner {
+    width: 100%;
+    border: 2px solid #c49a35;
+    padding: 15px;
+    min-height: 155mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.school-logo {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+}
+
+.school-name {
+    font-size: 29px;
+    font-weight: bold;
+    color: #002060;
+    margin: 5px;
+}
+
+.school-address {
+    font-size: 17px;
+    color: #8b6914;
+    font-weight: bold;
+}
+
+.certificate-heading {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    color: #b8860b;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.award-title {
+    font-size: 27px;
+    color: #002060;
+    font-weight: bold;
+    border-bottom: 2px solid #c49a35;
+    padding: 8px 25px;
+}
+
+.presented {
+    font-size: 19px;
+    margin: 5px;
+}
+
+.student-name {
+    font-family: Georgia, serif;
+    font-size: 37px;
+    font-weight: bold;
+    color: #002060;
+    border-bottom: 2px solid #c49a35;
+    padding: 5px 35px;
+    margin: 8px;
+}
+
+.description {
+    font-size: 18px;
+    max-width: 850px;
+    line-height: 1.6;
+    margin: 8px auto;
+}
+
+.class-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #002060;
+}
+
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 20px;
+    padding: 0 30px;
+}
+
+.signature {
+    width: 220px;
+    border-top: 2px solid #002060;
+    padding-top: 8px;
+    font-weight: bold;
+    color: #002060;
+}
+
+.seal {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.date-text {
+    font-weight: bold;
+    color: #002060;
+    margin-top: 12px;
+}
+
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .form-box, h1, .no-print {
+        display: none !important;
+    }
+
+    #certificates {
+        margin: 0;
+    }
+
+    .certificate {
+        width: 100%;
+        height: 190mm;
+        min-height: 190mm;
+        margin: 0;
+        page-break-after: always;
+        break-after: page;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    @page {
+        size: A4 landscape;
+        margin: 5mm;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1 class="no-print">Students Award Certificate</h1>
+
+<div class="form-box">
+
+    <h2>CAMBRIDGE SCHOOL OF MODERN EDUCATION</h2>
+    <h3 style="text-align:center;">OTLIGAM, BEERWAH</h3>
+
+    <label>Certificate Date:</label>
+    <input type="date" id="certificateDate">
+
+    <h2>Student Details</h2>
+
+    <div id="studentInputs"></div>
+
+    <div style="text-align:center;">
+        <button onclick="generateCertificates()">
+            Generate Certificates
+        </button>
+
+        <button onclick="window.print()">
+            Print / Save PDF
+        </button>
+    </div>
+
+</div>
+
+<div id="certificates"></div>
+
+<script>
+
+const awards = [
+    "Best Student Award",
+    "Discipline Award",
+    "Academic Excellence Award",
+    "Best Attendance Award",
+    "Best Creativity Award",
+    "Best Behaviour Award",
+    "Sports Achievement",
+    "Outstanding Performance",
+    "Special Achievement",
+    "Custom Award"
+];
+
+const students = [
+    {
+        name: "Jannat Ul Firdous",
+        className: "7th",
+        award: "Discipline Award"
+    },
+    {
+        name: "Suliam Jaan",
+        className: "8th",
+        award: "Sports Achievement"
+    }
+];
+
+const studentInputs = document.getElementById("studentInputs");
+
+for (let i = 0; i < 15; i++) {
+
+    const student = students[i] || {
+        name: "",
+        className: "",
+        award: "Best Student Award"
+    };
+
+    let options = awards.map(award => `
+        <option value="${award}"
+        ${student.award === award ? "selected" : ""}>
+            ${award}
+        </option>
+    `).join("");
+
+    studentInputs.innerHTML += `
+        <div class="student-row">
+
+            <h3>Student ${i + 1}</h3>
+
+            <label>Student Name:</label>
+            <input type="text"
+            class="studentName"
+            value="${student.name}"
+            placeholder="Enter student name">
+
+            <label>Class:</label>
+            <input type="text"
+            class="studentClass"
+            value="${student.className}"
+            placeholder="Enter class">
+
+            <label>Award Type:</label>
+            <select class="studentAward">
+                ${options}
+            </select>
+
+            <label>Custom Certificate Title (Optional):</label>
+            <input type="text"
+            class="customTitle"
+            placeholder="Enter your own award title">
+
+        </div>
+    `;
+}
+
+const descriptions = {
+    "Best Student Award":
+    "In recognition of outstanding overall performance, dedication and commitment towards excellence.",
+
+    "Discipline Award":
+    "In recognition of excellent discipline, good manners, responsible behaviour and respect for school values.",
+
+    "Academic Excellence Award":
+    "In recognition of outstanding academic achievement, hard work and dedication towards learning.",
+
+    "Best Attendance Award":
+    "In recognition of regular attendance, punctuality and sincere commitment to school activities.",
+
+    "Best Creativity Award":
+    "In recognition of creative thinking, imagination and exceptional talent.",
+
+    "Best Behaviour Award":
+    "In recognition of kindness, respect, cooperation and exemplary behaviour.",
+
+    "Sports Achievement":
+    "In recognition of outstanding sports achievement, teamwork, dedication and excellent sporting spirit.",
+
+    "Outstanding Performance":
+    "In recognition of outstanding performance and remarkable achievement.",
+
+    "Special Achievement":
+    "In recognition of a special achievement and commendable contribution.",
+
+    "Custom Award":
+    "In recognition of valuable achievement and sincere efforts."
+};
+
+function generateCertificates() {
+
+    const names = document.querySelectorAll(".studentName");
+    const classes = document.querySelectorAll(".studentClass");
+    const awardTypes = document.querySelectorAll(".studentAward");
+    const customTitles = document.querySelectorAll(".customTitle");
+
+    const dateInput = document.getElementById("certificateDate").value;
+
+    let date = dateInput
+        ? new Date(dateInput + "T00:00:00").toLocaleDateString("en-IN")
+        : new Date().toLocaleDateString("en-IN");
+
+    let output = "";
+
+    for (let i = 0; i < names.length; i++) {
+
+        let name = names[i].value.trim();
+
+        if (name === "") {
+            continue;
+        }
+
+        let studentClass = classes[i].value.trim();
+        let award = awardTypes[i].value;
+        let customTitle = customTitles[i].value.trim();
+
+        let title = customTitle !== "" ? customTitle : award;
+
+        let description = descriptions[award];
+
+        output += `
+
+        <div class="certificate">
+
+            <div class="certificate-inner">
+
+                <img src="logo.png"
+                class="school-logo"
+                onerror="this.style.display='none'">
+
+                <div class="school-name">
+                    CAMBRIDGE SCHOOL OF MODERN EDUCATION
+                </div>
+
+                <div class="school-address">
+                    OTLIGAM, BEERWAH
+                </div>
+
+                <div class="certificate-heading">
+                    CERTIFICATE OF ACHIEVEMENT
+                </div>
+
+                <div class="award-title">
+                    ${title}
+                </div>
+
+                <div class="presented">
+                    This certificate is proudly presented to
+                </div>
+
+                <div class="student-name">
+                    ${escapeHTML(name)}
+                </div>
+
+                <div class="class-text">
+                    Class: ${escapeHTML(studentClass)}
+                </div>
+
+                <div class="description">
+                    ${description}
+                </div>
+
+                <div class="date-text">
+                    Date: ${date}
+                </div>
+
+                <div class="footer">
+
+                    <div class="signature">
+                        Exam Incharge
+                    </div>
+
+                    <img src="school-seal.png"
+                    class="seal"
+                    onerror="this.style.display='none'">
+
+                    <div class="signature">
+                        Principal
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+    }
+
+    if (output === "") {
+        alert("Please enter at least one student name.");
+        return;
+    }
+
+    document.getElementById("certificates").innerHTML = output;
+
+    window.scrollTo(0, document.getElementById("certificates").offsetTop);
+}
+
+function escapeHTML(value) {
+    return value.replace(/[&<>"']/g, function(char) {
+        return {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+        }[char];
+    });
+}
+
+</script>
+
+</body>
+</html>
