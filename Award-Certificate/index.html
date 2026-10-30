@@ -1,7 +1,574 @@
 <!DOCTYPE html>
-<
-    display: block;
-    font-weight: bold;
-    margin-top: 10px;
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Students Award Certificate - Cambridge School</title>
+
+<style>
+* {
+    box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    padding: 20px;
+    background: #eaf1fa;
+    font-family: Arial, sans-serif;
+    color: #002060;
+}
+
+/* SEARCH AREA */
+
+.header {
+    text-align: center;
+    background: linear-gradient(135deg,#001b50,#0759a5);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    border-bottom: 5px solid #d4a52c;
+}
+
+.header h1 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    margin: 5px;
+}
+
+.header h2 {
+    color: #ffd76a;
+    margin: 5px;
+}
+
+.search-box {
+    max-width: 750px;
+    margin: 25px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #0002;
+    text-align: center;
+}
+
+.search-box h2 {
+    color: #002060;
+}
+
+.search-box input {
+    width: 70%;
+    padding: 14px;
+    border: 2px solid #c49a35;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+button {
+    padding: 13px 25px;
+    background: #002060;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 8px;
+}
+
+button:hover {
+    background: #b8860b;
+}
+
+#message {
+    font-weight: bold;
+    color: #b00020;
+}
+
+/* CERTIFICATE */
+
+#certificateArea {
+    margin-top: 25px;
+}
+
+.certificate {
+    width: 100%;
+    max-width: 1150px;
+    min-height: 185mm;
+    margin: 20px auto;
+    padding: 12px;
+    background: #fffdf3;
+    border: 12px double #c49a35;
+    outline: 3px solid #002060;
+    outline-offset: -20px;
+    text-align: center;
+    page-break-after: always;
+}
+
+.certificate-inner {
+    min-height: 155mm;
+    padding: 20px;
+    border: 3px solid #c49a35;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.school-name {
+    font-family: Georgia, serif;
+    font-size: 31px;
+    font-weight: bold;
+    color: #002060;
+    margin: 5px;
+}
+
+.address {
+    font-size: 19px;
+    color: #9b741b;
+    font-weight: bold;
+}
+
+.gold-line {
+    width: 75%;
+    height: 3px;
+    background: linear-gradient(to right,#fff,#c49a35,#fff);
+    margin: 8px;
+}
+
+.heading {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    color: #b8860b;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.award-title {
+    font-size: 26px;
+    color: #002060;
+    font-weight: bold;
+    padding: 10px 35px;
+    border-top: 2px solid #c49a35;
+    border-bottom: 2px solid #c49a35;
+    margin: 10px;
+}
+
+.presented {
+    font-size: 19px;
+    margin: 8px;
+}
+
+/* STUDENT PHOTO AND NAME */
+
+.student-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    margin: 10px 0;
+}
+
+.student-photo-box {
+    width: 165px;
+    height: 195px;
+    padding: 5px;
+    border: 5px solid #c49a35;
+    outline: 2px solid #002060;
+    background: #fff;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.student-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.student-details {
+    flex: 1;
+    text-align: center;
+}
+
+.student-name {
+    font-family: Georgia, serif;
+    font-size: 38px;
+    font-weight: bold;
+    color: #002060;
+    border-bottom: 3px solid #c49a35;
+    padding: 8px 15px;
+    margin: 10px;
+}
+
+.class-text {
+    font-size: 22px;
+    font-weight: bold;
+    color: #002060;
+    margin: 10px;
+}
+
+.description {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 12px auto;
+}
+
+.date-text {
+    font-weight: bold;
+    font-size: 17px;
+    margin: 12px;
+}
+
+/* SIGNATURES AND SEAL */
+
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 20px;
+    padding: 0 25px;
+}
+
+.signature-box {
+    width: 220px;
+    text-align: center;
+    font-weight: bold;
+    color: #002060;
+}
+
+.principal-sign {
+    width: 150px;
+    height: 65px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 5px;
+}
+
+.signature-line {
+    border-top: 2px solid #002060;
+    padding-top: 7px;
+}
+
+.seal {
+    width: 115px;
+    height: 115px;
+    object-fit: contain;
+}
+
+/* PRINT SETTINGS */
+
+@media print {
+
+    body {
+        padding: 0;
+        margin: 0;
+        background: white;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    #certificateArea {
+        margin: 0;
+    }
+
+    .certificate {
+        width: 100%;
+        max-width: none;
+        height: 190mm;
+        min-height: 190mm;
+        margin: 0;
+        padding: 8px;
+        page-break-after: always;
+        break-after: page;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .certificate-inner {
+        min-height: 170mm;
+    }
+
+    @page {
+        size: A4 landscape;
+        margin: 5mm;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="header no-print">
+
+    <h1>CAMBRIDGE SCHOOL</h1>
+
+    <h2>OF MODERN EDUCATION</h2>
+
+    <h3>OTLIGAM, BEERWAH</h3>
+
+    <h2>STUDENTS AWARD CERTIFICATE</h2>
+
+</div>
+
+
+<!-- STUDENT SEARCH -->
+
+<div class="search-box no-print">
+
+    <h2>🔍 Search Student Certificate</h2>
+
+    <input
+        type="text"
+        id="searchName"
+        placeholder="Enter Student Name..."
+        onkeydown="if(event.key==='Enter') searchStudent()"
+    >
+
+    <button onclick="searchStudent()">Search</button>
+
+    <button onclick="window.print()">
+        Print / Save PDF
+    </button>
+
+    <p id="message">
+        Enter student name to view certificate.
+    </p>
+
+</div>
+
+
+<!-- CERTIFICATE DISPLAY -->
+
+<div id="certificateArea"></div>
+
+
+<script>
+
+/* STUDENT RECORDS */
+
+const students = [
+
+    {
+        name: "Jannat Ul Firdous",
+
+        className: "7th",
+
+        award: "Discipline Award",
+
+        date: "30-10-2026",
+
+        photo: "../Admit-Cards/Annual-Examination-2026-27/Class-7/26CS70009.jpg",
+
+        description:
+        "In recognition of excellent discipline, good manners, responsible behaviour and respect for school values."
+    },
+
+    {
+        name: "Suliam Jaan",
+
+        className: "8th",
+
+        award: "Sports Achievement",
+
+        date: "30-10-2026",
+
+        photo: "",
+
+        description:
+        "In recognition of outstanding sports achievement, teamwork, dedication and excellent sporting spirit."
+    }
+
+];
+
+
+/* SEARCH FUNCTION */
+
+function searchStudent() {
+
+    const search = document
+        .getElementById("searchName")
+        .value.trim().toLowerCase();
+
+    const area = document.getElementById("certificateArea");
+
+    const message = document.getElementById("message");
+
+    area.innerHTML = "";
+
+    if (search === "") {
+
+        message.innerText = "Please enter student name.";
+
+        return;
+    }
+
+    const found = students.filter(student =>
+        student.name.toLowerCase().includes(search)
+    );
+
+    if (found.length === 0) {
+
+        message.innerText = "No student found. Please check the name.";
+
+        return;
+    }
+
+    message.innerText =
+        found.length + " certificate(s) found.";
+
+    found.forEach(student => {
+
+        const photoHTML = student.photo
+            ? `
+                <div class="student-photo-box">
+                    <img
+                        src="${student.photo}"
+                        class="student-photo"
+                        alt="Student Photo"
+                        onerror="this.parentElement.style.display='none'"
+                    >
+                </div>
+            `
+            : "";
+
+        area.innerHTML += `
+
+        <div class="certificate">
+
+            <div class="certificate-inner">
+
+                <img
+                    src="../logo.png"
+                    class="logo"
+                    alt="School Logo"
+                >
+
+                <div class="school-name">
+                    CAMBRIDGE SCHOOL OF MODERN EDUCATION
+                </div>
+
+                <div class="address">
+                    OTLIGAM, BEERWAH
+                </div>
+
+                <div class="gold-line"></div>
+
+                <div class="heading">
+                    CERTIFICATE OF ACHIEVEMENT
+                </div>
+
+                <div class="award-title">
+                    ${escapeHTML(student.award)}
+                </div>
+
+                <div class="presented">
+                    This certificate is proudly presented to
+                </div>
+
+                <div class="student-section">
+
+                    ${photoHTML}
+
+                    <div class="student-details">
+
+                        <div class="student-name">
+                            ${escapeHTML(student.name)}
+                        </div>
+
+                        <div class="class-text">
+                            Class: ${escapeHTML(student.className)}
+                        </div>
+
+                        <div class="description">
+                            ${escapeHTML(student.description)}
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="date-text">
+                    Date: ${escapeHTML(student.date)}
+                </div>
+
+                <div class="footer">
+
+                    <div class="signature-box">
+
+                        <div class="signature-line">
+                            Exam Incharge
+                        </div>
+
+                    </div>
+
+                    <img
+                        src="../school-seal.png"
+                        class="seal"
+                        alt="School Seal"
+                    >
+
+                    <div class="signature-box">
+
+                        <img
+                            src="../principal-sign.png"
+                            class="principal-sign"
+                            alt="Principal Signature"
+                        >
+
+                        <div class="signature-line">
+                            Principal
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+    window.scrollTo({
+        top: area.offsetTop,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* HTML SECURITY */
+
+function escapeHTML(value) {
+
+    return String(value).replace(/[&<>"']/g, char => ({
+
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+
+    }[char]));
+
+}
+
+</script>
+
+</body>
+</html>
