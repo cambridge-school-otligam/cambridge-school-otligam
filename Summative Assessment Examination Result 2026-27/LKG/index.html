@@ -932,7 +932,7 @@ function showReport(student){
 
     const subjects=[
         "English","Mathematics","EVS",
-        "Urdu","Kashmiri"
+        "Urdu"
     ];
 
     const body=document.getElementById("marksBody");
@@ -967,7 +967,7 @@ function showReport(student){
         body.appendChild(row);
     });
 
-    const percentage=(grandTotal/600)*100;
+    const percentage=(grandTotal/400)*100;
     const grade=getGrade(percentage);
     const proficiency=getProficiency(percentage);
 
@@ -981,7 +981,7 @@ function showReport(student){
     `;
     body.appendChild(totalRow);
 
-    document.getElementById("grandTotal").innerText=grandTotal+" / 500";
+    document.getElementById("grandTotal").innerText=grandTotal+" / 400";
     document.getElementById("percentage").innerText=percentage.toFixed(2)+"%";
     document.getElementById("overallGrade").innerText=grade;
 
