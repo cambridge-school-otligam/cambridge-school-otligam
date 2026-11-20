@@ -7,6 +7,7 @@
 <title>Students Award Certificate - Cambridge School</title>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -19,7 +20,7 @@ body {
     color: #002060;
 }
 
-/* SEARCH AREA */
+/* HEADER */
 
 .header {
     text-align: center;
@@ -31,7 +32,7 @@ body {
 }
 
 .header h1 {
-    font-family: Georgia, serif;
+    font-family: Georgia,serif;
     font-size: 30px;
     margin: 5px;
 }
@@ -40,6 +41,8 @@ body {
     color: #ffd76a;
     margin: 5px;
 }
+
+/* SEARCH BOX */
 
 .search-box {
     max-width: 750px;
@@ -91,8 +94,8 @@ button:hover {
 
 .certificate {
     width: 100%;
-    max-width: 1150px;
-    min-height: 185mm;
+    max-width: 1200px;
+    min-height: 650px;
     margin: 20px auto;
     padding: 12px;
     background: #fffdf3;
@@ -100,36 +103,36 @@ button:hover {
     outline: 3px solid #002060;
     outline-offset: -20px;
     text-align: center;
-    page-break-after: always;
 }
 
 .certificate-inner {
-    min-height: 155mm;
-    padding: 20px;
+    min-height: 600px;
+    padding: 15px;
     border: 3px solid #c49a35;
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
 }
 
+/* SCHOOL DETAILS */
+
 .logo {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     object-fit: contain;
 }
 
 .school-name {
-    font-family: Georgia, serif;
-    font-size: 31px;
+    font-family: Georgia,serif;
+    font-size: 30px;
     font-weight: bold;
     color: #002060;
-    margin: 5px;
+    margin: 4px;
 }
 
 .address {
-    font-size: 19px;
+    font-size: 18px;
     color: #9b741b;
     font-weight: bold;
 }
@@ -138,51 +141,53 @@ button:hover {
     width: 75%;
     height: 3px;
     background: linear-gradient(to right,#fff,#c49a35,#fff);
-    margin: 8px;
+    margin: 5px;
 }
 
+/* CERTIFICATE HEADING */
+
 .heading {
-    font-family: Georgia, serif;
-    font-size: 40px;
+    font-family: Georgia,serif;
+    font-size: 37px;
     color: #b8860b;
     font-weight: bold;
-    margin: 10px;
+    margin: 7px;
 }
 
 .award-title {
-    font-size: 26px;
+    font-size: 24px;
     color: #002060;
     font-weight: bold;
-    padding: 10px 35px;
+    padding: 8px 30px;
     border-top: 2px solid #c49a35;
     border-bottom: 2px solid #c49a35;
-    margin: 10px;
+    margin: 5px;
 }
 
 .presented {
-    font-size: 19px;
-    margin: 8px;
+    font-size: 17px;
+    margin: 5px;
 }
 
-/* STUDENT PHOTO AND NAME */
+/* STUDENT DETAILS */
 
 .student-section {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 35px;
-    margin: 10px 0;
+    gap: 30px;
+    margin: 5px 0;
 }
 
 .student-photo-box {
-    width: 165px;
-    height: 195px;
-    padding: 5px;
-    border: 5px solid #c49a35;
+    width: 140px;
+    height: 165px;
+    padding: 4px;
+    border: 4px solid #c49a35;
     outline: 2px solid #002060;
-    background: #fff;
-    border-radius: 8px;
+    background: white;
+    border-radius: 6px;
     flex-shrink: 0;
 }
 
@@ -198,56 +203,56 @@ button:hover {
 }
 
 .student-name {
-    font-family: Georgia, serif;
-    font-size: 38px;
+    font-family: Georgia,serif;
+    font-size: 35px;
     font-weight: bold;
     color: #002060;
     border-bottom: 3px solid #c49a35;
-    padding: 8px 15px;
-    margin: 10px;
+    padding: 7px 15px;
+    margin: 7px;
 }
 
 .class-text {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
     color: #002060;
-    margin: 10px;
+    margin: 7px;
 }
 
 .description {
-    font-size: 18px;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 12px auto;
+    font-size: 17px;
+    line-height: 1.5;
+    max-width: 750px;
+    margin: 8px auto;
 }
 
 .date-text {
     font-weight: bold;
-    font-size: 17px;
-    margin: 12px;
+    font-size: 16px;
+    margin: 7px;
 }
 
-/* SIGNATURES AND SEAL */
+/* FOOTER */
 
 .footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: end;
-    margin-top: 20px;
-    padding: 0 25px;
+    margin-top: 10px;
+    padding: 0 20px;
 }
 
 .signature-box {
-    width: 220px;
+    width: 200px;
     text-align: center;
     font-weight: bold;
     color: #002060;
 }
 
 .principal-sign {
-    width: 150px;
-    height: 65px;
+    width: 130px;
+    height: 55px;
     object-fit: contain;
     display: block;
     margin: 0 auto 5px;
@@ -259,19 +264,56 @@ button:hover {
 }
 
 .seal {
-    width: 115px;
-    height: 115px;
+    width: 90px;
+    height: 90px;
     object-fit: contain;
 }
 
-/* PRINT SETTINGS */
+/* SCREEN RESPONSIVE */
+
+@media screen and (max-width:700px) {
+
+    .student-section {
+        flex-direction: column;
+    }
+
+    .school-name {
+        font-size: 22px;
+    }
+
+    .heading {
+        font-size: 27px;
+    }
+
+    .student-name {
+        font-size: 26px;
+    }
+
+    .footer {
+        padding: 0;
+    }
+
+}
+
+/* A4 LANDSCAPE PRINT */
 
 @media print {
 
+    @page {
+        size: A4 landscape;
+        margin: 5mm;
+    }
+
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 287mm;
+        background: white !important;
+    }
+
     body {
-        padding: 0;
-        margin: 0;
-        background: white;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 
     .no-print {
@@ -279,31 +321,147 @@ button:hover {
     }
 
     #certificateArea {
-        margin: 0;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 287mm;
     }
 
     .certificate {
-        width: 100%;
-        max-width: none;
-        height: 190mm;
-        min-height: 190mm;
-        margin: 0;
-        padding: 8px;
+        width: 287mm !important;
+        height: 200mm !important;
+        min-height: 200mm !important;
+        max-height: 200mm !important;
+
+        margin: 0 !important;
+        padding: 5px !important;
+
+        border: 10px double #c49a35 !important;
+        outline: 2px solid #002060;
+
+        overflow: hidden !important;
+
         page-break-after: always;
         break-after: page;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+
+        box-sizing: border-box !important;
+    }
+
+    .certificate:last-child {
+        page-break-after: auto;
+        break-after: auto;
     }
 
     .certificate-inner {
-        min-height: 170mm;
+        width: 100%;
+        height: 100% !important;
+        min-height: 0 !important;
+
+        padding: 6px !important;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between !important;
+        align-items: center;
+
+        gap: 1px;
+        overflow: hidden !important;
     }
 
-    @page {
-        size: A4 landscape;
-        margin: 5mm;
+    .logo {
+        width: 65px !important;
+        height: 65px !important;
     }
+
+    .school-name {
+        font-size: 24px !important;
+        margin: 2px !important;
+    }
+
+    .address {
+        font-size: 15px !important;
+    }
+
+    .gold-line {
+        margin: 3px !important;
+    }
+
+    .heading {
+        font-size: 30px !important;
+        margin: 3px !important;
+    }
+
+    .award-title {
+        font-size: 20px !important;
+        padding: 5px 20px !important;
+        margin: 3px !important;
+    }
+
+    .presented {
+        font-size: 15px !important;
+        margin: 2px !important;
+    }
+
+    .student-section {
+        gap: 20px !important;
+        margin: 2px 0 !important;
+    }
+
+    .student-photo-box {
+        width: 120px !important;
+        height: 140px !important;
+        padding: 3px !important;
+    }
+
+    .student-name {
+        font-size: 28px !important;
+        padding: 5px !important;
+        margin: 3px !important;
+    }
+
+    .class-text {
+        font-size: 17px !important;
+        margin: 3px !important;
+    }
+
+    .description {
+        font-size: 14px !important;
+        line-height: 1.3 !important;
+        margin: 3px auto !important;
+    }
+
+    .date-text {
+        font-size: 14px !important;
+        margin: 3px !important;
+    }
+
+    .footer {
+        margin-top: 3px !important;
+        padding: 0 15px !important;
+    }
+
+    .signature-box {
+        width: 180px !important;
+        font-size: 14px !important;
+    }
+
+    .principal-sign {
+        width: 110px !important;
+        height: 40px !important;
+        margin-bottom: 3px !important;
+    }
+
+    .seal {
+        width: 75px !important;
+        height: 75px !important;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
 }
+
 </style>
 </head>
 
@@ -324,7 +482,7 @@ button:hover {
 </div>
 
 
-<!-- STUDENT SEARCH -->
+<!-- SEARCH AREA -->
 
 <div class="search-box no-print">
 
@@ -350,7 +508,7 @@ button:hover {
 </div>
 
 
-<!-- CERTIFICATE DISPLAY -->
+<!-- CERTIFICATE AREA -->
 
 <div id="certificateArea"></div>
 
@@ -432,17 +590,17 @@ function searchStudent() {
     found.forEach(student => {
 
         const photoHTML = student.photo
-            ? `
-                <div class="student-photo-box">
-                    <img
-                        src="${student.photo}"
-                        class="student-photo"
-                        alt="Student Photo"
-                        onerror="this.parentElement.style.display='none'"
-                    >
-                </div>
-            `
-            : "";
+        ? `
+            <div class="student-photo-box">
+                <img
+                    src="${student.photo}"
+                    class="student-photo"
+                    alt="Student Photo"
+                    onerror="this.parentElement.style.display='none'"
+                >
+            </div>
+        `
+        : "";
 
         area.innerHTML += `
 
