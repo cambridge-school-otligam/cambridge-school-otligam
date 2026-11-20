@@ -3,1204 +3,690 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Students Award Certificate - Cambridge School</title>
+<title>Cambridge School - Award Certificates</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+}
 
 body{
     margin:0;
     padding:20px;
-    background:#eaf1fa;
+    font-family:Georgia,"Times New Roman",serif;
+    background:linear-gradient(135deg,#e8f0ff,#fff5df);
+}
+
+/* SEARCH AREA */
+
+.search-area{
+    max-width:900px;
+    margin:0 auto 25px;
+    padding:20px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,.12);
+    text-align:center;
     font-family:Arial,sans-serif;
-    color:#002060;
+}
+
+.search-area h2{
+    color:#123b78;
+    margin:0 0 15px;
+}
+
+.search-area input{
+    width:70%;
+    max-width:450px;
+    padding:12px;
+    border:2px solid #c69b35;
+    border-radius:7px;
+    font-size:16px;
+    outline:none;
+}
+
+.search-area button{
+    padding:12px 22px;
+    border:0;
+    border-radius:7px;
+    background:#123b78;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    margin:5px;
+}
+
+.search-area button:hover{
+    background:#c18c22;
+}
+
+#message{
+    color:#b00020;
+    font-family:Arial,sans-serif;
+    margin-top:10px;
+    font-weight:bold;
+}
+
+/* CERTIFICATE */
+
+.certificate{
+    width:297mm;
+    height:210mm;
+    margin:0 auto;
+    padding:9mm;
+    position:relative;
+    overflow:hidden;
+    background:#fffdf5;
+    border:4px solid #b58a2b;
+    outline:2px solid #173d79;
+    outline-offset:-9px;
+    box-shadow:0 5px 25px rgba(0,0,0,.2);
+    text-align:center;
+    color:#172f59;
+}
+
+/* INNER BORDER */
+
+.certificate:before{
+    content:"";
+    position:absolute;
+    inset:13px;
+    border:2px solid #d6ad4c;
+    pointer-events:none;
+}
+
+.certificate:after{
+    content:"";
+    position:absolute;
+    inset:20px;
+    border:1px dashed #b58a2b;
+    pointer-events:none;
+}
+
+/* CORNER DECORATIONS */
+
+.corner{
+    position:absolute;
+    width:95px;
+    height:95px;
+    color:#c89a32;
+    font-size:65px;
+    line-height:1;
+    z-index:2;
+}
+
+.top-left{
+    top:15px;
+    left:18px;
+}
+
+.top-right{
+    top:15px;
+    right:18px;
+    transform:scaleX(-1);
+}
+
+.bottom-left{
+    bottom:15px;
+    left:18px;
+    transform:scaleY(-1);
+}
+
+.bottom-right{
+    bottom:15px;
+    right:18px;
+    transform:scale(-1);
 }
 
 /* HEADER */
 
 .header{
-    text-align:center;
-    background:linear-gradient(135deg,#001747,#0759a5);
-    color:white;
-    padding:20px;
-    border-radius:12px;
-    border-bottom:5px solid #e9b83f;
-}
-
-.header h1{
-    font-family:Georgia,serif;
-    font-size:30px;
-    margin:5px;
-}
-
-.header h2{
-    color:#ffd76a;
-    margin:5px;
-}
-
-/* SEARCH */
-
-.search-box{
-    max-width:750px;
-    margin:25px auto;
-    padding:25px;
-    background:white;
-    border-radius:12px;
-    box-shadow:0 4px 15px #0002;
-    text-align:center;
-}
-
-.search-box input{
-    width:70%;
-    padding:14px;
-    border:2px solid #c49a35;
-    border-radius:7px;
-    font-size:16px;
-}
-
-button{
-    padding:13px 25px;
-    background:#002060;
-    color:white;
-    border:none;
-    border-radius:7px;
-    cursor:pointer;
-    font-size:16px;
-    margin:8px;
-}
-
-button:hover{background:#b8860b}
-
-#message{
-    font-weight:bold;
-    color:#b00020;
-}
-
-/* CERTIFICATE */
-
-#certificateArea{margin-top:25px}
-
-.certificate{
-    width:100%;
-    max-width:1200px;
-    height:680px;
-    margin:20px auto;
-    padding:9px;
     position:relative;
-    overflow:hidden;
-    background:#fffdf0;
-    border:9px solid #002060;
-    outline:3px solid #e7b83f;
-    outline-offset:-15px;
-    box-shadow:0 5px 20px #0003;
-}
-
-.certificate-inner{
-    position:relative;
-    width:100%;
-    height:100%;
-    border:3px solid #d5a52c;
-    overflow:hidden;
-    padding:12px 65px 125px;
-
+    z-index:3;
     display:flex;
-    flex-direction:column;
-    justify-content:space-between;
     align-items:center;
-
-    background:
-    radial-gradient(ellipse at center,#fffef8 0%,#fff9e8 75%,#ffe8b4 100%);
+    justify-content:center;
+    gap:18px;
+    margin-top:5px;
 }
-
-/* SUNBURST */
-
-.sunburst{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    opacity:.12;
-    z-index:0;
-    pointer-events:none;
-}
-
-/* CORNERS */
-
-.corner{
-    position:absolute;
-    width:135px;
-    height:135px;
-    z-index:5;
-    pointer-events:none;
-}
-
-.corner svg{
-    width:100%;
-    height:100%;
-}
-
-.top-left{top:0;left:0}
-.top-right{top:0;right:0;transform:scaleX(-1)}
-.bottom-left{bottom:0;left:0;transform:scaleY(-1)}
-.bottom-right{bottom:0;right:0;transform:scale(-1)}
-
-/* SIDE DECORATION */
-
-.side-decoration{
-    position:absolute;
-    top:24%;
-    height:58%;
-    width:65px;
-    z-index:2;
-    pointer-events:none;
-}
-
-.side-decoration svg{
-    width:100%;
-    height:100%;
-}
-
-.side-left{left:3px}
-.side-right{right:3px;transform:scaleX(-1)}
-
-/* CONTENT */
-
-.content{
-    position:relative;
-    z-index:4;
-    width:100%;
-    text-align:center;
-}
-
-/* LOGO */
 
 .logo{
     width:85px;
     height:85px;
     object-fit:contain;
-    display:block;
-    margin:0 auto 2px;
 }
 
-/* SCHOOL NAME */
-
-.school-name{
-    font-family:Georgia,serif;
-    font-size:30px;
-    font-weight:bold;
-    color:#002060;
-    margin:2px;
+.school-info{
+    text-align:center;
 }
 
-.address{
+.school-info h1{
     font-family:Georgia,serif;
-    font-size:19px;
+    font-size:27px;
+    margin:0;
+    color:#123b78;
     font-weight:bold;
-    color:#a66d08;
+    letter-spacing:1px;
+}
+
+.school-info h3{
+    font-size:15px;
+    margin:5px 0;
+    color:#9a6a12;
+    letter-spacing:2px;
+}
+
+.school-info p{
+    font-family:Arial,sans-serif;
+    font-size:11px;
     margin:3px;
+    color:#333;
 }
 
-/* GOLD LINE */
+/* CERTIFICATE TITLE */
+
+.title{
+    position:relative;
+    z-index:3;
+    margin-top:13px;
+}
+
+.title h2{
+    margin:0;
+    font-size:39px;
+    color:#b18120;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    text-shadow:1px 1px #f5e3a8;
+}
+
+.title h3{
+    font-size:20px;
+    color:#173d79;
+    margin:5px 0;
+    letter-spacing:2px;
+}
 
 .gold-line{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:12px;
-    margin:5px auto;
-    width:70%;
-}
-
-.gold-line:before,
-.gold-line:after{
-    content:"";
-    flex:1;
+    width:55%;
     height:3px;
-    background:linear-gradient(90deg,transparent,#d59c20);
+    margin:8px auto;
+    background:linear-gradient(to right,transparent,#c69b35,transparent);
 }
 
-.gold-line:after{
-    background:linear-gradient(90deg,#d59c20,transparent);
-}
+/* BODY */
 
-.gold-line span{
-    color:#d99d16;
-    font-size:20px;
-}
-
-/* HEADING */
-
-.heading{
-    font-family:Georgia,serif;
-    font-size:40px;
-    font-weight:bold;
-    color:#c1840c;
-    margin:6px 0;
-    letter-spacing:1px;
-    text-shadow:1px 2px 1px #ffe5a0;
-}
-
-/* RIBBON */
-
-.ribbon{
+.award-text{
     position:relative;
-    display:inline-block;
-    min-width:470px;
-    padding:10px 45px;
-    margin:5px 0;
-
-    background:linear-gradient(
-        90deg,#001747,#0873c7,#001747
-    );
-
-    border-top:4px solid #ffd45a;
-    border-bottom:4px solid #ffd45a;
-
-    color:white;
-    font-family:Georgia,serif;
-    font-size:25px;
-    font-weight:bold;
-    font-style:italic;
-
-    box-shadow:0 4px 10px #0004;
+    z-index:3;
+    margin-top:10px;
 }
 
-.ribbon:before,
-.ribbon:after{
-    content:"";
-    position:absolute;
-    top:6px;
-    width:0;
-    height:0;
-    border-top:28px solid #b77c0a;
-    border-bottom:28px solid #b77c0a;
-}
-
-.ribbon:before{
-    left:-35px;
-    border-left:35px solid transparent;
-}
-
-.ribbon:after{
-    right:-35px;
-    border-right:35px solid transparent;
-}
-
-.ribbon-star{
-    color:#ffd45a;
-    margin:0 15px;
-}
-
-/* PRESENTED */
-
-.presented{
-    font-family:Georgia,serif;
-    font-style:italic;
-    font-size:20px;
-    color:#001747;
-    margin:5px;
-}
-
-/* STUDENT SECTION */
-
-.student-section{
-    position:relative;
-    z-index:4;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:100%;
-    gap:30px;
-    margin:3px 0;
-}
-
-/* PHOTO */
-
-.student-photo-box{
-    width:150px;
-    height:185px;
-    padding:5px;
-    flex-shrink:0;
-    background:linear-gradient(135deg,#f8d66a,#fff,#b77a0c);
-    border:5px double #c18a19;
-    outline:2px solid #002060;
-    border-radius:13px;
-    box-shadow:0 4px 12px #0004;
-}
-
-.student-photo{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:5px;
-}
-
-/* STUDENT DETAILS */
-
-.student-details{
-    flex:1;
-    text-align:center;
+.award-text p{
+    font-size:19px;
+    margin:8px 0;
+    color:#333;
 }
 
 .student-name{
-    font-family:Georgia,serif;
-    font-size:43px;
+    display:inline-block;
+    min-width:400px;
+    padding:5px 25px;
+    margin:3px auto;
+    border-bottom:2px solid #c69b35;
+    color:#123b78;
+    font-size:35px;
     font-weight:bold;
-    color:#001747;
-    border-bottom:3px solid #d3a32b;
-    padding:5px;
-    margin:5px;
+    font-family:Georgia,serif;
 }
 
-.class-text{
-    font-family:Georgia,serif;
-    font-size:25px;
+.award-name{
+    font-size:28px;
     font-weight:bold;
-    color:#002060;
-    margin:5px;
+    color:#b18120;
+    margin:10px 0;
+    text-transform:uppercase;
 }
 
 .description{
-    font-family:Georgia,serif;
-    font-size:19px;
-    font-style:italic;
-    line-height:1.4;
-    max-width:750px;
-    margin:6px auto;
-    color:#001747;
+    max-width:850px;
+    margin:8px auto;
+    font-size:16px;
+    line-height:1.5;
+    color:#333;
 }
 
-/* DATE */
+/* STUDENT PHOTO */
 
-.date-text{
+.student-photo{
+    width:105px;
+    height:120px;
+    object-fit:cover;
+    border:3px solid #c69b35;
+    padding:3px;
+    background:white;
+    border-radius:5px;
+    display:none;
+    margin:5px auto;
+}
+
+/* DETAILS */
+
+.student-details{
     position:relative;
-    z-index:4;
-    display:inline-block;
-    font-family:Georgia,serif;
-    font-size:19px;
-    font-weight:bold;
-    color:#002060;
-    background:linear-gradient(90deg,#fff3c2,#fffdf4,#ffe6a0);
-    border:4px double #d49b19;
-    border-radius:30px;
-    padding:6px 35px;
-    margin:4px;
+    z-index:3;
+    margin-top:8px;
+    font-family:Arial,sans-serif;
+    font-size:14px;
+    color:#333;
 }
 
-/* FOOTER - FIXED POSITION */
+.student-details span{
+    margin:0 20px;
+}
+
+/* FOOTER */
 
 .footer{
     position:absolute;
-    z-index:20;
-    left:5%;
-    bottom:23mm;
-    width:90%;
-
+    left:35px;
+    right:35px;
+    bottom:27px;
+    height:75px;
     display:grid;
-    grid-template-columns:1fr 120px 1fr;
+    grid-template-columns:1fr 1fr 1fr;
     align-items:end;
-    justify-items:center;
-
-    padding:0 10px;
+    z-index:4;
 }
 
-/* SIGNATURE BOX */
-
-.signature-box{
-    width:180px;
-    min-height:75px;
-    text-align:center;
-    font-family:Georgia,serif;
-    font-size:17px;
-    font-weight:bold;
-    color:#002060;
+.footer-left{
+    height:65px;
 }
 
-/* EXAM SIGNATURE */
+.seal-area{
+    display:flex;
+    justify-content:center;
+    align-items:end;
+    height:70px;
+}
 
-.exam-sign{
-    width:150px;
-    height:60px;
+.school-seal{
+    width:75px;
+    height:75px;
     object-fit:contain;
-    display:block;
-    margin:0 auto 4px;
 }
 
-/* PRINCIPAL SIGNATURE */
+.principal-area{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    justify-content:end;
+    padding-right:12px;
+    height:75px;
+}
 
 .principal-sign{
-    width:150px;
-    height:60px;
+    width:135px;
+    height:42px;
     object-fit:contain;
-    display:block;
-    margin:0 auto 4px;
+    margin-bottom:0;
 }
-
-/* SIGNATURE LINE */
 
 .signature-line{
-    border-top:3px solid #002060;
-    padding-top:6px;
+    width:145px;
+    border-top:1px solid #333;
+    margin-top:2px;
 }
 
-/* SEAL */
+.principal-label{
+    width:145px;
+    text-align:center;
+    font-family:Arial,sans-serif;
+    font-size:14px;
+    font-weight:bold;
+    color:#173d79;
+    margin-top:4px;
+}
 
-.seal{
-    width:100px;
-    height:100px;
-    object-fit:contain;
+/* PRINT BUTTON */
+
+.print-button{
     display:block;
-    margin:0 auto;
+    margin:20px auto;
+    padding:13px 35px;
+    background:#123b78;
+    color:white;
+    border:0;
+    border-radius:8px;
+    font-size:17px;
+    cursor:pointer;
 }
 
-/* BOTTOM WAVE */
-
-.bottom-wave{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    height:75px;
-    z-index:1;
-    pointer-events:none;
+.print-button:hover{
+    background:#b18120;
 }
 
-/* MOBILE */
+/* PRINT SETTINGS */
 
-@media screen and (max-width:700px){
-
-    .certificate{
-        height:auto;
-        min-height:850px;
-    }
-
-    .certificate-inner{
-        min-height:820px;
-        height:auto;
-        padding:15px 15px 160px;
-    }
-
-    .student-section{
-        flex-direction:column;
-    }
-
-    .school-name{font-size:21px}
-    .heading{font-size:25px}
-    .student-name{font-size:28px}
-
-    .ribbon{
-        min-width:220px;
-        font-size:18px;
-    }
-
-    .corner{
-        width:65px;
-        height:65px;
-    }
-
-    .side-decoration{width:30px}
-
-    .footer{
-        grid-template-columns:1fr 75px 1fr;
-        bottom:75px;
-        width:100%;
-        left:0;
-    }
-
-    .signature-box{
-        width:100px;
-        font-size:12px;
-    }
-
-    .principal-sign,
-    .exam-sign{
-        width:90px;
-        height:45px;
-    }
-
-    .seal{
-        width:65px;
-        height:65px;
-    }
+@page{
+    size:A4 landscape;
+    margin:0;
 }
-
-/* A4 LANDSCAPE PRINT */
 
 @media print{
 
-    @page{
-        size:A4 landscape;
-        margin:0;
-    }
-
     html,body{
-        width:297mm !important;
-        height:auto !important;
+        width:297mm;
+        height:210mm;
         margin:0 !important;
         padding:0 !important;
         background:white !important;
     }
 
-    .no-print{
+    .search-area,
+    .print-button{
         display:none !important;
     }
 
-    #certificateArea{
-        width:297mm !important;
-        margin:0 !important;
-        padding:0 !important;
-    }
-
     .certificate{
-        width:297mm !important;
-        height:210mm !important;
-        min-height:210mm !important;
-        max-height:210mm !important;
-        margin:0 !important;
-        padding:4mm !important;
-
-        border:3mm solid #002060 !important;
-        outline:1mm solid #d5a52c !important;
-
-        overflow:hidden !important;
-        box-shadow:none !important;
-
-        page-break-after:always;
-        break-after:page;
-
-        -webkit-print-color-adjust:exact !important;
-        print-color-adjust:exact !important;
-    }
-
-    .certificate:last-child{
-        page-break-after:auto;
-        break-after:auto;
-    }
-
-    .certificate-inner{
-        width:100%;
-        height:100% !important;
-        min-height:0 !important;
-        padding:2mm 17mm 35mm !important;
-        overflow:hidden !important;
-    }
-
-    .corner{
-        width:29mm !important;
-        height:29mm !important;
-    }
-
-    .side-decoration{
-        width:16mm !important;
-        height:58% !important;
-        top:23% !important;
-    }
-
-    .logo{
-        width:18mm !important;
-        height:18mm !important;
-    }
-
-    .school-name{
-        font-size:23px !important;
-        margin:1px !important;
-    }
-
-    .address{
-        font-size:15px !important;
-        margin:1px !important;
-    }
-
-    .gold-line{
-        margin:2px auto !important;
-    }
-
-    .heading{
-        font-size:30px !important;
-        margin:3px !important;
-    }
-
-    .ribbon{
-        min-width:110mm !important;
-        font-size:20px !important;
-        padding:5px 30px !important;
-        margin:2px !important;
-    }
-
-    .ribbon:before,
-    .ribbon:after{
-        border-top-width:20px;
-        border-bottom-width:20px;
-    }
-
-    .presented{
-        font-size:15px !important;
-        margin:2px !important;
-    }
-
-    .student-section{
-        gap:8mm !important;
-        margin:2px 0 !important;
-    }
-
-    .student-photo-box{
-        width:34mm !important;
-        height:42mm !important;
-        padding:2px !important;
-    }
-
-    .student-name{
-        font-size:29px !important;
-        padding:3px !important;
-        margin:2px !important;
-    }
-
-    .class-text{
-        font-size:18px !important;
-        margin:2px !important;
-    }
-
-    .description{
-        font-size:15px !important;
-        line-height:1.3 !important;
-        margin:2px auto !important;
-    }
-
-    .date-text{
-        font-size:15px !important;
-        padding:3px 25px !important;
-        margin:2px !important;
-    }
-
-    /* FOOTER ALWAYS VISIBLE */
-
-    .footer{
-        position:absolute !important;
-        display:grid !important;
-        grid-template-columns:1fr 24mm 1fr !important;
-
-        left:5% !important;
-        bottom:22mm !important;
-        width:90% !important;
-
-        z-index:20 !important;
-        align-items:end !important;
-    }
-
-    .signature-box{
-        width:45mm !important;
-        min-height:22mm !important;
-        font-size:15px !important;
-    }
-
-    .principal-sign,
-    .exam-sign{
-        width:38mm !important;
-        height:16mm !important;
-        object-fit:contain !important;
-        display:block !important;
-    }
-
-    .seal{
-        width:24mm !important;
-        height:24mm !important;
-        object-fit:contain !important;
-        display:block !important;
-    }
-
-    .signature-line{
-        border-top:2px solid #002060 !important;
-        padding-top:2mm !important;
-    }
-
-    .bottom-wave{
-        height:20mm !important;
-        z-index:1 !important;
-    }
-
-    *{
+        width:297mm;
+        height:210mm;
+        margin:0;
+        padding:9mm;
+        box-shadow:none;
+        page-break-after:avoid;
+        break-after:avoid;
         -webkit-print-color-adjust:exact !important;
         print-color-adjust:exact !important;
     }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-
-<div class="header no-print">
-
-    <h1>CAMBRIDGE SCHOOL</h1>
-    <h2>OF MODERN EDUCATION</h2>
-    <h3>OTLIGAM, BEERWAH</h3>
-    <h2>STUDENTS AWARD CERTIFICATE</h2>
-
-</div>
-
 <!-- SEARCH -->
 
-<div class="search-box no-print">
-
-    <h2>🔍 Search Student Certificate</h2>
+<div class="search-area">
+    <h2>CAMBRIDGE SCHOOL OF MODERN EDUCATION</h2>
 
     <input
         type="text"
-        id="searchName"
-        placeholder="Enter Student Name..."
-        onkeydown="if(event.key==='Enter') searchStudent()"
+        id="searchInput"
+        placeholder="Enter Student Name or Roll Number"
+        onkeyup="searchStudent()"
     >
 
     <button onclick="searchStudent()">Search</button>
+    <button onclick="resetCertificate()">Reset</button>
 
-    <button onclick="printCertificate()">
-        Print / Save PDF
-    </button>
-
-    <p id="message">
-        Enter student name to view certificate.
-    </p>
-
+    <div id="message"></div>
 </div>
 
-<!-- CERTIFICATE AREA -->
+<!-- CERTIFICATE -->
 
-<div id="certificateArea"></div>
+<div class="certificate" id="certificate">
 
-<script>
+    <div class="corner top-left">❦</div>
+    <div class="corner top-right">❦</div>
+    <div class="corner bottom-left">❦</div>
+    <div class="corner bottom-right">❦</div>
 
-/* STUDENT RECORDS */
+    <!-- HEADER -->
 
-const students=[
+    <div class="header">
 
-    {
-        name:"Jannat Ul Firdous",
-        className:"7th",
-        award:"Discipline Award",
-        date:"30-10-2026",
-        photo:"../Admit-Cards/Annual-Examination-2026-27/Class-7/26CS70009.jpg",
-        description:"In recognition of excellent discipline, good manners, responsible behaviour and respect for school values."
-    },
+        <img src="../logo.png" class="logo" alt="School Logo">
 
-    {
-        name:"Suliam Jaan",
-        className:"8th",
-        award:"Sports Achievement",
-        date:"30-10-2026",
-        photo:"",
-        description:"In recognition of outstanding sports achievement, teamwork, dedication and excellent sporting spirit."
-    }
-
-];
-
-
-/* GOLDEN FLORAL CORNER */
-
-const cornerSVG=`
-
-<svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
-
-<defs>
-<linearGradient id="goldFlower" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stop-color="#fff5a8"/>
-<stop offset="35%" stop-color="#f2c13d"/>
-<stop offset="70%" stop-color="#b67808"/>
-<stop offset="100%" stop-color="#fff0a0"/>
-</linearGradient>
-</defs>
-
-<g fill="none" stroke="url(#goldFlower)" stroke-width="4">
-
-<path d="M3 3 Q70 0 78 75 Q100 5 147 3"/>
-<path d="M3 3 Q0 70 75 78 Q5 100 3 147"/>
-
-<path d="M12 12 Q55 10 72 65 Q25 55 12 12Z"/>
-<path d="M12 12 Q10 55 65 72 Q55 25 12 12Z"/>
-
-<path d="M135 12 Q100 12 80 65 Q125 55 135 12Z"/>
-<path d="M12 135 Q12 100 65 80 Q55 125 12 135Z"/>
-
-<path d="M75 5 Q105 30 75 60 Q45 30 75 5Z"/>
-<path d="M5 75 Q30 45 60 75 Q30 105 5 75Z"/>
-
-</g>
-
-<g fill="url(#goldFlower)" stroke="#9d6909" stroke-width="1">
-
-<circle cx="75" cy="75" r="10"/>
-
-<circle cx="75" cy="55" r="8"/>
-<circle cx="95" cy="75" r="8"/>
-<circle cx="75" cy="95" r="8"/>
-<circle cx="55" cy="75" r="8"/>
-
-<circle cx="75" cy="75" r="5" fill="#fff3a0"/>
-
-</g>
-
-</svg>
-`;
-
-
-/* SIDE LEAVES */
-
-const sideSVG=`
-
-<svg viewBox="0 0 70 300" xmlns="http://www.w3.org/2000/svg">
-
-<defs>
-<linearGradient id="leafGold" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stop-color="#fff7b5"/>
-<stop offset="50%" stop-color="#e3a91c"/>
-<stop offset="100%" stop-color="#a56a08"/>
-</linearGradient>
-</defs>
-
-<path d="M35 5 Q5 150 35 295"
-fill="none" stroke="#bd8b22" stroke-width="3"/>
-
-<g fill="url(#leafGold)" stroke="#9a6408" stroke-width="1.5">
-
-<path d="M35 35 Q5 15 8 2 Q35 5 35 35Z"/>
-<path d="M35 65 Q65 40 65 28 Q38 30 35 65Z"/>
-
-<path d="M35 95 Q5 75 8 60 Q35 65 35 95Z"/>
-<path d="M35 125 Q65 100 65 88 Q38 95 35 125Z"/>
-
-<path d="M35 155 Q5 135 8 120 Q35 125 35 155Z"/>
-<path d="M35 185 Q65 160 65 148 Q38 155 35 185Z"/>
-
-<path d="M35 215 Q5 195 8 180 Q35 185 35 215Z"/>
-<path d="M35 245 Q65 220 65 208 Q38 215 35 245Z"/>
-
-<path d="M35 275 Q5 255 8 240 Q35 245 35 275Z"/>
-
-</g>
-
-<g fill="#e8a21a" stroke="#8d5200" stroke-width="1">
-<path d="M35 145 L45 158 L35 171 L25 158Z"/>
-<path d="M35 15 L42 24 L35 33 L28 24Z"/>
-<path d="M35 270 L42 279 L35 288 L28 279Z"/>
-</g>
-
-</svg>
-`;
-
-
-/* SUNBURST */
-
-const sunburst=`
-
-<svg class="sunburst" viewBox="0 0 1200 800"
-preserveAspectRatio="none">
-
-<g stroke="#dfb344" stroke-width="2">
-
-${Array.from({length:50},(_,i)=>{
-
-    const a=i*Math.PI/25;
-
-    const x1=600+Math.cos(a)*30;
-    const y1=400+Math.sin(a)*30;
-
-    const x2=600+Math.cos(a)*950;
-    const y2=400+Math.sin(a)*950;
-
-    return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`;
-
-}).join("")}
-
-</g>
-</svg>
-`;
-
-
-/* BOTTOM WAVE */
-
-const bottomWave=`
-
-<svg class="bottom-wave"
-viewBox="0 0 1200 100"
-preserveAspectRatio="none">
-
-<path
-d="M0 35 Q150 100 300 60 Q500 20 600 65 Q800 105 950 60 Q1100 20 1200 55 L1200 100 L0 100Z"
-fill="#001747"/>
-
-<path
-d="M0 48 Q150 105 300 70 Q500 30 600 75 Q800 110 950 70 Q1100 35 1200 65"
-fill="none" stroke="#f4c447" stroke-width="7"/>
-
-<path
-d="M0 75 Q150 120 300 90 Q500 55 600 90 Q800 120 950 90 Q1100 55 1200 85"
-fill="none" stroke="#0a72bd" stroke-width="5"/>
-
-</svg>
-`;
-
-
-/* CREATE CERTIFICATE */
-
-function createCertificate(student){
-
-    const photoHTML=student.photo?`
-
-    <div class="student-photo-box">
-
-        <img
-            src="${escapeHTML(student.photo)}"
-            class="student-photo"
-            alt="Student Photo"
-            onerror="this.parentElement.style.display='none'"
-        >
+        <div class="school-info">
+            <h1>CAMBRIDGE SCHOOL OF MODERN EDUCATION</h1>
+            <h3>OTLIGAM, BEERWAH, BUDGAM</h3>
+            <p>Established 2013 | Regd. No. 05-CEOB of 2015</p>
+            <p>UDISE: 01040303905</p>
+        </div>
 
     </div>
 
-    `:"";
+    <!-- TITLE -->
 
+    <div class="title">
+        <h2>Certificate</h2>
+        <h3>OF APPRECIATION & ACHIEVEMENT</h3>
+        <div class="gold-line"></div>
+    </div>
 
-    return `
+    <!-- STUDENT PHOTO -->
 
-    <div class="certificate">
+    <img
+        id="studentPhoto"
+        class="student-photo"
+        src=""
+        alt="Student Photo"
+    >
 
-        <div class="certificate-inner">
+    <!-- AWARD CONTENT -->
 
-            ${sunburst}
+    <div class="award-text">
 
-            <div class="corner top-left">${cornerSVG}</div>
-            <div class="corner top-right">${cornerSVG}</div>
-            <div class="corner bottom-left">${cornerSVG}</div>
-            <div class="corner bottom-right">${cornerSVG}</div>
+        <p>This certificate is proudly presented to</p>
 
-            <div class="side-decoration side-left">${sideSVG}</div>
-            <div class="side-decoration side-right">${sideSVG}</div>
+        <div class="student-name" id="studentName">
+            Student Name
+        </div>
 
+        <p>
+            of Class
+            <strong id="studentClass">---</strong>
+        </p>
 
-            <div class="content">
+        <p>In recognition of outstanding performance and achievement in</p>
 
-                <img
-                    src="../logo.png"
-                    class="logo"
-                    alt="School Logo"
-                >
+        <div class="award-name" id="awardName">
+            Award Name
+        </div>
 
-                <div class="school-name">
-                    CAMBRIDGE SCHOOL OF MODERN EDUCATION
-                </div>
+        <div class="description" id="awardDescription">
+            For showing dedication, discipline, hard work and excellent
+            performance. May you continue to achieve success in life.
+        </div>
 
-                <div class="address">
-                    OTLIGAM, BEERWAH
-                </div>
+    </div>
 
-                <div class="gold-line"><span>✦</span></div>
+    <!-- STUDENT DETAILS -->
 
-                <div class="heading">
-                    CERTIFICATE OF ACHIEVEMENT
-                </div>
+    <div class="student-details">
+        <span><strong>Roll No.:</strong> <span id="rollNumber">---</span></span>
+        <span><strong>Date:</strong> <span id="awardDate">---</span></span>
+    </div>
 
-                <div class="ribbon">
+    <!-- FOOTER -->
 
-                    <span class="ribbon-star">★</span>
+    <div class="footer">
 
-                    ${escapeHTML(student.award)}
+        <!-- LEFT SIDE EMPTY -->
+        <div class="footer-left"></div>
 
-                    <span class="ribbon-star">★</span>
+        <!-- SCHOOL SEAL CENTER -->
+        <div class="seal-area">
+            <img
+                src="../school-seal.png"
+                class="school-seal"
+                alt="School Seal"
+            >
+        </div>
 
-                </div>
+        <!-- PRINCIPAL SIGNATURE RIGHT -->
+        <div class="principal-area">
 
-                <div class="presented">
-                    This certificate is proudly presented to
-                </div>
+            <img
+                src="../principal-sign.png"
+                class="principal-sign"
+                alt="Principal Signature"
+            >
 
+            <div class="signature-line"></div>
+
+            <div class="principal-label">
+                Principal
             </div>
-
-
-            <div class="student-section">
-
-                ${photoHTML}
-
-                <div class="student-details">
-
-                    <div class="student-name">
-                        ${escapeHTML(student.name)}
-                    </div>
-
-                    <div class="class-text">
-                        Class: ${escapeHTML(student.className)}
-                    </div>
-
-                    <div class="description">
-                        ${escapeHTML(student.description)}
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="date-text">
-                Date: ${escapeHTML(student.date)}
-            </div>
-
-
-            <!-- FIXED FOOTER -->
-
-            <div class="footer">
-
-                <div class="signature-box">
-
-                    <div class="signature-line">
-                        Exam Incharge
-                    </div>
-
-                </div>
-
-
-                <img
-                    src="../school-seal.png"
-                    class="seal"
-                    alt="School Seal"
-                >
-
-
-                <div class="signature-box">
-
-                    <img
-                        src="../principal-sign.png"
-                        class="principal-sign"
-                        alt="Principal Signature"
-                    >
-
-                    <div class="signature-line">
-                        Principal
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            ${bottomWave}
 
         </div>
 
     </div>
 
-    `;
+</div>
+
+<button class="print-button" onclick="printCertificate()">
+    Print / Save Certificate PDF
+</button>
+
+<script>
+
+/* STUDENT RECORDS */
+
+const students = [
+
+    {
+        name:"Jannat Ul Firdous",
+        class:"7th",
+        roll:"26CS70009",
+        award:"Discipline Award",
+        date:"30-10-2026",
+        photo:"../Admit-Cards/Annual-Examination-2026-27/Class-7/26CS70009.jpg",
+        description:
+        "For demonstrating excellent discipline, good manners, respect for teachers and a responsible attitude towards school activities."
+    },
+
+    {
+        name:"Suliam Jaan",
+        class:"8th",
+        roll:"",
+        award:"Sports Achievement",
+        date:"30-10-2026",
+        photo:"",
+        description:
+        "For outstanding participation, dedication, sportsmanship and remarkable achievement in sports activities."
+    }
+
+];
+
+
+/* DISPLAY STUDENT */
+
+function displayStudent(student){
+
+    document.getElementById("studentName").innerText =
+        student.name;
+
+    document.getElementById("studentClass").innerText =
+        student.class;
+
+    document.getElementById("rollNumber").innerText =
+        student.roll || "---";
+
+    document.getElementById("awardName").innerText =
+        student.award;
+
+    document.getElementById("awardDate").innerText =
+        student.date;
+
+    document.getElementById("awardDescription").innerText =
+        student.description;
+
+    const photo = document.getElementById("studentPhoto");
+
+    if(student.photo){
+
+        photo.src = student.photo;
+        photo.style.display = "block";
+
+        photo.onerror = function(){
+            photo.style.display = "none";
+        };
+
+    }else{
+
+        photo.removeAttribute("src");
+        photo.style.display = "none";
+
+    }
 
 }
 
 
-/* SEARCH */
+/* SEARCH STUDENT */
 
 function searchStudent(){
 
-    const search=document
-        .getElementById("searchName")
-        .value.trim()
+    const value = document
+        .getElementById("searchInput")
+        .value
+        .trim()
         .toLowerCase();
 
-    const area=document.getElementById("certificateArea");
-    const message=document.getElementById("message");
+    const message = document.getElementById("message");
 
-    area.innerHTML="";
-
-    if(!search){
-
-        message.innerText="Please enter student name.";
+    if(value === ""){
+        message.innerText = "Please enter student name or roll number.";
         return;
-
     }
 
-    const found=students.filter(student=>
-        student.name.toLowerCase().includes(search)
+    const student = students.find(s =>
+        s.name.toLowerCase().includes(value) ||
+        s.roll.toLowerCase().includes(value)
     );
 
-    if(found.length===0){
+    if(student){
 
-        message.innerText="No student found. Please check the name.";
-        return;
+        displayStudent(student);
+        message.innerText = "";
+
+    }else{
+
+        message.innerText = "Student record not found.";
 
     }
-
-    message.innerText=found.length+" certificate(s) found.";
-
-    area.innerHTML=found.map(createCertificate).join("");
-
-    window.scrollTo({
-        top:area.offsetTop,
-        behavior:"smooth"
-    });
 
 }
 
 
-/* WAIT FOR IMAGES */
+/* RESET */
 
-function waitForImages(){
+function resetCertificate(){
 
-    const images=Array.from(
-        document.querySelectorAll("#certificateArea img")
-    );
+    document.getElementById("searchInput").value = "";
+    document.getElementById("message").innerText = "";
 
-    return Promise.all(images.map(img=>{
+    const photo = document.getElementById("studentPhoto");
+    photo.style.display = "none";
+    photo.removeAttribute("src");
 
-        if(img.complete){
-            return Promise.resolve();
-        }
+    document.getElementById("studentName").innerText =
+        "Student Name";
 
-        return new Promise(resolve=>{
+    document.getElementById("studentClass").innerText = "---";
+    document.getElementById("rollNumber").innerText = "---";
+    document.getElementById("awardName").innerText = "Award Name";
+    document.getElementById("awardDate").innerText = "---";
 
-            img.onload=resolve;
-            img.onerror=resolve;
-
-            setTimeout(resolve,5000);
-
-        });
-
-    }));
+    document.getElementById("awardDescription").innerText =
+        "For showing dedication, discipline, hard work and excellent performance. May you continue to achieve success in life.";
 
 }
 
 
 /* PRINT */
 
-async function printCertificate(){
-
-    const area=document.getElementById("certificateArea");
-
-    if(!area.innerHTML.trim()){
-
-        alert("Please search a student first.");
-        return;
-
-    }
-
-    await waitForImages();
+function printCertificate(){
 
     window.print();
 
 }
 
 
-/* HTML SECURITY */
+/* LOAD FIRST STUDENT */
 
-function escapeHTML(value){
-
-    return String(value).replace(/[&<>"']/g,char=>({
-
-        "&":"&amp;",
-        "<":"&lt;",
-        ">":"&gt;",
-        '"':"&quot;",
-        "'":"&#039;"
-
-    }[char]));
-
-}
+displayStudent(students[0]);
 
 </script>
 
